@@ -39,7 +39,7 @@ DESCRIBE THAT
 
 The Language Translation service enables you to translate text from one language to another.
 
-https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/Screen%20Shot%202015-09-16%20at%2012.26.29.png
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/Screen%20Shot%202015-09-16%20at%2012.26.29.png)
 
 
 ....Work in progress...More to come in a moment...
