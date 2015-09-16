@@ -41,14 +41,26 @@ Note that Node-RED in BlueMix will behave slightly differently than Node-RED sta
 
 ## Language Identification
 
+The Language Identification enables you to quickly identify the language text is written in.
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI.jpg)
+
+In this example some random text  is injected, identified by the Watson Language Indetification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
+
 ## Language Translation
 
 The Language Translation service enables you to translate text from one language to another.
+These languages are supported:
+
+- The News domain - targeted at news articles and transcripts, it translates English to and from French, Spanish, Portuguese or Arabic.
+- The Conversational domain - targeted at conversational colloquialisms, it translates English to and from French, Spanish, Portuguese or Arabic.
+- The Patent domain - targeted at technical and legal terminology, it translates Spanish, Portuguese, Chinese, or Korean to English.
+
+
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT.jpg)
 
-In this example we inject some random text (in English in this case), translate it (to French) and output it to the Debug tab
-In the following screenshots you can see how the nodes are configured.
+In this example some random text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
 The inject node: 
 
