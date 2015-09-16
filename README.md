@@ -51,17 +51,15 @@ The Language Translation service enables you to translate text from one language
 
 #Personality Insights
 
-Description of Personality Insights and link to demo  -> https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
+Objective is to send the Personality Insights node the right data for it to return a JSON object which is the same as that used in the demo (see link to this lower in this section)
 
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT.jpg)
-
-Create a new application using the Node-RED starter boilerplate option in Bluemix.
+Create a new application using the Node-RED starter boilerplate option in Bluemix
 
 Click on the icon of the application
 
 Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Use.  Click on Restage.
 
-Drag a inject node to the palette.
+Drag an inject node to the palette.
 
 Drag the personality insights node to the palette.
 
@@ -69,9 +67,11 @@ Drag a debug node to the palette.
 
 Join them as shown below
 
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT.jpg)
+
 Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
 
-Double-click the inject node and change Payload to string.  Go to https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.htm and past the text to the blank field below the Payload field (this is the same text that is used in the demo).
+Double-click the inject node and change Payload to string.  Go to ?? and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
 
 Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
 
@@ -83,6 +83,11 @@ Click on the debug tab to the top right of the palette.
 
 Click the button next to the inject node.  
 
-You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object.  NOTE : you will not be able to see the full object.  Go back to the command prompt and see that the full object has been shown.  
+You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object.  NOTE : you will not be able to see the full object
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/Command%20Prompt%20-%20cf%20%20logs%20WNRPI.png)
+
+Go back to the command prompt and see that the full object has been shown. 
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/pi_debug_node_output.png)
 
 Compare the items in the JSON object to those of the demo for Message Insights - you can see that the values shown are the same (or very similar).
