@@ -45,7 +45,7 @@ Note that Node-RED in BlueMix will behave slightly differently than Node-RED sta
 
 The Language Translation service enables you to translate text from one language to another.
 
-
+![ScreenShot](
 
 
 ....Work in progress...More to come in a moment...
