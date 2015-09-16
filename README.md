@@ -22,7 +22,8 @@ You need to add the services you want to use to your appication. Go to the dashb
 Another way of using Node-RED is installing it locally, which can be done by folowing this:
 
 Check out http://nodered.org/docs/getting-started/ for full instructions on getting started.
-sjk
+
+
 
     sudo npm install -g node-red
     node-red
@@ -48,3 +49,15 @@ The Language Translation service enables you to translate text from one language
 
 ....Work in progress...More to come in a moment...
 
+Personality Insights
+Description of Personality Insights and link to demo  -> https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
+Create a new application using the Node-RED starter boilerplate option in Bluemix.  
+Click on the icon of the application
+Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Use.  Click on Restage.
+Drag a inject node to the palette.
+Drag the personality insights node to the palette.
+Drag a debug node to the palette.
+Join them as shown below
+Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
+Double-click the inject node and change Payload to string.  Go to ??? and past the text to the blank field below the Payload field (this is the same text that is used in the demo).
+Click the Deploy button
