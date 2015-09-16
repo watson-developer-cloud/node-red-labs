@@ -53,14 +53,14 @@ In the following screenshots you can see how the nodes are configured.
 The inject node: 
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.jpg)
+
 You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
 
 The translation node:
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Config.jpg)
 
-
-The outputfrom the debug node: 
+The output from the debug node: 
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.jpg)
 
