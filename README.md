@@ -39,7 +39,7 @@ Note that Node-RED in BlueMix will behave slightly differently than Node-RED sta
 `nodered`. When using a Cloudant node with Node-RED on BlueMix, the list of available instances is automatically listed.
  3. Node-RED in BlueMix has built-in credential management, so you don't have to worry about exposing your services authentication data, they will be filled-in automatically from the sevices' credentialds defined for the application in BlueMix.
 
-# Language Translation
+## Language Translation
 
 The Language Translation service enables you to translate text from one language to another.
 
