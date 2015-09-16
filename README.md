@@ -49,10 +49,10 @@ The Language Translation service enables you to translate text from one language
 
 In this example we inject some random text (in English in this case), translate it (to French) and output it to the Debug tab
 In the following screenshots you can see how the nodes are configured.
-The inject node: ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.png)
+The inject node: ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.jpg)
 You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
-The translation node:![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Config.png)
-The output: ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.png)
+The translation node:![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Config.jpg)
+The output: ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.jpg)
 
 ....Work in progress...More to come in a moment...
 
