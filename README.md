@@ -33,13 +33,17 @@ and you have to make the services available in Bluemix.
 
 DESCRIBE THAT
 
-
+Note that Node-RED in BlueMix will behave slightly differently than Node-RED stand-alone:
+ 1. The set of nodes available is different, BlueMix has extra nodes for DB access, but does not expose the `File` nodes.
+ 2. Node-RED in bluemix stores its persistent data (flows, libraries, credentials) in the co-installed Cloudant database named
+`nodered`. When using a Cloudant node with Node-RED on BlueMix, the list of available instances is automatically listed.
+ 3. Node-RED in BlueMix has built-in credential management, so you don't have to worry about exposing your services authentication data, they will be filled-in automatically from the sevices' credentialds defined for the application in BlueMix.
 
 # Language Translation
 
 The Language Translation service enables you to translate text from one language to another.
 
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/Screen%20Shot%202015-09-16%20at%2012.26.29.png)
+
 
 
 ....Work in progress...More to come in a moment...
