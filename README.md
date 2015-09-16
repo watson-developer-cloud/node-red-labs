@@ -49,8 +49,10 @@ The Language Translation service enables you to translate text from one language
 
 ....Work in progress...More to come in a moment...
 
-Personality Insights
+#Personality Insights
+
 Description of Personality Insights and link to demo  -> https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
+
 Create a new application using the Node-RED starter boilerplate option in Bluemix.
 
 Click on the icon of the application
