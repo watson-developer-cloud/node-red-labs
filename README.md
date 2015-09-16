@@ -39,11 +39,67 @@ Note that Node-RED in BlueMix will behave slightly differently than Node-RED sta
 `nodered`. When using a Cloudant node with Node-RED on BlueMix, the list of available instances is automatically listed.
  3. Node-RED in BlueMix has built-in credential management, so you don't have to worry about exposing your services authentication data, they will be filled-in automatically from the sevices' credentialds defined for the application in BlueMix.
 
+## Language Identification
+
+The Language Identification enables you to quickly identify the language text is written in.
+
+This service can identify many languages: Arabic; Chinese (Simplified); Chinese (Traditional); Cyrillic; Danish; Dutch; English; Farsi; Finnish; French; German; Greek; Hebrew; Hindi; Icelandic; Italian; Japanese; Korean; Norwegian (Bokmal); Norwegian (Nynorsk); Portuguese; Spanish; Swedish; Turkish; Urdu. 
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI.jpg)
+
+In this example some random text  is injected, identified by the Watson Language Indetification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
+
+In the following screenshots you can see how the nodes are configured.
+
+The inject node: 
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.jpg)
+
+You can use any text for this.
+
+The Language Identification node does not need any configuration
+
+And this is the output:
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI_output.jpg)
+
+You can also copy the code for the flow here and import it from cliboard into Node-RED:
+
+![Language Identification flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Identification/LI_flow)
+
+
 ## Language Translation
 
 The Language Translation service enables you to translate text from one language to another.
+These languages are supported:
+
+- The News domain - targeted at news articles and transcripts, it translates English to and from French, Spanish, Portuguese or Arabic.
+- The Conversational domain - targeted at conversational colloquialisms, it translates English to and from French, Spanish, Portuguese or Arabic.
+- The Patent domain - targeted at technical and legal terminology, it translates Spanish, Portuguese, Chinese, or Korean to English.
 
 
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT.jpg)
+
+In this example some random text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
+
+The inject node: 
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.jpg)
+
+You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
+
+The translation node:
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Config.jpg)
+
+The output from the debug node: 
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.jpg)
+
+You can also copy the code for the flow here and import it from cliboard into Node-RED:
+
+![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/flows/Language%20Translation/LT_flow.txt)
 
 
 ....Work in progress...More to come in a moment...
