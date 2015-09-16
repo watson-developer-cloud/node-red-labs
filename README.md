@@ -43,6 +43,8 @@ Note that Node-RED in BlueMix will behave slightly differently than Node-RED sta
 
 The Language Identification enables you to quickly identify the language text is written in.
 
+This service can identify many languages: Arabic; Chinese (Simplified); Chinese (Traditional); Cyrillic; Danish; Dutch; English; Farsi; Finnish; French; German; Greek; Hebrew; Hindi; Icelandic; Italian; Japanese; Korean; Norwegian (Bokmal); Norwegian (Nynorsk); Portuguese; Spanish; Swedish; Turkish; Urdu. 
+
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI.jpg)
 
 In this example some random text  is injected, identified by the Watson Language Indetification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
