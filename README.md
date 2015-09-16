@@ -51,7 +51,9 @@ The Language Translation service enables you to translate text from one language
 
 #Personality Insights
 
-Objective is to send the Personality Insights node the right data for it to return a JSON object which is the same as that used in the demo (see link to this lower in this section)
+The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html for a full description and demo
+
+The objective is to send the Personality Insights node the same data as for the demo (https://watson-pi-demo.mybluemix.net/) and to show the JSON object and its values match those of the demo
 
 Create a new application using the Node-RED starter boilerplate option in Bluemix
 
