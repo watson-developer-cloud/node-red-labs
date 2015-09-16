@@ -59,7 +59,14 @@ You can use any text for this.
 
 The Language Identification node does not need any configuration
 
-And this is the output.
+And this is the output:
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI_output.jpg)
+
+You can also copy the code for the flow here and import it from cliboard into Node-RED:
+
+![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Identification/LI_flow)
+
 
 ## Language Translation
 
@@ -90,7 +97,7 @@ The output from the debug node:
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.jpg)
 
-you can also copy the code for the flow here and import it from cliboard into Node-RED:
+You can also copy the code for the flow here and import it from cliboard into Node-RED:
 
 ![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/flows/Language%20Translation/LT_flow.txt)
 
