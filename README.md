@@ -49,6 +49,18 @@ This service can identify many languages: Arabic; Chinese (Simplified); Chinese 
 
 In this example some random text  is injected, identified by the Watson Language Indetification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
+In the following screenshots you can see how the nodes are configured.
+
+The inject node: 
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.jpg)
+
+You can use any text for this.
+
+The Language Identification node does not need any configuration
+
+And this is the output.
+
 ## Language Translation
 
 The Language Translation service enables you to translate text from one language to another.
