@@ -99,7 +99,7 @@ The output from the debug node:
 
 You can also copy the code for the flow here and import it from cliboard into Node-RED:
 
-![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/flows/Language%20Translation/LT_flow.txt)
+![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Translation/LT_flow.txt)
 
 
 ....Work in progress...More to come in a moment...
