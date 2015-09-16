@@ -77,7 +77,7 @@ Double-click the inject node and change Payload to string.  Go to ?? and open th
 
 Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
 
-Type 'cf logs <app_name>' where <app_name> is the name of your application.  Return to the Node-RED palette.
+Type 'cf logs <<app_name>>' where <app_name> is the name of your application.  Return to the Node-RED palette.
 
 Click the Deploy button
 
