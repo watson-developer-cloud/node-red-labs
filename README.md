@@ -71,4 +71,16 @@ Double-click the debug node and replace ‘payload’ to ‘insights’. Also ch
 
 Double-click the inject node and change Payload to string.  Go to ??? and past the text to the blank field below the Payload field (this is the same text that is used in the demo).
 
+Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
+
+Type 'cf logs <app_name>' where <app_name> is the name of your application.  Return to the Node-RED palette.
+
 Click the Deploy button
+
+Click on the debug tab to the top right of the palette.
+
+Click the button next to the inject node.  
+
+You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object.  NOTE : you will not be able to see the full object.  Go back to the command prompt and see that the full object has been shown.  
+
+Compare the items in the JSON object to those of the demo for Message Insights - you can see that the values shown are the same (or very similar).
