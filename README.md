@@ -45,7 +45,7 @@ Note that Node-RED in BlueMix will behave slightly differently than Node-RED sta
 
 The Language Translation service enables you to translate text from one language to another.
 
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Translation/LT.png)
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Translation/LT.jpg)
 
 In this example we inject some random text (in English in this case), translate it (to French) and output it to the Debug tab
 In the following screenshots you can see how the nodes are configured.
