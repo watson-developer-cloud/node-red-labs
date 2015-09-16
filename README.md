@@ -77,7 +77,9 @@ Double-click the inject node and change Payload to string.  Go to ?? and open th
 
 Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
 
-Type 'cf logs <<app_name>>' where <app_name> is the name of your application.  Return to the Node-RED palette.
+Type **cf logs app_name**
+
+where **app_name** is the name of your application.  Return to the Node-RED palette.
 
 Click the Deploy button
 
@@ -87,9 +89,10 @@ Click the button next to the inject node.
 
 You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object.  NOTE : you will not be able to see the full object
 
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/Command%20Prompt%20-%20cf%20%20logs%20WNRPI.png)
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/pi_debug_node_output.png)
 
 Go back to the command prompt and see that the full object has been shown. 
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/pi_debug_node_output.png)
+
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/Command%20Prompt%20-%20cf%20%20logs%20WNRPI.png)
 
 Compare the items in the JSON object to those of the demo for Message Insights - you can see that the values shown are the same (or very similar).
