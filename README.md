@@ -65,7 +65,7 @@ And this is the output:
 
 You can also copy the code for the flow here and import it from cliboard into Node-RED:
 
-![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Identification/LI_flow)
+![Language Identification flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Identification/LI_flow)
 
 
 ## Language Translation
