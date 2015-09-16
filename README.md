@@ -22,6 +22,7 @@ You need to add the services you want to use to your appication. Go to the dashb
 Another way of using Node-RED is installing it locally, which can be done by folowing this:
 
 Check out http://nodered.org/docs/getting-started/ for full instructions on getting started.
+sjk
 
     sudo npm install -g node-red
     node-red
