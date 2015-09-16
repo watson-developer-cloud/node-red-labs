@@ -67,7 +67,7 @@ Drag a debug node to the palette.
 
 Join them as shown below
 
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT.jpg)
+![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/2015-09-16%2014_07_07-Node-RED%20_%20wnrpi.mybluemix.net.png)
 
 Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
 
