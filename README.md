@@ -64,9 +64,9 @@ The output from the debug node:
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.jpg)
 
-you can also downlowd the code for the flow here:
+you can also copy the code for the flow here and import it from cliboard into Node-RED:
 
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/flows/Language%20Translation/LT_flow.txt)
+![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/flows/Language%20Translation/LT_flow.txt)
 
 
 ....Work in progress...More to come in a moment...
