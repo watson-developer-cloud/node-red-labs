@@ -211,16 +211,17 @@ For this, the basic flow which converts a text into speech audio wav file can be
 >
 ![TTS Lab Web Page](images/TTS/TTS-Lab-WebPage.png)
 We added a new `HTTP input` node, listening on the `/talk` URL, and modified the text-to-wav HTTP URL to `/talk/sayit` so that it doesn't conflict with the previous Lab. The `choice` node checks for the text_to_say query parameter, and when not present outputs a simple web page using the `GetTextToSay` template:
->
+```HTML
     <h1>Enter text to Say</h1>
        <form action="{{req._parsedUrl.pathname}}" method="get">
           <input type="text" name="text_to_say" id="" value="{{payload.text_to_say}}" />
           <input type="submit" value="Say it!"/>
        </form>
+```
 ![TTS-Lab-WebPage_Details1.png](images/TTS/TTS-Lab-WebPage_Details1.png)
 
 When a text_to_say query parameter is set, we generate an HTML page with a \<audio> tag that refers to the `/talk/sayit` URL to get the audio `wav` file:
->
+```HTML
     <h1>You want to say</h1>
     <p><q>{{payload}}</q></p>
     <p>Hear it:</p>
@@ -232,6 +233,7 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
         <input type="text" name="text_to_say" id="" value="{{payload}}" />
         <input type="submit" value="Try Again" />
     </form>
+```
 ![TTS-Lab-WebPage_Details2.png](images/TTS/TTS-Lab-WebPage_Details2.png)
 
 The complete flow is available at [TTS-Lab-WebPage](flows/TTS/TTS-Lab-WebPage.json).
@@ -256,7 +258,7 @@ The nodes required to build this flow are:
  - A ![`switch`](images/node-red/switch.png) node which will test for the presence of the `imageurl` query parameter:
    ![Reco-Lab-Switch-Node-Props](images/Reco/Reco-Lab-Switch-Node-Props.png)
  - A first ![template](images/node-red/template.png) node, configured to output an HTML input field and suggest a few selected images taken from the main Watson Visual Recognition demo web page:
-```
+```HTML
     <h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>
     <h2>Select an image URL</h2>
     <form  action="{{req._parsedUrl.pathname}}">
@@ -276,7 +278,7 @@ The nodes required to build this flow are:
 ![Reco-Lab-Change_and_Reco-Node-Props](images/Reco/Reco-Lab-Change_and_Reco-Node-Props.png)
 
  - And a final  ![`template`](images/node-red/template.png) node linked to the ![`HTTPResponse`](images/node-red/HTTPResponse.png) output node. The template will format the output returned from the Visual Recognition node into an HTML table for easier reading:
-```
+```HTML
     <h1>Visual Recognition</h1>
     <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
     <table border='1'>
