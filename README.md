@@ -23,8 +23,6 @@ Another way of using Node-RED is installing it locally, which can be done by fol
 
 Check out http://nodered.org/docs/getting-started/ for full instructions on getting started.
 
-
-
     sudo npm install -g node-red
     node-red
     Open http://localhost:1880
@@ -35,6 +33,7 @@ and you have to make the services available in Bluemix.
 DESCRIBE THAT
 
 Note that Node-RED in BlueMix will behave slightly differently than Node-RED stand-alone:
+
 1. The sets of available nodes differ, BlueMix has extra nodes for DB access, but does not expose the `File` nodes.
 2. Node-RED in bluemix stores its persistent data (flows, libraries, credentials) in the co-installed Cloudant database named
 `nodered`. When using a Cloudant node with Node-RED on BlueMix, the list of available instances is automatically listed.
@@ -48,7 +47,7 @@ This service can identify many languages: Arabic; Chinese (Simplified); Chinese 
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI.jpg)
 
-In this example some random text  is injected, identified by the Watson Language Indetification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
+In this example some random text  is injected, identified by the Watson Language Indentification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
 In the following screenshots you can see how the nodes are configured.
 
@@ -64,11 +63,9 @@ And this is the output:
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI_output.jpg)
 
-You can also copy the code for the flow here and import it from cliboard into Node-RED:
+You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
 ![Language Identification flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Identification/LI_flow)
-
-
 ## Language Translation
 
 The Language Translation service enables you to translate text from one language to another.
@@ -98,7 +95,7 @@ The output from the debug node:
 
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.jpg)
 
-You can also copy the code for the flow here and import it from cliboard into Node-RED:
+You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
 ![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Translation/LT_flow.txt)
 
@@ -157,18 +154,14 @@ Compare the items in the JSON object to those of the demo for Message Insights -
 The Watson text-To-Speech (TTS) service produces an audio file from literal text.
 The spoken text can be emitted with a choice of voices and languages.
 
-
 ### Node-RED Watson TTS node
 The Node-RED node provides a very easy wrapper node that takes a text string as input and produces a binary buffer holding the spoken text audio stream in `.wav` format.
 The selection of language and voice are made through  the node's properties editor.
 
-
 ### Basic TTS Flow
 In this first exercise, we will show how to simply produce a `.wav` file from input text through a simple web page generated using a Node-RED flow.
 
-
 The first part of the flow will take text input from a web invocation and return the spoken text `.wav` file:
-
 
 1. Create a new flow, let's call it `TTS Web` 
 2. Add an ![`HTTPInput`](images/node-red/HTTPInput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
@@ -213,3 +206,34 @@ The final flow will look like:
 
 #### TTS Interactive Web UI
 As an extension, we can build a flow that will present a dialog to the user with a prompt to enter the text to say, and return a HTML page with an <audio> tag which will play the generated audio.
+
+For this, the basic flow which converts a text into speech audio wav file can be leveraged, and complemented with a HTTP web interaction. This is depicted in the flow as below::
+>
+![TTS Lab Web Page](images/TTS/TTS-Lab-WebPage.png)
+We added a new `HTTP input` node, listening on the `/talk` URL, and modified the text-to-wav HTTP URL to `/talk/sayit` so that it doesn't conflict with the previous Lab. The `choice` node checks for the text_to_say query parameter, and when not present outputs a simple web page using the `GetTextToSay` template:
+>
+    <h1>Enter text to Say</h1>
+       <form action="{{req._parsedUrl.pathname}}" method="get">
+          <input type="text" name="text_to_say" id="" value="{{payload.text_to_say}}" />
+          <input type="submit" value="Say it!"/>
+       </form>
+![TTS-Lab-WebPage_Details1.png](images/TTS/TTS-Lab-WebPage_Details1.png)
+
+When a text_to_say query parameter is set, we generate an HTML page with a \<audio> tag that refers to the `/talk/sayit` URL to get the audio `wav` file:
+>
+    <h1>You want to say</h1>
+    <p><q>{{payload}}</q></p>
+    <p>Hear it:</p>
+    <audio controls autoplay>
+      <source src="{{req._parsedUrl.pathname}}/sayit?text_to_say={{payload}}" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <form action="{{req._parsedUrl.pathname}}">
+        <input type="text" name="text_to_say" id="" value="{{payload}}" />
+        <input type="submit" value="Try Again" />
+    </form>
+![TTS-Lab-WebPage_Details2.png](images/TTS/TTS-Lab-WebPage_Details2.png)
+
+The complete flow is available at [TTS-Lab-WebPage](flows/TTS/TTS-Lab-WebPage.json).
+
+To run it, point your browser to  `/http://xxxx.mybluemix.net/tts/talk` and enter some text.
