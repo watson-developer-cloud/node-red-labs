@@ -1,1 +1,142 @@
-[{"id":"39fa6a6d.b6396e","type":"http in","name":"","url":"/tts/sayit","method":"get","swaggerDoc":"","x":138.1999969482422,"y":112.19999694824219,"z":"3a972a0d.669936","wires":[["d1364442.34df"]]},{"id":"57c15edb.a04528","type":"change","name":"text to payload","rules":[{"t":"set","p":"payload","to":"msg.payload.text_to_say"}],"action":"","property":"","from":"","to":"","reg":false,"x":330.20001220703125,"y":71.19999694824219,"z":"3a972a0d.669936","wires":[["2aec1e54.47d4ba"]]},{"id":"2aec1e54.47d4ba","type":"watson-text-to-speech","name":"","lang":"english","voice":"en-US_MichaelVoice","x":403.20001220703125,"y":125.19999694824219,"z":"3a972a0d.669936","wires":[["cecfa783.10b0f"]]},{"id":"cecfa783.10b0f","type":"change","name":"speech to payload","rules":[{"t":"set","p":"payload","to":"msg.speech"},{"t":"set","p":"headers","to":"[{ 'Content-Type', 'audio/wav'}]"}],"action":"","property":"","from":"","to":"","reg":false,"x":494.20001220703125,"y":197.1999969482422,"z":"3a972a0d.669936","wires":[["9b38de2c.86527"]]},{"id":"9b38de2c.86527","type":"http response","name":"","x":640.2000122070312,"y":268.1999969482422,"z":"3a972a0d.669936","wires":[]},{"id":"d1364442.34df","type":"switch","name":"Check text","property":"payload.text_to_say","rules":[{"t":"nnull"},{"t":"else"}],"checkall":"false","outputs":2,"x":217.1999969482422,"y":223.1999969482422,"z":"3a972a0d.669936","wires":[["57c15edb.a04528"],["14852798.921f7"]]},{"id":"14852798.921f7","type":"template","name":"Error","field":"payload","format":"html","template":"<h1>Missing text_to_say query param!</h1>","x":417.20001220703125,"y":288.1999969482422,"z":"3a972a0d.669936","wires":[["9b38de2c.86527"]]}]
+[
+  {
+    "id": "39fa6a6d.b6396e",
+    "type": "http in",
+    "name": "",
+    "url": "\/tts\/sayit",
+    "method": "get",
+    "swaggerDoc": "",
+    "x": 138,
+    "y": 112,
+    "z": "3a972a0d.669936",
+    "wires": [
+      [
+        "d1364442.34df"
+      ]
+    ]
+  },
+  {
+    "id": "57c15edb.a04528",
+    "type": "change",
+    "name": "text to payload",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "to": "msg.payload.text_to_say"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 330,
+    "y": 71,
+    "z": "3a972a0d.669936",
+    "wires": [
+      [
+        "2aec1e54.47d4ba"
+      ]
+    ]
+  },
+  {
+    "id": "2aec1e54.47d4ba",
+    "type": "watson-text-to-speech",
+    "name": "",
+    "lang": "english",
+    "voice": "en-US_MichaelVoice",
+    "x": 403,
+    "y": 125,
+    "z": "3a972a0d.669936",
+    "wires": [
+      [
+        "cecfa783.10b0f"
+      ]
+    ]
+  },
+  {
+    "id": "cecfa783.10b0f",
+    "type": "change",
+    "name": "speech to payload",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "to": "msg.speech"
+      },
+      {
+        "t": "set",
+        "p": "headers",
+        "to": "[{ 'Content-Type', 'audio\/wav'}]"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 494,
+    "y": 197,
+    "z": "3a972a0d.669936",
+    "wires": [
+      [
+        "9b38de2c.86527"
+      ]
+    ]
+  },
+  {
+    "id": "9b38de2c.86527",
+    "type": "http response",
+    "name": "",
+    "x": 640,
+    "y": 268,
+    "z": "3a972a0d.669936",
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "d1364442.34df",
+    "type": "switch",
+    "name": "Check text",
+    "property": "payload.text_to_say",
+    "rules": [
+      {
+        "t": "nnull"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "outputs": 2,
+    "x": 217,
+    "y": 223,
+    "z": "3a972a0d.669936",
+    "wires": [
+      [
+        "57c15edb.a04528"
+      ],
+      [
+        "14852798.921f7"
+      ]
+    ]
+  },
+  {
+    "id": "14852798.921f7",
+    "type": "template",
+    "name": "Error",
+    "field": "payload",
+    "format": "html",
+    "template": "<h1>Missing text_to_say query param!<\/h1>",
+    "x": 417,
+    "y": 288,
+    "z": "3a972a0d.669936",
+    "wires": [
+      [
+        "9b38de2c.86527"
+      ]
+    ]
+  }
+]
