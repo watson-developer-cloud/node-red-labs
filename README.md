@@ -237,3 +237,54 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
 The complete flow is available at [TTS-Lab-WebPage](flows/TTS/TTS-Lab-WebPage.json).
 
 To run it, point your browser to  `/http://xxxx.mybluemix.net/tts/talk` and enter some text.
+
+##  Watson Visual Recognition
+### Overview
+The Watson  Visual Recognition service allows to analyse the contents of an image and produce a series of text classifiers with a confidence index.
+
+### Node-RED Watson Visual Recognition node
+The Node-RED ![`VisualRecognition`](images/node-red/VisualRecognition.png) node provides a very easy wrapper node that takes an image URL or binary stream as input, and produces a set of image labels as output.
+
+### Basic Watson Visual Recognition Flow
+In this exercise, we will show how to simply generate the labels from an image URL.
+
+The flow will present a simple Web page with a text field where to input the image's URL, then submit it to Watson Visual Recognition, and output the labels that have been found on the reply Web page.
+![Reco-Lab-VisualRecognitionFlow.png](images/Reco/Reco-Lab-VisualRecognitionFlow.png)
+The nodes required to build this flow are:
+
+ - A ![`HTTPInput`](images/node-red/HTTPInput.png) node, configured with a `/reco` URL
+ - A ![`switch`](images/node-red/switch.png) node which will test for the presence of the `imageurl` query parameter:
+   ![Reco-Lab-Switch-Node-Props](images/reco/Reco-Lab-Switch-Node-Props.png)
+ - A first ![template](images/node-red/template.png) node, configured to output an HTML input field and suggest a few selected images taken from the main Watson Visual Recognition demo web page:
+>
+    <h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>
+    <h2>Select an image URL</h2>
+    <form  action="{{req._parsedUrl.pathname}}">
+        <image src="http://visual-recognition-demo.mybluemix.net/images/horses.jpg" height='100'/>
+        <image src="http://visual-recognition-demo.mybluemix.net/images/73388.jpg" height='100'/>
+        <image src="http://visual-recognition-demo.mybluemix.net/images/26537.jpg" height='100'/>
+        <image src="http://visual-recognition-demo.mybluemix.net/images/4068.jpg" height='100'/>
+        <br/>Copy above image location URL or enter any image URL:<br/>
+        <input type="text" name="imageurl"/>
+        <input type="submit" value="Analyze"/>
+    </form>
+![Reco-Lab-Template1-Node-Props](images/reco/Reco-Lab-Template1-Node-Props.png)
+ - The ![Watson Visual Recognition](images/node-red/WatsonVisualRecognition.png) node, preceded by a ![change](images/node-red/change.png) node to extract the `imageurl` query parameter from the web request and assign it to the payload to be provided as input to the Visual Recognition node:
+![Reco-Lab-Change_and_Reco-Node-Props](images/reco/Reco-Lab-Change_and_Reco-Node-Props.png)
+ - And a final  ![`template`](images/node-red/template.png) node linked to the ![`HTTPResponse`](images/node-red/HTTPResponse.png) output node. The template will format the output returned from the Visual Recognition node into an HTML table for easier reading:
+>
+    <h1>Visual Recognition</h1>
+    <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
+    <table border='1'>
+        <thead><td>Name</td><td>Score</td></thead>
+        {{#labels}}
+          <tr><td><b>{{label_name}}</b></td><td><i>{{label_score}}</i></td></tr>
+        {{/labels}}
+    </table>
+    <form  action="{{req._parsedUrl.pathname}}">
+        <input type="submit" value="Try again"/>
+    </form>
+![Reco-Lab-TemplateReport-Node-Props](images/reco/Reco-Lab-TemplateReport-Node-Props.png)
+
+To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter some text.
+ - 
