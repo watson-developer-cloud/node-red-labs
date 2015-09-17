@@ -282,7 +282,7 @@ The nodes required to build this flow are:
     <h1>Visual Recognition</h1>
     <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
     <table border='1'>
-        <thead><td>Name</td><td>Score</td></thead>
+        <thead><tr><th>Name</th><th>Score</th></tr></thead>
         {{#labels}}
           <tr><td><b>{{label_name}}</b></td><td><i>{{label_score}}</i></td></tr>
         {{/labels}}
