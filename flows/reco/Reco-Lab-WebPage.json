@@ -1,0 +1,119 @@
+[
+  {
+    "id": "19e19490.2bb903",
+    "type": "http in",
+    "name": "",
+    "url": "\/reco",
+    "method": "get",
+    "swaggerDoc": "",
+    "x": 79,
+    "y": 57,
+    "wires": [
+      [
+        "b427e521.7e94c8"
+      ]
+    ]
+  },
+  {
+    "id": "7b4e07a2.f0d948",
+    "type": "watson-visual-recognition",
+    "name": "",
+    "x": 461,
+    "y": 239,
+    "wires": [
+      [
+        "8ee5f31e.707898"
+      ]
+    ]
+  },
+  {
+    "id": "7971a5ad.e8e2c4",
+    "type": "http response",
+    "name": "HTTP Response",
+    "x": 747,
+    "y": 122,
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "b427e521.7e94c8",
+    "type": "switch",
+    "name": "Check image param",
+    "property": "payload.imageurl",
+    "rules": [
+      {
+        "t": "null"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "outputs": 2,
+    "x": 203,
+    "y": 119,
+    "wires": [
+      [
+        "c6e55980.f66bc"
+      ],
+      [
+        "1dd51b69.ef988d"
+      ]
+    ]
+  },
+  {
+    "id": "c6e55980.f66bc",
+    "type": "template",
+    "name": "Get Image URL",
+    "field": "payload",
+    "format": "html",
+    "template": "<h1>Welcome to the Watson Visual Recognition Demo on Node-RED<\/h1>\n<h2>Select an image URL<\/h2>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <image src=\"http:\/\/visual-recognition-demo.mybluemix.net\/images\/horses.jpg\" height='100'\/>\n    <image src=\"http:\/\/visual-recognition-demo.mybluemix.net\/images\/73388.jpg\" height='100'\/>\n    <image src=\"http:\/\/visual-recognition-demo.mybluemix.net\/images\/26537.jpg\" height='100'\/>\n    <image src=\"http:\/\/visual-recognition-demo.mybluemix.net\/images\/4068.jpg\" height='100'\/>\n    <br\/>Copy above image location URL or enter any image URL:<br\/>\n    <input type=\"text\" name=\"imageurl\"\/>\n    <input type=\"submit\" value=\"Analyze\"\/>\n<\/form>\n",
+    "x": 497,
+    "y": 88,
+    "wires": [
+      [
+        "7971a5ad.e8e2c4"
+      ]
+    ]
+  },
+  {
+    "id": "8ee5f31e.707898",
+    "type": "template",
+    "name": "Report",
+    "field": "payload",
+    "format": "html",
+    "template": "<h1>Visual Recognition<\/h1>\n<p>Analyzed image: {{payload}}<br\/><img src=\"{{payload}}\" height='100'\/><\/p>\n<table border='1'>\n    <thead><td>Name<\/td><td>Score<\/td><\/thead>\n{{#labels}}\n  <tr><td><b>{{label_name}}<\/b><\/td><td><i>{{label_score}}<\/i><\/td><\/tr>\n{{\/labels}}\n<\/table>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"submit\" value=\"Try again\"\/>\n<\/form>",
+    "x": 592,
+    "y": 156,
+    "wires": [
+      [
+        "7971a5ad.e8e2c4"
+      ]
+    ]
+  },
+  {
+    "id": "1dd51b69.ef988d",
+    "type": "change",
+    "name": "Extract img URL",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "to": "msg.payload.imageurl"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 289,
+    "y": 177,
+    "wires": [
+      [
+        "7b4e07a2.f0d948"
+      ]
+    ]
+  }
+]
