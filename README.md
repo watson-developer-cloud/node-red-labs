@@ -285,7 +285,9 @@ The nodes required to build this flow are:
     <form  action="{{req._parsedUrl.pathname}}">
         <input type="submit" value="Try again"/>
     </form>
-![Reco-Lab-TemplateReport-Node-Props](images/reco/Reco-Lab-TemplateReport-Node-Props.png)
 ```
+![Reco-Lab-TemplateReport-Node-Props](images/reco/Reco-Lab-TemplateReport-Node-Props.png)
 
-To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter some text.
+To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.
+
+The complete flow is available at [Reco-Lab-WebPage](flows/reco/Reco-Lab-WebPage.json).
