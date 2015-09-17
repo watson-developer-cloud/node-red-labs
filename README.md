@@ -254,9 +254,9 @@ The nodes required to build this flow are:
 
  - A ![`HTTPInput`](images/node-red/HTTPInput.png) node, configured with a `/reco` URL
  - A ![`switch`](images/node-red/switch.png) node which will test for the presence of the `imageurl` query parameter:
-   ![Reco-Lab-Switch-Node-Props](images/reco/Reco-Lab-Switch-Node-Props.png)
+   ![Reco-Lab-Switch-Node-Props](images/Reco/Reco-Lab-Switch-Node-Props.png)
  - A first ![template](images/node-red/template.png) node, configured to output an HTML input field and suggest a few selected images taken from the main Watson Visual Recognition demo web page:
->
+```
     <h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>
     <h2>Select an image URL</h2>
     <form  action="{{req._parsedUrl.pathname}}">
@@ -268,11 +268,15 @@ The nodes required to build this flow are:
         <input type="text" name="imageurl"/>
         <input type="submit" value="Analyze"/>
     </form>
-![Reco-Lab-Template1-Node-Props](images/reco/Reco-Lab-Template1-Node-Props.png)
+```
+![Reco-Lab-Template1-Node-Props](images/Reco/Reco-Lab-Template1-Node-Props.png)
+
  - The ![Watson Visual Recognition](images/node-red/WatsonVisualRecognition.png) node, preceded by a ![change](images/node-red/change.png) node to extract the `imageurl` query parameter from the web request and assign it to the payload to be provided as input to the Visual Recognition node:
-![Reco-Lab-Change_and_Reco-Node-Props](images/reco/Reco-Lab-Change_and_Reco-Node-Props.png)
+ 
+![Reco-Lab-Change_and_Reco-Node-Props](images/Reco/Reco-Lab-Change_and_Reco-Node-Props.png)
+
  - And a final  ![`template`](images/node-red/template.png) node linked to the ![`HTTPResponse`](images/node-red/HTTPResponse.png) output node. The template will format the output returned from the Visual Recognition node into an HTML table for easier reading:
->
+```
     <h1>Visual Recognition</h1>
     <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
     <table border='1'>
@@ -284,7 +288,9 @@ The nodes required to build this flow are:
     <form  action="{{req._parsedUrl.pathname}}">
         <input type="submit" value="Try again"/>
     </form>
-![Reco-Lab-TemplateReport-Node-Props](images/reco/Reco-Lab-TemplateReport-Node-Props.png)
+```
+![Reco-Lab-TemplateReport-Node-Props](images/Reco/Reco-Lab-TemplateReport-Node-Props.png)
 
-To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter some text.
- - 
+To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.
+
+The complete flow is available at [Reco-Lab-WebPage](flows/reco/Reco-Lab-WebPage.json).
