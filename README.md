@@ -296,3 +296,5 @@ The nodes required to build this flow are:
 To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.
 
 The complete flow is available at [Reco-Lab-WebPage](flows/reco/Reco-Lab-WebPage.json).
+
+# Tradeoff Analytics
