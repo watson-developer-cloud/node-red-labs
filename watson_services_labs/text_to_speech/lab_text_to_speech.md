@@ -13,10 +13,10 @@ In this first exercise, we will show how to simply produce a `.wav` file from in
 The first part of the flow will take text input from a web invocation and return the spoken text `.wav` file:
 
 1. Create a new flow, let's call it `TTS Web` 
-2. Add an ![`HTTPInput`](images/node-red_HTTPInput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
+2. Add an ![`HTTPInput`](../../node-RED_labs/images/node-red_HTTPInput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
 ![TTS Lab 1 ScreenShot 1](images/TTS-Lab-1.png)
 When invoked with query parameters such as `?text_to_say=Hello`, they will be added as properties on the `msg.payload` object. 
-3. Add a ![`change`](images/node-red_change.png) node to extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
+3. Add a ![`change`](../../node-RED_labs/images/node-red_change.png) node to extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
 ![TTS Lab 1 ScreenShot 2](images/TTS-Lab-2.png)
 We do this because the TTS node uses the text in the `msg.payload` as input.
 4. Now add a ![`Watson TTS`](images/node-red_Watson-tts.png) node. This node will generate the binary `wav` stream content to the `msg.speech` property.
@@ -24,15 +24,15 @@ We do this because the TTS node uses the text in the `msg.payload` as input.
 
 The properties of the TTS node will let you select the Language and Voice to use.
 
-5. Add another ![`change`](images/node-red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. We will also set the `HTTP response headers` by setting the `msg.headers` to the literal string value `[{ 'Content-Type', 'audio/wav'}]`. This is required in order to let browsers know that this is an audio file and not HTML.
+5. Add another ![`change`](../../node-RED_labs/images/node-red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. We will also set the `HTTP response headers` by setting the `msg.headers` to the literal string value `[{ 'Content-Type', 'audio/wav'}]`. This is required in order to let browsers know that this is an audio file and not HTML.
 
 ![TTS Lab 1 ScreenShot 4](images/TTS-Lab-4.png)
 
-6. Finally, add a  ![`HTTP Response`](images/node-red_HTTPResponse.png) node. This node will simply return what's in the payload to the HTTP response.
+6. Finally, add a  ![`HTTP Response`](../../node-RED_labs/images/node-red_HTTPResponse.png) node. This node will simply return what's in the payload to the HTTP response.
 The completed flow should look like:
 ![TTS Lab 1 ScreenShot 5](images/TTS-Lab-5.png)
 
-The flow code for this is in [TTS-Lab-Basic](flows/TTS/TTS-Lab-Basic.json).
+The flow code for this is in [TTS-Lab-Basic](TTS-Lab-Basic.json).
 
 _Now try the flow:_
 
@@ -49,7 +49,7 @@ So, we will introduce a `switch` node between the `[get]` and `change` nodes. Th
 You'll notice that adding the second `otherwise` rule has created a second output handle for the `switch` node, we'll connect this to a `template` node and then to the `HTML Response` node.
 ![TTS Lab 1 ScreenShot X2](images/TTS-Lab-X2.png)
 The template node simply outputs a HTML message in a h1 header.
-Flow for this can be found in [TTS-Lab-Basic](flows/TTS/TTS-Lab-Extension1.json)
+Flow for this can be found in [TTS-Lab-Basic](TTS-Lab-WithParamCheck.json)
 The final flow will look like:
 ![TTS Lab 1 ScreenShot X3](images/TTS-Lab-X3.png)
 
@@ -85,6 +85,6 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
 ```
 ![TTS-Lab-WebPage_Details2.png](images/TTS-Lab-WebPage_Details2.png)
 
-The complete flow is available at [TTS-Lab-WebPage](flows/TTS/TTS-Lab-WebPage.json).
+The complete flow is available at [TTS-Lab-WebPage](TTS-Lab-WebPage.json).
 
 To run it, point your browser to  `/http://xxxx.mybluemix.net/tts/talk` and enter some text.
