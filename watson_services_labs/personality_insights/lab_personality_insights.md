@@ -18,7 +18,7 @@ Drag a debug node to the palette.
 
 Join them as shown below
 
-![ScreenShot](images/2015-09-16%2014_07_07-Node-RED%20_%20wnrpi.mybluemix.net.png)
+![ScreenShot](images/pi_flow.png)
 
 Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
 
@@ -42,6 +42,6 @@ You will see an output in the debug tab starting with '{ [msg.insights] : object
 
 Go back to the command prompt and see that the full object has been shown. 
 
-![ScreenShot](images/Command%20Prompt%20-%20cf%20%20logs%20WNRPI.png)
+![ScreenShot](images/pi_cmd_prompt.png)
 
 Compare the items in the JSON object to those of the demo for Personality Insights - you can see that the values shown are the same (or very similar).
