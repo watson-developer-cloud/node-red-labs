@@ -297,4 +297,4 @@ To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` an
 
 The complete flow is available at [Reco-Lab-WebPage](flows/reco/Reco-Lab-WebPage.json).
 
-# Tradeoff Analytics
+
