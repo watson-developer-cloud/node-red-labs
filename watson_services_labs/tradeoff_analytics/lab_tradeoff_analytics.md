@@ -17,7 +17,11 @@ Cut/paste the JSON text to a text editor of your choice.
 
 Edit the file and go to the second line (showing "subject: "phone",")
 
-Changes the word "subject" to "payload" and save the file.  For an already modified file see ->  ([toff_JSON_input.tx](toff_JSON_input.txt)t)
+Changes the word "subject" to "payload" and save the file.  Also add the text "msg=" to the first line of the file
+
+![ScreenShot](images/toff_change_json.png)
+
+For an already modified file see ->  [lab_toff_input.txt](lab_toff_input.txt)
 
 Open your Application and add a TradeOff Service to it.  On your Node-RED application click on "Add a Service or API"
 
@@ -38,7 +42,58 @@ Click on your App link
 
 Click on the "go to your Node-RED flow editor" button
 
-Drag an inject noe
+Drag an inject node to the palette
+
+![ScreenShot](images/toff_inject_node.png)
+
+Drag a Function node to the palette
+
+![ScreenShot](images/toff_function_node.png)
+
+Drag the Tradeoff Analytics node to the palette
+
+![ScreenShot](images/toff_tradeoff_node.png)
+
+Finally drag a Debug node to the palette
+
+![ScreenShot](images/toff_debug_node.png)
+
+Double-click the Inject node and change the payload to Blank
+
+![ScreenShot](images/toff_inject_blank.png)
+
+Double click the Function node and paste the contents of [lab_toff_input.txt](lab_toff_input.txt) to the function
+
+![ScreenShot](images/toff_function_node_paste.png)
+
+Click OK
+
+Double-click the Debug node and change msg.payload to msg.resolution
+
+![ScreenShot](images/toff_debug_node_contents.png)
+
+Click the Deploy button
+
+![ScreenShot](images/toff_deploy.png)
+
+Click on the Debug tab on Node-RED and then return to the palette and click the Inject node so that the flow is triggered
+
+![ScreenShot](images/toff_inject_click.png)
+
+Return to the Debug tab - you should now see the resultant output from the Tradeoff Analytics node
+
+![ScreenShot](imagestoff_output.png)
+
+To understand the contents of the output go to ->  [https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff-analytics/inout.shtml](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff-analytics/inout.shtml) and [https://developer.ibm.com/answers/questions/191441/need-explanation-of-solutionperspective-response-f.html](https://developer.ibm.com/answers/questions/191441/need-explanation-of-solutionperspective-response-f.html)
+
+A complete file of the flows is saved here ->[ lab_toff_flow.json](lab_toff_flow.json)
+
+
+
+
+
+
+
 
 
 
