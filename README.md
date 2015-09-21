@@ -102,8 +102,8 @@ You can also copy the code for the flow here and import it from clipboard into N
 
 ....Work in progress...More to come in a moment...
 
-#Personality Insights
 
+<<<<<<< HEAD
 The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html for a full description and demo
 
 The objective is to send the Personality Insights node the same data as for the demo (https://watson-pi-demo.mybluemix.net/) and to show the JSON object and its values match those of the demo
@@ -149,6 +149,7 @@ Go back to the command prompt and see that the full object has been shown.
 ![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Personality%20Insights/Command%20Prompt%20-%20cf%20%20logs%20WNRPI.png)
 
 Compare the items in the JSON object to those of the demo for Message Insights - you can see that the values shown are the same (or very similar).
+=======
 ##  Text to Speech
 ### Overview
 The Watson text-To-Speech (TTS) service produces an audio file from literal text.
@@ -239,6 +240,7 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
 The complete flow is available at [TTS-Lab-WebPage](flows/TTS/TTS-Lab-WebPage.json).
 
 To run it, point your browser to  `/http://xxxx.mybluemix.net/tts/talk` and enter some text.
+>>>>>>> master
 
 ##  Watson Visual Recognition
 ### Overview
@@ -296,3 +298,5 @@ The nodes required to build this flow are:
 To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.
 
 The complete flow is available at [Reco-Lab-WebPage](flows/reco/Reco-Lab-WebPage.json).
+
+
