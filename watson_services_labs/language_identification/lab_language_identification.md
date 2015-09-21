@@ -10,6 +10,13 @@ This service can identify many languages: Arabic; Chinese (Simplified); Chinese 
 
 In this example some random text is injected, identified by the Watson Language Indentification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
+To use the Language Identification service in Node-RED you first need to make this service available so Node-RED can connect to that.
+If you are using Bluemix, go to your Node-RED app and click on 'add a service or API'
+This will open a new windwo where you can select the Language Translation service (we use the Language Translation service because Language Identifiaction is part of this service.).
+Then you click on 'Use' a screen will show which askes for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+
+If you use a local instance of Node-RED go to the Bluemix catalog and go to the Language Translation service and click on it. Make sure that there is no app bound to this service and click 'Use"
+
 In the following screenshots you can see how the nodes are configured.
 
 The inject node:
@@ -31,7 +38,7 @@ This will display the identified laguage with a confidence level:
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
 
-Language Identification flow
+[Language Identification flow](LI_flow)
 
 
 
