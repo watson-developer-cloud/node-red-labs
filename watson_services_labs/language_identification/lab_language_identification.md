@@ -14,7 +14,7 @@ In the following screenshots you can see how the nodes are configured.
 
 The inject node:
 
-![`LIInpuput`](images/LIinput.jpg)
+![`LIInpuput`](images/LI_input.jpg)
 
 You can use any text for this.
 
