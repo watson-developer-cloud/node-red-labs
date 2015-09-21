@@ -10,7 +10,7 @@ These Watson nodes are used:
 - Speech to Text
 - [Text to Speech](watson_services_labs/text_to_speech/lab_text_to_speech.md)
 - Tradeoff Analytics
-- Visual Recognition
+- [Visual Recognition](watson_services_labs/visual_recognition/lab_visual_recognition.md)
 
 
 First you need an instance of Node-RED with Watson services. Therefore you need a Bluemix account. You can get that here: http://www.bluemix.net.
