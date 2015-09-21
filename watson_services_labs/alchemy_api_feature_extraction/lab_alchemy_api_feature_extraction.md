@@ -109,6 +109,6 @@ Go to [http://www.alchemyapi.com/products/demo/alchemylanguage](http://www.alche
 
 Click the JSON button and you will see the same text as was shown in the Debug Tab of Node-RED
 
-![ScreenShot](fe_alchemy_web_demo_own_url_json.png)
+![ScreenShot](images/fe_alchemy_web_demo_own_url_json.png)
 
-The flows for this lab are here -> (lab_alchemy_api_feature_extraction_flows.json)
+The flows for this lab are here -> [flows](lab_alchemy_api_feature_extraction_flows.json)
