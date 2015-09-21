@@ -14,17 +14,22 @@ In the following screenshots you can see how the nodes are configured.
 
 The inject node:
 
-![`LIInpuput`](images/LI_input.jpg)
+![`LIInput`](images/LI_input.jpg)
 
 You can use any text for this.
 
-The Language Identification node does not need any configuration
+The Language Identification node does not need any configuration.
 
-And this is the output:
+To get the correct output set the output to payload.lang. 
+
+![`LIDebug`](images/LI_debug.jpg)
+
+This will display the identified laguage with a confidence level:
 
 ![`LIOutput`](images/LI_output.jpg)
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
+
 
 Language Identification flow
 
