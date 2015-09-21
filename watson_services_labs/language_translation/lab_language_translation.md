@@ -35,5 +35,5 @@ As the translated text will be returned on message.payload, make sure that you s
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
-Language Translation flow
+[Language Translation flow](LT_flow.txt)
 
