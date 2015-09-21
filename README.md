@@ -8,7 +8,7 @@ These Watson nodes are used:
 - Language Translation
 - Personality insights
 - Speech to Text
-- [Text to Speech](watson_services_labs\text_to_speech\lab_text_to_speech.md)
+- [Text to Speech](watson_services_labs/text_to_speech/lab_text_to_speech.md)
 - Tradeoff Analytics
 - Visual Recognition
 
