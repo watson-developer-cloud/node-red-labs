@@ -82,7 +82,7 @@ You can do this part later but for the labs you need to add the (Watson) service
 
 We will create a Hello World flow.
 
-![HelloWorldFlow](images/HelloWorldFlow.jpg)
+![HelloWorldFlowT](images/HelloWorldFlow.jpg)
 
 This program is a very simple flow that prints the message 'Hello World' on the screen. 
 Here you can see Node-RED's user interface,  the rounded blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
@@ -95,18 +95,12 @@ To build this 'Hello World' flow you need to take the following steps:
 (this will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
  5. Add a function node, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the Payload. The complete function should look like this: ![HelloWorld](images/completeHWfunc.jpg) 
  6. Add a debug node
- 7. Wire the inject node to the function node and the function node to the debug node.
+ 7. Wire the inject node to the function node and the function node to the debug node. Most nodes have a grey circle on their left side, which is their input port, and on their right side, which is their output port. Left clicking and dragging the output to the input port of the next node connects the two together.
  8. Press deploy.
  
 Now you have build your first Hello World flow. Test it by clicking on the inject node, you will see some output in the debug window on the right (click on debug to change the view from info to debug).
 
 
-This inject node is edited to output the string 'Hello'.
-Next a function node is dragged on and edited to define a JavaScript function that appends the string ' World' to any message it receives.
-These two nodes are then wired together. Most nodes have a grey circle on their left edge, which represents their input port, and on their right edge, which represents their output port. Left clicking and dragging the output port of the 'Hello' node to the input port of the ' World' node connects the two together.
-The final stage is to add a Debug node that prints the message it receives in the Debug window. This Debug node is then wired to the output of the ' World' node.
-The process is now ready to run and once deployed will display the string 'Hello World' in the Debug box, shown on the right of the screen.
-This finished program is an example of what is called a flow in Node-RED.
 
     
 
