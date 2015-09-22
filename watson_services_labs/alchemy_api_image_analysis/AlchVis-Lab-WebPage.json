@@ -1,5 +1,3 @@
-
-
 [
   {
     "id": "2fb59571.ca4632",
@@ -110,7 +108,7 @@
     "id": "a57cd64c.c97338",
     "type": "alchemy-image-analysis",
     "name": "",
-    "apikey": "657246893ff038bda95ea4d8d0ffc3177451e0e5",
+    "apikey": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "image-feature": "imageFaces",
     "x": 499,
     "y": 299,
@@ -121,4 +119,3 @@
     ]
   }
 ]
-
