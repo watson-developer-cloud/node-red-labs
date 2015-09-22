@@ -1,0 +1,121 @@
+[
+  {
+    "id": "8aa3f991.186938",
+    "type": "template",
+    "name": "Prompt Images",
+    "field": "payload",
+    "format": "html",
+    "template": "<h1>Welcome to the Watson Alchemy Image Analysis Demo on Node-RED<\/h1>\n<H2>Select an image<\/H2>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <img src=\"http:\/\/visual-recognition-demo.mybluemix.net\/images\/4068.jpg\" height='100'\/>\n    <img src=\"http:\/\/www.ambafrance-mt.org\/local\/cache-vignettes\/L945xH539\/family_photo8851-b0e9b.jpg\" height='100'\/>\n    <img src=\"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f1\/34th_G8_summit_member_20080707.jpg\" height='100'\/>\n    <img src=\"http:\/\/demo1.alchemyapi.com\/images\/vision\/politicians.jpg\" height='100'\/>\n    <br\/>Copy above image location URL or enter any image URL:<br\/>\n    Image URL: <input type=\"text\" name=\"imageurl\"\/>\n    <input type=\"submit\" value=\"Analyze\"\/>\n<\/form>",
+    "x": 577,
+    "y": 154,
+    "wires": [
+      [
+        "d3413184.a824c8"
+      ]
+    ]
+  },
+  {
+    "id": "afcd6e4b.ccbd3",
+    "type": "http in",
+    "name": "",
+    "url": "\/alchface",
+    "method": "get",
+    "swaggerDoc": "",
+    "x": 139,
+    "y": 168,
+    "wires": [
+      [
+        "aaa5eb2f.68678"
+      ]
+    ]
+  },
+  {
+    "id": "d3413184.a824c8",
+    "type": "http response",
+    "name": "HTTP Response",
+    "x": 847,
+    "y": 237,
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "aaa5eb2f.68678",
+    "type": "switch",
+    "name": "Check image url",
+    "property": "payload.imageurl",
+    "rules": [
+      {
+        "t": "null"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "outputs": 2,
+    "x": 268,
+    "y": 237,
+    "wires": [
+      [
+        "8aa3f991.186938"
+      ],
+      [
+        "9111268c.68e378"
+      ]
+    ]
+  },
+  {
+    "id": "96cc3cac.68b858",
+    "type": "template",
+    "name": "Report Faces",
+    "field": "payload",
+    "format": "html",
+    "template": "<h1>Alchemy Vision Face Recognition on Node-RED<\/h1>\n<p>Analyzed image: <a href=\"{{payload}}\" target='_blank'>{{payload}}<\/a><br\/>\n<img style=\"display: none;\" id=\"alchemy_image\" src=\"{{payload}}\"\/><\/p>\n{{^result}}\n<P>No Face detected<\/P>\n{{\/result}}\n<canvas id=\"imageCanvas\" width=\"400\" height=\"400\" style=\"border:1px solid #000000;\">\n    <p>Sorry, HTML5 Canvas not supported in your browser<\/p>\n<\/canvas>\n<script>\n    \/\/ Find the canvas\n    var c = document.getElementById(\"imageCanvas\");\n    var ctx = c.getContext(\"2d\");\n    \/\/ Find the image tag\n    var img = document.getElementById(\"alchemy_image\");\n    \/\/ Adjust for correct aspect ratio\n    var cv_w=c.width;\n    var cv_h=c.height;\n    if(img.naturalHeight>img.naturalWidth) {\n        cv_w=cv_w*img.naturalWidth\/img.naturalHeight;\n        c.width=cv_w;\n    } else {\n        cv_h=cv_h*img.naturalHeight\/img.naturalWidth;\n        c.height=cv_h;\n    }\n    \/\/ draw the image, resized to fit the canvas\n    ctx.drawImage(img,0,0,cv_w,cv_h);\n<\/script>\n\n<table border='1'>\n    <col align=\"center\">\n    <tr><th>Thumb<\/th><th>Age Range<\/th><th>Score<\/th><th>Gender<\/th><th>Score<\/th><th>Name<\/th><\/tr>\n    {{#result}}\n    <tr>\n        <td style=\"text-align: center;\"><canvas class=\"cv_thumbs\" width='{{width}}' height='{{height}}'><\/canvas><\/td>\n        <td><b>{{age.ageRange}}<\/b><\/td>\n        <td><i>{{age.score}}<\/i><\/td>\n        <td>{{gender.gender}}<\/td>\n        <td>{{gender.score}}<\/td>\n        {{#identity}}\n        <td>{{identity.name}} ({{identity.score}})<\/td>\n        {{\/identity}}\n    <\/tr>\n{{\/result}}\n<\/table>\n<script>\n    var c = document.getElementById(\"imageCanvas\");\n    var ctx = c.getContext(\"2d\");\n    var img = document.getElementById(\"alchemy_image\");\n    var cv_w=c.width;\n    var cv_h=c.height;\n    var cths=document.getElementsByClassName(\"cv_thumbs\");\n    var iTh=0;\n{{#result}}\n    ctx.beginPath();\n    ctx.lineWidth=\"1\";\n    ctx.strokeStyle=\"green\";\n    {{^identity}}\n        ctx.strokeStyle=\"red\";\n    {{\/identity}}\n    ctx.rect({{positionX}}*cv_w\/img.naturalWidth ,{{positionY}}*cv_h\/img.naturalHeight ,{{width}}*cv_w\/img.naturalWidth ,{{height}}*cv_h\/img.naturalHeight );\n    ctx.stroke();\n    var cvTh=cths[iTh];\n    var ctxTh = cvTh.getContext(\"2d\");\n    ctxTh.drawImage(img,{{positionX}},{{positionY}},{{width}},{{height}},0,0,cvTh.width,cvTh.height);\n    iTh=iTh+1;\n{{\/result}}        \n<\/script>\n\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"submit\" value=\"Try again\"\/>\n<\/form>",
+    "x": 678,
+    "y": 327,
+    "wires": [
+      [
+        "d3413184.a824c8"
+      ]
+    ]
+  },
+  {
+    "id": "9111268c.68e378",
+    "type": "change",
+    "name": "Extract img URL",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "to": "msg.payload.imageurl"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 369,
+    "y": 333,
+    "wires": [
+      [
+        "8943d47c.c37e38"
+      ]
+    ]
+  },
+  {
+    "id": "8943d47c.c37e38",
+    "type": "alchemy-image-analysis",
+    "name": "",
+    "apikey": "657246893ff038bda95ea4d8d0ffc3177451e0e5",
+    "image-feature": "imageFaces",
+    "x": 531,
+    "y": 393,
+    "wires": [
+      [
+        "96cc3cac.68b858"
+      ]
+    ]
+  }
+]
