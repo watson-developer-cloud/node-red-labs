@@ -19,10 +19,13 @@ We will then modify the Alchemy Vision lab flow to add simple audio to it, so th
  ```HTML
  <th rowspan='2'>Say it</th>
 ```
-and populate it with an audio tag that refers to the previously built TTS flow when the identity attribute is set:
+and populate it with an audio tag that refers to the previously built TTS flow when the identity attribute is set:  
 ```HTML
 <td><audio src="/talk/sayit?text_to_say={{identity.name}}" controls></audio></td>
 ```
 It is as simple as that!
+
+Start the lab flow by pointing at `./alchvoice`URL, the output table will show additional audio controls for recognized personalities:  
+![AlchemyVisionFacesTTS_Screenshot](images/AlchemyVisionFacesTTS_Screenshot.png)
 
 The completed flow is available at [AlchemyVisionFacesTTS.json](AlchemyVisionFacesTTS.json)
