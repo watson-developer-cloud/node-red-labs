@@ -25,6 +25,13 @@ There are two ways of using Node-RED
 -	Node-RED on Bluemix (Bluemix is IBM’s Platform as a Service)
 Both ways are described here, but to save time for these labs it is recommended to use Node-RED on Bluemix.
 
+Note that Node-RED in Bluemix will behave slightly differently than Node-RED stand-alone:
+
+The sets of available nodes differ, Bluemix has extra nodes for DB access, but does not expose the File nodes.
+Node-RED in Bluemix stores its persistent data (flows, libraries, credentials) in the co-installed Cloudant database named nodered. When using a Cloudant node with Node-RED on BlueMix, the list of available instances is automatically listed.
+Node-RED in Bluemix has built-in credential management, so you don't have to worry about exposing your services authentication data, they will be filled-in automatically from the services' credentials defined for the application in Bluemix.
+
+
 ###Installation and running Node-RED
 
 Here is described how to install Node-Red in the stand alone way of working, for Using Node-RED in Bluemix, nothing has to be installed. A Node-RED app has to be deployed. 
@@ -55,6 +62,8 @@ node node_modules/node-red/red.js
 
  Then open http://localhost:1880
 
+Check out http://nodered.org/docs/getting-started/ for full instructions on getting started.
+
 
 ###Deploy Node-RED on Bluemix
 
@@ -64,22 +73,16 @@ When you are logged in got to Catalog and click on the Node-RED starter applicat
 On the right you must give it a name, which must be unique. Then click Create.
 Right now the Node-RED application is being created and deployed. This will take a few minutes. When finished click on the URL, which opens up your Node-RED application.
 
+You need to add the (Watson) services you want to use to your application. Go to Bluemix and open the dashboard and click on your application, then click on Add a Service or API. In the screen that follows select the service you want to use, and finally click on use. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. If a service is not added you to the Node-RED application, you will get an error or a node is asking for credentials depending on the type of node.
+
+
 ###Creating your first flow
     
 
 
 
-You need to add the services you want to use to your application. Go to the dashboard and click on your application, then click on Add a Service or API. In the following screen select the service you want to use, and finally click on use. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED.
-
-Another way of using Node-RED is installing it locally, which can be done by following this:
-
-Check out http://nodered.org/docs/getting-started/ for full instructions on getting started.
 
 
 
-Note that Node-RED in BlueMix will behave slightly differently than Node-RED stand-alone:
 
-The sets of available nodes differ, BlueMix has extra nodes for DB access, but does not expose the File nodes.
-Node-RED in bluemix stores its persistent data (flows, libraries, credentials) in the co-installed Cloudant database named nodered. When using a Cloudant node with Node-RED on BlueMix, the list of available instances is automatically listed.
-Node-RED in BlueMix has built-in credential management, so you don't have to worry about exposing your services authentication data, they will be filled-in automatically from the sevices' credentialds defined for the application in BlueMix.
-Additional nodes in Node-RED on BlueMix are installed through cf and a specific procedure since there is no direct access to the npm package manager.
+
