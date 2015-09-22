@@ -73,16 +73,39 @@ When you are logged in got to Catalog and click on the Node-RED starter applicat
 On the right you must give it a name, which must be unique. Then click Create.
 Right now the Node-RED application is being created and deployed. This will take a few minutes. When finished click on the URL, which opens up your Node-RED application.
 
-You need to add the (Watson) services you want to use to your application. Go to Bluemix and open the dashboard and click on your application, then click on Add a Service or API. In the screen that follows select the service you want to use, and finally click on use. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. If a service is not added you to the Node-RED application, you will get an error or a node is asking for credentials depending on the type of node.
+You can do this part later but for the labs you need to add the (Watson) services, you want to use, to your application. Go to Bluemix and open the dashboard and click on your application, then click on Add a Service or API. In the screen that follows select the service you want to use, and finally click on use. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. If a service is not added you to the Node-RED application, you will get an error or a node is asking for credentials depending on the type of node.
 
 
 ###Creating your first flow
+
+We will create a Hello World flow.
+This program is a very simple flow that prints the message 'Hello World' on the screen. 
+Here you can see Node-RED's user interface,  the rounded blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
+To build this 'Hello World' flow you need to take the following steps:
+1.	Drag an 'inject node' to the canvas
+2.	Double click this node to see the options
+3.	Use the drop-dwon, to select string for the payload
+4.	Type Hello on the second line
+(this will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
+5.	Add a function node, open it and place this on the first line into the function: msg.payload +=" World".
+The complete function should look lie this:
+msg.payload +=" World"
+return msg;
+This will add World to the Payload
+You can give this node a name.
+6.	Add a debug node
+7.	Wire the inject node to the function node and the function node to the debug node.
+8.	Press deploy.
+Now you have build your first Hello World flow. Test it by clicking on the inject node, you will see some output in the debug window on the right (click on debug to change the view from info to debug).
+
+
+This inject node is edited to output the string 'Hello'.
+Next a function node is dragged on and edited to define a JavaScript function that appends the string ' World' to any message it receives.
+These two nodes are then wired together. Most nodes have a grey circle on their left edge, which represents their input port, and on their right edge, which represents their output port. Left clicking and dragging the output port of the 'Hello' node to the input port of the ' World' node connects the two together.
+The final stage is to add a Debug node that prints the message it receives in the Debug window. This Debug node is then wired to the output of the ' World' node.
+The process is now ready to run and once deployed will display the string 'Hello World' in the Debug box, shown on the right of the screen.
+This finished program is an example of what is called a flow in Node-RED.
+
     
-
-
-
-
-
-
 
 
