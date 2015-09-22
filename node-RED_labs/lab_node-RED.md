@@ -9,7 +9,7 @@ While Node-Red is based on Node.js, JavaScript functions can be created within t
 A built-in library allows you to save useful functions, templates or flows for re-use.
 
 Node-RED is included in the Node-RED starter application, 
-![NodeRedStarter](images/noderedstarter.png)
+![NodeRedStarter](images/noderedstarter.jpg)
 
 but you can also deploy it as Node.js application separately. 
 Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the [Node-RED website](flows.nodered.org) <Link to website>
