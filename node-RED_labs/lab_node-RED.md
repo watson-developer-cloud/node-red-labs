@@ -3,16 +3,16 @@
 
 ##Introduction
 
-Node-RED is a visual tool for wiring the Internet of Things. It is easy to connect devices, data and api’s (services). It can also be used for other types of applications to quickly assemble flows of services. Node-RED is available as open source and has been implemented by the IBM Emerging Technology organization.
+[Node-RED](nodered.org) is a visual tool for wiring the Internet of Things. It is easy to connect devices, data and api’s (services). It can also be used for other types of applications to quickly assemble flows of services. Node-RED is available as open source and has been implemented by the IBM Emerging Technology organization.
 Node-RED provides a browser-based flow editor that makes it easy to wire together flows using the wide range of nodes in the palette. Flows can be then deployed to the runtime in a single-click.
 While Node-Red is based on Node.js, JavaScript functions can be created within the editor using a rich text editor.
 A built-in library allows you to save useful functions, templates or flows for re-use.
 
 Node-RED is included in the Node-RED starter application, 
-<screenshot>
+![NodeRedStarter](images/noderedstarter.png)
 
 but you can also deploy it as Node.js application separately. 
-Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the Node-RED website <Link to website>
+Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the [Node-RED website](flows.nodered.org) <Link to website>
 
 In the labs which can be found here we focus on applications which are making use of IBM Watson’s capabilities.
 We have created some labs on how to use the different Watson nodes in Node-RED. 
