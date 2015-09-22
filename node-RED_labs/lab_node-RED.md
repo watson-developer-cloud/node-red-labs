@@ -3,18 +3,17 @@
 
 ##Introduction
 
-Node-RED is a visual tool for wiring the Internet of Things. It is easy to connect devices, data and api’s (services). It can also be used for other types of applications to quickly assemble flows of services. Node-RED is available as open source and has been implemented by the IBM Emerging Technology organization.
+[Node-RED](nodered.org) is a visual tool for wiring the Internet of Things. It is easy to connect devices, data and api’s (services). It can also be used for other types of applications to quickly assemble flows of services. Node-RED is available as open source and has been implemented by the IBM Emerging Technology organization.
 Node-RED provides a browser-based flow editor that makes it easy to wire together flows using the wide range of nodes in the palette. Flows can be then deployed to the runtime in a single-click.
 While Node-Red is based on Node.js, JavaScript functions can be created within the editor using a rich text editor.
 A built-in library allows you to save useful functions, templates or flows for re-use.
 
-Node-RED is included in the Node-RED starter application, 
-<screenshot>
+![NodeRedStarter](images/noderedstarter.jpg)
 
-but you can also deploy it as Node.js application separately. 
-Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the Node-RED website <Link to website>
+Node-RED is included in the Node-RED starter application in [Bluemix](http://ibm.biz/bluemixnl) (Bluemix is IBM’s Platform as a Service, free of charge) but you can also deploy it as a stand alone Node.js application. 
+Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the [Node-RED website](flows.nodered.org) <Link to website>
 
-In the labs which can be found here we focus on applications which are making use of IBM Watson’s capabilities.
+In the labs which can be found [here](../../../../Watson-Node-Red-Samples) we focus on applications which are making use of IBM Watson’s capabilities.
 We have created some labs on how to use the different Watson nodes in Node-RED. 
 Nodes are blocks that represent components of a larger system, in Node-RED's case usually the devices, software platforms and web services that are to be connected. Further blocks can be placed in between these components to represent software functions that wrangle and transform the data in transit.
 
@@ -22,8 +21,8 @@ Nodes are blocks that represent components of a larger system, in Node-RED's cas
 
 There are two ways of using Node-RED
 -	Node-RED stand alone
--	Node-RED on Bluemix (Bluemix is IBM’s Platform as a Service)
-Both ways are described here, but to save time for these labs it is recommended to use Node-RED on Bluemix.
+-	Node-RED on [Bluemix](http://ibm.biz/bluemixnl) (Bluemix is IBM’s Platform as a Service)
+Both ways are described in this article, but to save time for these labs it is recommended to use Node-RED on Bluemix.
 
 Note that Node-RED in Bluemix will behave slightly differently than Node-RED stand-alone:
 
@@ -40,12 +39,14 @@ NOTE: When you are not using Node-RED stand alone but using Node-RED on Bluemix,
 
 
 When you have Node.js installed, run:
+
 For Linux/OS X 
 
-$ sudo npm install -g node-red
+    $ sudo npm install -g node-red
+
 For Windows
 
-npm install -g node-red
+    npm install -g node-red
 
 Note: you need to run in a command shell as Administrator,
 
@@ -54,57 +55,149 @@ The default instance of Node-RED does not contain the IBM Watson services which 
 You simply execute this command: npm install node-red-bluemix-nodes
 
 When finished start Node-RED:
+
 For Linux/OS X: 
-$ node-red
+
+    $ node-red
 
 For Windows
-node node_modules/node-red/red.js
 
- Then open http://localhost:1880
+    node node_modules/node-red/red.js
 
-Check out http://nodered.org/docs/getting-started/ for full instructions on getting started.
+ Then open [http://localhost:1880](http://localhost:1880)
 
+Check out [this page](http://nodered.org/docs/getting-started/) for full instructions on getting started with Node-RED.
 
 ###Deploy Node-RED on Bluemix
 
 This is required when Node-RED is not used stand alone. 
-You need a Bluemix account which can be acquired here (ibm.biz/bluemixnl)
-When you are logged in got to Catalog and click on the Node-RED starter application.
-On the right you must give it a name, which must be unique. Then click Create.
+You need a Bluemix account which can be acquired [here](http://ibm.biz/bluemixnl)
+When you are logged in go to 'Catalog' and click on the 'Node-RED starter' application.
+On the right side of the screen you must give it a name, which must be unique. Then click 'Create'.
 Right now the Node-RED application is being created and deployed. This will take a few minutes. When finished click on the URL, which opens up your Node-RED application.
 
-You can do this part later but for the labs you need to add the (Watson) services, you want to use, to your application. Go to Bluemix and open the dashboard and click on your application, then click on Add a Service or API. In the screen that follows select the service you want to use, and finally click on use. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. If a service is not added you to the Node-RED application, you will get an error or a node is asking for credentials depending on the type of node.
-
+You can do this part later, but for the labs you need to add the (Watson) services to your application. If a service is not added you to the Node-RED application, you can get an error or a node is asking for credentials depending on the type of node. Go to Bluemix and open the dashboard and click on your application, then click on 'Add a Service or API'. In the screen that follows select the service you want to use, and finally click on 'Use'. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. 
 
 ###Creating your first flow
 
 We will create a Hello World flow.
+
+![HelloWorldFlowT](images/HelloWorldFlow.jpg)
+
 This program is a very simple flow that prints the message 'Hello World' on the screen. 
-Here you can see Node-RED's user interface,  the rounded blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
+Here you can see Node-RED's user interface, the colored blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
 To build this 'Hello World' flow you need to take the following steps:
-1.	Drag an 'inject node' to the canvas
-2.	Double click this node to see the options
-3.	Use the drop-dwon, to select string for the payload
-4.	Type Hello on the second line
+
+ 1. Drag an 'Inject node' to the canvas
+ 2. Double click this node to see the options
+ 3. Use the drop-dwon, to select string for the payload
+ 4. Type 'Hello' on the second line
 (this will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
-5.	Add a function node, open it and place this on the first line into the function: msg.payload +=" World".
-The complete function should look lie this:
-msg.payload +=" World"
-return msg;
-This will add World to the Payload
-You can give this node a name.
-6.	Add a debug node
-7.	Wire the inject node to the function node and the function node to the debug node.
-8.	Press deploy.
-Now you have build your first Hello World flow. Test it by clicking on the inject node, you will see some output in the debug window on the right (click on debug to change the view from info to debug).
+ 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the payload. The complete function should look like this: ![HelloWorld](images/completeHWfunc.jpg) 
+ 6. Add a 'Debug node' to the canvas.
+ 7. Wire the 'Inject node' to the 'Function node' and the function node to the 'Debug node'. Most nodes have a grey circle on their left side, which is their input port, and on their right side, which is their output port. Left clicking and dragging the output to the input port of the next node connects the two together.
+ 8. Press 'Deploy'.
+ 
+Now you have build your first Hello World flow. Test it by clicking on the 'Inject node', you will see some output in the debug window on the right (click on 'Debug' to change the view from info to debug).
+
+##Nodes used in the labs
+In this section several nodes will be described which will be used in the labs which can be found [here](../../../../Watson-Node-Red-Samples). The labs will use these services to create Watson applications.
+
+### http in node
+
+![httpin](images/node-red_HTTPInput.png)
+
+This node provides an input node for http requests, allowing the creation of simple web services.
+
+The resulting message has the following properties:
+
+    msg.req : http request
+    msg.res : http response
+
+For POST/PUT requests, the body is available under 
+
+    msg.req.body
+This uses the Express bodyParser middleware to parse the content to a JSON object.
+
+By default, this expects the body of the request to be url encoded:
+
+    foo=bar&this=that
+
+To send JSON encoded data to the node, the content-type header of the request must be set to application/json.
+
+Note: This node does not send any response to the http request. This should be done with a subsequent HTTP Response node.
 
 
-This inject node is edited to output the string 'Hello'.
-Next a function node is dragged on and edited to define a JavaScript function that appends the string ' World' to any message it receives.
-These two nodes are then wired together. Most nodes have a grey circle on their left edge, which represents their input port, and on their right edge, which represents their output port. Left clicking and dragging the output port of the 'Hello' node to the input port of the ' World' node connects the two together.
-The final stage is to add a Debug node that prints the message it receives in the Debug window. This Debug node is then wired to the output of the ' World' node.
-The process is now ready to run and once deployed will display the string 'Hello World' in the Debug box, shown on the right of the screen.
-This finished program is an example of what is called a flow in Node-RED.
+### http response node
+
+![httpin](images/node-red_HTTPResponse.png)
+
+This node can send responses back to http requests received from an HTTP Input node.
+
+The response can be customised using the following message properties:
+
+    payload 
+is sent as the body of the response
+
+    StatusCode
+if set, is used as the response status code (default: 200)
+
+    headers
+if set, should be an object containing field/value pairs to be added as response headers.
+
+### change node
+
+![httpin](images/node-red_change.png)
+
+Set, change or delete properties of a message.
+
+The node can specify multiple rules that will be applied to the message in turn.
+
+The available operations are:
+
+    Set 
+sets a property. The to property can either be a string value, or reference another message property by name, for example: msg.topic.
+
+    Change
+search & replace parts of the property. If regular expressions are enabled, the replace with property can include capture groups, for example $1
+
+    Delete
+deletes a property.
+
+### switch node
+
+![httpin](images/node-red_switch.png)
+
+A simple function node to route messages based on its properties.
+
+When a message arrives, the selected property is evaluated against each of the defined rules. The message is then sent to the output of all rules that pass.
+
+Note: the otherwise rule applies as a "not any of" the rules preceding it.
+
+### template node
+
+![httpin](images/node-red_template.png)
+
+Creates a new message based on the provided template.
+
+This uses the mustache format.
+
+For example, when a template of:
+
+    Hello {{name}}. Today is {{date}}
+
+receives a message containing:
+
+    {
+     name: "Fred",
+     date: "Monday"
+     payload: ...
+    }
+
+The resulting payload will be:
+
+    Hello Fred. Today is Monday
+
 
     
 
