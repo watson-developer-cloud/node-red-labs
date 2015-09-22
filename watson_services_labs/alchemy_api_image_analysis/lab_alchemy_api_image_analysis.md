@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #  Node-RED Alchemy Vision (Image Analysis) Lab
 ## Overview
 The Alchemy Vision service allows to analyse the contents of an image and extract features from it. The Face Detection service is able to identify multiple faces within the image, and determine their gender and age with a confidence score, and identify celebrities.
@@ -13,10 +12,10 @@ The flow will present a simple Web page with a text field where to input the ima
 ![AlchVis-FaceDetectionFlow](images/AlchVis-FaceDetectionFlow.png)  
 The nodes required to build this flow are:
 
- - A ![`HTTPInput`](images/node-red/HTTPInput.png) node, configured with a `/alchvision` URL
- - A ![`switch`](images/node-red/switch.png) node which will test for the presence of the `imageurl` query parameter:  
-   ![AlchVis-Lab-Switch-Node-Props](images/AlchVision/AlchVis-Lab-Switch-Node-Props.png)
- - A first ![template](images/node-red/template.png) node, configured to output an HTML input field and suggest a few selected images taken from official sources:
+ - A ![`HTTPInput`](../../node-RED_labs/images/node-red_HTTPInput.png) node, configured with a `/alchvision` URL
+ - A ![`switch`](../../node-RED_labs/images/node-red_switch.png) node which will test for the presence of the `imageurl` query parameter:  
+   ![AlchVis-Lab-Switch-Node-Props](images/AlchVis-Switch_Props.png)
+ - A first ![template](../../node-RED_labs/images/node-red_template.png) node, configured to output an HTML input field and suggest a few selected images taken from official sources:
 ```HTML
 <h1>Welcome to the Alchemy Vision Face Detection Demo on Node-RED</h1>
 <H2>Select an image</H2>
@@ -29,13 +28,13 @@ The nodes required to build this flow are:
     <input type="submit" value="Analyze"/>
 </form>
 ```
-![AlchVis-Lab-TemplatePrompt-Node-Props](images/AlchVision/AlchVis-Lab-TemplatePrompt-Node-Props.png)
+![AlchVis-Lab-TemplatePrompt-Node-Props](images/AlchVis-TemplatePrompt-Props.png)
 
- - The ![`Alchemy Image Analysis`](images/node-red/Alchemy_Image_Analysis.png) node, preceded by a ![change](images/node-red/change.png) node to extract the `imageurl` query parameter from the web request and assign it to the payload to be provided as input to the Alchemy Image Analysis node:
+ - The ![`Alchemy Image Analysis`](images/node-red_Alchemy_Image_Analysis.png) node, preceded by a ![change](../../node-RED_labs/images/node-red_change.png) node to extract the `imageurl` query parameter from the web request and assign it to the payload to be provided as input to the Alchemy Image Analysis node:
  
-![AlchVis-Lab-Change_and_IA-Node-Props](images/AlchVision/AlchVis-Lab-Change_and_IA-Node-Props.png)
+![AlchVis-Lab-Change_and_IA-Node-Props](images/AlchVis-Change_and_IA-Props.png)
 
- - And a final  ![`template`](images/node-red/template.png) node linked to the ![`HTTPResponse`](images/node-red/HTTPResponse.png) output node. The template will format the output returned from the Image Analysis node into an HTML table for easier reading:
+ - And a final  ![`template`](../../node-RED_labs/images/node-red_template.png) node linked to the ![`HTTPResponse`](../../node-RED_labs/images/node-red_HTTPResponse.png) output node. The template will format the output returned from the Image Analysis node into an HTML table for easier reading:
 ```HTML
     <h1>Alchemy Image Analysis</h1>
     <p>Analyzed image: {{payload}}<br/><img id="alchemy_image" src="{{payload}}" height="50"/></p>
@@ -54,19 +53,14 @@ The nodes required to build this flow are:
         <input type="submit" value="Try again"/>
     </form>
 ```
-![AlchVis-Lab-TemplateReport-Node-Props](images/AlchVision/AlchVis-Lab-TemplateReport-Node-Props.png)
+![AlchVis-Lab-TemplateReport-Node-Props](images/AlchVis-TemplateReport-Props.png)
 
 To run the web page, point your browser to  `/http://xxxx.mybluemix.net/alchvision` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.  
-The complete flow is available at [AlchVis-Lab-WebPage](flows/AlchVision/AlchVis-Lab-WebPage.json).
+The complete flow is available at [AlchVis-Lab-WebPage](AlchVis-Lab-WebPage.json).
 
-#### Extended Alchemy Vision Face Detection Lab:
+## Extended Alchemy Vision Face Detection Lab:
 The Alchemy Vision API also yields the bounding rectangle for the detected faces, so we can enhance  the HTML page with some JavaScript and canvas to highlight these. The HTML page code for the 'Report Faces' template would need to be updated with the following snippet:  
 ```HTML
 ```
 This enhanced flow is available at  
-[AlchVis-Lab-WebPageFaceBoxes](flows/AlchVision/AlchVis-Lab-WebPageFaceBoxes.json).
-=======
-#Alchemy API Image Analysis
-
-Lab instructions TO DO
->>>>>>> master
+[AlchVis-Lab-WebPageFaceBoxes](AlchVis-Lab-WebPageFaceBoxes.json).
