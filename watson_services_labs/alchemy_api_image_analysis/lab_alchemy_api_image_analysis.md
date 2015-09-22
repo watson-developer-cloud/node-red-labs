@@ -168,7 +168,8 @@ The HTML page code for the 'Report Faces' template can be updated with the follo
 </html>
 ```  
 What this page does is to have an extra column appended up front, with a canvas where the rectangle of the face recognition will be drawn. In addition, the faces rectangles will be drawn on the group photo.  
-This flow is deployed at the `/alchthumbs` URL 
+This flow is deployed at the `/alchthumbs` URL, which will yield a page similar as this one:  
+![Lab Screenshot](images/AlchVis-Lab-WebFacesThumbs.png)
 
 The flow export is available at:  
 [AlchVis-Lab-WebFacesThumbs](AlchVis-Lab-WebFacesThumbs.json).
