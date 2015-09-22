@@ -39,6 +39,7 @@ NOTE: When you are not using Node-RED stand alone but using Node-RED on Bluemix,
 
 
 When you have Node.js installed, run:
+
 For Linux/OS X 
 
     $ sudo npm install -g node-red
@@ -54,6 +55,7 @@ The default instance of Node-RED does not contain the IBM Watson services which 
 You simply execute this command: npm install node-red-bluemix-nodes
 
 When finished start Node-RED:
+
 For Linux/OS X: 
 
     $ node-red
@@ -62,7 +64,7 @@ For Windows
 
     node node_modules/node-red/red.js
 
- Then open http://localhost:1880
+ Then open [http://localhost:1880](http://localhost:1880)
 
 Check out [this page](http://nodered.org/docs/getting-started/) for full instructions on getting started with Node-RED.
 
@@ -71,11 +73,11 @@ Check out [this page](http://nodered.org/docs/getting-started/) for full instruc
 
 This is required when Node-RED is not used stand alone. 
 You need a Bluemix account which can be acquired [here](http://ibm.biz/bluemixnl)
-When you are logged in got to Catalog and click on the Node-RED starter application.
-On the right side of the screen you must give it a name, which must be unique. Then click Create.
+When you are logged in go to 'Catalog' and click on the 'Node-RED starter' application.
+On the right side of the screen you must give it a name, which must be unique. Then click 'Create'.
 Right now the Node-RED application is being created and deployed. This will take a few minutes. When finished click on the URL, which opens up your Node-RED application.
 
-You can do this part later but for the labs you need to add the (Watson) services, you want to use, to your application. Go to Bluemix and open the dashboard and click on your application, then click on Add a Service or API. In the screen that follows select the service you want to use, and finally click on use. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. If a service is not added you to the Node-RED application, you will get an error or a node is asking for credentials depending on the type of node.
+You can do this part later but for the labs you need to add the (Watson) services, you want to use, to your application. If a service is not added you to the Node-RED application, you will get an error or a node is asking for credentials depending on the type of node. Go to Bluemix and open the dashboard and click on your application, then click on 'Add a Service or API'. In the screen that follows select the service you want to use, and finally click on 'Use'. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. 
 
 
 ###Creating your first flow
@@ -85,20 +87,20 @@ We will create a Hello World flow.
 ![HelloWorldFlowT](images/HelloWorldFlow.jpg)
 
 This program is a very simple flow that prints the message 'Hello World' on the screen. 
-Here you can see Node-RED's user interface,  the rounded blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
+Here you can see Node-RED's user interface, the colored blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
 To build this 'Hello World' flow you need to take the following steps:
 
- 1. Drag an 'inject node' to the canvas
+ 1. Drag an 'Inject node' to the canvas
  2. Double click this node to see the options
  3. Use the drop-dwon, to select string for the payload
- 4. Type Hello on the second line
+ 4. Type 'Hello' on the second line
 (this will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
- 5. Add a function node, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the Payload. The complete function should look like this: ![HelloWorld](images/completeHWfunc.jpg) 
- 6. Add a debug node
- 7. Wire the inject node to the function node and the function node to the debug node. Most nodes have a grey circle on their left side, which is their input port, and on their right side, which is their output port. Left clicking and dragging the output to the input port of the next node connects the two together.
- 8. Press deploy.
+ 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the payload. The complete function should look like this: ![HelloWorld](images/completeHWfunc.jpg) 
+ 6. Add a 'Debug node' to the canvas.
+ 7. Wire the 'Inject node' to the 'Function node' and the function node to the 'Debug node'. Most nodes have a grey circle on their left side, which is their input port, and on their right side, which is their output port. Left clicking and dragging the output to the input port of the next node connects the two together.
+ 8. Press 'Deploy'.
  
-Now you have build your first Hello World flow. Test it by clicking on the inject node, you will see some output in the debug window on the right (click on debug to change the view from info to debug).
+Now you have build your first Hello World flow. Test it by clicking on the 'Inject node', you will see some output in the debug window on the right (click on 'Debug' to change the view from info to debug).
 
 
 
