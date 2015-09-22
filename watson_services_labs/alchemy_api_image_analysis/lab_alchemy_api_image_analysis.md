@@ -62,43 +62,20 @@ The complete flow is available at [AlchVis-Lab-WebPage](AlchVis-Lab-WebPage.json
 The Alchemy Vision API also yields the bounding rectangle for the detected faces, so we can enhance  the HTML page with some JavaScript and HTML5 Canvas to highlight these.  
 The HTML page code for the 'Report Faces' template can be updated with the following snippet:  
 ```HTML
-<h1>Alchemy Vision Face Recognition on Node-RED</h1>
-<p>Analyzed image: <a href="{{payload}}" target='_blank'>{{payload}}</a><br/>
-<img style="display: none;" id="alchemy_image" src="{{payload}}"/></p>
-{{^result}}
-<P>No Face detected</P>
-{{/result}}
-<canvas id="imageCanvas" width="400" height="400" style="border:1px solid #000000;">
-    <p>Sorry, HTML5 Canvas not supported in your browser</p>
-</canvas>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Node-RED Alchemy Vision Face Recognition</title>
 <script>
-    // Find the image tag
-    var img = document.getElementById("alchemy_image");
-    
-    // get canvas once for all
-    var c = document.getElementById("imageCanvas");
-    var cv_w=c.width;
-    var cv_h=c.height;
-    
     // This function draws the main canvas
-    function drawCanvas() {    
-        // Adjust canvas size for correct aspect ratio
-        if(img.naturalHeight>img.naturalWidth) {
-            cv_w=cv_w*img.naturalWidth/img.naturalHeight;
-            c.width=cv_w;
-        } else {
-            cv_h=cv_h*img.naturalHeight/img.naturalWidth;
-            c.height=cv_h;
-        }
-        
+    function drawCanvas(img,ctx,cv_w,cv_h) {    
         // draw the image, resized to fit the canvas
-        var ctx = c.getContext("2d");
         ctx.drawImage(img,0,0,cv_w,cv_h);
     }
 
     // This function draws a single thumbnail face on the mains
     // canvas context and then on the individual canvas
-    function drawThumb(ctx,thumbX,thumbY,thumbW,thumbH,color,cvTh) {
+    function drawThumb(img,ctx,cv_w,cv_h,thumbX,thumbY,thumbW,thumbH,color,cvTh) {
         ctx.beginPath();
         // adjust thinkness of box depending on size vs canvas
         if(thumbW>=cv_w/12 || thumbH>=cv_w/12) {
@@ -119,8 +96,7 @@ The HTML page code for the 'Report Faces' template can be updated with the follo
                         0,0,cvTh.width,cvTh.height);
     }
 
-    function drawThumbs() {
-        var ctx = c.getContext("2d");
+    function drawThumbs(img,ctx,cv_w,cv_h) {
         var cths=document.getElementsByClassName("cv_thumbs");
         var iTh=0;
         var color;
@@ -129,19 +105,44 @@ The HTML page code for the 'Report Faces' template can be updated with the follo
             {{^identity}}
             color="red";
             {{/identity}}
-
-            drawThumb(ctx,{{positionX}},{{positionY}},{{width}},{{height}},color,cths[iTh]);
-            iTh++;
+            drawThumb(img,ctx,cv_w,cv_h,{{positionX}},{{positionY}},{{width}},{{height}},color,cths[iTh++]);
         {{/result}}        
     }
-    function drawAll() {
-        drawCanvas();
-        drawThumbs();
-    }
     
-    img.onload=drawAll;
-</script>
+    function drawAll() {
+        // Find the image tag
+        var img = document.getElementById("alchemy_image");
+    
+        // get canvas
+        var c = document.getElementById("imageCanvas");
+        var cv_w=c.width;
+        var cv_h=c.height;
 
+        // Adjust canvas size for correct aspect ratio
+        if(img.naturalHeight>img.naturalWidth) {
+            cv_w=cv_w*img.naturalWidth/img.naturalHeight;
+            c.width=cv_w;
+        } else {
+            cv_h=cv_h*img.naturalHeight/img.naturalWidth;
+            c.height=cv_h;
+        }
+        
+        var ctx = c.getContext("2d");
+        drawCanvas(img,ctx,cv_w,cv_h);
+        drawThumbs(img,ctx,cv_w,cv_h);
+    }
+</script>
+</head>
+<body>
+<h1>Alchemy Vision Face Recognition on Node-RED</h1>
+<p>Analyzed image: <a href="{{payload}}" target='_blank'>{{payload}}</a><br/>
+<img style="display: none;" id="alchemy_image" src="{{payload}}" onload="drawAll()"/></p>
+{{^result}}
+<P>No Face detected</P>
+{{/result}}
+<canvas id="imageCanvas" width="400" height="400" style="border:1px solid #000000;">
+    <p>Sorry, HTML5 Canvas not supported in your browser</p>
+</canvas>
 <table border='1'>
     <col align="center">
     <tr><th rowspan='2'>Thumb</th><th colspan='2'>Age</th><th colspan='2'>Gender</th><th colspan='2'>Name</th></tr>
@@ -163,6 +164,8 @@ The HTML page code for the 'Report Faces' template can be updated with the follo
 <form  action="{{req._parsedUrl.pathname}}">
     <input type="submit" value="Try again"/>
 </form>
+</body>
+</html>
 ```  
 What this page does is to have an extra column appended up front, with a canvas where the rectangle of the face recognition will be drawn. In addition, the faces rectangles will be drawn on the group photo.  
 This flow is deployed at the `/alchthumbs` URL 
