@@ -68,7 +68,6 @@ For Windows
 
 Check out [this page](http://nodered.org/docs/getting-started/) for full instructions on getting started with Node-RED.
 
-
 ###Deploy Node-RED on Bluemix
 
 This is required when Node-RED is not used stand alone. 
@@ -77,8 +76,7 @@ When you are logged in go to 'Catalog' and click on the 'Node-RED starter' appli
 On the right side of the screen you must give it a name, which must be unique. Then click 'Create'.
 Right now the Node-RED application is being created and deployed. This will take a few minutes. When finished click on the URL, which opens up your Node-RED application.
 
-You can do this part later but for the labs you need to add the (Watson) services, you want to use, to your application. If a service is not added you to the Node-RED application, you will get an error or a node is asking for credentials depending on the type of node. Go to Bluemix and open the dashboard and click on your application, then click on 'Add a Service or API'. In the screen that follows select the service you want to use, and finally click on 'Use'. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. 
-
+You can do this part later, but for the labs you need to add the (Watson) services to your application. If a service is not added you to the Node-RED application, you can get an error or a node is asking for credentials depending on the type of node. Go to Bluemix and open the dashboard and click on your application, then click on 'Add a Service or API'. In the screen that follows select the service you want to use, and finally click on 'Use'. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. 
 
 ###Creating your first flow
 
@@ -102,6 +100,103 @@ To build this 'Hello World' flow you need to take the following steps:
  
 Now you have build your first Hello World flow. Test it by clicking on the 'Inject node', you will see some output in the debug window on the right (click on 'Debug' to change the view from info to debug).
 
+##Nodes used in the labs
+In this section several nodes will be described which will be used in the labs which can be found [here](../../../../Watson-Node-Red-Samples). The labs will use these services to create Watson applications.
+
+### http in node
+
+![httpin](images/node-red_HTTPInput.png)
+
+This node provides an input node for http requests, allowing the creation of simple web services.
+
+The resulting message has the following properties:
+
+    msg.req : http request
+    msg.res : http response
+
+For POST/PUT requests, the body is available under 
+
+    msg.req.body
+This uses the Express bodyParser middleware to parse the content to a JSON object.
+
+By default, this expects the body of the request to be url encoded:
+
+    foo=bar&this=that
+
+To send JSON encoded data to the node, the content-type header of the request must be set to application/json.
+
+Note: This node does not send any response to the http request. This should be done with a subsequent HTTP Response node.
+
+
+### http response node
+
+![httpin](images/node-red_HTTPResponse.png)
+
+This node can send responses back to http requests received from an HTTP Input node.
+
+The response can be customised using the following message properties:
+
+    payload 
+is sent as the body of the response
+
+    StatusCode
+if set, is used as the response status code (default: 200)
+
+    headers
+if set, should be an object containing field/value pairs to be added as response headers.
+
+### change node
+
+![httpin](images/node-red_change.png)
+
+Set, change or delete properties of a message.
+
+The node can specify multiple rules that will be applied to the message in turn.
+
+The available operations are:
+
+    Set 
+sets a property. The to property can either be a string value, or reference another message property by name, for example: msg.topic.
+
+    Change
+search & replace parts of the property. If regular expressions are enabled, the replace with property can include capture groups, for example $1
+
+    Delete
+deletes a property.
+
+### switch node
+
+![httpin](images/node-red_switch.png)
+
+A simple function node to route messages based on its properties.
+
+When a message arrives, the selected property is evaluated against each of the defined rules. The message is then sent to the output of all rules that pass.
+
+Note: the otherwise rule applies as a "not any of" the rules preceding it.
+
+### template node
+
+![httpin](images/node-red_template.png)
+
+Creates a new message based on the provided template.
+
+This uses the mustache format.
+
+For example, when a template of:
+
+    Hello {{name}}. Today is {{date}}
+
+receives a message containing:
+
+    {
+     name: "Fred",
+     date: "Monday"
+     payload: ...
+    }
+
+The resulting payload will be:
+
+    Hello Fred. Today is Monday
 
 
     
