@@ -1,0 +1,124 @@
+
+
+[
+  {
+    "id": "2fb59571.ca4632",
+    "type": "template",
+    "name": "Prompt Images",
+    "field": "payload",
+    "format": "html",
+    "template": "<h1>Welcome to the Alchemy Vision Face Detection Demo on Node-RED<\/h1>\n<H2>Select an image<\/H2>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <img src=\"http:\/\/www.ambafrance-mt.org\/local\/cache-vignettes\/L945xH539\/family_photo8851-b0e9b.jpg\" height='100'\/>\n    <img src=\"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f1\/34th_G8_summit_member_20080707.jpg\" height='100'\/>\n    <img src=\"http:\/\/demo1.alchemyapi.com\/images\/vision\/politicians.jpg\" height='100'\/>\n        <br\/>Copy above image location URL or enter any image URL:<br\/>\n    Image URL: <input type=\"text\" name=\"imageurl\"\/>\n    <input type=\"submit\" value=\"Analyze\"\/>\n<\/form>",
+    "x": 545,
+    "y": 60,
+    "wires": [
+      [
+        "b3685700.243c38"
+      ]
+    ]
+  },
+  {
+    "id": "53be0882.9836c",
+    "type": "http in",
+    "name": "",
+    "url": "\/alchvision",
+    "method": "get",
+    "swaggerDoc": "",
+    "x": 107,
+    "y": 74,
+    "wires": [
+      [
+        "ad4ad021.0d7388"
+      ]
+    ]
+  },
+  {
+    "id": "b3685700.243c38",
+    "type": "http response",
+    "name": "HTTP Response",
+    "x": 815,
+    "y": 143,
+    "wires": [
+      
+    ]
+  },
+  {
+    "id": "ad4ad021.0d7388",
+    "type": "switch",
+    "name": "Check image url",
+    "property": "payload.imageurl",
+    "rules": [
+      {
+        "t": "null"
+      },
+      {
+        "t": "else"
+      }
+    ],
+    "checkall": "false",
+    "outputs": 2,
+    "x": 236,
+    "y": 143,
+    "wires": [
+      [
+        "2fb59571.ca4632"
+      ],
+      [
+        "32d0c2f0.51e58e"
+      ]
+    ]
+  },
+  {
+    "id": "578b4e43.3c4568",
+    "type": "template",
+    "name": "Report Faces",
+    "field": "payload",
+    "format": "html",
+    "template": "<h1>Alchemy Image Analysis<\/h1>\n<p>Analyzed image: {{payload}}<br\/><img id=\"alchemy_image\" src=\"{{payload}}\" height=\"50\"\/><\/p>\n{{^result}}\n<P>No Face detected<\/P>\n{{\/result}}\n<table border='1'>\n    <thead><tr><th>Age Range<\/th><th>Score<\/th><th>Gender<\/th><th>Score<\/th><th>Name<\/th><\/tr><\/thead>\n    {{#result}}<tr>\n        <td><b>{{age.ageRange}}<\/b><\/td><td><i>{{age.score}}<\/i><\/td>\n        <td>{{gender.gender}}<\/td><td>{{gender.score}}<\/td>\n        {{#identity}}<td>{{identity.name}} ({{identity.score}})<\/td>{{\/identity}}\n    <\/tr>{{\/result}}\n<\/table>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"submit\" value=\"Try again\"\/>\n<\/form>",
+    "x": 646,
+    "y": 233,
+    "wires": [
+      [
+        "b3685700.243c38"
+      ]
+    ]
+  },
+  {
+    "id": "32d0c2f0.51e58e",
+    "type": "change",
+    "name": "Extract img URL",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "to": "msg.payload.imageurl"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 337,
+    "y": 239,
+    "wires": [
+      [
+        "a57cd64c.c97338"
+      ]
+    ]
+  },
+  {
+    "id": "a57cd64c.c97338",
+    "type": "alchemy-image-analysis",
+    "name": "",
+    "apikey": "657246893ff038bda95ea4d8d0ffc3177451e0e5",
+    "image-feature": "imageFaces",
+    "x": 499,
+    "y": 299,
+    "wires": [
+      [
+        "578b4e43.3c4568"
+      ]
+    ]
+  }
+]
+
