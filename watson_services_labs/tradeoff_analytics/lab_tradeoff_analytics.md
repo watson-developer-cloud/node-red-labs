@@ -162,5 +162,9 @@ This flow on `tofaw/dilemmas` will make some parameters adjustments through a `c
 ### Events serving stream
 Notifications of events that happen on the widget will be received on that last stream at `/ tofaw/events`. Currently the flow does not do anything about the events, you can add a debug node to log the contents of the notifications.
 
+## Testing the widget
+Deploy the flow and point your browser at `http://xxx.mybluemix.net/tofaw`. Rendering of the widget should start and eventually yield a screen such as:  
+![Trade-Off Analysis Widget Screenshot](images\toff_widget_screenshot.png)
+
 ## Trade-Off Analytics Widget flow file
 The complete flow is in the file [Trade-Off Analytics Widget](TradeOffAnalyticsWidget.json)
