@@ -6,12 +6,13 @@ These Watson nodes are used:
 
 - Language Identification
 - Language Translation
-- Personality insights
+- [Personality insights](watson_services_labs/personality_insights/lab_personality_insights.md)
 - Speech to Text
 - [Text to Speech](watson_services_labs/text_to_speech/lab_text_to_speech.md)
-- Tradeoff Analytics
+- [Tradeoff Analytics](watson_services_labs/tradeoff_analytics/lab_tradeoff_analytics.md)
 - [Visual Recognition](watson_services_labs/visual_recognition/lab_visual_recognition.md)
 - [Alchemy Vision](watson_services_labs/alchemy_api_image_analysis/lab_alchemy_api_image_analysis.md)
+- [Alchemy Feature Extraction](watson_services_labs/alchemy_api_feature_extraction/lab_alchemy_api_feature_extraction.md)
 
 First you need an instance of Node-RED with Watson services. Therefore you need a Bluemix account. You can get that here: http://www.bluemix.net.
 
