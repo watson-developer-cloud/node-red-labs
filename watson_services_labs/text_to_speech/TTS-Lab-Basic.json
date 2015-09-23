@@ -1,22 +1,36 @@
 [
   {
-    "id": "29ff9d22.e21fba",
+    "id": "8dfaf271.5cebd",
+    "type": "function",
+    "name": "Set headers",
+    "func": "\/\/ Set the content type to audio wave\nmsg.headers={ 'Content-Type': 'audio\/wav'};\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 360,
+    "y": 255,
+    "wires": [
+      [
+        "de9c0e59.e22c48"
+      ]
+    ]
+  },
+  {
+    "id": "505628d0.31fbc",
     "type": "http in",
     "name": "",
     "url": "\/tts\/sayit",
     "method": "get",
     "swaggerDoc": "",
-    "x": 140,
-    "y": 97,
-    "z": "c11b0433.19f498",
+    "x": 80,
+    "y": 148,
     "wires": [
       [
-        "5d636614.d07548"
+        "6e8c8ee3.77a84"
       ]
     ]
   },
   {
-    "id": "5d636614.d07548",
+    "id": "6e8c8ee3.77a84",
     "type": "change",
     "name": "text to payload",
     "rules": [
@@ -31,32 +45,30 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 297,
-    "y": 57,
-    "z": "c11b0433.19f498",
+    "x": 235,
+    "y": 83,
     "wires": [
       [
-        "81960dda.423b5"
+        "1a56837e.0a0835"
       ]
     ]
   },
   {
-    "id": "81960dda.423b5",
+    "id": "1a56837e.0a0835",
     "type": "watson-text-to-speech",
     "name": "",
     "lang": "english",
     "voice": "en-US_MichaelVoice",
-    "x": 329,
-    "y": 122,
-    "z": "c11b0433.19f498",
+    "x": 290,
+    "y": 146,
     "wires": [
       [
-        "b97534e7.6c6df8"
+        "40011faa.e204b8"
       ]
     ]
   },
   {
-    "id": "b97534e7.6c6df8",
+    "id": "40011faa.e204b8",
     "type": "change",
     "name": "speech to payload",
     "rules": [
@@ -64,11 +76,6 @@
         "t": "set",
         "p": "payload",
         "to": "msg.speech"
-      },
-      {
-        "t": "set",
-        "p": "headers",
-        "to": "[{ 'Content-Type', 'audio\/wav'}]"
       }
     ],
     "action": "",
@@ -76,23 +83,22 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 409,
-    "y": 184,
-    "z": "c11b0433.19f498",
+    "x": 330,
+    "y": 200,
     "wires": [
       [
-        "19dd6f4.9045491"
+        "8dfaf271.5cebd"
       ]
     ]
   },
   {
-    "id": "19dd6f4.9045491",
+    "id": "de9c0e59.e22c48",
     "type": "http response",
     "name": "",
-    "x": 481,
-    "y": 244,
-    "z": "c11b0433.19f498",
+    "x": 545,
+    "y": 145,
     "wires": [
+      
     ]
   }
 ]
