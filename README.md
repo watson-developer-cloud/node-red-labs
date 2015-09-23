@@ -1,11 +1,25 @@
 # Watson-Node-Red-examples
 
-A collection of examples on how to use the Watson nodes in Node-RED.
+This Github project consists of a collection of examples on how to use the Watson nodes in Node-RED. Besides the samples there are some labs available where different Watson nodes are combined to create apps.
 
-These Watson nodes are used:
+To use these nodes you first have to set up your environment. 
+The information on [this page](/node-RED_labs/lab_node-RED.md) will get you started in a few minutes. It helps you with:
 
-- Language Identification
-- Language Translation
+- setting up your environment
+- build your first 'Hello World' flow
+- additional information on the non-Watson Nodes you use in the labs
+
+In the image below you can see which Watson services are available in Bluemix. The circled ones are used in Node-RED.
+Some nodes in Node-RED make use of the same service in Bluemix, like:
+- The Language Identification and Language Translation nodes make use of the Language Translation service in Bluemix.  
+- The Feature extract and image analysis nodes make use of the Alchemy API service in Bluemix
+
+![NodeRedStarter](WatsonServicesOverview.jpg)
+
+In the list below, you can click on the different subjects and see how this  can be implemented in Node-RED
+
+- [Language Identification](watson_services_labs/language_identification/lab_language_identification.md)
+- [Language Translation](watson_services_labs/language_translation/lab_language_translation.md)
 - [Personality insights](watson_services_labs/personality_insights/lab_personality_insights.md)
 - Speech to Text
 - [Text to Speech](watson_services_labs/text_to_speech/lab_text_to_speech.md)
@@ -14,92 +28,7 @@ These Watson nodes are used:
 - [Alchemy Vision](watson_services_labs/alchemy_api_image_analysis/lab_alchemy_api_image_analysis.md)
 - [Alchemy Feature Extraction](watson_services_labs/alchemy_api_feature_extraction/lab_alchemy_api_feature_extraction.md)
 
-First you need an instance of Node-RED with Watson services. Therefore you need a Bluemix account. You can get that here: http://www.bluemix.net.
-
-Once you are in Bluemix, go to Catalog and then go to the boilerplate section and select Node-RED Starter, in the next screen, give your application a name and click create.
-
-You need to add the services you want to use to your application. Go to the dashboard and click on your application, then click on Add a Service or API. In the following screen select the service you want to use, and finally click on use. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED.
-
-Another way of using Node-RED is installing it locally, which can be done by following this:
-
-Check out http://nodered.org/docs/getting-started/ for full instructions on getting started.
-
-    sudo npm install -g node-red
-    node-red
-    Open http://localhost:1880
-    
-You have to install the Watson Nodes, which is described here: http://flows.nodered.org/node/node-red-bluemix-nodes
-and you have to make the services available in Bluemix.
-
-DESCRIBE THAT
-
-Note that Node-RED in BlueMix will behave slightly differently than Node-RED stand-alone:
-
-1. The sets of available nodes differ, BlueMix has extra nodes for DB access, but does not expose the `File` nodes.
-2. Node-RED in bluemix stores its persistent data (flows, libraries, credentials) in the co-installed Cloudant database named
-`nodered`. When using a Cloudant node with Node-RED on BlueMix, the list of available instances is automatically listed.
-3. Node-RED in BlueMix has built-in credential management, so you don't have to worry about exposing your services authentication data, they will be filled-in automatically from the sevices' credentialds defined for the application in BlueMix.
-4. Additional nodes in Node-RED on BlueMix are installed through cf and a specific procedure since there is no direct access to the npm package manager.
-## Language Identification
-
-The Language Identification enables you to quickly identify the language text is written in.
-
-This service can identify many languages: Arabic; Chinese (Simplified); Chinese (Traditional); Cyrillic; Danish; Dutch; English; Farsi; Finnish; French; German; Greek; Hebrew; Hindi; Icelandic; Italian; Japanese; Korean; Norwegian (Bokmal); Norwegian (Nynorsk); Portuguese; Spanish; Swedish; Turkish; Urdu. 
-
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI.jpg)
-
-In this example some random text  is injected, identified by the Watson Language Indentification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
-
-In the following screenshots you can see how the nodes are configured.
-
-The inject node: 
-
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.jpg)
-
-You can use any text for this.
-
-The Language Identification node does not need any configuration
-
-And this is the output:
-
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/images/Language%20Identification/LI_output.jpg)
-
-You can also copy the code for the flow here and import it from clipboard into Node-RED:
-
-![Language Identification flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Identification/LI_flow)
-## Language Translation
-
-The Language Translation service enables you to translate text from one language to another.
-These languages are supported:
-
-- The News domain - targeted at news articles and transcripts, it translates English to and from French, Spanish, Portuguese or Arabic.
-- The Conversational domain - targeted at conversational colloquialisms, it translates English to and from French, Spanish, Portuguese or Arabic.
-- The Patent domain - targeted at technical and legal terminology, it translates Spanish, Portuguese, Chinese, or Korean to English.
+Feel free to use this content, please let us know what you think of it!
 
 
-
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT.jpg)
-
-In this example some random text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
-
-The inject node: 
-
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Inject.jpg)
-
-You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
-
-The translation node:
-
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Config.jpg)
-
-The output from the debug node: 
-
-![ScreenShot](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/master/images/Language%20Translation/LT_Debug.jpg)
-
-You can also copy the code for the flow here and import it from clipboard into Node-RED:
-
-![Language Translation flow](https://github.com/NodeREDWatson/Watson-Node-Red-Samples/blob/Language-Identification/files/Language%20Translation/LT_flow.txt)
-
-
-....Work in progress...More to come in a moment...
 
