@@ -2,7 +2,7 @@
 ## Overview
 In this lab we will explore how Node-RED rapid prototyping capabilities allow to easily combine several Watson services into a single application using Node-RED rapid prototyping capabilities.  
 
-This lab will focus on bringing audio to the previously developed Alchemy Vision Enhanced lab ([alchemy_image_analysis_enh](../alchemy_image_analysis_enh/alchemy_image_analysis_enh.md)), by reusing the service developed in the Text-to-Speech lab [lab_text_to_speech](../../watson_services_labs/text_to_speech/lab_text_to_speech.md)
+This lab will focus on bringing audio to the previously developed Alchemy Vision Enhanced lab ([alchemy_image_analysis_enh](../alchemy_image_analysis_enh/alchemy_image_analysis_enh.md)), by reusing the service developed in the Text-to-Speech lab ([lab_text_to_speech](../../watson_services_labs/text_to_speech/lab_text_to_speech.md))
 
 The Alchemy Vision API returns a wealth of information when celebrities' faces are detected on an image, including their names and related web URLs. We will use this input, presented in the `identity` attribute to speak up the names.
 
