@@ -54,7 +54,7 @@ Drag the Tradeoff Analytics node to the palette
 
 ![ScreenShot](images/toff_tradeoff_node.png)
 
-Finally drag a Debug node to the palette
+Finally drag a Debug node to the palette and join the nodes up as shown
 
 ![ScreenShot](images/toff_debug_node.png)
 
@@ -82,9 +82,9 @@ Click on the Debug tab on Node-RED and then return to the palette and click the 
 
 Return to the Debug tab - you should now see the resultant output from the Tradeoff Analytics node
 
-![ScreenShot](imagestoff_output.png)
+![ScreenShot](images/toff_output.png)
 
-To understand the contents of the output go to ->  [https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff-analytics/inout.shtml](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff-analytics/inout.shtml) and [https://developer.ibm.com/answers/questions/191441/need-explanation-of-solutionperspective-response-f.html](https://developer.ibm.com/answers/questions/191441/need-explanation-of-solutionperspective-response-f.html)
+To understand the contents of the output go to ->  [Watson tradeoff](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff-analytics/inout.shtml) and [Explanation of tradeoff JSON](https://developer.ibm.com/answers/questions/191441/need-explanation-of-solutionperspective-response-f.html)
 
 A complete file of the flows is saved here ->[ lab_toff_flow.json](lab_toff_flow.json)
 
