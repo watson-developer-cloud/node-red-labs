@@ -26,7 +26,7 @@ The inject node is configured like this:
 
 ![`S2Tinject`](images/s2t_inject.jpg)
 
-The next node is a File in node, which can read a local file. It is configured in the following way:
+The next node is a File in node. This node points to the file on the local system.It is configured in the following way
 
 ![`S2TFileIn`](images/s2t_FileIn.jpg)
 
@@ -40,7 +40,7 @@ Then you need to wire all the nodes together and press on 'Deploy'
 
 When you click on the Inject node, you will see the transcribed text from the audio file in the debug window.
 
-The complete flow can be found here [Text To Speech lab flow](S2T_Flow)
+The complete flow can be found here [Text To Speech lab flow](S2T_flow)
 
 
 
