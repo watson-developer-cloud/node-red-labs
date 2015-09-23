@@ -15,8 +15,21 @@ You need to have a local instance of Node-RED with IBM nodes available. If you d
 Then go to the Bluemix catalog and go to the Speech to Text service and click on it. Make sure that there is no app bound to this service and click 'Use"
 Wait until this service is deployed and click on 'Show Credentials', you will need the username and the password later on in this lab.
 
-In this lab an audio file will be transcribed. This audiofile is avilable [here](audio message.wav). 
+![`S2TOverview`](images/S2T_overview.jpg)
+
+In this lab an audio file will be transcribed. This audiofile can be downloaded [here](Audio Message.wav). 
 In the following screenshots you can see how the nodes are configured.
 
-The inject node:
+First you start with an Inject node, for starting the uploding of the .Wav file from your local machine into the Speech To Text service in Bluemix
+
+The inject node is configured like this
+![`S2Tinject`](images/s2t_inject.jpg)
+
+The next node is a File in node, which can read a local file. It is configured in the following way:
+![`S2TFileIn`](images/s2t_FileIn.jpg)
+
+
+
+
+
 
