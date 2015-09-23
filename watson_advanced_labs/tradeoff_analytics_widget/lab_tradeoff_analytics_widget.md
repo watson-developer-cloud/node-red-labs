@@ -10,8 +10,22 @@ The flow to achieve this has three streams:
 ![](images/toff_widget_flow.png)
 
 ### User-interface serving stream
-The stream connected on the `/tofaw` URL will serve a web page containing the TradeOff Analytics Widget HTML and JavaScript initialization code, and for the purpose of the exercise, a ready-made `problem` extracted from a problem object.  
-A problem object has 3 attributes, a `subject` string, a `columns` array describing the characteristics of the entities to consider, and a `options` array which represent the user's options (i.e. choices, as rows in the table) for the given problem:  
+The stream connected on the `/tofaw` URL will serve a web page containing the TradeOff Analytics Widget HTML and JavaScript initialization code, and for the purpose of the exercise, a ready-made `problem` extracted from a problem object, as can be seen in the `Set Problem` function node. We create a JavaScript object with the 3 mandatory attributes, a `subject` string, a `columns` array describing the characteristics of the entities to consider, and a `options` array which represent the user's options (i.e. choices, as rows in the table) for the given problem:  
+```javascript
+// This is where we set the dimensions (columns) of the problem to analyze
+// and the raw data (options)
+var problem = {
+  "subject": "phone",
+  "columns": [{"key": "price", "type": "numeric", "goal": "min", "full_name": "Price", "is_objective": true,  "format": "####0.00" },
+  ........
+    "options": [{
+      "key": " 1","name": "Samsung Galaxy S4 White",
+      "values": {"weight": 130,"price": 239,"RAM": 2048,"battery": 2600,"camera": 13,"memory_size": 16,"screen_size": 5,"brand": "Samsung","rDate": "2013-04-29T00:00:00Z"},
+      "description_html":
+    .......
+```
+
+Then the Template node `Widget Page` is used to generate the HTML and JavaScript client-side code that will run in the browser and interact with the server:  
 ```HTML
 <!DOCTYPE html>
 <html>
@@ -57,10 +71,11 @@ A problem object has 3 attributes, a `subject` string, a `columns` array describ
     <div id="tofaWidget" style="height:100vh"></div>
 </body>
 </html>
-```
-  - We include the widget's script located at "http://ta-cdn.mybluemix.net/v1/TradeoffAnalytics.js"
-  - The widget initialization starts with the `loadTradeoffAnalytics()` call, triggered by `window.onload`.  
-  - This invokes the constructor, with parameters to set the dilemmas and events callback URLs, and the id of the placeholder widget's <div>, 
+```  
+What the \<script> section does is to:  
+  - Include the widget's script located at "http://ta-cdn.mybluemix.net/v1/TradeoffAnalytics.js"
+  - Start the widget initialization with the `loadTradeoffAnalytics()` call, triggered by `window.onload`.  
+  - This invokes the constructor, with parameters to set the dilemmas and events callback URLs, and the id of the placeholder widget's \<div>.
   - The `start()` method is called, which will asynchronously build the widget and pull its dependencies.
   - On the TAReady event notification, we invoke `show(problem)`.  This will cause the widget to call-back on the server's `tofaw/dilemmas` URL with the problem for resolution.
   - Once the data has come back from the dilemmas server, the widget shows the problem and triggers onTAShown(), which is used to resize the widget to fit.
