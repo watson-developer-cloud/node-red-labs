@@ -61,7 +61,7 @@ Now end the line with another double quote and semi-colon :
 
 ![ScreenShot](images/fe_function_text_end_semicolon.png)
 
-Double-click the Alchemy API Feature Extract node and tick all options 
+Double-click the Alchemy API Feature Extract node, when used for the first time it will ask for an API key, enter your key and also tick all the options
 
 ![ScreenShot](images/fe_node_tick_all.png)
 
