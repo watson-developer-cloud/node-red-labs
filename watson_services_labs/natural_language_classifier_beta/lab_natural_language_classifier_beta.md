@@ -34,7 +34,10 @@ NOTE : the NLC classifier ID has been hard coded in the request (msg.url="https:
 
 ![ScreenShot](images/nlc_get_status_function.png)
 
-Go to Bluemix and open your application and navigate to the NLC Service.  Click on ??? and then ??? and get your credentials :
+Go to Bluemix and open your application and navigate to the NLC Service.  Go to your NLC Service and click on Show Credentials
+
+
+![ScreenShot](images/nlc_credentials.png)
 
     {
       "natural_language_classifier": [
@@ -53,7 +56,7 @@ Go to Bluemix and open your application and navigate to the NLC Service.  Click 
 
 Make a note of the username and password values.  Double-click the HTTP Request node and enter your credentials for your NLC Service in the node 
 
-![ScreenShot](images/nlc_credentials.png)
+![ScreenShot](images/nlc_credentials_request_node.png)
 
 Click the Deploy button.
 
