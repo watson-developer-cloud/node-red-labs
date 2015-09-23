@@ -21,7 +21,7 @@ In the list below, you can click on the different subjects and see how this  can
 - [Language Identification](watson_services_labs/language_identification/lab_language_identification.md)
 - [Language Translation](watson_services_labs/language_translation/lab_language_translation.md)
 - [Personality insights](watson_services_labs/personality_insights/lab_personality_insights.md)
-- Speech to Text
+- [Speech to Text](watson_services_labs/speech_to_text/lab_speech_to_text.md) Only available on local Node_RED instance
 - [Text to Speech](watson_services_labs/text_to_speech/lab_text_to_speech.md)
 - [Tradeoff Analytics](watson_services_labs/tradeoff_analytics/lab_tradeoff_analytics.md)
 - [Visual Recognition](watson_services_labs/visual_recognition/lab_visual_recognition.md)
