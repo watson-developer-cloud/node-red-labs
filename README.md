@@ -4,8 +4,8 @@ A collection of examples on how to use the Watson nodes in Node-RED.
 
 These Watson nodes are used:
 
-- Language Identification
-- Language Translation
+- [Language Identification](watson_services_labs/language_identification/lab_language_identification.md)
+- [Language Translation](watson_services_labs/language_translation/lab_language_translation.md)
 - [Personality insights](watson_services_labs/personality_insights/lab_personality_insights.md)
 - Speech to Text
 - [Text to Speech](watson_services_labs/text_to_speech/lab_text_to_speech.md)
