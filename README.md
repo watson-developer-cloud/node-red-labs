@@ -20,7 +20,7 @@ These Watson nodes are used:
 - [Alchemy Vision](watson_services_labs/alchemy_api_image_analysis/lab_alchemy_api_image_analysis.md)
 - [Alchemy Feature Extraction](watson_services_labs/alchemy_api_feature_extraction/lab_alchemy_api_feature_extraction.md)
 
-Feel free to use this content, please let us know waht you think of it!
+Feel free to use this content, please let us know what you think of it!
 
 
 
