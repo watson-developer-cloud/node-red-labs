@@ -2,7 +2,7 @@
 
 This Github project consists of a collection of examples on how to use the Watson nodes in Node-RED. Besides the samples there are some labs available where different Watson nodes are combined to create apps.
 To use these nodes you first have to set up your environment. 
-The information on this page will get you started in a few minutes. It helps you with
+The information on [this page](/node-RED_labs/lab_node-RED.md) will get you started in a few minutes. It helps you with
 
 - setting up your environment
 - build your first 'Hello World' flow
