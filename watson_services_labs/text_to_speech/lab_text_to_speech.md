@@ -14,23 +14,31 @@ The first part of the flow will take text input from a web invocation and return
 
 1. Create a new flow, let's call it `TTS Web` 
 2. Add an ![`HTTPInput`](../../node-RED_labs/images/node-red_HTTPInput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
-![TTS Lab 1 ScreenShot 1](images/TTS-Lab-1.png)
+![TTS Lab 1 ScreenShot 1](images/TTS-Lab-1-SetHTTPNode.png)
 When invoked with query parameters such as `?text_to_say=Hello`, they will be added as properties on the `msg.payload` object. 
 3. Add a ![`change`](../../node-RED_labs/images/node-red_change.png) node to extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
-![TTS Lab 1 ScreenShot 2](images/TTS-Lab-2.png)
+![TTS Lab 1 ScreenShot 2](images/TTS-Lab-2-EditChangeNode.png)
 We do this because the TTS node uses the text in the `msg.payload` as input.
 4. Now add a ![`Watson TTS`](images/node-red_Watson-tts.png) node. This node will generate the binary `wav` stream content to the `msg.speech` property.
-![TTS Lab 1 ScreenShot 3](images/TTS-Lab-3.png)
+![TTS Lab 1 ScreenShot 3](images/TTS-Lab-3-EditTTS.png)
 
 The properties of the TTS node will let you select the Language and Voice to use.
 
-5. Add another ![`change`](../../node-RED_labs/images/node-red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. We will also set the `HTTP response headers` by setting the `msg.headers` to the literal string value `[{ 'Content-Type', 'audio/wav'}]`. This is required in order to let browsers know that this is an audio file and not HTML.
+5. Add another ![`change`](../../node-RED_labs/images/node-red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. We will also set the `HTTP response headers` by setting the `msg.headers` to the literal string value `[{ 'Content-Type': 'audio/wav'}]`. This is required in order to let browsers know that this is an audio file and not HTML.
 
-![TTS Lab 1 ScreenShot 4](images/TTS-Lab-4.png)
+![TTS Lab 1 ScreenShot 4](images/TTS-Lab-4-EditChange.png)
 
-6. Finally, add a  ![`HTTP Response`](../../node-RED_labs/images/node-red_HTTPResponse.png) node. This node will simply return what's in the payload to the HTTP response.
+6. Add a ![`Function`](../../node-RED_labs/images/node-red_Function.png) node with the following code:  
+```javascript
+msg.headers={ 'Content-Type': 'audio/wav'};
+return msg;
+```
+![EditSetHeadFunc](images/TTS-Lab-5-EditSetHeadFunc.png)  
+This is required in order to properly set the HTTP headers so that the response can be identified as audio in Wave format by the receiving browser.
+
+7. Finally, add a  ![`HTTP Response`](../../node-RED_labs/images/node-red_HTTPResponse.png) node. This node will simply return what's in the payload to the HTTP response.
 The completed flow should look like:
-![TTS Lab 1 ScreenShot 5](images/TTS-Lab-5.png)
+![TTS Lab 1 ScreenShot 6](images/TTS-Lab-6-CompletedSimpleFlow.png)
 
 The flow code for this is in [TTS-Lab-Basic](TTS-Lab-Basic.json).
 
@@ -75,11 +83,11 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
     <p><q>{{payload}}</q></p>
     <p>Hear it:</p>
     <audio controls autoplay>
-      <source src="{{req._parsedUrl.pathname}}/sayit?text_to_say={{payload}}" type="audio/wav">
+      <source src="{{req._parsedUrl.pathname}}/sayit?text_to_say={{payload.text_to_say}}" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
     <form action="{{req._parsedUrl.pathname}}">
-        <input type="text" name="text_to_say" id="" value="{{payload}}" />
+        <input type="text" name="text_to_say" id="" value="{{payload.text_to_say}}" />
         <input type="submit" value="Try Again" />
     </form>
 ```

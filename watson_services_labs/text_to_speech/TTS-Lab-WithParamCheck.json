@@ -1,22 +1,21 @@
 [
   {
-    "id": "39fa6a6d.b6396e",
+    "id": "673cae58.df8798",
     "type": "http in",
     "name": "",
     "url": "\/tts\/sayit",
     "method": "get",
     "swaggerDoc": "",
-    "x": 138,
-    "y": 112,
-    "z": "3a972a0d.669936",
+    "x": 172,
+    "y": 121,
     "wires": [
       [
-        "d1364442.34df"
+        "1b1b7d65.16bd6b"
       ]
     ]
   },
   {
-    "id": "57c15edb.a04528",
+    "id": "256a5db7.f4618a",
     "type": "change",
     "name": "text to payload",
     "rules": [
@@ -31,32 +30,30 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 330,
-    "y": 71,
-    "z": "3a972a0d.669936",
+    "x": 364,
+    "y": 80,
     "wires": [
       [
-        "2aec1e54.47d4ba"
+        "2322f68d.61940a"
       ]
     ]
   },
   {
-    "id": "2aec1e54.47d4ba",
+    "id": "2322f68d.61940a",
     "type": "watson-text-to-speech",
     "name": "",
     "lang": "english",
     "voice": "en-US_MichaelVoice",
-    "x": 403,
-    "y": 125,
-    "z": "3a972a0d.669936",
+    "x": 436,
+    "y": 122,
     "wires": [
       [
-        "cecfa783.10b0f"
+        "4a9a7fa8.0c054"
       ]
     ]
   },
   {
-    "id": "cecfa783.10b0f",
+    "id": "4a9a7fa8.0c054",
     "type": "change",
     "name": "speech to payload",
     "rules": [
@@ -64,11 +61,6 @@
         "t": "set",
         "p": "payload",
         "to": "msg.speech"
-      },
-      {
-        "t": "set",
-        "p": "headers",
-        "to": "[{ 'Content-Type', 'audio\/wav'}]"
       }
     ],
     "action": "",
@@ -76,28 +68,26 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 494,
-    "y": 197,
-    "z": "3a972a0d.669936",
+    "x": 532,
+    "y": 174,
     "wires": [
       [
-        "9b38de2c.86527"
+        "5035e281.ef552c"
       ]
     ]
   },
   {
-    "id": "9b38de2c.86527",
+    "id": "9124c3d9.03eca8",
     "type": "http response",
     "name": "",
-    "x": 640,
-    "y": 268,
-    "z": "3a972a0d.669936",
+    "x": 803,
+    "y": 259,
     "wires": [
       
     ]
   },
   {
-    "id": "d1364442.34df",
+    "id": "1b1b7d65.16bd6b",
     "type": "switch",
     "name": "Check text",
     "property": "payload.text_to_say",
@@ -111,31 +101,44 @@
     ],
     "checkall": "false",
     "outputs": 2,
-    "x": 217,
-    "y": 223,
-    "z": "3a972a0d.669936",
+    "x": 251,
+    "y": 232,
     "wires": [
       [
-        "57c15edb.a04528"
+        "256a5db7.f4618a"
       ],
       [
-        "14852798.921f7"
+        "ab0b2879.136648"
       ]
     ]
   },
   {
-    "id": "14852798.921f7",
+    "id": "ab0b2879.136648",
     "type": "template",
     "name": "Error",
     "field": "payload",
     "format": "html",
     "template": "<h1>Missing text_to_say query param!<\/h1>",
-    "x": 417,
-    "y": 288,
-    "z": "3a972a0d.669936",
+    "x": 451,
+    "y": 297,
     "wires": [
       [
-        "9b38de2c.86527"
+        "9124c3d9.03eca8"
+      ]
+    ]
+  },
+  {
+    "id": "5035e281.ef552c",
+    "type": "function",
+    "name": "Set headers",
+    "func": "\/\/ Set the content type to audio wave\nmsg.headers={ 'Content-Type': 'audio\/wav'};\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 658,
+    "y": 225,
+    "wires": [
+      [
+        "9124c3d9.03eca8"
       ]
     ]
   }
