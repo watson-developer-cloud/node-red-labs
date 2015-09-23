@@ -2,7 +2,7 @@
 
 Note: To use the Speech To Text node we ran into some restrictions, which will be solved soon. This is why this lab is based on a stand-alone system.
 
-Speech to Text service can be used anywhere voice-interactivity is needed. The service is great for mobile experiences, transcribing media files, call center transcriptions, voice control of embedded systems, or converting sound to text to then make data searchable. Supported languages include:
+Speech to Text service can be used anywhere voice-interactivity is needed. The service is great for mobile experiences, transcribing media files, call centre transcriptions, voice control of embedded systems, or converting sound to text to then make data searchable. Supported languages include:
 - US English 
 - Spanish 
 - Japanese 
@@ -20,7 +20,7 @@ Wait until this service is deployed and click on 'Show Credentials', you will ne
 In this lab an audio file will be transcribed. This audiofile can be downloaded [here](Audio Message.wav). 
 In the following screenshots you can see how the nodes are configured.
 
-First you start with an Inject node, for starting the uploding of the .Wav file from your local machine into the Speech To Text service in Bluemix
+First you start with an Inject node, to start uploading of the .Wav file from your local machine into the Speech To Text service in Bluemix
 
 The inject node is configured like this:
 
