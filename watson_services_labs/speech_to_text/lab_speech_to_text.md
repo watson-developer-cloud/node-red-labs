@@ -22,11 +22,25 @@ In the following screenshots you can see how the nodes are configured.
 
 First you start with an Inject node, for starting the uploding of the .Wav file from your local machine into the Speech To Text service in Bluemix
 
-The inject node is configured like this
+The inject node is configured like this:
+
 ![`S2Tinject`](images/s2t_inject.jpg)
 
 The next node is a File in node, which can read a local file. It is configured in the following way:
+
 ![`S2TFileIn`](images/s2t_FileIn.jpg)
+
+Then the Speech to text node will be added. In the image below you can see how it is configured. You will need the credentials from the Bluemix service.
+
+![`S2TFileIn`](images/s2t_config.jpg)
+
+The last node is the Debug node. You need to configure this for getting the output in the debug window. The Speech to text node, will put the transcribed text into msg.transcription.
+
+Then you need to wire all the nodes together and press on 'Deploy'
+
+When you click on the Inject node, you will see the transcribed text from the audio file in the debug window.
+
+The complete flow can be found here [Text To Speech lab flow](S2T_Flow)
 
 
 
