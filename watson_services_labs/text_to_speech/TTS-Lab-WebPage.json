@@ -1,6 +1,6 @@
 [
   {
-    "id": "c31154b8.b0e548",
+    "id": "6396f403.3de294",
     "type": "change",
     "name": "text to payload",
     "rules": [
@@ -20,31 +20,31 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 430,
-    "y": 97,
+    "x": 454,
+    "y": 139,
     "wires": [
       [
-        "63b63231.c82da4"
+        "50a741c2.fcfca"
       ]
     ]
   },
   {
-    "id": "166ae64d.87f25a",
+    "id": "bc8f955e.01ce38",
     "type": "http in",
     "name": "",
     "url": "\/talk",
     "method": "get",
     "swaggerDoc": "",
-    "x": 62,
-    "y": 318,
+    "x": 86,
+    "y": 360,
     "wires": [
       [
-        "cb9e341e.96131"
+        "c11b8319.41576"
       ]
     ]
   },
   {
-    "id": "cb9e341e.96131",
+    "id": "c11b8319.41576",
     "type": "switch",
     "name": "check text",
     "property": "payload.text_to_say",
@@ -58,127 +58,98 @@
     ],
     "checkall": "false",
     "outputs": 2,
-    "x": 224,
-    "y": 317,
+    "x": 248,
+    "y": 359,
     "wires": [
       [
-        "7435b98d.6e4e2"
+        "97a87048.f41788"
       ],
       [
-        "d6938af7.b96f48"
+        "eacc7e93.e69938"
       ]
     ]
   },
   {
-    "id": "d6938af7.b96f48",
+    "id": "eacc7e93.e69938",
     "type": "template",
     "name": "GetTextToSay",
     "field": "payload",
     "format": "html",
     "template": "<h1>Enter text to Say<\/h1>\n<form action=\"{{req._parsedUrl.pathname}}\" method=\"get\">\n    <input type=\"text\" name=\"text_to_say\" id=\"\" value=\"{{payload.text_to_say}}\" \/>\n    <input type=\"submit\" value=\"Say it!\"\/>\n<\/form>",
-    "x": 483,
-    "y": 357,
+    "x": 507,
+    "y": 399,
     "wires": [
       [
-        "f550e390.09b6f8"
+        "512312db.d45e8c"
       ]
     ]
   },
   {
-    "id": "f550e390.09b6f8",
+    "id": "512312db.d45e8c",
     "type": "http response",
     "name": "Reply",
-    "x": 785,
-    "y": 285,
+    "x": 732,
+    "y": 369,
     "wires": [
       
     ]
   },
   {
-    "id": "d6f68908.d37d9",
+    "id": "97a87048.f41788",
     "type": "template",
     "name": "Generate Reply",
     "field": "payload",
     "format": "html",
-    "template": "<h1>You want to say<\/h1>\n<p><q>{{payload}}<\/q><\/p>\n<p>Hear it:<\/p>\n<audio controls autoplay>\n  <source src=\"{{req._parsedUrl.pathname}}\/sayit?text_to_say={{payload}}\" type=\"audio\/wav\">\nYour browser does not support the audio element.\n<\/audio>\n<p>Thanks!<\/p>\n<form action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"text\" name=\"text_to_say\" id=\"\" value=\"{{payload}}\" \/>\n    <input type=\"submit\" value=\"Try Again\" \/>\n<\/form>",
-    "x": 589,
-    "y": 277,
+    "template": "<h1>You want to say<\/h1>\n<p><q>{{payload}}<\/q><\/p>\n<p>Hear it:<\/p>\n<audio controls autoplay>\n  <source src=\"{{req._parsedUrl.pathname}}\/sayit?text_to_say={{payload.text_to_say}}\" type=\"audio\/wav\">\nYour browser does not support the audio element.\n<\/audio>\n<p>Thanks!<\/p>\n<form action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"text\" name=\"text_to_say\" id=\"\" value=\"{{payload.text_to_say}}\" \/>\n    <input type=\"submit\" value=\"Try Again\" \/>\n<\/form>",
+    "x": 516,
+    "y": 327,
     "wires": [
       [
-        "f550e390.09b6f8"
+        "512312db.d45e8c"
       ]
     ]
   },
   {
-    "id": "779a0a4a.ea2974",
+    "id": "d784ce5d.9b3348",
     "type": "http in",
     "name": "",
     "url": "\/talk\/sayit",
     "method": "get",
     "swaggerDoc": "",
-    "x": 78,
-    "y": 136,
+    "x": 102,
+    "y": 178,
     "wires": [
       [
-        "70256ec3.146ad"
+        "1dc28ec5.2d6179"
       ]
     ]
   },
   {
-    "id": "63dcba1b.386c34",
+    "id": "79abbeee.30eef",
     "type": "http response",
     "name": "Reply Speech binary",
-    "x": 888,
-    "y": 207,
+    "x": 912,
+    "y": 249,
     "wires": [
       
     ]
   },
   {
-    "id": "7435b98d.6e4e2",
-    "type": "change",
-    "name": "Extract",
-    "rules": [
-      {
-        "t": "set",
-        "p": "filename",
-        "to": "msg.payload.text_to_file"
-      },
-      {
-        "t": "set",
-        "p": "payload",
-        "to": "msg.payload.text_to_say"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 398,
-    "y": 277,
-    "wires": [
-      [
-        "d6f68908.d37d9"
-      ]
-    ]
-  },
-  {
-    "id": "63b63231.c82da4",
+    "id": "50a741c2.fcfca",
     "type": "watson-text-to-speech",
     "name": "",
     "lang": "english",
     "voice": "en-US_AllisonVoice",
-    "x": 547,
-    "y": 36,
+    "x": 571,
+    "y": 78,
     "wires": [
       [
-        "b900ff3f.cf41"
+        "408d6437.d6f5f4"
       ]
     ]
   },
   {
-    "id": "70256ec3.146ad",
+    "id": "1dc28ec5.2d6179",
     "type": "switch",
     "name": "Check text",
     "property": "payload.text_to_say",
@@ -192,34 +163,34 @@
     ],
     "checkall": "true",
     "outputs": 2,
-    "x": 255,
-    "y": 143,
+    "x": 279,
+    "y": 185,
     "wires": [
       [
-        "c31154b8.b0e548"
+        "6396f403.3de294"
       ],
       [
-        "93410b6a.46b21"
+        "cd71776d.27603"
       ]
     ]
   },
   {
-    "id": "93410b6a.46b21",
+    "id": "cd71776d.27603",
     "type": "template",
     "name": "Error",
     "field": "payload",
     "format": "handlebars",
     "template": "<h1>\nError:    No f or text_to_say query parameter\n<\/h1>",
-    "x": 394,
-    "y": 190,
+    "x": 418,
+    "y": 232,
     "wires": [
       [
-        "63dcba1b.386c34"
+        "79abbeee.30eef"
       ]
     ]
   },
   {
-    "id": "b900ff3f.cf41",
+    "id": "408d6437.d6f5f4",
     "type": "change",
     "name": "Speech to payload",
     "rules": [
@@ -234,26 +205,26 @@
     "from": "",
     "to": "",
     "reg": false,
-    "x": 666,
-    "y": 97,
+    "x": 690,
+    "y": 139,
     "wires": [
       [
-        "b8147a54.f6a0b"
+        "4cf782d7.238dcc"
       ]
     ]
   },
   {
-    "id": "b8147a54.f6a0b",
+    "id": "4cf782d7.238dcc",
     "type": "function",
     "name": "Set headers",
-    "func": "\/\/ Set the content type to audio wave\nmsg.headers={ 'Content-Type': 'audio\/wav'};\nreturn msg;",
+    "func": "\/\/ Set the content type to audio wave\nvar wavFileName=msg.text_to_say.replace(' ','_');\nif(wavFileName.length>32) {\n    wavFileName=wavFileName.substr(0,32);\n}\nvar attch='attachment; filename='+encodeURIComponent(wavFileName+'.wav');\nmsg.headers={ 'Content-Type': 'audio\/wav',\n              'Content-Disposition': attch};\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
-    "x": 727,
-    "y": 151,
+    "x": 751,
+    "y": 193,
     "wires": [
       [
-        "63dcba1b.386c34"
+        "79abbeee.30eef"
       ]
     ]
   }

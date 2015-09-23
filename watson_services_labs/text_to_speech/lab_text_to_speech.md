@@ -83,11 +83,11 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
     <p><q>{{payload}}</q></p>
     <p>Hear it:</p>
     <audio controls autoplay>
-      <source src="{{req._parsedUrl.pathname}}/sayit?text_to_say={{payload}}" type="audio/wav">
+      <source src="{{req._parsedUrl.pathname}}/sayit?text_to_say={{payload.text_to_say}}" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
     <form action="{{req._parsedUrl.pathname}}">
-        <input type="text" name="text_to_say" id="" value="{{payload}}" />
+        <input type="text" name="text_to_say" id="" value="{{payload.text_to_say}}" />
         <input type="submit" value="Try Again" />
     </form>
 ```
