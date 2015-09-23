@@ -1,5 +1,14 @@
 #Natural Language Classifier (beta, no Node-RED node exists)
 
+The Natural Language Classifier is a beta Service (as of Sept 2015) but it would be useful to describe how to create the steps to use it since it offers some cognitive learning features.
+
+##Creating a populated NLC Service
+ TO DO :
+ Toolkit install in Bmix, training with csv file (curl), confirming ready and sending question (curl)
+##Using the NLC Service from Node-RED (using HTTP Request)
+
+##Using the NLC Service from Node-RED (using Node-RED node : TBC)
+
 
 ![ScreenShot](images/fe_Add_Service.png)
 
