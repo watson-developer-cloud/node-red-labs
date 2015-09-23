@@ -73,7 +73,7 @@ Notifications of events that happen on the widget will be received on that last 
 
 ## Testing the widget
 Deploy the flow and point your browser at `http://xxx.mybluemix.net/tofaw`. Rendering of the widget should start and eventually yield a screen such as:  
-![Trade-Off Analysis Widget Screenshot](images\toff_widget_screenshot.png)
+![Trade-Off Analysis Widget Screenshot](images/toff_widget_screenshot.png)
 
 ## Trade-Off Analytics Widget flow file
 The complete flow is in the file [Trade-Off Analytics Widget](TradeOffAnalyticsWidget.json)
