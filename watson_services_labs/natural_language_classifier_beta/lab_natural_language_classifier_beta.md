@@ -32,6 +32,14 @@ Go to the Toolkit application and enter the username and password that you obtai
 
 ![ScreenShot](images/nlc_toolkit_login.png)
 
+Click on Training and then follow the steps as documented in [NLC toolkit](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/tool_overview.shtml).  Train the NLC Service with the sample CSV file.
+
+![ScreenShot](images/nlc_toolkit_training.png)
+
+You will need a Classifier ID, this can be obtained by clicking the Classifiers button and the Classifier ID is shown.
+
+![ScreenShot](images/nlc_classifier_id.png)
+
 
 ##Connecting to a existing NLC Service on Bluemix
  
