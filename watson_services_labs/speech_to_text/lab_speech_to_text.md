@@ -53,7 +53,7 @@ First you add the 'Change' node to move the transcript to the payload. You confi
 
 ![`S2TChange`](images/S2T_change.jpg)
 
-Next you add the 'MQTT out' node to the canvas. This node will send the payload to a broker with a certain topic. You can use your own topic. You can configure this node like this:
+Next you add the 'MQTT out' node to the canvas. This node will send the payload to a broker with a certain topic. You can use any MQTT broker with your own topic. You can configure this node like this:
 
 ![`S2TMQTTOut`](images/S2T_MqttOut.jpg)
 
