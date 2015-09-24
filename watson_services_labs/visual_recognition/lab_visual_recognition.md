@@ -47,7 +47,7 @@ The nodes required to build this flow are:
 
  - And a final  ![`template`](../../node-RED_labs/images/node-red_template.png) node linked to the ![`HTTPResponse`](../../node-RED_labs/images/node-red_HTTPResponse.png) output node. The template will format the output returned from the Visual Recognition node into an HTML table for easier reading:
 ```HTML
-    <h1>Visual Recognition</h1>
+    <h1>Node-RED Watson Visual Recognition output</h1>
     <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
     <table border='1'>
         <thead><tr><th>Name</th><th>Score</th></tr></thead>
@@ -59,10 +59,15 @@ The nodes required to build this flow are:
         <input type="submit" value="Try again"/>
     </form>
 ```
-![Reco-Lab-TemplateReport-Node-Props](images/Reco-Lab-TemplateReport-Node-Props.png)
+![Reco-Lab-TemplateReport-Node-Props](images/Reco-Lab-TemplateReport-Node-Props.png)  
+Note that the HTML snippet above has been simplified and stripped out of non-essential HTML tags, the completed flow solution has a complete HTML page.
 
 ### Testing the flow
-To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.
+To run the web page, point your browser to  `/http://xxxx.mybluemix.net/reco` and enter the URL of some  image.
+The URL of the pre-selected images can be copied to clipboard and pasted into the text field.
+
+The Watson Visual Recognition API will return an array with the recognized features, which will be formatted in a HTML table by the template:
+![Visual RecognitionScreenshot ](images/Reco-Lab-VisualRecognition_Screenshot.png)
 
 ### Flow source
 The complete flow is available at [Reco-Lab-WebPage](Reco-Lab-WebPage.json).
