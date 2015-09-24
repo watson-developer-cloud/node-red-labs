@@ -1,0 +1,162 @@
+[{
+    "id": "69339ae1.d32b0c",
+    "type": "template",
+    "name": "Widget Page",
+    "field": "payload",
+    "format": "html",
+    "template": "<!DOCTYPE html>\n<html>\n<head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\n    <title>Node-RED TradeOff Analytics Widget demo</title>\n    <script type=\"text/javascript\" src=\"http://ta-cdn.mybluemix.net/v1/TradeoffAnalytics.js\"></script>\n    <script>\n    // get the problem object from Node-RED msg.problem\n    // note the triple-curly braces syntax to avoid HTML escaping\n    var problemObj={{{problem}}};\n    \n    // prepare client\n    var taClient;\n    \n    function loadTradeoffAnalytics() {\n\t\tdocument.body.style.cursor=\"wait\" ;\n        taClient = new TradeoffAnalytics(\n            {dilemmaServiceUrl: '{{{req._parsedUrl.pathname}}}/dilemmas',\n             analyticsEventsUrl: '{{{req._parsedUrl.pathname}}}/events'\n            }, \n            'tofaWidget');\n        taClient.start(onTAReady);\n    }\n\n    // this is called-back when the widget is ready\n    function onTAReady() {\n        taClient.show(problemObj, onTAShown);\n    }\n\n    // this is called-back when the problem has shown in the widget\n    function onTAShown() {\n\t\tdocument.body.style.cursor=\"default\";\n        taClient.resize();\n    }\n    \n    // trigger the tofa widget setup when window has loaded\n\twindow.onload=loadTradeoffAnalytics;\n</script>\n</head>\n\n<body>\n    <div id=\"tofaWidget\" style=\"height:100vh\"></div>\n</body>\n</html>",
+    "x": 494,
+    "y": 91,
+    "wires": [
+        ["9c8c743c.2602d8"]
+    ]
+}, {
+    "id": "6c6df307.479844",
+    "type": "http in",
+    "name": "",
+    "url": "/tofaw",
+    "method": "get",
+    "swaggerDoc": "",
+    "x": 66,
+    "y": 105,
+    "wires": [
+        ["ef6b5981.b09a88"]
+    ]
+}, {
+    "id": "9c8c743c.2602d8",
+    "type": "http response",
+    "name": "",
+    "x": 722,
+    "y": 92,
+    "wires": []
+}, {
+    "id": "da566749.89cbc8",
+    "type": "http in",
+    "name": "",
+    "url": "/tofaw/dilemmas",
+    "method": "post",
+    "swaggerDoc": "",
+    "x": 108,
+    "y": 227,
+    "wires": [
+        ["12ab8f73.bfc009"]
+    ]
+}, {
+    "id": "a31b70e1.45b708",
+    "type": "http response",
+    "name": "",
+    "x": 741,
+    "y": 224,
+    "wires": []
+}, {
+    "id": "97881f86.9772c8",
+    "type": "watson-tradeoff-analytics",
+    "name": "",
+    "x": 449,
+    "y": 222,
+    "wires": [
+        ["92558bc1.52ad98"]
+    ]
+}, {
+    "id": "12ab8f73.bfc009",
+    "type": "change",
+    "name": "",
+    "rules": [{
+        "t": "set",
+        "p": "subject",
+        "to": "msg.payload.subject"
+    }, {
+        "t": "set",
+        "p": "columns",
+        "to": "msg.payload.columns"
+    }, {
+        "t": "set",
+        "p": "options",
+        "to": "msg.payload.options"
+    }, {
+        "t": "set",
+        "p": "problem",
+        "to": "msg.payload"
+    }, {
+        "t": "set",
+        "p": "payload",
+        "to": "msg.payload.subject"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 249,
+    "y": 306,
+    "wires": [
+        ["97881f86.9772c8"]
+    ]
+}, {
+    "id": "92558bc1.52ad98",
+    "type": "change",
+    "name": "",
+    "rules": [{
+        "t": "delete",
+        "p": "payload"
+    }, {
+        "t": "set",
+        "p": "payload.problem",
+        "to": "msg.problem"
+    }, {
+        "t": "set",
+        "p": "payload.resolution",
+        "to": "msg.resolution"
+    }],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 602,
+    "y": 315,
+    "wires": [
+        ["a31b70e1.45b708"]
+    ]
+}, {
+    "id": "ef6b5981.b09a88",
+    "type": "function",
+    "name": "Set Problem",
+    "func": "// This is where we set the dimensions (columns) of the problem to analyze\n// and the raw data (options)\nvar problem = {\n  \"subject\": \"phone\",\n  \"columns\": [\n    {\n      \"key\": \"price\",\n      \"type\": \"numeric\",\n      \"goal\": \"min\",\n      \"full_name\": \"Price\",\n      \"is_objective\": true,\n      \"format\": \"####0.00\"\n    },\n    {\n      \"key\": \"brand\",\n      \"type\": \"categorical\",\n      \"goal\": \"min\",\n      \"full_name\": \"Brand\",\n      \"is_objective\": true,\n      \"range\": [\n        \"Samsung\",\n        \"Apple\",\n        \"HTC\",\n        \"LG\",\n        \"Nokia\",\n        \"Sony\"\n      ],\n      \"preference\": [\n        \"Samsung\",\n        \"Apple\",\n        \"HTC\",\n        \"LG\",\n        \"Nokia\",\n        \"Sony\"\n      ]\n    },\n    {\n      \"key\": \"RAM\",\n      \"type\": \"numeric\",\n      \"goal\": \"max\",\n      \"full_name\": \"RAM (MB)\",\n      \"is_objective\": false\n    },\n    {\n      \"key\": \"screen_size\",\n      \"type\": \"numeric\",\n      \"goal\": \"max\",\n      \"full_name\": \"Screen (inch)\",\n      \"is_objective\": true\n    },\n    {\n      \"key\": \"camera\",\n      \"type\": \"numeric\",\n      \"goal\": \"max\",\n      \"full_name\": \"Camera\",\n      \"is_objective\": false,\n      \"format\": \"####0 MP\"\n    },\n    {\n      \"key\": \"memory_size\",\n      \"type\": \"numeric\",\n      \"goal\": \"max\",\n      \"full_name\": \"Memory\",\n      \"is_objective\": false,\n      \"format\": \"####0 GB\"\n    },\n    {\n      \"key\": \"battery\",\n      \"type\": \"numeric\",\n      \"goal\": \"max\",\n      \"full_name\": \"Battery (mAh)\",\n      \"is_objective\": false\n    },\n    {\n      \"key\": \"weight\",\n      \"type\": \"numeric\",\n      \"goal\": \"min\",\n      \"full_name\": \"Weight\",\n      \"is_objective\": true,\n      \"format\": \"####0 g\"\n    },\n    {\n      \"key\": \"rDate\",\n      \"type\": \"datetime\",\n      \"goal\": \"max\",\n      \"full_name\": \"Release Date\",\n      \"is_objective\": false\n    }\n  ],\n  \"options\": [\n    {\n      \"key\": \" 1\",\n      \"name\": \"Samsung Galaxy S4 White\",\n      \"values\": {\n        \"weight\": 130,\n        \"price\": 239,\n        \"RAM\": 2048,\n        \"battery\": 2600,\n        \"camera\": 13,\n        \"memory_size\": 16,\n        \"screen_size\": 5,\n        \"brand\": \"Samsung\",\n        \"rDate\": \"2013-04-29T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Samsung_GALAXY_S4_zoom_%28White%29.jpg/800px-Samsung_GALAXY_S4_zoom_%28White%29.jpg'/> <a title='Photo by Samsung Belgium (Flickr: GALAXY S4 zoom (1)) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Samsung_GALAXY_S4_zoom_(White).jpg' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"2\",\n      \"name\": \"Samsung Galaxy S4 Black\",\n      \"values\": {\n        \"weight\": 130,\n        \"price\": 239,\n        \"RAM\": 2048,\n        \"battery\": 2600,\n        \"camera\": 13,\n        \"memory_size\": 16,\n        \"screen_size\": 5,\n        \"brand\": \"Samsung\",\n        \"rDate\": \"2013-04-29T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Samsung_Galaxy_S4.jpg/200px-Samsung_Galaxy_S4.jpg'/><a title='Photo by Karlis Dambrans (Flickr: Samsung Galaxy S4) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S4.jpg' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"3\",\n      \"name\": \"Samsung Galaxy S3 White\",\n      \"values\": {\n        \"weight\": 133,\n        \"price\": 79,\n        \"RAM\": 2048,\n        \"battery\": 2100,\n        \"camera\": 8,\n        \"memory_size\": 16,\n        \"screen_size\": 4.8,\n        \"brand\": \"Samsung\",\n        \"rDate\": \"2012-05-29T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Samsung_Galaxy_S_III.png/300px-Samsung_Galaxy_S_III.png'/> <a title='Photo by GalaxyOptimus (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S_III.png' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"4\",\n      \"name\": \"Samsung Galaxy S3 Blue\",\n      \"values\": {\n        \"weight\": 133,\n        \"price\": 79,\n        \"RAM\": 2048,\n        \"battery\": 2100,\n        \"camera\": 8,\n        \"memory_size\": 16,\n        \"screen_size\": 4.8,\n        \"brand\": \"Samsung\",\n        \"rDate\": \"2012-05-29T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Samsung_Galaxy_S_Advance_i9070.JPG/250px-Samsung_Galaxy_S_Advance_i9070.JPG'/> <a title='Photo by Macs79 (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S_Advance_i9070.JPG' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"5\",\n      \"name\": \"Samsung Galaxy S3 mini White\",\n      \"values\": {\n        \"weight\": 111,\n        \"price\": 299,\n        \"RAM\": 1024,\n        \"battery\": 1000,\n        \"camera\": 5,\n        \"memory_size\": 8,\n        \"screen_size\": 4,\n        \"brand\": \"Samsung\",\n        \"rDate\": \"2012-10-01T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Samsung_Galaxy_S_III_mini.png/300px-Samsung_Galaxy_S_III_mini.png'/> <a title='Photo by GalaxyOptimus (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Samsung_Galaxy_S_III_mini.png' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"6\",\n      \"name\": \"Apple iPhone 5 White\",\n      \"values\": {\n        \"weight\": 112,\n        \"price\": 449,\n        \"RAM\": 1024,\n        \"battery\": 1440,\n        \"camera\": 8,\n        \"memory_size\": 32,\n        \"screen_size\": 4,\n        \"brand\": \"Apple\",\n        \"rDate\": \"2012-09-21T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/IPhone5white.png/228px-IPhone5white.png'/> <a title='Photo by Pixeden.com [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:IPhone5white.png' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"7\",\n      \"name\": \"Apple iPhone 5 Black\",\n      \"values\": {\n        \"weight\": 112,\n        \"price\": 449,\n        \"RAM\": 1024,\n        \"battery\": 1440,\n        \"camera\": 8,\n        \"memory_size\": 32,\n        \"screen_size\": 4,\n        \"brand\": \"Apple\",\n        \"rDate\": \"2012-09-21T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/IPhone_5.png/300px-IPhone_5.png'/> <a title='Photo by Zach Vega (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:IPhone_5.png' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"9\",\n      \"name\": \"HTC One\",\n      \"values\": {\n        \"weight\": 143,\n        \"price\": 189,\n        \"RAM\": 2048,\n        \"battery\": 2300,\n        \"camera\": 4,\n        \"memory_size\": 32,\n        \"screen_size\": 4.7,\n        \"brand\": \"HTC\",\n        \"rDate\": \"2013-03-01T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/7/70/HTC_One.png/149px-HTC_One.png'/> <a title='Photo by M0rphzone (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:HTC_One.png' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"10\",\n      \"name\": \"LG Optimus G\",\n      \"values\": {\n        \"weight\": 145,\n        \"price\": 189,\n        \"RAM\": 1024,\n        \"battery\": 2100,\n        \"camera\": 13,\n        \"memory_size\": 32,\n        \"screen_size\": 4.7,\n        \"brand\": \"LG\",\n        \"rDate\": \"2012-09-19T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/LG_Optimus_G_%28Black%29.jpg/330px-LG_Optimus_G_%28Black%29.jpg'/> <a title='[CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:LG_Optimus_G_(Black).jpg' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"11\",\n      \"name\": \"Nokia Lumia 520\",\n      \"values\": {\n        \"weight\": 124,\n        \"price\": 199,\n        \"RAM\": 512,\n        \"battery\": 1430,\n        \"camera\": 5,\n        \"memory_size\": 8,\n        \"screen_size\": 4,\n        \"brand\": \"Nokia\",\n        \"rDate\": \"2013-02-25T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Lumia_520.jpg/450px-Lumia_520.jpg'/> <a title='Photo by Krby Dambrns from Latvia (MWC Barcelona 2013 260  Uploaded by RaviC) [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Lumia_520.jpg' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"13\",\n      \"name\": \"Samsung Galaxy Ace 2 Black\",\n      \"values\": {\n        \"weight\": 122,\n        \"price\": 220,\n        \"RAM\": 768,\n        \"battery\": 1000,\n        \"camera\": 5,\n        \"memory_size\": 4,\n        \"screen_size\": 3.8,\n        \"brand\": \"Samsung\",\n        \"rDate\": \"2012-02-05T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Front_Ace_2.JPG/330px-Front_Ace_2.JPG'/> <a title='Photo by Fan samsung ace2 (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Front_Ace_2.JPG' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"14\",\n      \"name\": \"Samsung Galaxy Mini 2 Black\",\n      \"values\": {\n        \"weight\": 105,\n        \"price\": 220,\n        \"RAM\": 512,\n        \"battery\": 1300,\n        \"camera\": 3.15,\n        \"memory_size\": 4,\n        \"screen_size\": 3.27,\n        \"brand\": \"Samsung\",\n        \"rDate\": \"2012-02-05T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/GT-S6500L.jpg/375px-GT-S6500L.jpg'/> <a title='Photo by Eriqvaldezz (Own work) [GFDL (http://www.gnu.org/copyleft/fdl.html) or CC BY 3.0 (http://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:GT-S6500L.jpg' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    },\n    {\n      \"key\": \"15\",\n      \"name\": \"Sony Xperia P Silver\",\n      \"values\": {\n        \"weight\": 120,\n        \"price\": 255,\n        \"RAM\": 1024,\n        \"battery\": 1305,\n        \"camera\": 8,\n        \"memory_size\": 16,\n        \"screen_size\": 4,\n        \"brand\": \"Sony\",\n        \"rDate\": \"2012-02-27T00:00:00Z\"\n      },\n      \"description_html\": \"<img style='max-height: 100px; max-width: 100px;'  src='http://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Xperia_P.jpg/330px-Xperia_P.jpg'/> <a title='Photo by vsy (http://www.flickr.com/photos/vsy/7176314726/) [CC BY-SA 2.0 (http://creativecommons.org/licenses/by-sa/2.0)], via Wikimedia Commons' href='http://commons.wikimedia.org/wiki/File:Xperia_P.jpg' target='_blank'> <img style='max-height: 14px; max-width: 14px;'  src='http://mirrors.creativecommons.org/presskit/icons/cc.png'/> </a>\"\n    }\n  ]\n};\nmsg.problem=JSON.stringify(problem);\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 269,
+    "y": 36,
+    "wires": [
+        ["69339ae1.d32b0c"]
+    ]
+}, {
+    "id": "da5c8f3a.e4301",
+    "type": "http in",
+    "name": "",
+    "url": "/tofaw/events",
+    "method": "post",
+    "swaggerDoc": "",
+    "x": 99,
+    "y": 375,
+    "wires": [
+        ["5b3be2ae.651164", "2a5800e0.c21da"]
+    ]
+}, {
+    "id": "5b3be2ae.651164",
+    "type": "http response",
+    "name": "",
+    "x": 723,
+    "y": 373,
+    "wires": []
+}, {
+    "id": "2a5800e0.c21da",
+    "type": "debug",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "false",
+    "x": 321,
+    "y": 431,
+    "wires": []
+}]
