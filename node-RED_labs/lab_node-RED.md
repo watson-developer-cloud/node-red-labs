@@ -204,7 +204,31 @@ The resulting payload will be:
 
     Hello Fred. Today is Monday
 
+### mqtt in node
 
-    
+![mqttin](images/node-red-mqtt-in.png)
+
+MQTT input node. Connects to a broker and subscribes to the specified topic. The topic may contain MQTT wildcards.
+
+Outputs an object called msg containing
+
+    msg.topic, 
+    msg.payload, 
+    msg.qos 
+    msg.retain.
+
+msg.payload is usually a string, but can also be a binary buffer.
+
+ 
+### mqtt out node   
+ 
+![mqttout](images/node-red-mqtt-out.png)
+
+Connects to a MQTT broker and publishes msg.payload either to the msg.topic or to the topic specified in the edit window. The value in the edit window has precedence.
+
+Likewise QoS and/or retain values in the edit panel will overwrite any msg.qos and msg.retain properties. If nothing is set they default to 0 and false respectively.
+
+If msg.payload contains an object it will be stringified before being sent.
+
 
 
