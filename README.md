@@ -27,6 +27,9 @@ In the list below, you can click on the different subjects and see how this  can
 - [Visual Recognition](watson_services_labs/visual_recognition/lab_visual_recognition.md)
 - [Alchemy Vision](watson_services_labs/alchemy_api_image_analysis/lab_alchemy_api_image_analysis.md)
 - [Alchemy Feature Extraction](watson_services_labs/alchemy_api_feature_extraction/lab_alchemy_api_feature_extraction.md)
+- [Natural Language Classifier](watson_services_labs/natural_language_classifier_beta/lab_natural_language_classifier_beta.md) BETA service
+- [Relationship Extraction](watson_services_labs/relationship_extraction/lab_relationship_extraction.md)
+
 
 Feel free to use this content, please let us know what you think of it!
 
