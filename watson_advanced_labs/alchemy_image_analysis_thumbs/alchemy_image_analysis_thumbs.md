@@ -34,7 +34,7 @@ The nodes required to build this flow are:
   - A ![change](../../node-RED_labs/images/node-red_change.png) node to extract the `imageurl` query parameter from the web request and assign it to the payload to be provided as input to the Alchemy Image Analysis node:  
  ![AlchVis-Lab-Change_and_IA-Node-Props](images/AlchVis-Change_and_IA-Props.png)
 
-  - The ![`Alchemy Image Analysis`](images/node-red_Alchemy_Image_Analysis.png) node. Make sure that you have installed and bound an instance of the `Alchemy API` ![AlchemyAPIService](images\AlchemyAPIService.png) service to your Node-RED application in bluemix. Otherwise, you can edit the Alchemy Image Analysis node to provide an `apikey`.  
+  - The ![`Alchemy Image Analysis`](images/node-red_Alchemy_Image_Analysis.png) node. Make sure that you have installed and bound an instance of the `Alchemy API` ![AlchemyAPIService](images/AlchemyAPIService.png) service to your Node-RED application in bluemix. Otherwise, you can edit the Alchemy Image Analysis node to provide an `apikey`.  
  
   - And a final  ![`template`](../../node-RED_labs/images/node-red_template.png) node linked to the ![`HTTPResponse`](../../node-RED_labs/images/node-red_HTTPResponse.png) output node. The template will format the output returned from the Image Analysis node into an HTML table for easier reading:  
 ```HTML
