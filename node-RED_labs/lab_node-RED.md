@@ -76,7 +76,13 @@ When you are logged in go to 'Catalog' and click on the 'Node-RED starter' appli
 On the right side of the screen you must give it a name, which must be unique. Then click 'Create'.
 Right now the Node-RED application is being created and deployed. This will take a few minutes. When finished click on the URL, which opens up your Node-RED application.
 
-You can do this part later, but for the labs you need to add the (Watson) services to your application. If a service is not added you to the Node-RED application, you can get an error or a node is asking for credentials depending on the type of node. Go to Bluemix and open the dashboard and click on your application, then click on 'Add a Service or API'. In the screen that follows select the service you want to use, and finally click on 'Use'. Wait for a moment to restart the application. When the application is started you can click on the URL to open Node-RED. 
+###Adding Watson services to the Node-RED application in Bluemix
+
+You can do this part later, but for the labs you need to add the (Watson) services to your application. If a service is not added to the Node-RED application, you can get an error or a node is asking for credentials depending on the type of node. 
+
+Go to Bluemix and open the dashboard and click on your Node-RED application, then click on 'Add a Service or API'. In the screen that follows select the service you want to use, and finally click on 'Use'. Wait for a moment to restart the application. 
+
+When the application is started you can click on the URL to open Node-RED. 
 
 ###Creating your first flow
 
@@ -198,7 +204,31 @@ The resulting payload will be:
 
     Hello Fred. Today is Monday
 
+### mqtt in node
 
-    
+![mqttin](images/node-red-mqtt-in.png)
+
+MQTT input node. Connects to a broker and subscribes to the specified topic. The topic may contain MQTT wildcards.
+
+Outputs an object called msg containing
+
+    msg.topic, 
+    msg.payload, 
+    msg.qos 
+    msg.retain.
+
+msg.payload is usually a string, but can also be a binary buffer.
+
+ 
+### mqtt out node   
+ 
+![mqttout](images/node-red-mqtt-out.png)
+
+Connects to a MQTT broker and publishes msg.payload either to the msg.topic or to the topic specified in the edit window. The value in the edit window has precedence.
+
+Likewise QoS and/or retain values in the edit panel will overwrite any msg.qos and msg.retain properties. If nothing is set they default to 0 and false respectively.
+
+If msg.payload contains an object it will be stringified before being sent.
+
 
 
