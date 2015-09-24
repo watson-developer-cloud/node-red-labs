@@ -40,7 +40,45 @@ Then you need to wire all the nodes together and press on 'Deploy'
 
 When you click on the Inject node, you will see the transcribed text from the audio file in the debug window.
 
-The complete flow can be found here [Text To Speech lab flow](S2T_flow)
+The complete flow can be found here: [Text To Speech lab flow](S2T_flow)
+
+Optional:
+
+If you want to use the transcribed text in another applications, you can easily bring the transcribed text to Bluemix.
+Therefore you need to add a few extra nodes, the flow will look like te following:
+
+![`S2TOverviewExtra`](images/S2T_OverviewExtra.jpg)
+
+First you add the 'Change' node to move the transcript to the payload. You configure this node as shown below:
+
+![`S2TChange`](images/S2T_change.jpg)
+
+Next you add the 'MQTT out' node to the canvas. This node will send the payload to a broker with a certain topic. You can use your own topic. You can configure this node like this:
+
+![`S2TMQTTOut`](images/S2T_MqttOut.jpg)
+
+Note: someone else can use the same broker and topic (if the topic is known), and will see the date being send.
+
+Then click on deploy. If everything went allright, you will see that the MQTT node is connected.
+
+Then go to your Node-RED application in Bluemix. You have to build a small flow to get the transcript of your Speech to Text in your application. The flow would look like this:
+
+![`S2TBluemix`](images/S2T_Bluemix.jpg)
+
+First you need to add a 'MQTT In' node. This node must subscribe to the same topic as the MQTT out node you configured previously. It would look like this:
+
+![`S2TMQTTOin`](images/S2T_Mqttin.jpg)
+
+Then you can connect any node to this, like [Language Identification](../language_identification/lab_language_identification.md) to identify the language of the transcript. I this case I added a debug node, to see the output. The transcript is in the message.payload:
+
+![`S2TDebugBL`](images/S2T_debugBL.jpg)
+
+The extended flow can be found here: [Extended Text To Speech lab flow ](S2T_flow_extended)
+The flow in Node-Red in Bluemix can be found here: [Text To Speech lab flow for Bluemix](S2T_flow_bluemix)
+
+
+
+
 
 
 
