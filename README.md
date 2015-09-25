@@ -16,7 +16,11 @@ Some nodes in Node-RED make use of the same service in Bluemix, like:
 
 ![NodeRedStarter](WatsonServicesOverview.jpg)
 
+You can find different labs in this project:
 
+- [Introduction to Node-RED](/node-RED_labs/lab_node-RED.md) (same link as above)
+- [Introduction to the Watson nodes](/watson_services_labs/README.md)
+- [Advanced labs](/watson_advanced_labs/README.md) where different nodes/services are combined
 
 
 Feel free to use this content, please let us know what you think of it!
