@@ -46,7 +46,7 @@ The next step is setting up a small function:
 
 here you use 
 
-msg.features.keyword
+           msg.features.keyword
 
 NOTE: the last part of this message can be changed to any other feature, but then you have to select another feature in the previous step.
 These are the different features which can be used:
@@ -55,15 +55,34 @@ These are the different features which can be used:
 - feed
 - entity
 - keyword
-title
-author
-taxonomy
-concept
-relation
-pub-date
-doc-sentiment
+- title
+- author
+- taxonomy
+- concept
+- relation
+- pub-date
+- doc-sentiment
 
+The following node is a 'template' node which contains the HTML to create the page. This page will have an inpout field an a button to push the text to the Alchemy API.
+The HTML code can be downloaded [here](AApi-table-template1.txt) and looks like this:
 
+![`Alchemytemplate1](images/AApi-table-template1.jpg)
+
+Then another template is used is for putting the out put of the Alchemy API on the page:
+
+![`Alchemytemplate2](images/AApi-table-template2.jpg)
+
+you can copy this into the template:
+
+           Create Alchemy API output
+           {{{features}}}
+           {{{text}}}
+           
+The final node is the 'http response' node.
+
+[`Alchemyresponse](images/AApi-table-httpresponse.jpg)
+
+You have to wire the nodes together in the way you can see in the overview at the beginning of this lab.
 
 
 
