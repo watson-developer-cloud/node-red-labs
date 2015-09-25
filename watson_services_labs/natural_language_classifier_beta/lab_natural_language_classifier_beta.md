@@ -109,8 +109,6 @@ Click the button of the Inject node and look at the contents of the Debug Tab
 
 ![ScreenShot](images/nlc_debug_ask_output.png)
 
-TO DO :  Toolkit install in Bmix, training with csv file (curl), confirming ready and sending question (curl)
-
 ##Using the NLC Service from Node-RED (using Node-RED node : TBC)
 
 
