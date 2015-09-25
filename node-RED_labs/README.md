@@ -39,7 +39,7 @@ Here is described how to install Node-Red in the stand alone way of working, for
 
 NOTE: When you are not using Node-RED stand alone but using Node-RED on Bluemix, skip this part and go to 
 
-###Deploy Node-RED on Bluemix
+###Deploy Node-RED stand alone
 
 
 When you have Node.js installed, run:
