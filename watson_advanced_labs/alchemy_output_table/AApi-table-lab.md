@@ -1,39 +1,24 @@
-#Language Translation
-Language Translation
+#Create a table from the Alchemy Api features
 
-The Language Translation service enables you to translate text from one language to another. These languages are supported:
+This lab is an extension of this [Alchemy Feature Extraction lab](../../watson_services_labs/alchemy_api_feature_extraction/lab_alchemy_api_feature_extraction.md).
+           
 
-- The News domain - targeted at news articles and transcripts, it translates English to and from French, Spanish, Portuguese or Arabic.
-- The Conversational domain - targeted at conversational colloquialisms, it translates English to and from French, Spanish, Portuguese or Arabic.
-- The Patent domain - targeted at technical and legal terminology, it translates Spanish, Portuguese, Chinese, or Korean to English.
+With this extended lab you can easily see what the output of the different features of the Alchemy API Feature Extract node is.
+With just a few minor changes you can have a different output.
 
-To use the Language Translation service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in Bluemix or use a local Node-RED instance. Both ways are described here.
+The final flow looks like this:
 
-If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Language Translation service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+![`AlchemyOverview](images/AApi-table-overview.jpg)
 
-If you use a local instance of Node-RED go to the Bluemix catalog and go to the Language Translation service and click on it. Make sure that there is no app bound to this service and click 'Use"
+First set up a 'http in' node like this:
 
-If one of either ways are done, you can continue with the following.
+![`Alchemyhttpin](images/AApi-table-hhtpin.jpg)
 
-![`LTOverview`](images/LT.jpg)
+In have put in resp as this is the response page. but you can add anything.
 
-In this example some random text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
+You can access this page via {http://XXXX.mybluemix.net/resp} where XXXX is the name of your app.
 
-The inject node:
+The next node is a 'Switch' node. in the follwoing image you cansee how it is configured:
 
-![`LTInject`](images/LT_Inject.jpg)
-
-You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
-
-The translation node wil be configured like this. The text in this case is English so select English. Based on your source choose the right domain: News or Conversational.
-
-![`LTConfig`](images/LT_Config.jpg)
-
-As the translated text will be returned on message.payload, make sure that you select this in de debug node. The output from the debug node will then be:
-
-![`LTOutput`](images/LT_Debug.jpg)
-
-You can also copy the code for the flow here and import it from clipboard into Node-RED:
-
-[Language Translation flow](LT_flow.txt)
+![`Alchemyhswitch](images/AApi-table-switch.jpg)
 
