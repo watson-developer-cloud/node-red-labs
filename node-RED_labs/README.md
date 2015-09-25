@@ -3,7 +3,7 @@
 
 ##Introduction
 
-[Node-RED](nodered.org) is a visual tool for wiring the Internet of Things. It is easy to connect devices, data and api’s (services). It can also be used for other types of applications to quickly assemble flows of services. Node-RED is available as open source and has been implemented by the IBM Emerging Technology organization.
+[Node-RED](http://nodered.org) is a visual tool for wiring the Internet of Things. It is easy to connect devices, data and api’s (services). It can also be used for other types of applications to quickly assemble flows of services. Node-RED is available as open source and has been implemented by the IBM Emerging Technology organization.
 Node-RED provides a browser-based flow editor that makes it easy to wire together flows using the wide range of nodes in the palette. Flows can be then deployed to the runtime in a single-click.
 While Node-Red is based on Node.js, JavaScript functions can be created within the editor using a rich text editor.
 A built-in library allows you to save useful functions, templates or flows for re-use.
@@ -11,9 +11,9 @@ A built-in library allows you to save useful functions, templates or flows for r
 ![NodeRedStarter](images/noderedstarter.jpg)
 
 Node-RED is included in the Node-RED starter application in [Bluemix](http://ibm.biz/bluemixnl) (Bluemix is IBM’s Platform as a Service, free of charge) but you can also deploy it as a stand alone Node.js application. 
-Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the [Node-RED website](flows.nodered.org) <Link to website>
+Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the [Node-RED website](http://flows.nodered.org) <Link to website>
 
-In the labs which can be found [here](../../../../Watson-Node-Red-Samples) we focus on applications which are making use of IBM Watson’s capabilities.
+In the labs which can be found [here](/watson_services_labs/README.md) we focus on applications which are making use of IBM Watson’s capabilities.
 We have created some labs on how to use the different Watson nodes in Node-RED. 
 Nodes are blocks that represent components of a larger system, in Node-RED's case usually the devices, software platforms and web services that are to be connected. Further blocks can be placed in between these components to represent software functions that wrangle and transform the data in transit.
 
@@ -35,7 +35,9 @@ Node-RED in Bluemix has built-in credential management, so you don't have to wor
 
 Here is described how to install Node-Red in the stand alone way of working, for Using Node-RED in Bluemix, nothing has to be installed. A Node-RED app has to be deployed. 
 
-NOTE: When you are not using Node-RED stand alone but using Node-RED on Bluemix, skip this part and go to ###Deploy Node-RED on Bluemix
+NOTE: When you are not using Node-RED stand alone but using Node-RED on Bluemix, skip this part and go to 
+
+###Deploy Node-RED on Bluemix
 
 
 When you have Node.js installed, run:
@@ -107,7 +109,7 @@ To build this 'Hello World' flow you need to take the following steps:
 Now you have build your first Hello World flow. Test it by clicking on the 'Inject node', you will see some output in the debug window on the right (click on 'Debug' to change the view from info to debug).
 
 ##Nodes used in the labs
-In this section several nodes will be described which will be used in the labs which can be found [here](../../../../Watson-Node-Red-Samples). The labs will use these services to create Watson applications.
+In this section several nodes will be described which will be used in the labs. The labs will use these services to create Watson applications.
 
 ### http in node
 
