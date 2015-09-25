@@ -1,4 +1,5 @@
-# Watson-Node-Red-examples
+# Watsonn Node-RED services labs
+
 In the list below, you can click on the different subjects and see how this  can be implemented in Node-RED
 
 - [Language Identification](watson_services_labs/language_identification/lab_language_identification.md)
