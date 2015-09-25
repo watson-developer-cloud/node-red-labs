@@ -1,3 +1,0 @@
-Create Alchemy API output
-{{{features}}}
-{{{text}}}
