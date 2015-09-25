@@ -1,0 +1,15 @@
+
+<pre>
+{{taxonomy_str}}
+{{features_str}}
+{{text_str}}
+</pre>  
+<form  action="{{req._parsedUrl.pathname}}">
+        <input type="text" value="{{payload.fetext}}" name="fetext">
+        <input type="submit" value="Try again"/>
+    </form>
+    <p>The Output is based on this text: {{payload.fetext}}<br/><br/><br/>{{payload}}</p>
+    <!--form  action="{{req._parsedUrl.pathname}}"-->
+        <!--input type="text" value="{{payload.fetext}}" name="fetext"-->
+        <!--input type="submit" value="Try again"/-->
+    </form>
