@@ -230,5 +230,10 @@ Likewise QoS and/or retain values in the edit panel will overwrite any msg.qos a
 
 If msg.payload contains an object it will be stringified before being sent.
 
+Now you can continue with the next labs:
+
+- [Introduction to the Watson nodes](/watson_services_labs/README.md)
+- [Advanced labs](/watson_advanced_labs/README.md) where different nodes/services are combined
+
 
 
