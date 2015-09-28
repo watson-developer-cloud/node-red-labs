@@ -2,7 +2,8 @@
 
 In this section, Watson servcise are highlighted. The labs will show you how you can use the services in Node-RED.
 
-NOTE : All the labs listed below assume that you have first created an Application from the Bluemix Node-RED Starter Boiler plate - see [node-RED Starter Boilerplate](../node-RED_labs/README.md)
+NOTE : All the labs listed below assume that you have first created an Application from the Bluemix Node-RED Starter Boilerplate - see [node-RED Application](../node-RED_labs/README.md)
+
 In the list below, you can select different services and see how these can be implemented in Node-RED
 
 - [Language Identification](language_identification/lab_language_identification.md)
