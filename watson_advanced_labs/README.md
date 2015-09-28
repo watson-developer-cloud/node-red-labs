@@ -8,4 +8,4 @@ NOTE : All the labs listed below assume that you have first created an Applicati
 - [Image to speech with Alchemy](alchemy_image_to_speech/alch_image_to_speech.md)
 - [Create a table from Alchemy feature extract](alchemy_output_table/AApi-table-lab.md)
 - [Use a widget with Trade off Analytics](tradeoff_analytics_widget/lab_tradeoff_analytics_widget.md)
-- [Classsify webcasts](webcast_classifier_beta/lab_webcast_classifier.md)
+- [Classsify webcasts (in progress, not completed yet)](webcast_classifier_beta/lab_webcast_classifier.md)
