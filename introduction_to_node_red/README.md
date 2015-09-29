@@ -13,7 +13,7 @@ A built-in library allows you to save useful functions, templates or flows for r
 Node-RED is included in the Node-RED starter application in [Bluemix](http://ibm.biz/bluemixnl) (Bluemix is IBM’s Platform as a Service, free of charge) but you can also deploy it as a stand alone Node.js application. 
 Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the [Node-RED website](http://flows.nodered.org).
 
-In the labs which can be found [here](/watson_services_labs/README.md) we focus on applications which are making use of IBM Watson’s capabilities.
+In the labs which can be found [here](/basic_examples/README.md) we focus on applications which are making use of IBM Watson’s capabilities.
 
 We have created some labs on how to use the different Watson nodes in Node-RED. 
 Nodes are blocks that represent components of a larger system, in Node-RED's case usually the devices, software platforms and web services that are to be connected. Further blocks can be placed in between these components to represent software functions that wrangle and transform the data in transit.
@@ -239,8 +239,8 @@ If msg.payload contains an object it will be stringified before being sent.
 
 Now you can continue with the next labs:
 
-- [Introduction to the Watson nodes](/watson_services_labs/README.md)
-- [Advanced labs](/watson_advanced_labs/README.md) where different nodes/services are combined
+- [Introduction to the Watson nodes](/basic_examples/README.md)
+- [Advanced labs](/advanced_examples/README.md) where different nodes/services are combined
 
 
 
