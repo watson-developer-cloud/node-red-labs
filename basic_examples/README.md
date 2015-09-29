@@ -6,17 +6,17 @@ NOTE : All the labs listed below assume that you have first created an Applicati
 
 In the list below, you can select different services and see how these can be implemented in Node-RED
 
-- [Language Identification](language_identification/lab_language_identification.md)
-- [Language Translation](language_translation/lab_language_translation.md)
-- [Personality insights](personality_insights/lab_personality_insights.md)
-- [Speech to Text](speech_to_text/lab_speech_to_text.md) Only available on local Node_RED instance
-- [Text to Speech](text_to_speech/lab_text_to_speech.md)
-- [Tradeoff Analytics](tradeoff_analytics/lab_tradeoff_analytics.md)
-- [Visual Recognition](visual_recognition/lab_visual_recognition.md)
-- [Alchemy Vision](alchemy_api_image_analysis/lab_alchemy_api_image_analysis.md)
-- [Alchemy Feature Extraction](alchemy_api_feature_extraction/lab_alchemy_api_feature_extraction.md)
-- [Natural Language Classifier](natural_language_classifier_beta/lab_natural_language_classifier_beta.md) BETA service
-- [Relationship Extraction](relationship_extraction/lab_relationship_extraction.md)
+- [Language Identification](language_identification/README.md)
+- [Language Translation](language_translation/README.md)
+- [Personality insights](personality_insights/READMEs.md)
+- [Speech to Text](README.md) Only available on local Node_RED instance
+- [Text to Speech](README.md)
+- [Tradeoff Analytics](README.md)
+- [Visual Recognition](README.md)
+- [Alchemy Vision](README.md)
+- [Alchemy Feature Extraction](README.md)
+- [Natural Language Classifier](README.md) BETA service
+- [Relationship Extraction](README.md)
 
 If you want to combine the different services, you can go [here](../advanced_examples/README.md).
 
