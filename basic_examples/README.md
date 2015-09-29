@@ -10,13 +10,13 @@ In the list below, you can select different services and see how these can be im
 - [Language Translation](language_translation/README.md)
 - [Personality insights](personality_insights/READMEs.md)
 - [Speech to Text](speech_to_text/README.md) Only available on local Node_RED instance
-- [Text to Speech](README.md)
-- [Tradeoff Analytics](README.md)
+- [Text to Speech](text_to_speech/README.md)
+- [Tradeoff Analytics](tradeoff_analytics/README.md)
 - [Visual Recognition](README.md)
-- [Alchemy Vision](README.md)
-- [Alchemy Feature Extraction](README.md)
-- [Natural Language Classifier](README.md) BETA service
-- [Relationship Extraction](README.md)
+- [Alchemy Vision](alchemy_api_image_analysis/README.md)
+- [Alchemy Feature Extraction](alchemy_api_feature_extraction/README.md)
+- [Natural Language Classifier](natural_language_classifier_beta/README.md) BETA service
+- [Relationship Extraction](relationship_extraction/README.md)
 
 If you want to combine the different services, you can go [here](../advanced_examples/README.md).
 
