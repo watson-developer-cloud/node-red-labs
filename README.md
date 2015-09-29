@@ -19,8 +19,8 @@ Some nodes in Node-RED make use of the same service in Bluemix, like:
 You can find different labs in this project:
 
 - [Introduction to Node-RED](/introduction_to_node_red/README.md) (same link as above)
-- [Introduction to the Watson nodes](/basic_examples/README.md)
-- [Advanced labs](/advanced_examples/README.md) where different nodes/services are combined
+- [Basic Labs using Watson nodes](/basic_examples/README.md)
+- [Advanced Labs using multiple Watson nodes](/advanced_examples/README.md) where different nodes/services are combined
 
 
 Feel free to use this content, please let us know what you think of it!
