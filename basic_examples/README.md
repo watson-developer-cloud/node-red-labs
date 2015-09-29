@@ -2,7 +2,7 @@
 
 In this section, Watson servcise are highlighted. The labs will show you how you can use the services in Node-RED.
 
-NOTE : All the labs listed below assume that you have first created an Application from the Bluemix Node-RED Starter Boilerplate - see [node-RED Application](../node-RED_labs/README.md)
+NOTE : All the labs listed below assume that you have first created an Application from the Bluemix Node-RED Starter Boilerplate - see [here](../introduction_to_node_red/README.md) how to do that.
 
 In the list below, you can select different services and see how these can be implemented in Node-RED
 
@@ -18,7 +18,7 @@ In the list below, you can select different services and see how these can be im
 - [Natural Language Classifier](natural_language_classifier_beta/lab_natural_language_classifier_beta.md) BETA service
 - [Relationship Extraction](relationship_extraction/lab_relationship_extraction.md)
 
-If you want to combine the different services, you can go [here](../watson_advanced_labs/README.md).
+If you want to combine the different services, you can go [here](../advanced_examples/README.md).
 
 
 
