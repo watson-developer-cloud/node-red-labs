@@ -69,7 +69,7 @@ For Windows
 
  Then open [http://localhost:1880](http://localhost:1880)
 
-Check out [this page](http://nodered.org/docs/getting-started/) for full instructions on getting started with Node-RED.
+Check out [this page](http://nodered.org/docs/getting_started/) for full instructions on getting started with Node-RED.
 
 ###Deploy Node-RED on Bluemix
 
@@ -118,7 +118,7 @@ In this section several nodes will be described which will be used in the labs w
 
 ### http in node
 
-![httpin](images/node-red_HTTPInput.png)
+![httpin](images/node_red_HTTPInput.png)
 
 This node provides an input node for http requests, allowing the creation of simple web services.
 
@@ -143,7 +143,7 @@ Note: This node does not send any response to the http request. This should be d
 
 ### http response node
 
-![httpin](images/node-red_HTTPResponse.png)
+![httpin](images/node_red_HTTPResponse.png)
 
 This node can send responses back to http requests received from an HTTP Input node.
 
@@ -160,7 +160,7 @@ if set, should be an object containing field/value pairs to be added as response
 
 ### change node
 
-![httpin](images/node-red_change.png)
+![httpin](images/node_red_change.png)
 
 Set, change or delete properties of a message.
 
@@ -179,7 +179,7 @@ deletes a property.
 
 ### switch node
 
-![httpin](images/node-red_switch.png)
+![httpin](images/node_red_switch.png)
 
 A simple function node to route messages based on its properties.
 
@@ -189,7 +189,7 @@ Note: the otherwise rule applies as a "not any of" the rules preceding it.
 
 ### template node
 
-![httpin](images/node-red_template.png)
+![httpin](images/node_red_template.png)
 
 Creates a new message based on the provided template.
 
@@ -213,7 +213,7 @@ The resulting payload will be:
 
 ### mqtt in node
 
-![mqttin](images/node-red-mqtt-in.png)
+![mqttin](images/node_red_mqtt_in.png)
 
 MQTT input node. Connects to a broker and subscribes to the specified topic. The topic may contain MQTT wildcards.
 
@@ -229,7 +229,7 @@ msg.payload is usually a string, but can also be a binary buffer.
  
 ### mqtt out node   
  
-![mqttout](images/node-red-mqtt-out.png)
+![mqttout](images/node_red_mqtt_out.png)
 
 Connects to a MQTT broker and publishes msg.payload either to the msg.topic or to the topic specified in the edit window. The value in the edit window has precedence.
 

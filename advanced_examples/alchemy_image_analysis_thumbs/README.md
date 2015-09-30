@@ -120,11 +120,11 @@ In addition, the faces' bounding box rectangles will be drawn on the group photo
 
 ## Testing the enhanced flow with thumbnails rendering:
 This flow is deployed at the `/alchthumbs` URL, which will yield a page similar as this one:  
-![Lab Screenshot](images/AlchVis-Lab-WebFacesThumbs.png)
+![Lab Screenshot](images/AlchVis_Lab_WebFacesThumbs.png)
 
 ## Flow source code
 The flow export is available at:  
-[AlchVis-Lab-WebFacesThumbs](AlchVis-Lab-WebFacesThumbs.json).
+[AlchVis-Lab-WebFacesThumbs](AlchVis_Lab_WebFacesThumbs.json).
 
 ## Suggested extensions
 Based on this example, many extensions can be devised, such as handling mouse-over on the canvas to highlight the table row, or vice-versa.

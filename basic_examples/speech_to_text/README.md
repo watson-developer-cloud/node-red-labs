@@ -11,7 +11,7 @@ Speech to Text service can be used anywhere voice-interactivity is needed. The s
 
 To use the Speech To Text service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. 
 
-You need to have a local instance of Node-RED with IBM nodes available. If you don't have that yet, you can go [here](../../node-RED_labs/lab_node-RED.md).
+You need to have a local instance of Node-RED with IBM nodes available. If you don't have that yet, you can go [here](../../node_RED_labs/lab_node_RED.md).
 Then go to the Bluemix catalog and go to the Speech to Text service and click on it. Make sure that there is no app bound to this service and click 'Use"
 Wait until this service is deployed and click on 'Show Credentials', you will need the username and the password later on in this lab.
 

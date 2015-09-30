@@ -24,7 +24,7 @@ Click on your App link
 
 Click on the "go to your Node-RED flow editor" button
 
-![ScreenShot](fe_go_to_Node-RED_flow_editor.png)
+![ScreenShot](fe_go_to_Node_RED_flow_editor.png)
 
 Drag an Inject node to the palette
 

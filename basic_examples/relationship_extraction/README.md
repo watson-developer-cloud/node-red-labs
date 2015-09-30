@@ -4,7 +4,7 @@ NOTE : This Lab is still under constructions - DO NOT USE for the moment
 
 Relationship Extraction leverages Watson machine learning technologies. The API can analyze news articles and use statistical modeling to perform linguistic analysis of the input text. It then finds spans of text and clusters them together to form entities, before finally extracting the relationships between them.  
 
-Documentation -> [https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html)
+Documentation -> [https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship-extraction.html](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/relationship_extraction.html)
 
 Demo -> [http://ibmlaser.mybluemix.net/siredemo.html](http://ibmlaser.mybluemix.net/siredemo.html)
 
@@ -28,7 +28,7 @@ Click on your App link
 
 Click on the "go to your Node-RED flow editor" button
 
-![ScreenShot](re_go_to_Node-RED_flow_editor.png)
+![ScreenShot](re_go_to_Node_RED_flow_editor.png)
 
 Drag an Inject node to the palette
 
@@ -46,7 +46,7 @@ Join the nodes as shown below
 
 ![ScreenShot](images/re_join_nodes.png)
 
-Open this file [re_file](re-input_file) 
+Open this file [re_file](re_input_file) 
 
 Double-click the Inject node and change the payload to Blank
 ![ScreenShot](images/fe_inject_blank.png)

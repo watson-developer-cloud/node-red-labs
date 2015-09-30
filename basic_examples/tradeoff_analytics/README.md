@@ -38,7 +38,7 @@ Your application will be shown, click "Use" to bind the Tradeoff Analytics servi
 You will be prompted to Restage the application, click Restage.  Wait till the you see "Your app is running"
 
 Click on your App link
-![ScreenShot](images/toff_Go_to_Node-RED_flow_editor.png)
+![ScreenShot](images/toff_Go_to_Node_RED_flow_editor.png)
 
 Click on the "go to your Node-RED flow editor" button
 
@@ -84,7 +84,7 @@ Return to the Debug tab - you should now see the resultant output from the Trade
 
 ![ScreenShot](images/toff_output.png)
 
-To understand the contents of the output go to ->  [Watson tradeoff](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff-analytics/inout.shtml) and [Explanation of tradeoff JSON](https://developer.ibm.com/answers/questions/191441/need-explanation-of-solutionperspective-response-f.html)
+To understand the contents of the output go to ->  [Watson tradeoff](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff_analytics/inout.shtml) and [Explanation of tradeoff JSON](https://developer.ibm.com/answers/questions/191441/need_explanation_of_solutionperspective_response_f.html)
 
 A complete file of the flows is saved here ->[ lab_toff_flow.json](lab_toff_flow.json)
 
