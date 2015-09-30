@@ -91,7 +91,7 @@ When the application is started you can click on the URL to open Node-RED.
 
 We will create a Hello World flow.
 
-![HelloWorldFlowT](images/HelloWorldFlow.jpg)
+![HelloWorldFlowT](images/helloworldflow.jpg)
 
 This program is a very simple flow that prints the message 'Hello World' on the screen. 
 Here you can see Node-RED's user interface, the colored blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
@@ -102,7 +102,7 @@ To build this 'Hello World' flow you need to take the following steps:
  3. Use the drop-dwon, to select string for the payload
  4. Type 'Hello' on the second line
 (this will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
- 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the payload. The complete function should look like this: ![HelloWorld](images/completeHWfunc.jpg) 
+ 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the payload. The complete function should look like this: ![HelloWorld](images/completehwfunc.jpg) 
  6. Add a 'Debug node' to the canvas.
  7. Wire the 'Inject node' to the 'Function node' and the function node to the 'Debug node'. Most nodes have a grey circle on their left side, which is their input port, and on their right side, which is their output port. Left clicking and dragging the output to the input port of the next node connects the two together.
  8. Press 'Deploy'.
@@ -118,7 +118,7 @@ In this section several nodes will be described which will be used in the labs w
 
 ### http in node
 
-![httpin](images/node_red_HTTPInput.png)
+![httpin](images/node_red_httpinput.png)
 
 This node provides an input node for http requests, allowing the creation of simple web services.
 
@@ -143,7 +143,7 @@ Note: This node does not send any response to the http request. This should be d
 
 ### http response node
 
-![httpin](images/node_red_HTTPResponse.png)
+![httpin](images/node_red_httpresponse.png)
 
 This node can send responses back to http requests received from an HTTP Input node.
 

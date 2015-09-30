@@ -6,7 +6,7 @@ The Language Identification enables you to quickly identify the language text is
 
 This service can identify many languages: Arabic; Chinese (Simplified); Chinese (Traditional); Cyrillic; Danish; Dutch; English; Farsi; Finnish; French; German; Greek; Hebrew; Hindi; Icelandic; Italian; Japanese; Korean; Norwegian (Bokmal); Norwegian (Nynorsk); Portuguese; Spanish; Swedish; Turkish; Urdu.
 
-![`LIOverview`](images/LI.jpg)
+![`LIOverview`](images/li.jpg)
 
 In this example some random text is injected, identified by the Watson Language Identification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
@@ -25,7 +25,7 @@ In the following screenshots you can see how the nodes are configured.
 
 The inject node:
 
-![`LIInput`](images/LI_input.jpg)
+![`LIInput`](images/li_input.jpg)
 
 You can use any text for this.
 
@@ -33,11 +33,11 @@ The Language Identification node does not need any configuration.
 
 To get the correct output set the output to payload.lang. 
 
-![`LIDebug`](images/LI_debug.jpg)
+![`LIDebug`](images/li_debug.jpg)
 
 This will display the identified language with a confidence level:
 
-![`LIOutput`](images/LI_output.jpg)
+![`LIOutput`](images/li_output.jpg)
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
