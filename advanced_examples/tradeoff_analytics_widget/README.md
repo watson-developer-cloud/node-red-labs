@@ -91,4 +91,4 @@ Deploy the flow and point your browser at `http://xxx.mybluemix.net/tofaw`. Rend
 ![Trade-Off Analysis Widget Screenshot](images/toff_widget_screenshot.png)
 
 ## Trade-Off Analytics Widget flow file
-The complete flow is in the file [Trade-Off Analytics Widget](TradeOffAnalyticsWidget.json)
+The complete flow is in the file [Trade-Off Analytics Widget](tradeoff_analytics_widget.json)

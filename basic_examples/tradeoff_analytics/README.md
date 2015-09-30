@@ -86,6 +86,6 @@ Return to the Debug tab - you should now see the resultant output from the Trade
 
 To understand the contents of the output go to ->  [Watson tradeoff](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff_analytics/inout.shtml) and [Explanation of tradeoff JSON](https://developer.ibm.com/answers/questions/191441/need_explanation_of_solutionperspective_response_f.html)
 
-A complete file of the flows is saved here ->[ lab_toff_flow.json](lab_toff_flow.json)
+A complete file of the flows is saved here ->[ toff_lab_flow.json](toff_lab_flow.json)
 
 # [Using the Trade-Off Analytics Widget with Node-RED](../../watson_advanced_labs/tradeoff_analytics_widget/lab_tradeoff_analytics_widget.md)

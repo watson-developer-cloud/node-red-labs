@@ -57,7 +57,7 @@ So, we will introduce a `switch` node between the `[get]` and `change` nodes. Th
 You'll notice that adding the second `otherwise` rule has created a second output handle for the `switch` node, we'll connect this to a `template` node and then to the `HTML Response` node.
 ![TTS Lab 1 ScreenShot X2](images/tts_lab_x2.png)
 The template node simply outputs a HTML message in a h1 header.
-Flow for this can be found in [TTS-Lab-Basic](TTS_Lab_WithParamCheck.json)
+Flow for this can be found in [TTS-Lab-Basic](tts_lab_with_param_check.json)
 The final flow will look like:
 ![TTS Lab 1 ScreenShot X3](images/tts_lab_x3.png)
 

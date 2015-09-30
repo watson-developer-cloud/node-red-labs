@@ -124,7 +124,7 @@ This flow is deployed at the `/alchthumbs` URL, which will yield a page similar 
 
 ## Flow source code
 The flow export is available at:  
-[AlchVis-Lab-WebFacesThumbs](AlchVis_Lab_WebFacesThumbs.json).
+[AlchVis-Lab-WebFacesThumbs](alchvis_lab_webfaces_thumbs.json).
 
 ## Suggested extensions
 Based on this example, many extensions can be devised, such as handling mouse-over on the canvas to highlight the table row, or vice-versa.
