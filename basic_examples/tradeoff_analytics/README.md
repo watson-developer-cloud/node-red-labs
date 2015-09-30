@@ -25,20 +25,20 @@ For an already modified file see ->  [lab_toff_input.txt](lab_toff_input.txt)
 
 Open your Application and add a TradeOff Service to it.  On your Node-RED application click on "Add a Service or API"
 
-![ScreenShot](images/toff_Add_Service.png)
+![ScreenShot](images/toff_add_service.png)
 
 Pick the Tradeoff Analytics service in the Watson section
 
-![ScreenShot](images/toff_Watson_toff_service.png)
+![ScreenShot](images/toff_watson_toff_service.png)
 
 Your application will be shown, click "Use" to bind the Tradeoff Analytics service to your application
 
-![ScreenShot](images/toff_Add_Service_Use.png)
+![ScreenShot](images/toff_add_service_use.png)
 
 You will be prompted to Restage the application, click Restage.  Wait till the you see "Your app is running"
 
 Click on your App link
-![ScreenShot](images/toff_Go_to_Node_RED_flow_editor.png)
+![ScreenShot](images/toff_go_to_node_red_flow_editor.png)
 
 Click on the "go to your Node-RED flow editor" button
 

@@ -10,7 +10,7 @@ Demo -> [http://ibmlaser.mybluemix.net/siredemo.html](http://ibmlaser.mybluemix.
 
 Open your Application and add the Relationship extraction Service to your application.  Got to you Node-RED application and click on "Add a Service or API"
 
-![ScreenShot](images/re_Add_Service.png)
+![ScreenShot](images/re_add_service.png)
 
 Pick the Relationship  section
 
@@ -18,7 +18,7 @@ Pick the Relationship  section
 
 Your application will be shown, click "Use" to bind the Alchemy API Service to your application
 
-![ScreenShot](images/re_Add_Service_Use.png)
+![ScreenShot](images/re_add_service_use.png)
 
 You will be prompted to Restage the application, click Restage.  Wait till the you see "Your app is running"
 
@@ -28,7 +28,7 @@ Click on your App link
 
 Click on the "go to your Node-RED flow editor" button
 
-![ScreenShot](re_go_to_Node_RED_flow_editor.png)
+![ScreenShot](re_go_to_node_red_flow_editor.png)
 
 Drag an Inject node to the palette
 

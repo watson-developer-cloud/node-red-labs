@@ -15,23 +15,23 @@ If you use a local instance of Node-RED go to the Bluemix catalog and go to the 
 
 If one of either ways are done, you can continue with the following.
 
-![`LTOverview`](images/LT.jpg)
+![`LTOverview`](images/lt.jpg)
 
 In this example some random text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
 The inject node:
 
-![`LTInject`](images/LT_Inject.jpg)
+![`LTInject`](images/lt_inject.jpg)
 
 You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
 
 The translation node wil be configured like this. The text in this case is English so select English. Based on your source choose the right domain: News or Conversational.
 
-![`LTConfig`](images/LT_Config.jpg)
+![`LTConfig`](images/lt_config.jpg)
 
 As the translated text will be returned on message.payload, make sure that you select this in de debug node. The output from the debug node will then be:
 
-![`LTOutput`](images/LT_Debug.jpg)
+![`LTOutput`](images/lt_debug.jpg)
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 

@@ -13,32 +13,32 @@ In this first exercise, we will show how to simply produce a `.wav` file from in
 The first part of the flow will take text input from a web invocation and return the spoken text `.wav` file:
 
 1. Create a new flow, let's call it `TTS Web` 
-2. Add an ![`HTTPInput`](../../node_RED_labs/images/node_red_HTTPInput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
-![TTS Lab 1 ScreenShot 1](images/TTS_Lab_1_SetHTTPNode.png)
+2. Add an ![`HTTPInput`](../../node_RED_labs/images/node_red_httpinput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
+![TTS Lab 1 ScreenShot 1](images/tts_lab_1_sethttpnode.png)
 When invoked with query parameters such as `?text_to_say=Hello`, they will be added as properties on the `msg.payload` object. 
 3. Add a ![`change`](../../node_RED_labs/images/node_red_change.png) node to extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
-![TTS Lab 1 ScreenShot 2](images/TTS_Lab_2_EditChangeNode.png)
+![TTS Lab 1 ScreenShot 2](images/tts_lab_2_editchangenode.png)
 We do this because the TTS node uses the text in the `msg.payload` as input.
-4. Now add a ![`Watson TTS`](images/node_red_Watson_tts.png) node. This node will generate the binary `wav` stream content to the `msg.speech` property.
-![TTS Lab 1 ScreenShot 3](images/TTS_Lab_3_EditTTS.png)
+4. Now add a ![`Watson TTS`](images/node_red_watson_tts.png) node. This node will generate the binary `wav` stream content to the `msg.speech` property.
+![TTS Lab 1 ScreenShot 3](images/tts_lab_3_edittts.png)
 
 The properties of the TTS node will let you select the Language and Voice to use.
 
 5. Add another ![`change`](../../node_RED_labs/images/node_red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. We will also set the `HTTP response headers` by setting the `msg.headers` to the literal string value `[{ 'Content-Type': 'audio/wav'}]`. This is required in order to let browsers know that this is an audio file and not HTML.
 
-![TTS Lab 1 ScreenShot 4](images/TTS_Lab_4_EditChange.png)
+![TTS Lab 1 ScreenShot 4](images/tts_lab_4_editchange.png)
 
 6. Add a ![`Function`](../../node_RED_labs/images/node_red_Function.png) node with the following code:  
 ```javascript
 msg.headers={ 'Content-Type': 'audio/wav'};
 return msg;
 ```
-![EditSetHeadFunc](images/TTS_Lab_5_EditSetHeadFunc.png)  
+![EditSetHeadFunc](images/tts_lab_5_editsetheadfunc.png)  
 This is required in order to properly set the HTTP headers so that the response can be identified as audio in Wave format by the receiving browser.
 
-7. Finally, add a  ![`HTTP Response`](../../node_RED_labs/images/node_red_HTTPResponse.png) node. This node will simply return what's in the payload to the HTTP response.
+7. Finally, add a  ![`HTTP Response`](../../node_RED_labs/images/node_red_httpresponse.png) node. This node will simply return what's in the payload to the HTTP response.
 The completed flow should look like:
-![TTS Lab 1 ScreenShot 6](images/TTS_Lab_6_CompletedSimpleFlow.png)
+![TTS Lab 1 ScreenShot 6](images/tts_lab_6_completedsimpleflow.png)
 
 The flow code for this is in [TTS-Lab-Basic](TTS_Lab_Basic.json).
 
@@ -53,20 +53,20 @@ Depending on how your browser is configured, it may save it automatically or pro
 This flow has a caveat, which is that the flow will fail when the `text_to_say` query parameter is not set.
 
 So, we will introduce a `switch` node between the `[get]` and `change` nodes. This node will check if `msg.payload.text_to_say` is set, and otherwise divert to a `template` node that will simply set the payload to a error text.
-![TTS Lab 1 ScreenShot X1](images/TTS_Lab_X1.png)
+![TTS Lab 1 ScreenShot X1](images/tts_lab_x1.png)
 You'll notice that adding the second `otherwise` rule has created a second output handle for the `switch` node, we'll connect this to a `template` node and then to the `HTML Response` node.
-![TTS Lab 1 ScreenShot X2](images/TTS_Lab_X2.png)
+![TTS Lab 1 ScreenShot X2](images/tts_lab_x2.png)
 The template node simply outputs a HTML message in a h1 header.
 Flow for this can be found in [TTS-Lab-Basic](TTS_Lab_WithParamCheck.json)
 The final flow will look like:
-![TTS Lab 1 ScreenShot X3](images/TTS_Lab_X3.png)
+![TTS Lab 1 ScreenShot X3](images/tts_lab_x3.png)
 
 #### TTS Interactive Web UI
 As an extension, we can build a flow that will present a dialog to the user with a prompt to enter the text to say, and return a HTML page with an <audio> tag which will play the generated audio.
 
 For this, the basic flow which converts a text into speech audio wav file can be leveraged, and complemented with a HTTP web interaction. This is depicted in the flow as below::
 >
-![TTS Lab Web Page](images/TTS_Lab_WebPage.png)
+![TTS Lab Web Page](images/tts_lab_webpage.png)
 We added a new `HTTP input` node, listening on the `/talk` URL, and modified the text-to-wav HTTP URL to `/talk/sayit` so that it doesn't conflict with the previous Lab. The `choice` node checks for the text_to_say query parameter, and when not present outputs a simple web page using the `GetTextToSay` template:
 ```HTML
     <h1>Enter text to Say</h1>
@@ -75,7 +75,7 @@ We added a new `HTTP input` node, listening on the `/talk` URL, and modified the
           <input type="submit" value="Say it!"/>
        </form>
 ```
-![TTS-Lab-WebPage_Details1.png](images/TTS_Lab_WebPage_Details1.png)
+![TTS-Lab-WebPage_Details1.png](images/tts_lab_webpage_details1.png)
 
 When a text_to_say query parameter is set, we generate an HTML page with a \<audio> tag that refers to the `/talk/sayit` URL to get the audio `wav` file:
 ```HTML
@@ -91,7 +91,7 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
         <input type="submit" value="Try Again" />
     </form>
 ```
-![TTS-Lab-WebPage_Details2.png](images/TTS_Lab_WebPage_Details2.png)
+![TTS-Lab-WebPage_Details2.png](images/tts_lab_webpage_details2.png)
 
 The complete flow is available at [TTS-Lab-WebPage](TTS_Lab_WebPage.json).
 
