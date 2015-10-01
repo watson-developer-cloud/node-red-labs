@@ -81,7 +81,7 @@ What the \<script> section does is to:
   - Once the data has come back from the dilemmas server, the widget shows the problem and triggers onTAShown(), which is used to resize the widget to fit.
 
 ### Dilemmas serving stream
-This flow on `tofaw/dilemmas` will make some parameters adjustments through a `change` node, setting `subject`, `columns` and `options` from the `payload`, storing the incoming `problem` for later use, and then calling the ![tradeoff analytics](images/node_red_tradeoffanalytics.png) through its Node-RED service node. On return, another `change` node will adjust the returned payload parameters's `problem`and `resolution` to fit the format expected by the widget and return it as a JSON object.
+This flow on `tofaw/dilemmas` will make some parameters adjustments through a `change` node, setting `subject`, `columns` and `options` from the `payload`, storing the incoming `problem` for later use, and then calling the ![tradeoff analytics](images/node_red_trade_off_analytics.png) through its Node-RED service node. On return, another `change` node will adjust the returned payload parameters's `problem`and `resolution` to fit the format expected by the widget and return it as a JSON object.
 
 ### Events serving stream
 Notifications of events that happen on the widget will be received on that last stream at `/ tofaw/events`. Currently the flow does not do anything about the events, you can add a debug node to log the contents of the notifications.

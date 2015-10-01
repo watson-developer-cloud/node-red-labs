@@ -47,7 +47,7 @@ Optional:
 If you want to use the transcribed text in another applications, you can easily bring the transcribed text to Bluemix.
 Therefore you need to add a few extra nodes, the flow will look like te following:
 
-![`S2TOverviewExtra`](images/s2t_overviewextra.jpg)
+![`S2TOverviewExtra`](images/s2t_overview_extra.jpg)
 
 First you add the 'Change' node to move the transcript to the payload. You configure this node as shown below:
 

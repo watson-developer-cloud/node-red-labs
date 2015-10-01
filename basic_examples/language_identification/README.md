@@ -42,7 +42,7 @@ This will display the identified language with a confidence level:
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
 
-[Language Identification flow](LI_flow)
+[Language Identification flow](lang_identification_flow.json)
 
 
 

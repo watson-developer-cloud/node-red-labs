@@ -26,6 +26,6 @@ and populate it with an audio tag that refers to the previously built TTS flow w
 ```
 
 Start the lab flow by pointing at `./alchvoice`URL, the output table will show additional audio controls for recognized personalities:  
-![alch_image_to_speech_screenshot](images/alch_image_to_speech_screenshot.png)
+![alch_image_to_speech_screenshot](images/alchvis_image_to_speech_screenshot.png)
 
 The completed flow is available at [alchvis_image_to_speech.json](alchvis_image_to_speech.json)

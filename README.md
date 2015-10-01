@@ -13,7 +13,7 @@ Some nodes in Node-RED make use of the same service in Bluemix, like:
 - The Language Identification and Language Translation nodes make use of the Language Translation service in Bluemix.  
 - The Feature extract and image analysis nodes make use of the Alchemy API service in Bluemix
 
-![NodeRedStarter](images/watsonservicesoverview.jpg)
+![NodeRedStarter](images/watson_services_overview.jpg)
 
 You can find different labs in this project:
 
