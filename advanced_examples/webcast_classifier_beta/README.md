@@ -6,7 +6,7 @@
 In this lab we will explore how Node-RED rapid prototyping capabilities can be used to analyse a webcast transcript in order to classify it using Watson Node-RED nodes.  Many of us have to decide which webcast we need to listen to and a way of classifying them against your own needs would beneficial.  The idea is that Speech to text and then Personality Insights, Alchemy API Feature Extraction and other Watson nodes can be used to help in deciding which webcast to listen to against your own preferences.
 
 ## Prerequisite
- - It is assumed that you have completed the ([Speech to Text lab](..watson_services_labs/speech_to_text/lab_speech_to_text.md)) and you are familiar with Node-RED nodes.
+ - It is assumed that you have completed the ([Speech to Text lab](/basic_examples/speech_to_text/README.md)) and you are familiar with Node-RED nodes.
 
 ## Flow building
 To simulate some webcasts transcripts the HTTP Request/Response nodes are used to feed the Watson nodes with appropriate information.

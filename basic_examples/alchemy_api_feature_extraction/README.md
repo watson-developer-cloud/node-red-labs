@@ -6,7 +6,7 @@ Before starting this section you will need to obtain an Alchemy API key, follow 
 
 Open your Application and add the Alchemy API Service to it.  On your Node-RED application click on "Add a Service or API"
 
-![ScreenShot](images/fe_Add_Service.png)
+![ScreenShot](images/fe_add_service.png)
 
 Pick the Alchemy API Service in the Watson section
 
@@ -14,7 +14,7 @@ Pick the Alchemy API Service in the Watson section
 
 Your application will be shown, click "Use" to bind the Alchemy API Service to your application
 
-![ScreenShot](images/fe_Add_Service_Use.png)
+![ScreenShot](images/fe_add_service_use.png)
 
 You will be prompted to Restage the application, click Restage.  Wait till the you see "Your app is running"
 
@@ -24,7 +24,7 @@ Click on your App link
 
 Click on the "go to your Node-RED flow editor" button
 
-![ScreenShot](fe_go_to_Node-RED_flow_editor.png)
+![ScreenShot](images/fe_go_to_node_red_flow_editor.png)
 
 Drag an Inject node to the palette
 

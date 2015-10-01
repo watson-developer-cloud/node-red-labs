@@ -3,7 +3,7 @@
 If you are having problems using the APIs or have a question about the IBM
 Watson Services, please ask a question on
 [dW Answers](https://developer.ibm.com/answers/questions/ask/?topics=watson)
-or [Stack Overflow](http://stackoverflow.com/questions/ask?tags=ibm-watson).
+or [Stack Overflow](http://stackoverflow.com/questions/ask?tags=ibm_watson).
 
 # Code
 
@@ -18,7 +18,7 @@ or [Stack Overflow](http://stackoverflow.com/questions/ask?tags=ibm-watson).
 # Issues
 
 If you encounter an issue with the Node.js library, you are welcome to submit
-a [bug report](https://github.com/watson-developer-cloud/nodejs-wrapper/issues).
+a [bug report](https://github.com/watson_developer_cloud/nodejs_wrapper/issues).
 Before that, please search for similar issues. It's possible somebody has
 already encountered this issue.
 

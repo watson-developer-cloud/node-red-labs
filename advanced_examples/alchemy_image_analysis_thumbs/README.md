@@ -1,6 +1,6 @@
 #  Node-RED Alchemy Vision (Image Analysis) Lab with thumbnails
 ## Overview
-This lab will extend the capabilities of the [Alchemy Image Analysis Lab](../../watson_services_labs/alchemy_api_image_analysis/lab_alchemy_api_image_analysis.md), by leveraging more of the information returned by the Alchemy Vision API.
+This lab will extend the capabilities of the [Alchemy Image Analysis Lab](/basic_examples/alchemy_api_image_analysis/README.md) by leveraging more of the information returned by the Alchemy Vision API.
 
 Among other information, the Alchemy Vision API provides the bounding rectangle for the detected faces.  
 In this lab, we will use this information to enhance the output HTML page so that it highlights the recognized celebrities' faces and extracts their thumbnails.
@@ -120,11 +120,11 @@ In addition, the faces' bounding box rectangles will be drawn on the group photo
 
 ## Testing the enhanced flow with thumbnails rendering:
 This flow is deployed at the `/alchthumbs` URL, which will yield a page similar as this one:  
-![Lab Screenshot](images/AlchVis-Lab-WebFacesThumbs.png)
+![Lab Screenshot](images/alchvis_lab_webfacesthumbs.png)
 
 ## Flow source code
 The flow export is available at:  
-[AlchVis-Lab-WebFacesThumbs](AlchVis-Lab-WebFacesThumbs.json).
+[AlchVis-Lab-WebFacesThumbs](alchvis_lab_webfaces_thumbs.json).
 
 ## Suggested extensions
 Based on this example, many extensions can be devised, such as handling mouse-over on the canvas to highlight the table row, or vice-versa.

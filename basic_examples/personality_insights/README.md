@@ -1,6 +1,6 @@
 ##Personality Insights
 
-The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to [personal-insights](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html) for a full description and demo
+The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to [personal-insights](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality_insights.html) for a full description and demo
 
 The objective is to send the Personality Insights node the same data as for the demo (https://watson-pi-demo.mybluemix.net/) and to show the JSON object and its values match those of the demo
 
@@ -22,7 +22,7 @@ Join them as shown below
 
 Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
 
-Double-click the inject node and change Payload to string.  Go to [sample file](Personal%20Insights%20input%20text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
+Double-click the inject node and change Payload to string.  Go to [sample file](personal_insights_input_text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
 
 Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
 

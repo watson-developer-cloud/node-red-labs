@@ -25,20 +25,20 @@ For an already modified file see ->  [lab_toff_input.txt](lab_toff_input.txt)
 
 Open your Application and add a TradeOff Service to it.  On your Node-RED application click on "Add a Service or API"
 
-![ScreenShot](images/toff_Add_Service.png)
+![ScreenShot](images/toff_add_service.png)
 
 Pick the Tradeoff Analytics service in the Watson section
 
-![ScreenShot](images/toff_Watson_toff_service.png)
+![ScreenShot](images/toff_watson_toff_service.png)
 
 Your application will be shown, click "Use" to bind the Tradeoff Analytics service to your application
 
-![ScreenShot](images/toff_Add_Service_Use.png)
+![ScreenShot](images/toff_add_service_use.png)
 
 You will be prompted to Restage the application, click Restage.  Wait till the you see "Your app is running"
 
 Click on your App link
-![ScreenShot](images/toff_Go_to_Node-RED_flow_editor.png)
+![ScreenShot](images/toff_go_to_node_red_flow_editor.png)
 
 Click on the "go to your Node-RED flow editor" button
 
@@ -84,8 +84,8 @@ Return to the Debug tab - you should now see the resultant output from the Trade
 
 ![ScreenShot](images/toff_output.png)
 
-To understand the contents of the output go to ->  [Watson tradeoff](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff-analytics/inout.shtml) and [Explanation of tradeoff JSON](https://developer.ibm.com/answers/questions/191441/need-explanation-of-solutionperspective-response-f.html)
+To understand the contents of the output go to ->  [Watson tradeoff](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tradeoff_analytics/inout.shtml) and [Explanation of tradeoff JSON](https://developer.ibm.com/answers/questions/191441/need_explanation_of_solutionperspective_response_f.html)
 
-A complete file of the flows is saved here ->[ lab_toff_flow.json](lab_toff_flow.json)
+A complete file of the flows is saved here ->[ toff_lab_flow.json](toff_lab_flow.json)
 
-# [Using the Trade-Off Analytics Widget with Node-RED](../../watson_advanced_labs/tradeoff_analytics_widget/lab_tradeoff_analytics_widget.md)
+# [Using the Trade-Off Analytics Widget with Node-RED](/advanced_examples/tradeoff_analytics_widget/README.md)
