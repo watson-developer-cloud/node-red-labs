@@ -46,10 +46,10 @@ Join the nodes as shown below
 
 ![ScreenShot](images/re_join_nodes.png)
 
-Open this file [re_file](re_input_file) 
+Open this file NOT DONE YET
 
 Double-click the Inject node and change the payload to Blank
-![ScreenShot](images/fe_inject_blank.png)
+NOT DONE YET
 
 Copy the following text to your clipboard (hightlight, ctrl-c)
 
