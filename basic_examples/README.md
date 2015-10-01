@@ -12,7 +12,7 @@ In the list below, you can select different services and see how these can be im
 - [Speech to Text](speech_to_text/README.md) Only available on local Node_RED instance
 - [Text to Speech](text_to_speech/README.md)
 - [Tradeoff Analytics](tradeoff_analytics/README.md)
-- [Visual Recognition](README.md)
+- [Visual Recognition](visual_recognition/README.md)
 - [Alchemy Vision](alchemy_api_image_analysis/README.md)
 - [Alchemy Feature Extraction](alchemy_api_feature_extraction/README.md)
 - [Natural Language Classifier](natural_language_classifier_beta/README.md) BETA service
