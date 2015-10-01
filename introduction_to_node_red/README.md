@@ -69,7 +69,7 @@ For Windows
 
  Then open [http://localhost:1880](http://localhost:1880)
 
-Check out [this page](http://nodered.org/docs/getting_started/) for full instructions on getting started with Node-RED.
+Check out [this page](http://nodered.org/docs/getting-started/) for full instructions on getting started with Node-RED.
 
 ###Deploy Node-RED on Bluemix
 
