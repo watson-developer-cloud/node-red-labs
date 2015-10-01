@@ -120,7 +120,7 @@ In addition, the faces' bounding box rectangles will be drawn on the group photo
 
 ## Testing the enhanced flow with thumbnails rendering:
 This flow is deployed at the `/alchthumbs` URL, which will yield a page similar as this one:  
-![Lab Screenshot](images/alchvis_lab_webfacesthumbs.png)
+![Lab Screenshot](images/alchvis_lab_webfaces_thumbs.png)
 
 ## Flow source code
 The flow export is available at:  

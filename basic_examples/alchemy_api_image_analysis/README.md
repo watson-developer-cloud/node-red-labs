@@ -9,7 +9,7 @@ The Node-RED ![`Alchemy Image Analysis`](images/node_red_alchemy_image_analysis.
 ### Flow overview
 In this exercise, we will show how to simply generate the face recognition data from an image URL. The structure of the flow is very similar to the Watson Visual Recognition flow.  
 The flow will present a simple Web page with a text field where to input the image's URL, then submit it to Alchemy Image Analysis, and output the faces that have been found on the reply Web page.  
-![AlchVis-FaceDetectionFlow](images/alchvis_facedetectionflow.png)  
+![AlchVis-FaceDetectionFlow](images/alchvis_face_detection_flow.png)  
 
 ### Building the flow
 The nodes required to build this flow are:  
@@ -29,12 +29,12 @@ The nodes required to build this flow are:
     <input type="submit" value="Analyze"/>
 </form>
 ```
-![AlchVis-Lab-TemplatePrompt-Node-Props](images/alchvis_templateprompt_props.png)
+![AlchVis-Lab-TemplatePrompt-Node-Props](images/alchvis_template_prompt_props.png)
 
   - A ![change](/introduction_to_node_red/images/node_red_change.png) node to extract the `imageurl` query parameter from the web request and assign it to the payload to be provided as input to the Alchemy Image Analysis node:  
  ![AlchVis-Lab-Change_and_IA-Node-Props](images/alchvis_change_and_ia_props.png)
 
-  - The ![`Alchemy Image Analysis`](images/node_red_alchemy_image_analysis.png) node. Make sure that you have installed and bound an instance of the `Alchemy API` ![AlchemyAPIService](images/alchemyapiservice.png) service to your Node-RED application in bluemix. Otherwise, you can edit the Alchemy Image Analysis node to provide an `apikey`.  
+  - The ![`Alchemy Image Analysis`](images/node_red_alchemy_image_analysis.png) node. Make sure that you have installed and bound an instance of the `Alchemy API` ![AlchemyAPIService](images/alchemy_api_service.png) service to your Node-RED application in bluemix. Otherwise, you can edit the Alchemy Image Analysis node to provide an `apikey`.  
  
   - A ![`template`](/introduction_to_node_red/images/node_red_template.png) node with the following content, which will format the output returned from the Image Analysis node into an HTML table for easier reading:  
 ```HTML
@@ -56,7 +56,7 @@ The nodes required to build this flow are:
     </form>
 ```
   - Finally, linked to the ![`HTTPResponse`](/introduction_to_node_red/images/node_red_httpresponse.png) output node. 
-![AlchVis-Lab-TemplateReport-Node-Props](images/alchvis_templatereport_props.png)
+![AlchVis-Lab-TemplateReport-Node-Props](images/alchvis_template_report_props.png)
 
 ### Testing the flow
 To run the web page, point your browser to  `/http://xxxx.mybluemix.net/alchvision` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.  

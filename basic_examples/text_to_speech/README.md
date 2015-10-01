@@ -14,33 +14,33 @@ The first part of the flow will take text input from a web invocation and return
 
 1. Create a new flow, let's call it `TTS Web` 
 2. Add an ![`HTTPInput`](/introduction_to_node_red/images/node_red_httpinput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
-![TTS Lab 1 ScreenShot 1](images/tts_lab_1_sethttpnode.png)
+![TTS Lab 1 ScreenShot 1](images/tts_lab_1_set_http_node.png)
 When invoked with query parameters such as `?text_to_say=Hello`, they will be added as properties on the `msg.payload` object. 
 3. Add a ![`change`](/introduction_to_node_red/images/node_red_change.png) node to extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
-![TTS Lab 1 ScreenShot 2](images/tts_lab_2_editchangenode.png)
+![TTS Lab 1 ScreenShot 2](images/tts_lab_2_edit_change_node.png)
 We do this because the TTS node uses the text in the `msg.payload` as input.
 4. Now add a ![`Watson TTS`](images/node_red_watson_tts.png) node. This node will generate the binary `wav` stream content to the `msg.speech` property.
-![TTS Lab 1 ScreenShot 3](images/tts_lab_3_edittts.png)
+![TTS Lab 1 ScreenShot 3](images/tts_lab_3_edit_tts.png)
 
 The properties of the TTS node will let you select the Language and Voice to use.
 
 5. Add another ![`change`](/introduction_to_node_red/images/node_red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. We will also set the `HTTP response headers` by setting the `msg.headers` to the literal string value `[{ 'Content-Type': 'audio/wav'}]`. This is required in order to let browsers know that this is an audio file and not HTML.
 
-![TTS Lab 1 ScreenShot 4](images/tts_lab_4_editchange.png)
+![TTS Lab 1 ScreenShot 4](images/tts_lab_4_edit_change.png)
 
-6. Add a ![`Function`](/introduction_to_node_red/images/node_red_Function.png) node with the following code:  
+6. Add a ![`Function`](/introduction_to_node_red/images/node_red_function.png) node with the following code:  
 ```javascript
 msg.headers={ 'Content-Type': 'audio/wav'};
 return msg;
 ```
-![EditSetHeadFunc](images/tts_lab_5_editsetheadfunc.png)  
+![EditSetHeadFunc](images/tts_lab_5_edit_set_header_func.png)  
 This is required in order to properly set the HTTP headers so that the response can be identified as audio in Wave format by the receiving browser.
 
 7. Finally, add a  ![`HTTP Response`](/introduction_to_node_red/images/node_red_httpresponse.png) node. This node will simply return what's in the payload to the HTTP response.
 The completed flow should look like:
-![TTS Lab 1 ScreenShot 6](images/tts_lab_6_completedsimpleflow.png)
+![TTS Lab 1 ScreenShot 6](images/tts_lab_6_completed_simple_flow.png)
 
-The flow code for this is in [TTS-Lab-Basic](TTS_Lab_Basic.json).
+The flow code for this is in [TTS-Lab-Basic](tts_lab_basic.json).
 
 _Now try the flow:_
 
@@ -66,7 +66,7 @@ As an extension, we can build a flow that will present a dialog to the user with
 
 For this, the basic flow which converts a text into speech audio wav file can be leveraged, and complemented with a HTTP web interaction. This is depicted in the flow as below::
 >
-![TTS Lab Web Page](images/tts_lab_webpage.png)
+![TTS Lab Web Page](images/tts_lab_web_page.png)
 We added a new `HTTP input` node, listening on the `/talk` URL, and modified the text-to-wav HTTP URL to `/talk/sayit` so that it doesn't conflict with the previous Lab. The `choice` node checks for the text_to_say query parameter, and when not present outputs a simple web page using the `GetTextToSay` template:
 ```HTML
     <h1>Enter text to Say</h1>
@@ -75,7 +75,7 @@ We added a new `HTTP input` node, listening on the `/talk` URL, and modified the
           <input type="submit" value="Say it!"/>
        </form>
 ```
-![TTS-Lab-WebPage_Details1.png](images/tts_lab_webpage_details1.png)
+![TTS-Lab-WebPage_Details1.png](images/tts_lab_web_page_details1.png)
 
 When a text_to_say query parameter is set, we generate an HTML page with a \<audio> tag that refers to the `/talk/sayit` URL to get the audio `wav` file:
 ```HTML
@@ -91,8 +91,8 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
         <input type="submit" value="Try Again" />
     </form>
 ```
-![TTS-Lab-WebPage_Details2.png](images/tts_lab_webpage_details2.png)
+![TTS-Lab-WebPage_Details2.png](images/tts_lab_web_page_details2.png)
 
-The complete flow is available at [TTS-Lab-WebPage](TTS_Lab_WebPage.json).
+The complete flow is available at [TTS-Lab-WebPage](tts_lab_webpage.json).
 
 To run it, point your browser to  `/http://xxxx.mybluemix.net/tts/talk` and enter some text.

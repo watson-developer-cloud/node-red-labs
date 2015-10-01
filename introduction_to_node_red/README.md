@@ -8,7 +8,7 @@ Node-RED provides a browser-based flow editor that makes it easy to wire togethe
 While Node-Red is based on Node.js, JavaScript functions can be created within the editor using a rich text editor.
 A built-in library allows you to save useful functions, templates or flows for re-use.
 
-![NodeRedStarter](images/noderedstarter.jpg)
+![NodeRedStarter](images/node_red_starter.jpg)
 
 Node-RED is included in the Node-RED starter application in [Bluemix](http://ibm.biz/bluemixnl) (Bluemix is IBM’s Platform as a Service, free of charge) but you can also deploy it as a stand alone Node.js application. 
 Node-RED can not only be used for IoT applications, but it is a generic event-processing engine. For example you can use it to listen to events from http, websockets, tcp, Twitter and more and store this data in databases without having to program much if at all. You can also use it for example to implement simple REST APIs. You can find many other sample flows on the [Node-RED website](http://flows.nodered.org).
@@ -91,7 +91,7 @@ When the application is started you can click on the URL to open Node-RED.
 
 We will create a Hello World flow.
 
-![HelloWorldFlowT](images/helloworldflow.jpg)
+![HelloWorldFlowT](images/hello_world_flow.jpg)
 
 This program is a very simple flow that prints the message 'Hello World' on the screen. 
 Here you can see Node-RED's user interface, the colored blocks on the screen are called nodes, which is a visual representation of a piece of JavaScript code to carry out a task.
@@ -101,8 +101,8 @@ To build this 'Hello World' flow you need to take the following steps:
  2. Double click this node to see the options
  3. Use the drop-dwon, to select string for the payload
  4. Type 'Hello' on the second line: This will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
- 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the payload. 
- The complete function should look like this: ![HelloWorld](images/completehwfunc.jpg) 
+ 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/add_line_func.jpg). This will add 'World' to the payload. 
+ The complete function should look like this: ![HelloWorld](images/complete_hw_func.jpg) 
  6. Add a 'Debug node' to the canvas.
  7. Wire the 'Inject node' to the 'Function node' and the function node to the 'Debug node'. Most nodes have a grey circle on their left side, which is their input port, and on their right side, which is their output port. Left clicking and dragging the output to the input port of the next node connects the two together.
  8. Press 'Deploy'.
