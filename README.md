@@ -1,6 +1,6 @@
 # Watson-Node-Red-examples
 
-This Github project consists of a collection of examples on how to use the Watson nodes in Node-RED. Besides the samples there are some labs available where different Watson nodes are combined to create apps.
+This Github project consists of a collection of examples on how to use the Watson nodes in Node-RED (Basic and advanced labs). The basic labs are simple standalone examples of how to call each individual Watson Node-RED nodes and the advanced labs are where different Watson Node-RED nodes are combined to create more complex applications.
 
 To use these nodes you first have to set up your environment. 
 The information on [this page](/introduction_to_node_red/README.md) will get you started in a few minutes. It helps you with:
@@ -9,17 +9,14 @@ The information on [this page](/introduction_to_node_red/README.md) will get you
 - build your first 'Hello World' flow
 - additional information on the non-Watson Nodes you use in the labs
 
-In the image below you can see which Watson services are available in Bluemix. The circled ones are used in Node-RED.
 Some nodes in Node-RED make use of the same service in Bluemix, like:
 - The Language Identification and Language Translation nodes make use of the Language Translation service in Bluemix.  
-- The Feature extract and image analysis nodes make use of the Alchemy API service in Bluemix
-
-![NodeRedStarter](images/WatsonServicesOverview.jpg)
+- The Feature Extract and image analysis nodes make use of the Alchemy API service in Bluemix
 
 You can find different labs in this project:
 
 - [Introduction to Node-RED](/introduction_to_node_red/README.md) (same link as above)
-- [Basic Labs using Watson nodes](/basic_examples/README.md)
+- [Basic Labs using Watson nodes](/basic_examples/README.md) - 
 - [Advanced Labs using multiple Watson nodes](/advanced_examples/README.md) where different nodes/services are combined
 
 
