@@ -88,4 +88,4 @@ To understand the contents of the output go to ->  [Watson tradeoff](https://www
 
 A complete file of the flows is saved here ->[ toff_lab_flow.json](toff_lab_flow.json)
 
-# [Using the Trade-Off Analytics Widget with Node-RED](../../watson_advanced_labs/tradeoff_analytics_widget/lab_tradeoff_analytics_widget.md)
+# [Using the Trade-Off Analytics Widget with Node-RED](/advanced_examples/tradeoff_analytics_widget/README.md)

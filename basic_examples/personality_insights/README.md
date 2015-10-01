@@ -22,7 +22,7 @@ Join them as shown below
 
 Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
 
-Double-click the inject node and change Payload to string.  Go to [sample file](Personal%20Insights%20input%20text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
+Double-click the inject node and change Payload to string.  Go to [sample file](personal_insights_input_text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
 
 Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
 

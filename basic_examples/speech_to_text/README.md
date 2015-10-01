@@ -11,13 +11,13 @@ Speech to Text service can be used anywhere voice-interactivity is needed. The s
 
 To use the Speech To Text service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. 
 
-You need to have a local instance of Node-RED with IBM nodes available. If you don't have that yet, you can go [here](../../node_RED_labs/lab_node_RED.md).
+You need to have a local instance of Node-RED with IBM nodes available. If you don't have that yet, you can go [here](/introduction_to_node_red/README.md).
 Then go to the Bluemix catalog and go to the Speech to Text service and click on it. Make sure that there is no app bound to this service and click 'Use"
 Wait until this service is deployed and click on 'Show Credentials', you will need the username and the password later on in this lab.
 
 ![`S2TOverview`](images/s2t_overview.jpg)
 
-In this lab an audio file will be transcribed. This audiofile can be downloaded [here](Audio Message.wav). 
+In this lab an audio file will be transcribed. This audiofile can be downloaded [here](audio_message.wav). 
 In the following screenshots you can see how the nodes are configured.
 
 First you start with an Inject node, to start uploading of the .Wav file from your local machine into the Speech To Text service in Bluemix
@@ -40,7 +40,7 @@ Then you need to wire all the nodes together and press on 'Deploy'
 
 When you click on the Inject node, you will see the transcribed text from the audio file in the debug window.
 
-The complete flow can be found here: [Text To Speech lab flow](S2T_flow)
+The complete flow can be found here: [Text To Speech lab flow](s2t_flow.json)
 
 Optional:
 
@@ -69,12 +69,12 @@ First you need to add a 'MQTT In' node. This node must subscribe to the same top
 
 ![`S2TMQTTOin`](images/s2t_mqttin.jpg)
 
-Then you can connect any node to this, like [Language Identification](../language_identification/lab_language_identification.md) to identify the language of the transcript. I this case I added a debug node, to see the output. The transcript is in the message.payload:
+Then you can connect any node to this, like [Language Identification](/basic_examples/language_identification/README.md) to identify the language of the transcript. I this case I added a debug node, to see the output. The transcript is in the message.payload:
 
 ![`S2TDebugBL`](images/s2t_debugbl.jpg)
 
-The extended flow can be found here: [Extended Text To Speech lab flow ](S2T_flow_extended)
-The flow in Node-Red in Bluemix can be found here: [Text To Speech lab flow for Bluemix](S2T_flow_bluemix)
+The extended flow can be found here: [Extended Text To Speech lab flow ](s2t_flow_extended.json)
+The flow in Node-Red in Bluemix can be found here: [Text To Speech lab flow for Bluemix](s2t_flow_bluemix.json)
 
 
 

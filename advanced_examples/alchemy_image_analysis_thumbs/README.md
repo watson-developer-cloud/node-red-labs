@@ -1,6 +1,6 @@
 #  Node-RED Alchemy Vision (Image Analysis) Lab with thumbnails
 ## Overview
-This lab will extend the capabilities of the [Alchemy Image Analysis Lab](../../watson_services_labs/alchemy_api_image_analysis/lab_alchemy_api_image_analysis.md), by leveraging more of the information returned by the Alchemy Vision API.
+This lab will extend the capabilities of the [Alchemy Image Analysis Lab](/basic_examples/alchemy_api_image_analysis/README.md) by leveraging more of the information returned by the Alchemy Vision API.
 
 Among other information, the Alchemy Vision API provides the bounding rectangle for the detected faces.  
 In this lab, we will use this information to enhance the output HTML page so that it highlights the recognized celebrities' faces and extracts their thumbnails.

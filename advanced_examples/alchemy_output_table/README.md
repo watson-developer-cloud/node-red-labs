@@ -1,18 +1,17 @@
 #Create a table from the Alchemy Api features
 
-This lab is an extension of this [Alchemy Feature Extraction lab](../../watson_services_labs/alchemy_api_feature_extraction/lab_alchemy_api_feature_extraction.md).
-           
+This lab is an extension of this [Alchemy Feature Extraction lab](/basic_examples/alchemy_api_feature_extraction/README.md).
 
 With this extended lab you can easily see what the output of the different features of the Alchemy API Feature Extract node is.
 With just a few minor changes you can have a different output.
 
 The final flow looks like this:
 
-![`AlchemyOverview](images/AApi_table_overview.jpg)
+![`AlchemyOverview](images/aapi_table_overview.jpg)
 
 First set up a 'http in' node like this:
 
-![`Alchemyhttpin](images/AApi_table_hhtpin.jpg)
+![`Alchemyhttpin](images/aapi_table_hhtpin.jpg)
 
 I have put in 'resp', as this is the response page. but you can add anything.
 
@@ -20,7 +19,7 @@ You can access this page via {http://XXXX.mybluemix.net/resp} where XXXX is the 
 
 The next node is a 'Switch' node. in the following image you can see how it is configured:
 
-![`Alchemyhswitch](images/AApi_table_switch.jpg)
+![`Alchemyhswitch](images/aapi_table_switch.jpg)
 
            payload.fetext 
 
@@ -34,15 +33,15 @@ to
            the msg.payload
 See screenshot
 
-![`Alchemychange](images/AApi_table_change.jpg)
+![`Alchemychange](images/aapi_table_change.jpg)
 
 Then the actual Alchemy Feature Extract node comes in. You can choose one of the features by using the check box. Iin this case I used Keywords. Remember this feature, it will be used later again.
 
-![`Alchemyfeature](images/AApi_table_feature.jpg)
+![`Alchemyfeature](images/aapi_table_feature.jpg)
 
 The next step is setting up a small function:
 
-![`Alchemyfunction](images/AApi_table_function.jpg)
+![`Alchemyfunction](images/aapi_table_function.jpg)
 
 Here you use 
 
@@ -67,11 +66,11 @@ These are the different features which can be used:
 The following node is a 'template' node which contains the HTML to create the page. This page will have an inpout field an a button to push the text to the Alchemy API.
 The HTML code can be downloaded [here](AApi_table_template1.txt) and looks like this:
 
-![`Alchemytemplate1](images/AApi_table_template1.jpg)
+![`Alchemytemplate1](images/aapi_table_template1.jpg)
 
 Then another template is used is for putting the out put of the Alchemy API on the page:
 
-![`Alchemytemplate2](images/AApi_table_template2.jpg)
+![`Alchemytemplate2](images/aapi_table_template2.jpg)
 
 You can copy this into the template:
 
@@ -81,7 +80,7 @@ You can copy this into the template:
            
 The final node is the 'http response' node.
 
-![`Alchemyresponse](images/AApi_table_httpresponse.jpg)
+![`Alchemyresponse](images/aapi_table_httpresponse.jpg)
 
 Here you use the same name as you used in the 'http in' node.
 

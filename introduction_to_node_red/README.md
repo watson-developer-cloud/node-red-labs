@@ -100,9 +100,9 @@ To build this 'Hello World' flow you need to take the following steps:
  1. Drag an 'Inject node' to the canvas
  2. Double click this node to see the options
  3. Use the drop-dwon, to select string for the payload
- 4. Type 'Hello' on the second line
-(this will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
- 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the payload. The complete function should look like this: ![HelloWorld](images/completehwfunc.jpg) 
+ 4. Type 'Hello' on the second line: This will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
+ 5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/addlinefunc.jpg). This will add 'World' to the payload. 
+ The complete function should look like this: ![HelloWorld](images/completehwfunc.jpg) 
  6. Add a 'Debug node' to the canvas.
  7. Wire the 'Inject node' to the 'Function node' and the function node to the 'Debug node'. Most nodes have a grey circle on their left side, which is their input port, and on their right side, which is their output port. Left clicking and dragging the output to the input port of the next node connects the two together.
  8. Press 'Deploy'.
