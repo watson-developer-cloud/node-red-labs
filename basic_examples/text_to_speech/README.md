@@ -28,7 +28,7 @@ The properties of the TTS node will let you select the Language and Voice to use
 
 ![TTS Lab 1 ScreenShot 4](images/tts_lab_4_edit_change.png)
 
-6. Add a ![`Function`](/introduction_to_node_red/images/node_red_Function.png) node with the following code:  
+6. Add a ![`Function`](/introduction_to_node_red/images/node_red_function.png) node with the following code:  
 ```javascript
 msg.headers={ 'Content-Type': 'audio/wav'};
 return msg;
@@ -40,7 +40,7 @@ This is required in order to properly set the HTTP headers so that the response 
 The completed flow should look like:
 ![TTS Lab 1 ScreenShot 6](images/tts_lab_6_completed_simple_flow.png)
 
-The flow code for this is in [TTS-Lab-Basic](TTS_Lab_Basic.json).
+The flow code for this is in [TTS-Lab-Basic](tts_lab_basic.json).
 
 _Now try the flow:_
 
@@ -93,6 +93,6 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
 ```
 ![TTS-Lab-WebPage_Details2.png](images/tts_lab_web_page_details2.png)
 
-The complete flow is available at [TTS-Lab-WebPage](TTS_Lab_WebPage.json).
+The complete flow is available at [TTS-Lab-WebPage](tts_lab_webpage.json).
 
 To run it, point your browser to  `/http://xxxx.mybluemix.net/tts/talk` and enter some text.
