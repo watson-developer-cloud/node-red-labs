@@ -70,4 +70,4 @@ The Watson Visual Recognition API will return an array with the recognized featu
 ![Visual RecognitionScreenshot ](images/reco_lab_visual_recognition_screenshot.png)
 
 ### Flow source
-The complete flow is available at [Reco-Lab-WebPage](Reco_Lab_WebPage.json).
+The complete flow is available at [Reco-Lab-WebPage](reco_lab_web_page.json).
