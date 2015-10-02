@@ -22,3 +22,7 @@ You can find different labs in this project:
 - [Advanced Labs using multiple Watson nodes](/advanced_examples/README.md) show how to extend or combine where different nodes and services
 
 Feel free to use this content, please let us know what you think of it!
+
+## License
+
+MIT. Full license text is available in [LICENSE](LICENSE).
