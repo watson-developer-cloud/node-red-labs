@@ -49,7 +49,7 @@ Join the nodes as shown below
 Double-click the Inject node and change the payload to Blank
 ![ScreenShot](images/fe_inject_blank.png)
 
-Copy the following text to your clipboard (hightlight, ctrl-c)
+Copy the following text to your clipboard (highlight, ctrl-c)
 
 **AlchemyAPI uses natural language processing, artificial intelligence, deep learning and massive-scale web crawling to power it's text analysis capabilities. Try entering your own text in this text box to see what knowledge AlchemyAPI can extract from your unstructured data.**
 
