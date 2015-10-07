@@ -99,7 +99,7 @@ To build this 'Hello World' flow you need to take the following steps:
 
  1. Drag an 'Inject node' to the canvas
  2. Double click this node to see the options
- 3. Use the drop-dwon, to select string for the payload
+ 3. Use the drop-down, to select string for the payload
  4. Type 'Hello' on the second line: This will cause to inject hello into the flow when clicked on the inject node) and click on ok, to save and close this node.
  5. Add a 'Function node' to the canvas, open it and place this on the first line into the function: ![HelloWorld](images/add_line_func.jpg). This will add 'World' to the payload. 
  The complete function should look like this: ![HelloWorld](images/complete_hw_func.jpg) 
@@ -112,9 +112,6 @@ Now you have build your first Hello World flow. Test it by clicking on the 'Inje
 ##Nodes used in the labs
 
 In this section several nodes will be described which will be used in the labs. The labs will use these services to create Watson applications.
-
-In this section several nodes will be described which will be used in the labs which can be found. The labs will use these services to create Watson applications.
-
 
 ### http in node
 
