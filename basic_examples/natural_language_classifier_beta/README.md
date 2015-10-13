@@ -1,6 +1,6 @@
-#Natural Language Classifier (beta, no Node-RED node exists)
+#Natural Language Classifier (**no Node-RED node exists**)
 
-The Natural Language Classifier (NLC) is a beta Service (as of Sept 2015) but it would be useful to describe how to create the steps to use it since it offers some cognitive learning features.
+The Natural Language Classifier (NLC) is not yet available as a Node-RED node, but it is useful to describe how to create the steps to use it since it offers some cognitive learning features.
 
 Overview of NLC -> [Overview](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl_classifier/)
  
