@@ -49,15 +49,15 @@ Join the nodes as shown below
 Double-click the Inject node and change the payload to Blank
 ![ScreenShot](images/fe_inject_blank.png)
 
-Copy the following text to your clipboard (hightlight, ctrl-c)
+Copy the following text to your clipboard (highlight, ctrl-c)
 
 **AlchemyAPI uses natural language processing, artificial intelligence, deep learning and massive-scale web crawling to power it's text analysis capabilities. Try entering your own text in this text box to see what knowledge AlchemyAPI can extract from your unstructured data.**
 
-Double-click the Function node and past the text "msg.payload=" (including the double quote) in front of the text :
+Double-click the Function node and type the text msg.payload=" (including the double quote) then paste (ctrl-v) the text
 
 ![ScreenShot](images/fe_function_text_front.png)
 
-Now end the line with another double quote and semi-colon :
+Now end the line with another double quote and semi-colon ;
 
 ![ScreenShot](images/fe_function_text_end_semicolon.png)
 

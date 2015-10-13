@@ -31,7 +31,7 @@ You can use any text for this.
 
 The Language Identification node does not need any configuration.
 
-To get the correct output set the output to payload.lang. 
+To get the correct output set the output to msg.lang. 
 
 ![`LIDebug`](images/li_debug.jpg)
 

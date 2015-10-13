@@ -1,6 +1,6 @@
 # Watson Node-RED services labs
 
-In this section, Watson servcise are highlighted. The labs will show you how you can use the services in Node-RED.
+In this section, Watson services are highlighted. The labs will show you how you can use the services in Node-RED.
 
 NOTE : All the labs listed below assume that you have first created an Application from the Bluemix Node-RED Starter Boilerplate - see [here](../introduction_to_node_red/README.md) how to do that.
 
