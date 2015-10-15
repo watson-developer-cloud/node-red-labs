@@ -60,6 +60,6 @@ The nodes required to build this flow are:
 
 ### Testing the flow
 To run the web page, point your browser to  `/http://xxxx.mybluemix.net/alchvision` and enter the URL of some  image. The URL of the listed images can be copied to clipboard and pasted into the text field.  
-The complete flow is available at [AlchVis-Lab-WebPage](AlchVis_Lab_WebPage.json).
+The complete flow is available at [AlchVis-Lab-WebPage](alchvis_lab_webpage.json).
 
 ## [Alchemy Vision face identification lab with thumbnails](/advanced_examples/alchemy_image_analysis_thumbs/README.md)
