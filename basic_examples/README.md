@@ -15,7 +15,7 @@ In the list below, you can select different services and see how these can be im
 - [Visual Recognition](visual_recognition/README.md)
 - [Alchemy Vision](alchemy_api_image_analysis/README.md)
 - [Alchemy Feature Extraction](alchemy_api_feature_extraction/README.md)
-- [Natural Language Classifier](natural_language_classifier_beta/README.md) 
+- [Natural Language Classifier](natural_language_classifier/README.md) 
 - [Relationship Extraction](relationship_extraction/README.md)
 
 If you want to combine the different services, you can go [here](../advanced_examples/README.md).
