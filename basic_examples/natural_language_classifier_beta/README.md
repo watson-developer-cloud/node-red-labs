@@ -2,11 +2,11 @@
 
 The Natural Language Classifier (NLC) is not yet available as a Node-RED node, but it is useful to describe how to create the steps to use it since it offers some cognitive learning features.
 
-Overview of NLC -> [Overview](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/)
+Overview of NLC -> [Overview](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl_classifier/)
  
-Standard NLC Demo -> [Demo](http://natural-language-classifier-demo.mybluemix.net)
+Standard NLC Demo -> [Demo](http://natural_language_classifier_demo.mybluemix.net/?cm_mc_uid=84253509386814425332224&cm_mc_sid_50200000=1442982326)
 
- Very useful API documentation which is sometimes hard to find -> [Useful API docs for curl, Node and Java](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/natural-language-classifier/api/v1/?node#introduction)
+ Very useful API documentation which is sometimes hard to find -> [Useful API docs for curl, Node and Java](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/natural_language_classifier/api/v1/?node#introduction)
 
 ##Creating and populating a NLC Service on Bluemix
 
@@ -14,7 +14,7 @@ Within Bluemix you can create an unbound instance of the NLC Service but this co
 
 ![ScreenShot](images/nlc_std_service.png)
 
-If you go here -> [Toolkit](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/tool_overview.shtml) and then scroll to "Deploy the toolkit to Bluemix from the ibmwatson_nlc_groundtruth project in the Bluemix DevOps Services. " and click [ibmwatson_nlc_groundtruth](https://hub.jazz.net/project/wdctools/ibmwatson-nlc-groundtruth/overview?cm_mc_uid=84253509386814425332224&cm_mc_sid_50200000=1442982326).  Do NOT try the "Build and Deploy" option in the top right of the screen but scroll down to the README.md body and click on the "Deploy to Bluemix" button
+If you go here -> [Toolkit](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl_classifier/tool_overview.shtml) and then scroll to "Deploy the toolkit to Bluemix from the ibmwatson_nlc_groundtruth project in the Bluemix DevOps Services. " and click [ibmwatson_nlc_groundtruth](https://hub.jazz.net/project/wdctools/ibmwatson_nlc_groundtruth/overview?cm_mc_uid=84253509386814425332224&cm_mc_sid_50200000=1442982326).  Do NOT try the "Build and Deploy" option in the top right of the screen but scroll down to the README.md body and click on the "Deploy to Bluemix" button
 
 ![ScreenShot](images/nlc_bluemix_deploy.png)
 
