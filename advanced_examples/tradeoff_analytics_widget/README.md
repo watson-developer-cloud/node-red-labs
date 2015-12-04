@@ -1,7 +1,7 @@
 # Using the Trade-Off Analytics Widget with Node-RED
 The Trade-Off Analytics service comes with a very versatile user interface widget which can be used to display the trade-off analytics results and let the user interact with them.
 
-To use it, a web page will need to generated with some javascript code to create the widget and manage its initialization.
+To use it, a web page will need to be generated with some javascript code to create the widget and manage its initialization.
 One point to keep in mind is that the widget operations, running within the client browser, are mostly asynchronous, so an event-driven chain of handlers should be used to properly initialize the widget.  
 Once a problem will have been set client-side on the widget, it will call-back to the `./dilemmas` URL on the Node-RED flow, and optionally on the `./events` URL. The `./dilemmas` URL will call the Watson Tradeoff Analytics service and provide the answer to the widget which then display it and let the user interact with the results.
 
@@ -10,7 +10,7 @@ The flow to achieve this has three streams:
 ![](images/toff_widget_flow.png)
 
 ### User-interface serving stream
-The stream connected on the `/tofaw` URL will serve a web page containing the TradeOff Analytics Widget HTML and JavaScript initialization code, and for the purpose of the exercise, a ready-made `problem` extracted from a problem object, as can be seen in the `Set Problem` function node. We create a JavaScript object with the 3 mandatory attributes, a `subject` string, a `columns` array describing the characteristics of the entities to consider, and a `options` array which represent the user's options (i.e. choices, as rows in the table) for the given problem:  
+The stream connected on the `/tofaw` URL will serve a web page containing the TradeOff Analytics Widget HTML and JavaScript initialization code, and for the purpose of the exercise, a ready-made `problem` extracted from a problem object, as can be seen in the `Set Problem` function node, example text can be found [here](set_problem.txt). We create a JavaScript object with the 3 mandatory attributes, a `subject` string, a `columns` array describing the characteristics of the entities to consider, and a `options` array which represent the user's options (i.e. choices, as rows in the table) for the given problem:  
 ```javascript
 // This is where we set the dimensions (columns) of the problem to analyze
 // and the raw data (options)
