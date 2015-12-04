@@ -64,7 +64,7 @@ These are the different features which can be used:
 - doc-sentiment
 
 The following node is a 'template' node which contains the HTML to create the page. This page will have an inpout field an a button to push the text to the Alchemy API.
-The HTML code can be downloaded [here](AApi_table_template1.txt) and looks like this:
+The HTML code can be downloaded [here](aapi_table_template1.txt) and looks like this:
 
 ![`Alchemytemplate1](images/alchapi_table_template1.jpg)
 
