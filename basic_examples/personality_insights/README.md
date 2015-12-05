@@ -29,6 +29,7 @@ Check out this [page]( http://nodered.org/docs/getting-started/) for full instru
 
 - Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
 - Double-click the inject node and change Payload to string.  Go to [sample file](personal_insights_input_text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
+- Install cloud foundary from [here] (https://github.com/cloudfoundry/cli/releases)
 - Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
 - Type **cf logs app_name** where **app_name** is the name of your application.  
 - Return to the Node-RED palette.
