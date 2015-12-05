@@ -18,35 +18,23 @@ Check out this [page]( http://nodered.org/docs/getting-started/) for full instru
 
 ##Personality Insights Lab
 
-Click on the icon of the application
-
-Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Use.  Click on Restage.
-
-Drag an inject node to the palette.
-
-Drag the personality insights node to the palette.
-
-Drag a debug node to the palette.
-
-Join them as shown below
+- Go back to the Bluemix dashboard and click on the icon of the nodered application you just created.
+- Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Use.  Click on Restage.
+- Drag an inject node to the palette.
+- Drag the personality insights node to the palette.
+- Drag a debug node to the palette.
+- Join them as shown below
 
 ![ScreenShot](images/pi_flow.png)
 
-Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
-
-Double-click the inject node and change Payload to string.  Go to [sample file](personal_insights_input_text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
-
-Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
-
-Type **cf logs app_name**
-
-where **app_name** is the name of your application.  Return to the Node-RED palette.
-
-Click the Deploy button
-
-Click on the debug tab to the top right of the palette.
-
-Click the button next to the inject node.  
+- Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
+- Double-click the inject node and change Payload to string.  Go to [sample file](personal_insights_input_text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
+- Open a command line on your laptop and login to Bluemix with your username/password.  Navigate to the organisation and space to where your application is located.
+- Type **cf logs app_name** where **app_name** is the name of your application.  
+- Return to the Node-RED palette.
+- Click the Deploy button
+- Click on the debug tab to the top right of the palette.
+- Click the button next to the inject node.  
 
 You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object.  NOTE : you will not be able to see the full object
 
