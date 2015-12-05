@@ -2,9 +2,6 @@
 
 AlchemyAPI uses natural language processing technology and machine learning algorithms to extract semantic meta-data from content, such as information on people, places, companies, topics, facts, relationships, authors, and languages, see -> [http://www.alchemyapi.com/api](http://www.alchemyapi.com/api)
 
-## Get Alchemy API Key
-Before starting this section you will need to obtain an Alchemy API key, follow the steps documented [here] (http://blog.alchemyapi.com/getting-started-with-alchemyapi-on-bluemix). 
-
 ## Lab Instructions
 Open your NodeRed application ( created in previous labs ) and add the Alchemy API Service to it.  On your Node-RED application click on "Add a Service or API"
 
@@ -19,6 +16,10 @@ Your application will be shown, click "Use" to bind the Alchemy API Service to y
 ![ScreenShot](images/fe_add_service_use.png)
 
 You will be prompted to Restage the application, click Restage.  Wait till the you see "Your app is running"
+
+After your service instance is created, you will have access to your API key from the Alchemy service page. You will be dropped into the service page from the application overview page or dashboard. On the left side of the service page you will see a link for credentials. Click on this to see your newly generated key.
+
+
 
 Click on your App link
 
