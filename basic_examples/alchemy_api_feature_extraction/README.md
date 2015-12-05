@@ -1,10 +1,12 @@
-#Alchemy API Feature Extraction
+#Alchemy API Feature Extraction Introduction
 
 AlchemyAPI uses natural language processing technology and machine learning algorithms to extract semantic meta-data from content, such as information on people, places, companies, topics, facts, relationships, authors, and languages, see -> [http://www.alchemyapi.com/api](http://www.alchemyapi.com/api)
 
-Before starting this section you will need to obtain an Alchemy API key, follow the steps documented here -> [http://www.alchemyapi.com/api/register.html](http://www.alchemyapi.com/api/register.html).  NOTE : the key may not instantly appear in your email so please allow some time for it to arrive or if running this lab in a classroom environment ask participants to obtain their key before attending.
+## Get Alchemy API Key
+Before starting this section you will need to obtain an Alchemy API key, follow the steps documented [here] (http://blog.alchemyapi.com/getting-started-with-alchemyapi-on-bluemix). 
 
-Open your Application and add the Alchemy API Service to it.  On your Node-RED application click on "Add a Service or API"
+## Lab Instructions
+Open your NodeRed application ( created in previous labs ) and add the Alchemy API Service to it.  On your Node-RED application click on "Add a Service or API"
 
 ![ScreenShot](images/fe_add_service.png)
 
