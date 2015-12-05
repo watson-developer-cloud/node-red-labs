@@ -19,7 +19,7 @@ You will be prompted to Restage the application, click Restage.  Wait till the y
 
 After your service instance is created, you will have access to your API key from the Alchemy service page. You will be dropped into the service page from the application overview page or dashboard. On the left side of the service page you will see a link for credentials. Click on this to see your newly generated key.
 
-
+Note : If there is an error or you do not see a key you may also get a key at [https://www.alchemyapi.com/api/register.html] (https://www.alchemyapi.com/api/register.html)
 
 Click on your App link
 
