@@ -1,6 +1,6 @@
 ##Personality Insights
 
-The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to [personal-insights](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality_insights.html) for a full description and demo
+The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to [personal-insights](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html) for a full description and demo
 
 The objective is to send the Personality Insights node the same data as for the demo (https://watson-pi-demo.mybluemix.net/) and to show the JSON object and its values match those of the demo
 
