@@ -79,6 +79,19 @@ When you are logged in go to 'Catalog' and click on the 'Node-RED starter' appli
 On the right side of the screen you must give it a name, which must be unique. Then click 'Create'.
 Right now the Node-RED application is being created and deployed. This will take a few minutes. When finished click on the URL, which opens up your Node-RED application.
 
+###Importing Flows
+
+Flows have been provided for all the worked examples in this project. At the end of each example you will find a 
+link to a completed flow which you can select and import.   
+
+![NodeRedFlowLinks](images/node_red_flow_links.png)
+
+If you want to try this now then select the sample flow below
+
+[Import Sample Flow flow](import_sample_flow_flow.json)
+
+
+
 ###Adding Watson services to the Node-RED application in Bluemix
 
 You can do this part later, but for the labs you need to add the (Watson) services to your application. If a service is not added to the Node-RED application, you can get an error or a node is asking for credentials depending on the type of node. 

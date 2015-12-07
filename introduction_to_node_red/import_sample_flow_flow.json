@@ -1,0 +1,29 @@
+[
+	{	
+		"id":"3f41aad8.82121e",
+		"type":"http in",
+		"name":"",
+		"url":"/hw",
+		"method":"get",
+		"swaggerDoc":"",
+		"x":97,"y":156,"z":"41ac7a0c.be5384",
+		"wires":[["46196aa2.c640f4"]]
+	},
+	{
+		"id":"8427b7e2.0bf1a",
+		"type":"http response",
+		"name":"",
+		"x":614,"y":152,"z":"41ac7a0c.be5384",
+		"wires":[]
+	},
+	{
+		"id":"46196aa2.c640f4",
+		"type":"template",
+		"name":"Hello World HTML",
+		"field":"payload",
+		"format":"html",
+		"template":"<html>\n    <head>\n    </head>\n    <body>\n        <div id=\"id_hello\"><span>Hello</span>&nbsp;<span id=\"id_nameout\"></span></div>\n        <form id=\"id_form\">\n            <div>\n                <span>\n                    What is your name:   \n                </span>\n                <span>\n                    <input type=\"text\" name=\"name\" id=\"id_name\"/>\n                </span>\n            </div>\n            <div>\n                <input type=\"submit\" value=\"Submit\" id=\"id_submit\"/>\n            </div>\n        </form>         \n        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script>\n        <script type=\"text/javascript\">\n            $(document).ready(function(){\n                setupPage();\n            });\n            \n            function setupPage(){\n                $('#id_hello').hide();\n                $('#id_form').submit(onSubmitClicked);\n            }\n            \n            function onSubmitClicked(event){\n                $('#id_nameout').text($('#id_name').val());\n                $('#id_hello').show();\n                $('#id_form').hide();\n                event.preventDefault();\n            }\n        </script>        \n    </body>\n</html>",
+		"x":364,"y":155,"z":"41ac7a0c.be5384",
+		"wires":[["8427b7e2.0bf1a"]]
+	}
+]
