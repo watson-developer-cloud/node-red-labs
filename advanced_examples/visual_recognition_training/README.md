@@ -39,11 +39,12 @@ id using browser developer tools.
 Switch to the console and type "CLASSIFIER_ID". The console will show you the ID for your Classifier.
 ![Browser Classifier ID](images/avr_browser_console_classifier_id.png)
 
-Switch to the console.
+## Classification
+
 
 
 
 
 ... document creation still in progress.
 
-The completed flow is available at [xyz.json](xyz.json)
+The completed flow is available at [Visual Recognition Image Classification Flow](avr_classify_image_flow.json)
