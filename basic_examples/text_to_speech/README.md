@@ -13,7 +13,6 @@ In this first exercise, we will show how to simply produce a `.wav` file from in
 The first part of the flow will take text input from a web invocation and return the spoken text `.wav` file:
 
 1. Open the NodeRed Flow Editor and create a new flow by clicking the '+' on the top right corner in NodeRed app, let's call it `TTS Web` 
-!['NewSheet'](images/newsheet.png)
 2. Add an ![`HTTPInput`](/introduction_to_node_red/images/node_red_httpinput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
 ![TTS Lab 1 ScreenShot 1](images/tts_lab_1_set_http_node.png)
 When invoked with query parameters such as `?text_to_say=Hello`, they will be added as properties on the `msg.payload` object. 
