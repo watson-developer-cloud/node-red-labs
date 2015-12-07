@@ -127,7 +127,7 @@ into the response.
                 {{/scores}} 
                 {{^scores}}
                     <tr>
-                        <td coldspan="2">
+                        <td colspan="2">
                             No match to classification
                         </td>
                     </tr>
