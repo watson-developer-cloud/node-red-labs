@@ -90,6 +90,26 @@ If you want to try this now then select the sample flow below
 
 [Import Sample Flow flow](import_sample_flow_flow.json)
 
+Select the flow and copy it to the clipboard (Ctrl-C). Import the flow into Node-RED using by selecting the 
+node-RED menu
+
+![NodeRedMenu](images/node_red_menu.png)
+
+and select the import from clipboard option.
+
+![NodeRedClipboardImport](images/node_red_import_from_clipboard.png)
+
+You will be presented with a form in which you create nodes by entering json data.
+
+![NodeRedImportNodesForm](images/node_red_import_nodes_form.png)
+
+Import your copied flow by pasting (Ctrl-P) from the clipboard into the the form
+
+![NodeRedImportNodes](images/node_red_import_nodes.png)
+
+Place the imported flow onto your node-RED page.  
+
+![NodeRedImportFlowPlace](images/node_red_import_flow_place.png)
 
 
 ###Adding Watson services to the Node-RED application in Bluemix
