@@ -11,4 +11,5 @@ please [click here, read and understand the process](/introduction_to_node_red/R
 - [Image to speech with Alchemy](alchemy_image_to_speech/README.md)
 - [Create a table from Alchemy feature extract](alchemy_output_table/README.md)
 - [Use a widget with Trade off Analytics](tradeoff_analytics_widget/README.md)
+- [Train the Visual Recognition service with your own images](visual_recognition_training/README.md)
 - [Classsify webcasts (in progress, not completed yet)](webcast_classifier/README.md)
