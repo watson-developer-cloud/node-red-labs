@@ -88,7 +88,7 @@
 	{	"id":"152f038e.c210fc",
 		"type":"function",
 		"name":"Prepare For STT Service",
-		"func":"msg.headers = {'Content-Type' : 'audio/wav'};\nmsg.url=\"https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=true\";\nreturn msg;",
+		"func":"msg.headers = {'Content-Type' : 'audio/wav'};\nmsg.url=\"https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=true&continuous=true\";\nreturn msg;",
 		"outputs":1,
 		"noerr":0,
 		"x":381,"y":244,"z":"246e966b.09b7c2",
