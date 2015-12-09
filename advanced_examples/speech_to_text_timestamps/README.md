@@ -1,4 +1,4 @@
-# Fetching word timestamps from the Speech to Text service
+# Fetching word alignments from the Speech to Text service
 
 Document creation is in progress
 
@@ -58,6 +58,33 @@ configured to return a binary buffer
 
 
 ## Invoke Speech to text
+Add a function that will take the returned audio file, and prepare the http headers and url to invoke 
+the Speech to Text service
+
+![Prepare for Speech to Text Service](images/astt_prepare_stt_request.png)
+
+
+The url has parameters to fetch timestamps, and for the audio to be processed as a continous stream, ignoring
+any speech pauses in the audio.
+
+```
+msg.headers = {'Content-Type' : 'audio/wav'};
+msg.url="https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=true&continuous=true";
+return msg;
+```
+
+A HTTP Request node is used to invoke the Speech to text service,
+
+![HTTP Request for Speech to Text](images/astt_speech_to_text_request.png)
+
+
+which needs to be configured to use basic authentication. Remember to enter Speech to Text service credentials which you can 
+obtain from bluemix.
+
+![HTTP Request Node for Speech to Text](images/astt_speech_to_text_post.png)
+
+
+## Process the text
 to be continued.
 
 The completed flow is available at [Speech to Text Timestamps Flow](astt_speech_timestamps_flow.json)
