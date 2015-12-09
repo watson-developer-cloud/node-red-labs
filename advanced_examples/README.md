@@ -12,4 +12,5 @@ please [click here, read and understand the process](/introduction_to_node_red/R
 - [Create a table from Alchemy feature extract](alchemy_output_table/README.md)
 - [Use a widget with Trade off Analytics](tradeoff_analytics_widget/README.md)
 - [Train the Visual Recognition service with your own images](visual_recognition_training/README.md)
+- [Speech to Text Timestamps](speech_to_text_timestamps/README.md)
 - [Classsify webcasts (in progress, not completed yet)](webcast_classifier/README.md)
