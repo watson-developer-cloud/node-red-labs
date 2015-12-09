@@ -1,7 +1,5 @@
 # Fetching word alignments from the Speech to Text service
 
-Document creation is in progress
-
 ## Overview
 The speech to text services allows time alignment for each word in the transcript to be returned. Unfortunately the 
 speech to text node only returns the default transcript. If you need alternative transcripts or time alignment then
@@ -85,6 +83,57 @@ obtain from bluemix.
 
 
 ## Process the text
-to be continued.
+Control is then pased to a function which prepares data and the header for the response HTML Page.
+![Header for returned HTML Page](images/astt_prepare_response_header.png)
+
+The function pulls out the time track and the transcript from the results to make them more accessible 
+by the HTML template 
+
+```
+msg.sttout = msg.payload.results[0].alternatives[0];
+msg.transcript = msg.payload.results[0].alternatives[0].transcript;
+msg.headers = {'Content-Type' : 'text/html'};
+return msg;
+```
+
+The output HTML template
+
+![HTTP Response Template](images/astt_response_template.png)
+
+iterates over the response, and injects the words, and their timing positioning in the audio track. 
+```
+<h1>Speech to Text Results</h1>
+<div>{{transcript}}</div>
+<ul>
+    {{#sttout}} 
+        <li>
+            <table>
+                <thead>
+                    <tr><th>Word</th><th>Start</th><th>End</th></tr>
+                </thead>
+                <tbody>
+                    {{#timestamps}}
+                        <tr>
+                            {{#.}}
+                                <td>{{.}}</td>
+                            {{/.}}    
+                        </tr>
+                    {{/timestamps}}
+                </tbody>                    
+            </table>
+        </li>
+    {{/sttout}}    
+</ul>
+```
+
+## Running the application
+When you run the application a web page based of /stt will be available to you
+
+![HTTP Running Application Form](images/astt_run_application_form.png)
+
+The application will respond with a transcript and a table showing the start and
+end timing for each word in the audio stream.
+
+![HTTP Running Application Response](images/astt_run_application_response.png)
 
 The completed flow is available at [Speech to Text Timestamps Flow](astt_speech_timestamps_flow.json)
