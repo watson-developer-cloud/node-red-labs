@@ -20,6 +20,7 @@ You can find different labs in this project:
 - [Introduction to Node-RED](/introduction_to_node_red/README.md) (same link as above)
 - [Basic Labs using Watson nodes](/basic_examples/README.md) show how to invoke nodes from a simple flow
 - [Advanced Labs using multiple Watson nodes](/advanced_examples/README.md) show how to extend or combine where different nodes and services
+- [Watson Contribution Nodes](/watson_contribution_nodes/README.md) how to add watson developer cloud contribution nodes to Node-RED
 
 Feel free to use this content, please let us know what you think of it! :bowtie:
 
