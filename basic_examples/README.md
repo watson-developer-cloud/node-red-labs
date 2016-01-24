@@ -21,6 +21,7 @@ In the list below, you can select different services and see how these can be im
 - [Alchemy Feature Extraction](alchemy_api_feature_extraction/README.md)
 - [Natural Language Classifier](natural_language_classifier/README.md) 
 - [Relationship Extraction](relationship_extraction/README.md)
+- [Dialog](dialog/README.md)
 
 If you want to combine the different services, you can go [here](../advanced_examples/README.md).
 
