@@ -5,7 +5,7 @@ The dialog service enables automation of a conversation between your application
 as a Watson Developer Cloud contribution to Node-RED and needs to be installed. 
 
 ## Installation of the Dialog Node
-Follow the instructions at [watson contribution nodes](/../../watson_contribution_nodes/README.md) 
+Follow the instructions at [watson contribution nodes](/watson_contribution_nodes/README.md) 
 to install the dialog node into your Bluemix instance of Node-RED. 
 
 ## List available dialogs
