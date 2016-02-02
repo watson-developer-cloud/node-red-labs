@@ -1,0 +1,61 @@
+[
+	{
+		"id":"a8a7205f.5758e",
+		"type":"inject",
+		"z":"c01bd646.3fe428",
+		"name":"Create Dialog",
+		"topic":"",
+		"payload":"",
+		"payloadType":"date",
+		"repeat":"",
+		"crontab":"",
+		"once":false,
+		"x":156,"y":88,
+		"wires":[["949ee5f1.6b6118"]]
+	},
+	{
+		"id":"949ee5f1.6b6118",
+		"type":"http request",
+		"z":"c01bd646.3fe428",
+		"name":"Fetch Dialog XML File",
+		"method":"GET",
+		"ret":"bin",
+		"url":"https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/dialog/download/Exercise_8_end.xml",
+		"x":254,"y":188,
+		"wires":[["d934c124.26cb4"]]
+	},
+	{
+		"id":"d934c124.26cb4",
+		"type":"function",
+		"z":"c01bd646.3fe428",
+		"name":"Prepare For Create Dialog Action",
+		"func":"msg.dialog_params = {};\nmsg.dialog_params[\"file\"] = msg.payload;\nmsg.dialog_params[\"dialog_name\"] = \"Pizza Ordering\";\nreturn msg;",
+		"outputs":1,
+		"noerr":0,
+		"x":482,"y":85,
+		"wires":[["9a56c190.65a94"]]
+	},
+	{
+		"id":"9a56c190.65a94",
+		"type":"service-dialog",
+		"z":"c01bd646.3fe428",
+		"name":"Dialog Service - Create Dialog",
+		"mode":"create",
+		"dialog":"",
+		"clientid":"",
+		"converse":"",
+		"x":611,"y":189,
+		"wires":[["2b3b101a.d4c4f"]]
+	},
+	{
+		"id":"2b3b101a.d4c4f",
+		"type":"debug",
+		"z":"c01bd646.3fe428",
+		"name":"Dialog Output",
+		"active":true,
+		"console":"false",
+		"complete":"dialog",
+		"x":842,"y":87,
+		"wires":[]
+	}
+]

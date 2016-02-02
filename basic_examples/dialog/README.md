@@ -35,7 +35,8 @@ If you haven't registered any dialogs then the output list will be empty.
 
 ![dialog empty list output node](images/dialog_list_results_no_dialogs.png)
 
-Use the dialog tool [dialog tool](https://github.com/watson-developer-cloud/dialog-tool) to register
+Either follow [Dialog Template Creation](/dialog_template_creation/README.md) or use
+the dialog tool [dialog tool](https://github.com/watson-developer-cloud/dialog-tool) to register
 your dialogs. 
 
 ![dialog tool](images/dialog_dialog_tool.png)
