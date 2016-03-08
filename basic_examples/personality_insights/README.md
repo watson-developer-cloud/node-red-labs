@@ -35,6 +35,7 @@ Check out this [page]( http://nodered.org/docs/getting-started/) for full instru
 - Double-click the inject node and change Payload to string.  
 Go to [sample file](personal_insights_input_text.txt) and open the file and paste the text to the blank 
 field below the Payload field (this is the same text that is used in the demo).
+
 ![ScreenShot](images/pi_edit_inject_node.png)
 
 - Open a command line on your laptop and login to Bluemix with your username/password. Making sure that you 
