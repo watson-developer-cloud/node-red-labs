@@ -49,8 +49,8 @@ Join the nodes as shown below
 
 ![ScreenShot](images/fe_join_nodes.png)
 
-Double-click the Inject node and change the payload to Blank
-![ScreenShot](images/fe_inject_blank.png)
+Double-click the Inject node and change the payload to string, and enter some default text. 
+![ScreenShot](images/fe_inject_string_default.png)
 
 Copy the following text to your clipboard (highlight, ctrl-c)
 
