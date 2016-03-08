@@ -32,9 +32,13 @@ Check out this [page]( http://nodered.org/docs/getting-started/) for full instru
 - Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
 - Double-click the inject node and change Payload to string.  Go to [sample file](personal_insights_input_text.txt) and open the file and pasts the text to the blank field below the Payload field (this is the same text that is used in the demo).
 - Open a command line on your laptop and login to Bluemix with your username/password. Making sure that you 
-are connecting to the appropriate datacenter for your application. eg. For US South ![ScreenShot](images/pi_cf_us_login.png), 
-for the UK ![ScreenShot](images/pi_cf_uk_login.png)
-and for Sydney ![ScreenShot](images/pi_cf_sydney_login.png)
+are connecting to the appropriate datacenter for your application. 
+- For US South it will look like
+![ScreenShot](images/pi_cf_us_login.png), 
+- for the UK 
+![ScreenShot](images/pi_cf_uk_login.png)
+- and for Sydney 
+![ScreenShot](images/pi_cf_sydney_login.png)
 - Type **cf logs app_name** where **app_name** is the name of your application.  
 - Return to the Node-RED palette.
 - Click the Deploy button
