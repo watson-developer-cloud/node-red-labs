@@ -1,6 +1,6 @@
-#Natural Language Classifier (**no Node-RED node exists**)
+#Natural Language Classifier
 
-The Natural Language Classifier (NLC) is not yet available as a Node-RED node, but it is useful to describe how to create the steps to use it since it offers some cognitive learning features.
+The Natural Language Classifier (NLC) is a service that can be trained and it  is useful to describe how to create the steps to use it since it offers some cognitive learning features.
 
 Overview of NLC -> [Overview](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/)
  
@@ -10,7 +10,7 @@ Standard NLC Demo -> [Demo](http://natural-language-classifier-demo.mybluemix.ne
 
 ##Creating and populating a NLC Service on Bluemix
 
-Within Bluemix you can create an unbound instance of the NLC Service but this comes some charges.
+Within Bluemix you can create an unbound instance of the NLC Service .
 
 ![ScreenShot](images/nlc_std_service.png)
 
