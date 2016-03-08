@@ -16,19 +16,22 @@ The first part of the flow will take text input from a web invocation and return
 2. Add an ![`HTTPInput`](/introduction_to_node_red/images/node_red_httpinput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
 ![TTS Lab 1 ScreenShot 1](images/tts_lab_1_set_http_node.png)
 When invoked with query parameters such as `?text_to_say=Hello`, they will be added as properties on the `msg.payload` object. 
-3. Add a ![`change`](/introduction_to_node_red/images/node_red_change.png) node to extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
+3. Add a ![`change`](/introduction_to_node_red/images/node_red_change.png) node to 
+extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
 ![TTS Lab 1 ScreenShot 2](images/tts_lab_2_edit_change_node.png)
 We do this because the TTS node uses the text in the `msg.payload` as input.
 4. Now add a ![`Watson TTS`](images/node_red_watson_tts.png) node. This node will generate the binary `wav` stream content to the `msg.speech` property.
 ![TTS Lab 1 ScreenShot 3](images/tts_lab_3_edit_tts.png)
 
-The properties of the TTS node will let you select the Language and Voice to use.
+5. The properties of the TTS node will let you select the Language and Voice to use.
 
-5. Add another ![`change`](/introduction_to_node_red/images/node_red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. We will also set the `HTTP response headers` by setting the `msg.headers` to the literal string value `[{ 'Content-Type': 'audio/wav'}]`. This is required in order to let browsers know that this is an audio file and not HTML.
-
+6. Add another ![`change`](/introduction_to_node_red/images/node_red_change.png) node to extract the `msg.speech` and place it in `msg.payload`. 
 ![TTS Lab 1 ScreenShot 4](images/tts_lab_4_edit_change.png)
 
-6. Add a ![`Function`](/introduction_to_node_red/images/node_red_function.png) node with the following code:  
+7. We will set the `HTTP response headers` by setting the `msg.headers` to the literal string 
+value `[{ 'Content-Type': 'audio/wav'}]`. This is required in order to let browsers know that this 
+is an audio file and not HTML. Add a ![`Function`](/introduction_to_node_red/images/node_red_function.png) node 
+with the following code:  
 ```javascript
 msg.headers={ 'Content-Type': 'audio/wav'};
 return msg;
@@ -36,7 +39,8 @@ return msg;
 ![EditSetHeadFunc](images/tts_lab_5_edit_set_header_func.png)  
 This is required in order to properly set the HTTP headers so that the response can be identified as audio in Wave format by the receiving browser.
 
-7. Finally, add a  ![`HTTP Response`](/introduction_to_node_red/images/node_red_httpresponse.png) node. This node will simply return what's in the payload to the HTTP response.
+8. Finally, add a  ![`HTTP Response`](/introduction_to_node_red/images/node_red_httpresponse.png) node. This 
+node will simply return what's in the payload to the HTTP response.
 The completed flow should look like:
 ![TTS Lab 1 ScreenShot 6](images/tts_lab_6_completed_simple_flow.png)
 
@@ -47,7 +51,7 @@ _Now try the flow:_
 * Open a new tab or window in your browser, and direct it to `/http://xxxx.mybluemix.net/tts/sayit?text_to_say=Hello`
 * This should prompt you to save a file.
 Depending on how your browser is configured, it may save it automatically or prompt for a name and location. In any case, store or rename it with the `.wav` extension on your local file system. 
-* Then locate that file from windows explorer and open it with Windows Media Player, turn your you should
+* Then locate that file from windows explorer and open it with Windows Media Player.
 
 ### TTS Flow - enhancements: Input Parameter Checking
 This flow has a caveat, which is that the flow will fail when the `text_to_say` query parameter is not set.

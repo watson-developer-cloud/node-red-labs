@@ -94,7 +94,8 @@ Drag a HTTP request node to the palette
 
 ![ScreenShot](images/fe_http_req.png)
 
-Connect an Inject node to the HTTP request node, set the Inject node to Blank and join it the the HTTP request node.  Join the HTTP request node to the AlchemyAPI Feature Extract node
+Connect an Inject node to the HTTP request node, keep the Inject node set to timestamp and join it the the 
+HTTP request node.  Join the HTTP request node to the AlchemyAPI Feature Extract node
 
 ![ScreenShot](images/fe_http_join.png)
 
