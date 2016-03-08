@@ -1,6 +1,8 @@
 #Natural Language Classifier
+**Note** For this exercise please check that your Bluemix region is set to US South
 
-The Natural Language Classifier (NLC) is a service that can be trained and it  is useful to describe how to create the steps to use it since it offers some cognitive learning features.
+The Natural Language Classifier (NLC) is a service that can be trained and it 
+is useful to describe how to create the steps to use it since it offers some cognitive learning features.
 
 Overview of NLC -> [Overview](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/)
  
@@ -10,36 +12,30 @@ Standard NLC Demo -> [Demo](http://natural-language-classifier-demo.mybluemix.ne
 
 ##Creating and populating a NLC Service on Bluemix
 
-Within Bluemix you can create an unbound instance of the NLC Service .
+Within Bluemix you can create an unbound instance of the NLC Service, by selecting Natural Language Classifier
+in the Bluemix catalog.
 
 ![ScreenShot](images/nlc_std_service.png)
 
-If you go here -> [Toolkit](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/tool_overview.shtml) and then scroll to "Deploy the toolkit to Bluemix from the ibmwatson_nlc_groundtruth project in the Bluemix DevOps Services. " and click [ibmwatson_nlc_groundtruth](https://hub.jazz.net/project/wdctools/ibmwatson-nlc-groundtruth/overview?cm_mc_uid=84253509386814425332224&cm_mc_sid_50200000=1442982326).  Do NOT try the "Build and Deploy" option in the top right of the screen but scroll down to the README.md body and click on the "Deploy to Bluemix" button
+Click on the CREATE button to instantiate your unbound instance of the Natural Language Classifier service.
 
-![ScreenShot](images/nlc_bluemix_deploy.png)
+On the service description page click on the "Access the toolkit" button. 
+![ScreenShot](images/nlc_access_toolkit.png)
 
-Click Login and pick a Region/Organisation/Space for the Service to be created in.
+Sign on to Bluemix to allow the toolkit to access your instance of the Natural Language Classifier.
+![ScreenShot](images/nlc_toolkit_signon.png)
 
-![ScreenShot](images/nlc_bluemix_deploy_space.png)
+Confirm authorization for the toolkit access your instance.
+![ScreenShot](images/nlc_toolkit_authorize.png)
 
-Wait till the application has been deployed and started
-
-![ScreenShot](images/nlc_bluemix_deploy_success.png)
-
-Go to the Toolkit application and click Show Credentials for the Natural Language Classifier service that is bound to your toolkit app.  Copy the values of the username and password parameters.
-
-Go to the Toolkit application and enter the username and password that you obtained from the Credentials - these are NOT your Bluemix username/password but the username/password OF the NLC Service.
-
-![ScreenShot](images/nlc_toolkit_login.png)
-
-Click on Training and then follow the steps as documented in [NLC toolkit](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl_classifier/tool_overview.shtml).  Train the NLC Service with the sample CSV file.
+Click on Training and then follow the steps as documented in [NLC toolkit](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/tool_examples.shtml).  
+Train the NLC Service with the sample CSV file.
 
 ![ScreenShot](images/nlc_toolkit_training.png)
 
 You will need a Classifier ID, this can be obtained by clicking the Classifiers button and the Classifier ID is shown.
 
 ![ScreenShot](images/nlc_classifier_id.png)
-
 
 ##Connecting to a existing NLC Service on Bluemix
  
