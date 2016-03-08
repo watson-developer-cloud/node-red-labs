@@ -19,6 +19,7 @@ When invoked with query parameters such as `?text_to_say=Hello`, they will be ad
 3. Add a ![`change`](/introduction_to_node_red/images/node_red_change.png) node to 
 extract the query parameter `msg.payload.text_to_say` and set it as the `msg.payload`.
 ![TTS Lab 1 ScreenShot 2](images/tts_lab_2_edit_change_node.png)
+
 We do this because the TTS node uses the text in the `msg.payload` as input.
 4. Now add a ![`Watson TTS`](images/node_red_watson_tts.png) node. This node will generate the binary `wav` stream content to the `msg.speech` property.
 ![TTS Lab 1 ScreenShot 3](images/tts_lab_3_edit_tts.png)
@@ -38,7 +39,6 @@ return msg;
 ```
 ![EditSetHeadFunc](images/tts_lab_5_edit_set_header_func.png)  
 This is required in order to properly set the HTTP headers so that the response can be identified as audio in Wave format by the receiving browser.
-
 8. Finally, add a  ![`HTTP Response`](/introduction_to_node_red/images/node_red_httpresponse.png) node. This 
 node will simply return what's in the payload to the HTTP response.
 The completed flow should look like:
