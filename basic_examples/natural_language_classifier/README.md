@@ -41,7 +41,7 @@ You will need a Classifier ID, this can be obtained by clicking the Classifiers 
  
 In this lab we will assume (for now) that you have created a NLC Service in Bluemix and now wish to (a) check it's status and (b) ask it a question via calls in Node-RED.  We also assume you have created a Node-RED application using the Node-RED Starter Community boilerplate in Bluemix.
 
-Open your Node-RED flow editor and drag/drop an two Inject nodes, two Function nodes and one Debug node and join up as shown below  :
+Open your Node-RED flow editor and drag/drop an two Inject nodes, two Function nodes, one http request node and one Debug node and join up as shown below  :
  
 ![ScreenShot](images/nlc_nodes_joined.png)
 
