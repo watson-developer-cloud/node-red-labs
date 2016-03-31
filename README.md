@@ -2,7 +2,6 @@
 
 Collection of examples on how to use the Watson nodes in [Node-RED](http://nodered.org/) (Basic and advanced labs). The basic labs are simple standalone examples of how to call each individual Watson Node-RED nodes and the advanced labs are where different Watson Node-RED nodes are combined to create more complex applications.
 
-
 To use these nodes you first have to set up your environment.
 The information on [this page](/introduction_to_node_red/README.md) will get you started in a few minutes. It helps you with:
 
