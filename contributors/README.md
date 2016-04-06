@@ -38,25 +38,31 @@ mkdir ~/dev/src ; cd ~/dev/src
 git clone https://github.com/ylecleach/node-red-node-watson
 ```
 **Notice** : replace **ylecleach** by your own GitHub ID
+
 3. create a npm link to your forked project. This will also build this project dependencies.
 ```
 cd ~/dev/src/node-red-node-watson
 npm link
 ```
+
 4. Install Node-RED on localhost, assuming we install it on ~/dev directory (you can install it in another location as you wish)
 ```
 cd ~/dev
 npm install node-red
 ```
+
 5. Install your fork project into local Node-RED using npm link:
 ```
 cd ~/dev
 npm link node-red-node-watson
 ```
+
 6. Starting Node-RED on localhost
+```
 cd ~/dev/node_modules/node-red
 npm start
 ```
+
 7. open Node-RED on [http://localhost:1880](http://localhost:1880) and check you have the Watson nodes properly installed in the Node-RED palette.
 
 Then you can work on your project locally, update or create nodes, and all you have to do is to stop and start your local Node-RED.
@@ -73,8 +79,8 @@ If you want to add a watson node, then you have to create an entry such as :
 "watson-dialog": "watson/di.js"
 ```
 using the same name convention. For example the Watson Dialog Node is composed of these two files :
-- di.js
-- di.html
+- watson/di.js
+- watson/di.html
 
 Please refer to those examples and to the [NodeRED.org](http://nodered.org/docs/creating-nodes/) documentation.
 
