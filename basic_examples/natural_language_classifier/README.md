@@ -12,7 +12,7 @@ Standard NLC Demo -> [Demo](http://natural-language-classifier-demo.mybluemix.ne
 
 ##Creating and populating a NLC Service on Bluemix
 
-Within Bluemix you can create an unbound instance of the NLC Service, by selecting Natural Language Classifier
+Within Bluemix you can create an **unbound instance** of the NLC Service, by selecting Natural Language Classifier
 in the Bluemix catalog.
 
 ![ScreenShot](images/nlc_std_service.png)
@@ -29,7 +29,9 @@ Confirm authorization for the toolkit access your instance.
 ![ScreenShot](images/nlc_toolkit_authorize.png)
 
 Click on Training and then follow the steps as documented in [NLC toolkit](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/tool_examples.shtml).  
+
 Train the NLC Service with the sample CSV file.
+
 
 ![ScreenShot](images/nlc_toolkit_training.png)
 
@@ -105,7 +107,12 @@ Click the button of the Inject node and look at the contents of the Debug Tab
 
 ![ScreenShot](images/nlc_debug_ask_output.png)
 
-##Using the NLC Service from Node-RED (using Node-RED node : TBC)
+##Using the NLC Service from Node-RED
+
+Drag the Natural Language Classifier (NLC) node to the palette.  Double click and change the Properties to your username/password of the NLC Watson Service as documented above.
+
+![ScreenShot](images/nlc_node_properties.png)
+
 
 
 The flows for this lab are here -> [flows](nlc_flows.json)
