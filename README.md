@@ -24,9 +24,9 @@ You can find different labs in this project:
 
 Feel free to use this content, please let us know what you think of it! :bowtie:
 
-## Contributors
+## Contributing
 You want to contribute to this project by updating or creating new nodes for Watson Developer Cloud API ?
-Please follow those intructions on [this page](/contributors/README.md).
+Please follow those intructions on [this page](/CONTRIBUTORS.md).
 
 ## License
 
