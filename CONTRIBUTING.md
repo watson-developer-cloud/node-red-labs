@@ -1,19 +1,19 @@
-H1 Guidelines
+#Guidelines
 
-# Code
+## Code
 
 * The code should follow Watson Developer Cloud [coding guidances](https://github.com/watson-developer-cloud/api-guidelines)
 * The code should follow: https://github.com/airbnb/javascript
 * 2 spaces identation
 * `snake_case`
 
-# Issues
+## Issues
 
 If you encounter an issue with using the labs here, you are welcome to submit
 a [bug report](https://github.com/watson_developer_cloud/node-red-labs/issues).
 Before that, please search for similar issues. It's possible somebody has already encountered this issue.
 
-# Pull Requests
+## Pull Requests
 
 If you want to contribute to the repository, follow these steps:
 
@@ -22,7 +22,7 @@ If you want to contribute to the repository, follow these steps:
 5. Commit your changes.
 6. Push to your fork and submit a pull request.
 
-H1 Getting start !
+# Getting start !
 
 The main steps are :
 * check pre-requisites on your laptop (Linux, Mac, Windows)
@@ -32,7 +32,7 @@ The main steps are :
 
 Note : this procedure have been tested on OS X Yosemite
 
-# Pre-requisites: 
+## Pre-requisites: 
 
 Install a Node version manager if not already done :
 - Linux/OS X : use [nvm](https://github.com/creationix/nvm)
@@ -51,7 +51,7 @@ nvm use 4.0
 ```
 Notice : npm is provided along with Node.js
 
-# Setup your development environment
+## Setup your development environment
 Here are the steps to successfully setup your development environment to contribute to this project
 
 - Fork the main [Node-RED Watson project](https://github.com/node-red/node-red-node-watson) using your GitHub account (ex: @ylecleach)
@@ -90,7 +90,7 @@ npm start
 
 Then you can work on your project locally, update or create nodes, and all you have to do is to stop and start your local Node-RED.
 
-# Modify or Create new Watson nodes
+## Modify or Create new Watson nodes
 
 If your want to modify an existing Watson nodes, just search the node in the following file under the node-red /  nodes section :
 ```
