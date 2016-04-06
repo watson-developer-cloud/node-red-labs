@@ -109,9 +109,44 @@ Click the button of the Inject node and look at the contents of the Debug Tab
 
 ##Using the NLC Service from Node-RED
 
-Drag the Natural Language Classifier (NLC) node to the palette.  Double click and change the Properties to your username/password of the NLC Watson Service as documented above.
+First bind a NLC Watson Service to your Application
 
-![ScreenShot](images/nlc_node_properties.png)
+Select your Application and click the Natural Language Classifier Watson Service
+
+![ScreenShot](images\nlc_bluemix_icon.png)
+
+Click Create
+
+![ScreenShot](images\nlc_bluemix_bind_create.png)
+
+Click Restage
+
+![ScreenShot](images\nlc_bluemix_restage.png)
+
+Once the Application has started go back to your palette and drag a Natural Language Classifier (NLC) node to the palette.  Double click and set the Mode to **Training** and give it a name.
+
+![ScreenShot](\images\nlc_edit_training.png)
+
+We assume that you have enabled your Application to have the both the Dropbox and Box Node-RED nodes added to your Application - if you haven't then see -> ???.  Make sure you have uploaded file weather_data_train.csv to your Dropbox or Box locations (copy of the file is here -> [weather csv file](weather_data_train.csv).
+
+Add the right Dropbox node to the palette
+
+![ScreenShot](\images\nlc_dropbox_node.png)
+
+Add your Dropbox node credentials and click Add
+
+![ScreenShot](\images\nlc_dropbox_setup.png)
+
+Add the weather_data_train.csv file to the Dropbox node settings
+
+![ScreenShot](\images\nlc_dropbox_filename.png)
+
+Join this to the NLC node and also introduce a Inject node to thus be able to start Dropbox to get the file and feed it into the NLC node, also add a Debug node to the output of the NLC node
+
+![ScreenShot](\images\nlc_nlc_flow_inject_debug.png)
+
+
+
 
 
 
