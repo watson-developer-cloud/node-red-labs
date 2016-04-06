@@ -31,39 +31,39 @@ Notice : npm is provided along with Node.js
 # Setup your development environment
 Here are the steps to successfully setup your development environment to contribute to this project
 
-1. Fork the main [Node-RED Watson project](https://github.com/node-red/node-red-node-watson) using your GitHub account (ex: @ylecleach)
-2. Create a work directory that will contains the source code of your fork
+- Fork the main [Node-RED Watson project](https://github.com/node-red/node-red-node-watson) using your GitHub account (ex: @ylecleach)
+- Create a work directory that will contains the source code of your fork
 ```
 mkdir ~/dev/src ; cd ~/dev/src
 git clone https://github.com/ylecleach/node-red-node-watson
 ```
 **Notice** : replace **ylecleach** by your own GitHub ID
 
-3. create a npm link to your forked project. This will also build this project dependencies.
+- create a npm link to your forked project. This will also build this project dependencies.
 ```
 cd ~/dev/src/node-red-node-watson
 npm link
 ```
 
-4. Install Node-RED on localhost, assuming we install it on ~/dev directory (you can install it in another location as you wish)
+- Install Node-RED on localhost, assuming we install it on ~/dev directory (you can install it in another location as you wish)
 ```
 cd ~/dev
 npm install node-red
 ```
 
-5. Install your fork project into local Node-RED using npm link:
+- Install your fork project into local Node-RED using npm link:
 ```
 cd ~/dev
 npm link node-red-node-watson
 ```
 
-6. Starting Node-RED on localhost
+- Starting Node-RED on localhost
 ```
 cd ~/dev/node_modules/node-red
 npm start
 ```
 
-7. open Node-RED on [http://localhost:1880](http://localhost:1880) and check you have the Watson nodes properly installed in the Node-RED palette.
+- open Node-RED on [http://localhost:1880](http://localhost:1880) and check you have the Watson nodes properly installed in the Node-RED palette.
 
 Then you can work on your project locally, update or create nodes, and all you have to do is to stop and start your local Node-RED.
 
