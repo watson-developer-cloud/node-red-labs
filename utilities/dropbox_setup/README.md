@@ -1,6 +1,8 @@
-# Dropbox and Box setup
+# Dropbox setup
 
 For many of the Watson Labs the Dropbox and Box Node-RED nodes are used.  The information in this section describes how to create a Dropbox account and what artifacts are needed to obtain files from the repositories.
+
+##Setup
 
 Go to[ http://dropbox.com]( http://dropbox.com) and create an account
 
@@ -38,4 +40,27 @@ Scroll down until you see 'Generate access token', click on the Generate button
 ![NodeRedStarter](images/dropbox_generate_token_show.png)
 
 Record the token value - again you will use this in combination with the 'App key' and 'App secret' values.
+
+##Loading files
+
+Open another browser and download and save to your local system the following files
+
+[weatherdatatrain.csv](weather_data_train.csv)
+
+[conversational-agent-application-starter-kit.csv](conversational-agent-application-starter-kit.csv)
+
+
+In Dropbox go to the Home page and then right click and pick Upload and upload the files
+
+![NodeRedStarter](images/dropbox_upload.png) 
+
+![NodeRedStarter](images/dropbox_files.png)
+
+
+
+
+
+
+
+
 

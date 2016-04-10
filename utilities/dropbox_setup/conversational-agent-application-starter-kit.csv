@@ -1,0 +1,1333 @@
+Mad Max how are the ratings?,OtherClass
+look for movie directors,LookupDirectors
+who starred in The Hobbit,LookupActors
+drama,SearchMovies
+I'd like to see a recent drama,SearchMovies
+show me whats playing,SearchMovies
+something sexy,SearchMovies
+good day,ClosingTalk
+hi,OpeningTalk
+I'd like to see a recent comedy,SearchMovies
+whats playing,SearchMovies
+R,SearchMovies
+who is the producer of Vacation?,LookupDirectors
+What current movies are playing?,SearchMovies
+help,RepairTalk
+nvm,RepairTalk
+all current any rating movies,SearchMovies
+r,SearchMovies
+comedy,SearchMovies
+Ajay,GiveName
+I want to look up movie stars,LookupActors
+show me movies,SearchMovies
+What current movies are playing?,SearchMovies
+upcoming,SearchMovies
+Is Pixels an action or comedy?,OtherClass
+I'd like to see a recent comedy,SearchMovies
+need to run,ClosingTalk
+Horror,SearchMovies
+Sorry,SmallTalk
+Beverley,GiveName
+The Martian,OtherClass
+what's playing,SearchMovies
+comedy,SearchMovies
+asdf,OtherClass
+whats playing,SearchMovies
+What actors are in Sound Mixers?,LookupActors
+what were those again?,RepairTalk
+whats playing,SearchMovies
+whats playing watson?,SearchMovies
+hi,OpeningTalk
+upcoming movies,SearchMovies
+action,SearchMovies
+understand English,SmallTalk
+how about this weather,SmallTalk
+look up a movie,SearchMovies
+r,SearchMovies
+whats playing??,SearchMovies
+horror,SearchMovies
+hi,OpeningTalk
+action,SearchMovies
+What current movies are playing?,SearchMovies
+show more movies,OtherClass
+toodles,ClosingTalk
+action,SearchMovies
+Richard,GiveName
+no i mean comedy,RepairTalk
+PG,SearchMovies
+current,SearchMovies
+i want to look up movie times,CheckShowtimes
+is 99 homes rated r?,OtherClass
+I'd like to see a recent comedy,SearchMovies
+Eric,GiveName
+show me whats playing,SearchMovies
+what is 2001 about,SmallTalk
+What current movies are playing?,SearchMovies
+PG,SearchMovies
+logging off,ClosingTalk
+I mean,RepairTalk
+drama,SearchMovies
+Which theatres are playing Pitch Perfect 2,CheckShowtimes
+suggest better one,OtherClass
+what are the upcoming movies?,SearchMovies
+have to leave,ClosingTalk
+what movies do you know about,PreSequence
+that's not what I mean,RepairTalk
+What current movies are playing?,SearchMovies
+action,SearchMovies
+changed my mind find the fil,OtherClass
+what does that stand for,RepairTalk
+I meant,RepairTalk
+What movies are out now,SearchMovies
+hi,OpeningTalk
+What types of movie rating are there?,SearchMovies
+I'm leaving,ClosingTalk
+current,SearchMovies
+action movie,SearchMovies
+NC-17,SearchMovies
+G,SearchMovies
+show me more,SearchMovies
+show me other movie,SearchMovies
+change to pG,RepairTalk
+Action,SearchMovies
+PG,SearchMovies
+What current movies are playing?,SearchMovies
+varada,GiveName
+no i mean to say all action movies,RepairTalk
+Near me,CheckShowtimes
+what's the plot of 2001,SmallTalk
+family,SearchMovies
+out of time,ClosingTalk
+greetings,OpeningTalk
+What is sound mixers about?,OtherClass
+current,SearchMovies
+movies starring Johnny Depp,LookupActors
+drama,SearchMovies
+pg-13,SearchMovies
+what are those,RepairTalk
+I'd like to see a recent pg comedy,SearchMovies
+who stars in mission impossible,LookupActors
+nvm,RepairTalk
+Can you list me the current PG13-rated Comedy movies?,SearchMovies
+hi,OpeningTalk
+start over,RepairTalk
+drama,SearchMovies
+Hi what did you hear about the new Woody Allen?,LookupDirectors
+what do you mean by,RepairTalk
+cya,ClosingTalk
+search for a good movie,SearchMovies
+coming soon,SearchMovies
+where are the showtimes?,CheckShowtimes
+did you catch the game last night,SmallTalk
+I'd like to see a recent movie,SearchMovies
+action,SearchMovies
+what's playing at cinemas,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+where is Furious 7 showing,CheckShowtimes
+upcoming horror,SearchMovies
+is it freezing where you are,SmallTalk
+I would like to know about current action movies,SearchMovies
+George,GiveName
+a movie i could watch after work today,SearchMovies
+where can I see avengers,CheckShowtimes
+show me upcoming movies,SearchMovies
+do you know about movies,PreSequence
+NC-17,SearchMovies
+already told you,RepairTalk
+current,SearchMovies
+drama,SearchMovies
+show me pg,SearchMovies
+hi,OpeningTalk
+whats playing watson?,SearchMovies
+sdf,OtherClass
+What's playing?,SearchMovies
+upcoming,SearchMovies
+comedy,SearchMovies
+high of course,OtherClass
+Lesa,GiveName
+aloha,OpeningTalk
+what were those again,RepairTalk
+upcoming,SearchMovies
+current,SearchMovies
+hi,OpeningTalk
+What current movies are playing?,SearchMovies
+what do you like to do,SmallTalk
+romcom,SearchMovies
+yo,OpeningTalk
+R,SearchMovies
+i'm called Dan,GiveName
+I wanna to find a director,LookupDirectors
+Pitch Perfect 2,OtherClass
+R,SearchMovies
+hi,OpeningTalk
+Shan,GiveName
+Jurrassic Park,OtherClass
+Romance,SearchMovies
+action,SearchMovies
+whats playing?,SearchMovies
+hi,OpeningTalk
+show times,CheckShowtimes
+where do you work,SmallTalk
+Show me upcoming horror,SearchMovies
+What current movies are playing?,SearchMovies
+do you know English,SmallTalk
+whats playing,SearchMovies
+R-rated,SearchMovies
+my name is Ralph,GiveName
+tips,RepairTalk
+Upcoming movies,SearchMovies
+later,ClosingTalk
+who directed Maze Runner,LookupDirectors
+r,SearchMovies
+nvm,RepairTalk
+comedy,SearchMovies
+Desiree,GiveName
+I'd like to see a recent drama,SearchMovies
+Show me whats playing,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+what does that mean,RepairTalk
+Yes please!  Are there any comedies out right now?,SearchMovies
+bonjour,OpeningTalk
+hi,OpeningTalk
+what's playing,SearchMovies
+ted2,OtherClass
+Romantic comedy,SearchMovies
+Show me whats playing,SearchMovies
+DO YOU KNOW ABOUT WEATHER,PreSequence
+current,SearchMovies
+can you tell me about cars,PreSequence
+later,ClosingTalk
+movie times,CheckShowtimes
+which superstar is in ant-man?,LookupActors
+yello,OpeningTalk
+what can you tell me,PreSequence
+Comedy,SearchMovies
+show me comedy movies,SearchMovies
+show me whats playing,SearchMovies
+pg,SearchMovies
+movie rating of 5 stars,OtherClass
+Where can I watch Mad Max?,CheckShowtimes
+R,SearchMovies
+feel good movies,SearchMovies
+what movies are playing now?,SearchMovies
+r,SearchMovies
+comedy,SearchMovies
+Another time,SearchMovies
+I don't get it,RepairTalk
+movies directed by Stanley Kubrick,LookupDirectors
+What current movies are playing?,SearchMovies
+that's not what I meant,RepairTalk
+good bye,ClosingTalk
+that's not what I mean,RepairTalk
+PG-11,SearchMovies
+what does that mean,RepairTalk
+drama,SearchMovies
+whatever show me something cool,OtherClass
+Current movies,SearchMovies
+Where can I see Jurassic World?,CheckShowtimes
+show me current action movies,SearchMovies
+are there any blockbusters out,SearchMovies
+I want to search for actresses,LookupActors
+heya,OpeningTalk
+drama,SearchMovies
+what is the rting for pixels?,OtherClass
+I'd like to see a recent movie,SearchMovies
+what's playing in the 92708 area,CheckShowtimes
+musicals,SearchMovies
+kakaman,GiveName
+romance,SearchMovies
+which ones have good ratings?,OtherClass
+Are there any sci-fi movies out?,SearchMovies
+What current movies are playing?,SearchMovies
+say that again,RepairTalk
+got to go,ClosingTalk
+NC-17,SearchMovies
+I wanna look up movie times,CheckShowtimes
+I'd like to see a recent movie,SearchMovies
+Salvador,GiveName
+signing off,ClosingTalk
+start over,RepairTalk
+hi,OpeningTalk
+buenos dias,OpeningTalk
+What current movies are playing?,SearchMovies
+I'm interested in directors,LookupDirectors
+what were those again?,SearchMovies
+Arnold,GiveName
+what is your favorite movie,SmallTalk
+western upcoming NR,SearchMovies
+hmmm... ok maybe action,SearchMovies
+Comedy,SearchMovies
+thanks watson,ClosingTalk
+where do you come from,SmallTalk
+Mad Max,OtherClass
+NC-17,SearchMovies
+upcoming horror movies,SearchMovies
+look for movies,SearchMovies
+I'd like to see a recent movie,SearchMovies
+current pg horror movies,SearchMovies
+What current movies are playing?,SearchMovies
+do you know about weather,PreSequence
+Siri is smarter than you,SmallTalk
+come again,RepairTalk
+Hello,OpeningTalk
+pitch perfect 2,OtherClass
+excellent,OtherClass
+do you know about weather,PreSequence
+hello,OpeningTalk
+the wave,OtherClass
+yes 3 star,OtherClass
+show me romantic comedies,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+action,SearchMovies
+hey,OpeningTalk
+adieu,ClosingTalk
+what were those again,RepairTalk
+SIRI IS SMARTER THAN YOU,SmallTalk
+au revoir,ClosingTalk
+g-rated horror,SearchMovies
+current,SearchMovies
+my name is Rafah,GiveName
+how is the Movie Train Wreck?,OtherClass
+What is the Matrix about?,SmallTalk
+upoming horror,SearchMovies
+get English,SmallTalk
+current,SearchMovies
+BYE,ClosingTalk
+What current movies are playing?,SearchMovies
+Lucinda,GiveName
+aloha,OpeningTalk
+no all upcoming,RepairTalk
+I'd like to see a recent movie,SearchMovies
+What current movies are playing?,SearchMovies
+what are the new releases?,SearchMovies
+Jswjehs,OtherClass
+dfsafsd,OtherClass
+What's playing?,SearchMovies
+Agus,GiveName
+i'm interested in famous actresses,LookupActors
+cya,ClosingTalk
+gtg,ClosingTalk
+Id like to see a movie tonight,SearchMovies
+go back,OtherClass
+What current any rating movies,SearchMovies
+What current movies are playing?,SearchMovies
+How about R-rated dramas?,SearchMovies
+look up directors,LookupDirectors
+HI,OpeningTalk
+see ya later,ClosingTalk
+tonight,SearchMovies
+show movies with best ratings,OtherClass
+show me upcoming movies,SearchMovies
+can you get me a cup of coffee,OtherClass
+I want to check movie times,CheckShowtimes
+What current movies are playing?,SearchMovies
+What current movies are playing?,SearchMovies
+What's playing?,SearchMovies
+i am in the mood for a movie tonight,SearchMovies
+go back,OtherClass
+who is the director of Pixels?,LookupDirectors
+Hola,OpeningTalk
+have to run,ClosingTalk
+What is the rating of Vacation?,OtherClass
+What's new,SearchMovies
+Chantel,GiveName
+what's in theaters?,SearchMovies
+what is an example of,RepairTalk
+show more,OtherClass
+what is your favorite movie,SmallTalk
+hi,OpeningTalk
+would like to know about current movies,SearchMovies
+what do you know about movies,PreSequence
+look up showtimes,CheckShowtimes
+how to add to favorites,OtherClass
+family,SearchMovies
+I'd like to see a movie,SearchMovies
+comedy,SearchMovies
+show me whats playing,SearchMovies
+Show me upcoming sci-fi movies,SearchMovies
+what is an example of,RepairTalk
+r,SearchMovies
+who stars in mission impossible,LookupActors
+bad,OpeningTalk
+I'd like to see a recent comedy,SearchMovies
+whats playing,SearchMovies
+I wanna find movie times,CheckShowtimes
+Show me movies,SearchMovies
+current,SearchMovies
+What current movies are playing?,SearchMovies
+data,OtherClass
+hi,OpeningTalk
+I'd like to see a recent movie,SearchMovies
+r,SearchMovies
+action pg 13,SearchMovies
+Current,SearchMovies
+musical,SearchMovies
+PG,SearchMovies
+show me upcoming movies,SearchMovies
+pg 13,SearchMovies
+What are the current movies out right now?,SearchMovies
+NC-17,SearchMovies
+What is Southpas rated?,OtherClass
+looking for a movie,SearchMovies
+tell me more,RepairTalk
+goodbye,ClosingTalk
+I'd like to see a movie,SearchMovies
+have to go,ClosingTalk
+What current movies are playing?,SearchMovies
+Kasie,GiveName
+whats playing????,SearchMovies
+action,SearchMovies
+I want to search for directors,LookupDirectors
+I need a new brass,OtherClass
+what are examples of,RepairTalk
+what's playing,SearchMovies
+What current movies are playing?,SearchMovies
+romantic current movies,SearchMovies
+current,SearchMovies
+look up movie times,CheckShowtimes
+dil dhadakne do,OtherClass
+show me action,SearchMovies
+What are the current movies out in movie theathers?,SearchMovies
+now playing,SearchMovies
+Comedy,SearchMovies
+SAY THAT AGAIN,RepairTalk
+what does that mean,RepairTalk
+movies nearby,CheckShowtimes
+show me current movies,SearchMovies
+action,SearchMovies
+what are your hobbies,SmallTalk
+Hola,OpeningTalk
+what do you know,PreSequence
+PG-13,SearchMovies
+show me current action movies,SearchMovies
+what are those,RepairTalk
+hi,OpeningTalk
+How about PG-rated dramas,SearchMovies
+What current movies are playing?,SearchMovies
+any musicals,SearchMovies
+Karlyn,GiveName
+new,SearchMovies
+Alfonzo,GiveName
+show me G rated horror movies,SearchMovies
+do you know,PreSequence
+good night,ClosingTalk
+what were those again?,RepairTalk
+action,SearchMovies
+train wreck,OtherClass
+I meant,RepairTalk
+Where do you get your ratings from?,OtherClass
+show me the wave trailer,OtherClass
+I want to see movies,SearchMovies
+Action,SearchMovies
+what is showing at the alamo drafthouse?,OtherClass
+hey there,OpeningTalk
+hi,OpeningTalk
+Upcoming movies,SearchMovies
+comedy,SearchMovies
+horror upcoming,SearchMovies
+What are current R rated action movies,SearchMovies
+more action movies,SearchMovies
+Then what do you mean movie rating?,RepairTalk
+what's playing?,SearchMovies
+What is Phantom movie about?,OtherClass
+PG-11,SearchMovies
+time to go,ClosingTalk
+what were those again?,RepairTalk
+comedy,SearchMovies
+documentary,SearchMovies
+i didn't like the minions,OtherClass
+what do you mean,RepairTalk
+coming soon,SearchMovies
+playing now,SearchMovies
+whats playing,SearchMovies
+Do you speak English,SmallTalk
+Hi,OpeningTalk
+movie,SearchMovies
+hi,OpeningTalk
+what's the weather like,SmallTalk
+PG-13,SearchMovies
+Action,SearchMovies
+nvm,RepairTalk
+action,SearchMovies
+What's playing?,SearchMovies
+do you know anything about movies,PreSequence
+What current movies are playing?,SearchMovies
+good day,OpeningTalk
+Show me recent PG13-rated Melo movies.,SearchMovies
+SIRI IS SMARTER THAN YOU,SmallTalk
+What's playing?,SearchMovies
+who are the actors in Pixels,LookupActors
+Merideth,GiveName
+what happens in the Matrix,SmallTalk
+good,OpeningTalk
+bye now,ClosingTalk
+Which of them are rated highly?,OtherClass
+what's playing?,SearchMovies
+I'd like to see a recent pg comedy,SearchMovies
+what is the best rated new comedy,OtherClass
+whats playing,SearchMovies
+what kind of genres do you prefer,SmallTalk
+show me whats playing,SearchMovies
+Wassim,GiveName
+I'm also known as Heather,GiveName
+who directs Everest,LookupDirectors
+tonight,SearchMovies
+I'd like to see a movie with a big superstar tonight,LookupActors
+I'd like to see a recent movie,SearchMovies
+AB,GiveName
+What current movies are playing?,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+CAN YOU TELL ME ABOUT CARS,PreSequence
+is Siri smarter than you?,SmallTalk
+yes i would like to see a movie,SearchMovies
+What is the genre of matrix movie?,OtherClass
+nvm,RepairTalk
+whats playing,SearchMovies
+Where is the closest showing of Mad Max?,CheckShowtimes
+show me more,SearchMovies
+comedy,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+Do you speak English,SmallTalk
+Hi,OpeningTalk
+upcoming PG-13 rated,SearchMovies
+What can you do?,PreSequence
+derp,OtherClass
+I'd like to see a recent movie,SearchMovies
+bad data,OtherClass
+show me whats playing,SearchMovies
+What's new,SearchMovies
+bye,ClosingTalk
+which superstar is in ant-man?,LookupActors
+hola,OpeningTalk
+Love Finds You in Charm ratings,OtherClass
+tell me about current comedies,SearchMovies
+upcoming,SearchMovies
+current,SearchMovies
+what kind of movies are the best,OtherClass
+hi,OpeningTalk
+upcoming pg movies,SearchMovies
+what's in theaters,SearchMovies
+do you have a favorite actor,SmallTalk
+nc-17 family,SearchMovies
+What does NC-17 stand for,RepairTalk
+search for movies,SearchMovies
+action,SearchMovies
+comedy,SearchMovies
+search movies by director,LookupDirectors
+I'd like to see a recent movie,SearchMovies
+I want to see an action movie,SearchMovies
+my name is Ashima,GiveName
+What current movies are playing?,SearchMovies
+what are the favorites,OtherClass
+who stars in fallen,LookupActors
+Action or thriller preferably,SearchMovies
+good,OpeningTalk
+what do you mean,RepairTalk
+PG,SearchMovies
+I'd like to see a recent drama,SearchMovies
+I'm confused,RepairTalk
+yello,OpeningTalk
+namaste,OpeningTalk
+comedy,SearchMovies
+action,SearchMovies
+no I mean,RepairTalk
+DO YOU KNOW ABOUT WEATHER,PreSequence
+Show me what's playing,SearchMovies
+r,SearchMovies
+why?,OtherClass
+who directed mission impossible,LookupDirectors
+romantic,SearchMovies
+comedy,SearchMovies
+what do you know,PreSequence
+whats playing,SearchMovies
+I am not feeling good,OpeningTalk
+action,SearchMovies
+what is that,RepairTalk
+Amit,GiveName
+what movies has Tim Burton directed,LookupDirectors
+need to go,ClosingTalk
+look up movies,SearchMovies
+Tisha,GiveName
+upcoming movies,SearchMovies
+what genres do you like,SmallTalk
+action,SearchMovies
+whats playing?,SearchMovies
+Jenniffer,GiveName
+Current movies drama,SearchMovies
+whats playing,SearchMovies
+I'd like to see a recent pg comedy,SearchMovies
+I want a comedy/action movie,SearchMovies
+where are the showtimes,CheckShowtimes
+comedy,SearchMovies
+hiya,OpeningTalk
+show me R rated horror movies,SearchMovies
+find something to watch,SearchMovies
+Annett,GiveName
+that makes no sense,RepairTalk
+What current movies are playing?,SearchMovies
+search for directors please,LookupDirectors
+current,SearchMovies
+my name is Jenny,GiveName
+show me chick flicks,SearchMovies
+CAN YOU TELL ME ABOUT CARS,PreSequence
+comedy upcoming PG,SearchMovies
+over and out,ClosingTalk
+then bye,ClosingTalk
+Hi,OpeningTalk
+DO YOU KNOW ABOUT WEATHER,PreSequence
+I'd like to see a recent comedy,SearchMovies
+hi,OpeningTalk
+see you,ClosingTalk
+no i mean g-rated horror,RepairTalk
+R,SearchMovies
+find the film please,SearchMovies
+hello,OpeningTalk
+What movies are playing,SearchMovies
+action,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+What's playing?,SearchMovies
+NC-17,SearchMovies
+current kids,SearchMovies
+san andreas,OtherClass
+what do you do for a living,SmallTalk
+what are trailers,RepairTalk
+who directed The Martian,LookupDirectors
+Comedy,SearchMovies
+I want to see R-rated horror movies,SearchMovies
+movies with Jennifer Lawrence,LookupActors
+upcoming horror movies,SearchMovies
+when does it show,CheckShowtimes
+Leo,GiveName
+whats playing,SearchMovies
+action,SearchMovies
+What current movies are playing?,SearchMovies
+I'd like to see a recent action movie,SearchMovies
+upcoming,SearchMovies
+I want to look up actors,LookupActors
+bad data,OtherClass
+upcoming,SearchMovies
+movies in 92708 area,CheckShowtimes
+What current movies are playing?,SearchMovies
+hi,OpeningTalk
+whats playing?,SearchMovies
+show me current,SearchMovies
+what times does Jaws play,CheckShowtimes
+Irene,GiveName
+what's playing,SearchMovies
+Upcoming,SearchMovies
+is it boiling where you are,SmallTalk
+show me current,SearchMovies
+find movie showtimes,CheckShowtimes
+find movies directed by Martin Scorsese,LookupDirectors
+what's playing?,SearchMovies
+bad,OpeningTalk
+I'd like to see a recent comedy,SearchMovies
+movies by Baz Luhrmann,LookupDirectors
+good,OpeningTalk
+Current movies,SearchMovies
+comedy,SearchMovies
+show me movies,SearchMovies
+who are the actors in Pixels,LookupActors
+I'd like to see a recent comedy,SearchMovies
+What current movies are playing?,SearchMovies
+what would be your choice?,OtherClass
+I would like to see recent comedy,SearchMovies
+R,SearchMovies
+i wish to see comedy,SearchMovies
+current,SearchMovies
+what is critic rating for pixels,OtherClass
+whats playing,SearchMovies
+should go,ClosingTalk
+hi,OpeningTalk
+action,SearchMovies
+whats playing,SearchMovies
+what's the plot of the Matrix,SmallTalk
+action,SearchMovies
+show me movies,SearchMovies
+Drama,SearchMovies
+drama,SearchMovies
+Jeracio,GiveName
+thank you for your help,ClosingTalk
+bye,ClosingTalk
+What current movies are playing?,SearchMovies
+so long,ClosingTalk
+What current movies are playing?,SearchMovies
+drama,SearchMovies
+cedy,SearchMovies
+Siri is smarter than you,SmallTalk
+Movies that are in theaters,SearchMovies
+who's your favorite actress,SmallTalk
+hi,OpeningTalk
+I want a new mouse,OtherClass
+is there any good movie?,OtherClass
+Marylou,GiveName
+I would like to know about upcoming romantic movies,SearchMovies
+anil,GiveName
+ok bye,ClosingTalk
+good,OpeningTalk
+what kind of movies do you like,SmallTalk
+Show me movies,SearchMovies
+that doesn't make sense,RepairTalk
+look up movie times,CheckShowtimes
+What is the Terminator about?,SmallTalk
+movies by Steven Spielberg,LookupDirectors
+you can call me Sir,GiveName
+what's playing?,SearchMovies
+g,SearchMovies
+What current movies are playing?,SearchMovies
+Where can I see a movie near me?,CheckShowtimes
+gtg,ClosingTalk
+In my area,CheckShowtimes
+adventure upcoming R,SearchMovies
+what's upcoming,SearchMovies
+some weather huh,SmallTalk
+What current movies are playing?,SearchMovies
+where are the showtimes,CheckShowtimes
+what's at the cinema,SearchMovies
+show more,OtherClass
+good morning,OpeningTalk
+coming soon,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+WHAT CAN YOU TELL ME ABOUT,PreSequence
+show me recent r rate action movies,SearchMovies
+I'm confused,RepairTalk
+I'd like to see a current comedy,SearchMovies
+would like to know about upcoming romantic movies without any rating,SearchMovies
+action,SearchMovies
+search movies by actor,LookupActors
+look for David Lynch movies,LookupDirectors
+see ya,ClosingTalk
+family,SearchMovies
+current,SearchMovies
+war movies Current  NR,SearchMovies
+What is Samba about?,OtherClass
+what does genre mean,RepairTalk
+r,SearchMovies
+i hate movies,OtherClass
+I'd like to see a recent movie,SearchMovies
+show me whats playing,SearchMovies
+pg-13,SearchMovies
+show me more,OtherClass
+I am Prem,GiveName
+tonight,SearchMovies
+current,SearchMovies
+What's in theaters?,SearchMovies
+bad data,OtherClass
+pg,SearchMovies
+find a blockbuster,SearchMovies
+what is the rating for pixels?,OtherClass
+why is No Way Jose not a great movie?,OtherClass
+I'd like to see a recent drama,SearchMovies
+SIRI IS SMARTER THAN YOU,SmallTalk
+current,SearchMovies
+who stars in mission Impossible?,LookupActors
+romance,SearchMovies
+again!,RepairTalk
+show  me upcoming comedies,SearchMovies
+hi there,OpeningTalk
+R,SearchMovies
+Current Movies,SearchMovies
+romance,SearchMovies
+yes please. something the whole family can watch,SearchMovies
+find romantic comedies,SearchMovies
+Neil,GiveName
+great,OpeningTalk
+What kind of genres are there?,SearchMovies
+What current movies are playing?,SearchMovies
+PG,SearchMovies
+current,SearchMovies
+Show me action movies,SearchMovies
+What movies are playing,SearchMovies
+signing out,ClosingTalk
+WHAT IS THE TERMINATOR ABOUT,SmallTalk
+comedy,SearchMovies
+Show me upcoming comedies,SearchMovies
+now playing,SearchMovies
+what are the current movies?,SearchMovies
+comedy,SearchMovies
+no horror,RepairTalk
+What is Southpaw rated?,OtherClass
+tell me about vacation,SearchMovies
+UNDERSTAND ENGLISH,SmallTalk
+How do you know that?,RepairTalk
+comedy,SearchMovies
+should be going,ClosingTalk
+Action,SearchMovies
+action,SearchMovies
+current,SearchMovies
+can you show me recent R-rated action movies,SearchMovies
+hi,OpeningTalk
+What current movies are playing?,SearchMovies
+don't you understand English,SmallTalk
+New movie with George Clooney?,LookupActors
+current,SearchMovies
+Hi,OpeningTalk
+what is staten island summer about?,OtherClass
+What current movies are playing?,SearchMovies
+hi there,OpeningTalk
+where are you from,SmallTalk
+what's playing,SearchMovies
+upcoming,SearchMovies
+Are there any recent dramas?,SearchMovies
+I'd like to see a recent r rated drama,SearchMovies
+What's playing?,SearchMovies
+I think Siri understand better,SmallTalk
+who's your favorite director,SmallTalk
+What's playing?,SearchMovies
+bye,ClosingTalk
+What current movies are playing?,SearchMovies
+Do you have any Comedy to recommend?,SearchMovies
+What is the best movie out there?,SearchMovies
+What current movies are playing?,SearchMovies
+R,SearchMovies
+see you soon,ClosingTalk
+what is an example of trailers,RepairTalk
+show me more,OtherClass
+I'd like to see a recent drama,SearchMovies
+what are the favorites,OtherClass
+What current movies are playing?,SearchMovies
+i want to find showtimes near me,CheckShowtimes
+Vannessa,GiveName
+What current movies are playing?,SearchMovies
+How about G-rated dramas,SearchMovies
+Upcoming comedy PG,SearchMovies
+I'd like to see Mad Max.,OtherClass
+start over,RepairTalk
+what is the best rated new comedy?,OtherClass
+I mean,RepairTalk
+What current movies are playing?,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+did you see the xmachina,SmallTalk
+What movies are out now?,SearchMovies
+I would like to watch current romance movies,SearchMovies
+current,SearchMovies
+r,SearchMovies
+Drama,SearchMovies
+family,SearchMovies
+good,OpeningTalk
+SIRI IS SMARTER THAN YOU,SmallTalk
+Is Matt Damon starring in any current movies?,LookupActors
+whats playing?,SearchMovies
+upcoming PG-13 rated romantic movies,SearchMovies
+what does that mean,RepairTalk
+CAN YOU TELL ME ABOUT CARS,PreSequence
+What current movies are playing?,SearchMovies
+Ryan,GiveName
+Yes that would be perfect! but a good one please,OtherClass
+family,SearchMovies
+Hi,OpeningTalk
+What current movies are playing?,SearchMovies
+what is the Matrix about,SmallTalk
+what's your favorite team,SmallTalk
+whats playing,SearchMovies
+do you have a favorite movie?,SmallTalk
+what's out right now,SearchMovies
+showtimes,CheckShowtimes
+search for cast members,LookupActors
+what are the upcoming dramas,SearchMovies
+bye,ClosingTalk
+tonighy,SearchMovies
+do you know about weather,PreSequence
+what theatres near me are showing mission impossible rouge nation,CheckShowtimes
+musical,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+PG,SearchMovies
+Lajuana,GiveName
+western upcoming NR,SearchMovies
+GOT TO GO,ClosingTalk
+comedy,SearchMovies
+childrens,SearchMovies
+laters,ClosingTalk
+SAY THAT AGAIN,RepairTalk
+comedy,SearchMovies
+current please but something with action,SearchMovies
+Jeanne,GiveName
+what do you recommend,OtherClass
+I want to see showtime,SearchMovies
+no I want,RepairTalk
+PG 13 rated romance movies,SearchMovies
+current romantic movies,SearchMovies
+look up movie showtimes,CheckShowtimes
+family,SearchMovies
+What current movies are playing?,SearchMovies
+New movie with George Clooney?,LookupActors
+Tonight,SearchMovies
+what is that,RepairTalk
+I'd like to see a recent comedy,SearchMovies
+I'm looking for movie directors,LookupDirectors
+good evening,OpeningTalk
+What current movies are playing?,SearchMovies
+I don't understand,RepairTalk
+good,OpeningTalk
+look up movies by Clint Eastwood,LookupDirectors
+sdfa,OtherClass
+Morgan Freeman movies,LookupActors
+yes comedy,SearchMovies
+who plays in Pixels?,LookupActors
+tonighjt,SearchMovies
+who's your favorite actor,SmallTalk
+g'day,OpeningTalk
+action.,SearchMovies
+action,SearchMovies
+What current movies are playing?,SearchMovies
+What adventure movies can I watch?,SearchMovies
+what were those again?,RepairTalk
+Show me whats playing!!,SearchMovies
+What current movies are playing?,SearchMovies
+R,SearchMovies
+SIRI IS BETTER THAN YOU,SmallTalk
+laters,ClosingTalk
+current,SearchMovies
+which actor is in mission impossible?,LookupActors
+a good movie with Meryl Streep,LookupActors
+action,SearchMovies
+drama,SearchMovies
+no I meant,RepairTalk
+what's playing?,SearchMovies
+Laurie,GiveName
+drama,SearchMovies
+Edris,GiveName
+i want to find showtimes,CheckShowtimes
+where are the showtimes,CheckShowtimes
+Hi,OpeningTalk
+I don't understand,RepairTalk
+I'd like to see a recent comedy,SearchMovies
+I'd like to see a movie,SearchMovies
+What time does it play,CheckShowtimes
+What current movies are playing?,SearchMovies
+upcoming horror movies,SearchMovies
+I would like to watch current romance movies PG-13,SearchMovies
+not really maybe,OtherClass
+whats playing,SearchMovies
+are those all of them?,RepairTalk
+hi,OpeningTalk
+what about drama,SearchMovies
+What current movies are playing?,SearchMovies
+what's playing?,SearchMovies
+see ya soon,ClosingTalk
+what are those,RepairTalk
+search movies,SearchMovies
+Tell me more about Gone Girl?,OtherClass
+rom com,SearchMovies
+What current movies are playing?,SearchMovies
+how it is as compare to previous,OtherClass
+What theaters are currently playing Mad Max,SearchMovies
+what are examples of,RepairTalk
+current movies,SearchMovies
+R,SearchMovies
+no I meant,RepairTalk
+what do you know about,PreSequence
+What current movies are playing?,SearchMovies
+action,SearchMovies
+What current movies are playing?,SearchMovies
+Jonathon,GiveName
+whats playing,SearchMovies
+What's playing?,SearchMovies
+action,SearchMovies
+What type of movies can I watch,SearchMovies
+What is the best current adventure movie,OtherClass
+what movies has woody allen made,LookupDirectors
+anil,GiveName
+good I'd like to see a current comedy,SearchMovies
+Pg-13,SearchMovies
+Rochel,GiveName
+Watson,GiveName
+current,SearchMovies
+romance,SearchMovies
+what's out now?,SearchMovies
+action,SearchMovies
+no I mean,RepairTalk
+Show me recent PG13-rated comedies,SearchMovies
+Action,SearchMovies
+Please show me the recent drama movies,SearchMovies
+action,SearchMovies
+good,OpeningTalk
+female comedy,SearchMovies
+I wanna see a scary movie,SearchMovies
+mj,GiveName
+start over,RepairTalk
+What's out now?,SearchMovies
+adios,ClosingTalk
+howdy,OpeningTalk
+current,SearchMovies
+nvm,RepairTalk
+new,SearchMovies
+see you later,ClosingTalk
+whats playing,SearchMovies
+are you married,SmallTalk
+Hi what movies do we have in theaters now?,SearchMovies
+Diane,GiveName
+Comedy,SearchMovies
+I'd like to see a recent movie,SearchMovies
+PG13,SearchMovies
+musical,SearchMovies
+movies near me,CheckShowtimes
+current,SearchMovies
+I would like to watch upcoming movies,SearchMovies
+R,SearchMovies
+feeling bit low,OpeningTalk
+can you get me a cup of coffee,OtherClass
+now,SearchMovies
+now playing,SearchMovies
+Freddy,GiveName
+tonight,SearchMovies
+I want to see showtime,CheckShowtimes
+comedy,SearchMovies
+hi,OpeningTalk
+good,OpeningTalk
+What current movies are playing?,SearchMovies
+what are the current movies in action genre,SearchMovies
+Which one is the best current movie?,OtherClass
+Where can I read reviews?,OtherClass
+who stars in the Avengers?,LookupActors
+hi,OpeningTalk
+movie directors,LookupDirectors
+help,RepairTalk
+show me again,RepairTalk
+I'd like to see a recent drama,SearchMovies
+What's playing?,SearchMovies
+ciao,OpeningTalk
+check show times,CheckShowtimes
+Roamnce,SearchMovies
+I'd like to see a movie,SearchMovies
+Recent comedy,SearchMovies
+show me more,SearchMovies
+what genres are the best,SmallTalk
+what were those again?,RepairTalk
+whats playing?,SearchMovies
+I want to see a PG movie,SearchMovies
+show me whats playing,SearchMovies
+Thersa,GiveName
+upcoming but soonest,SearchMovies
+NC-17,SearchMovies
+Its not that good,OpeningTalk
+is it raining where you are,SmallTalk
+I would like to watch current action movies,SearchMovies
+action,SearchMovies
+what did you mean,RepairTalk
+action,SearchMovies
+what are all the genres,RepairTalk
+what are the showtimes for the movies i saved close to 78758,CheckShowtimes
+go back,OtherClass
+What current movies are playing?,SearchMovies
+Show me upcoming comedies,SearchMovies
+any specific movie?,OtherClass
+Suranjit,GiveName
+maybe science fiction?,SearchMovies
+I'd like to see a movie,SearchMovies
+hi,OpeningTalk
+what are they?,RepairTalk
+Siri is smarter than you,SmallTalk
+PG,SearchMovies
+how's the weather,SmallTalk
+CAN YOU TELL ME ABOUT CARS,PreSequence
+no i mean action movies,RepairTalk
+When did Mad Max come out,OtherClass
+What time does the first show start?,CheckShowtimes
+I'm feeling good thanks,OpeningTalk
+book ticket for missed call,OtherClass
+What actors are in Sound Mixers?,LookupActors
+what is the Terminator about,SmallTalk
+What current movies are playing?,SearchMovies
+Hi,OpeningTalk
+What current movies are playing?,SearchMovies
+R,SearchMovies
+movies in austin texas,CheckShowtimes
+what's playing?,SearchMovies
+no I want,RepairTalk
+now,SearchMovies
+current movies,SearchMovies
+that's not what I meant,RepairTalk
+what were those again?,RepairTalk
+i want to check other movies,SearchMovies
+What current movies are playing?,SearchMovies
+good,OpeningTalk
+show me current,SearchMovies
+look up bollywood movies,SearchMovies
+G,SearchMovies
+showtimes,CheckShowtimes
+Siri is better than you,SmallTalk
+what's the plot of the Terminator,SmallTalk
+which actor is in mission impossible?,LookupActors
+Ward,GiveName
+What current movies are playing?,SearchMovies
+Sanjay,GiveName
+what's upcoming?,SearchMovies
+bad data,OtherClass
+what were those again?,RepairTalk
+mad max at alamo drafthouse,CheckShowtimes
+no nc-17 documentary,RepairTalk
+what does that stand for,RepairTalk
+What current movies are playing?,SearchMovies
+watson what other movies are out?,SearchMovies
+what do you mean by ,RepairTalk
+good,OpeningTalk
+coming soon,SearchMovies
+need to leave,ClosingTalk
+upcoming movies,SearchMovies
+What current movies are playing?,SearchMovies
+Jim,GiveName
+PG-13 and up,SearchMovies
+I'd like to see a recent drama,SearchMovies
+good,OpeningTalk
+show me upcoming movies,SearchMovies
+nvm,RepairTalk
+I'd like to see a recent comedy,SearchMovies
+upcoming,SearchMovies
+I'd like to see a movie with a big superstar tonight,LookupActors
+dfsaf,OtherClass
+What current movies are playing?,SearchMovies
+all current movies,SearchMovies
+what times does this play,CheckShowtimes
+yes comedie,SearchMovies
+detective,SearchMovies
+What current movies are playing?,SearchMovies
+PG,SearchMovies
+Dylan,GiveName
+What are R rated action movies,SearchMovies
+how about romantic movies,SearchMovies
+whats playing watson,SearchMovies
+Action,SearchMovies
+tonight,SearchMovies
+Whats playing,SearchMovies
+i want to watch something sexy,SearchMovies
+show me what's playing!!!!,SearchMovies
+good,OpeningTalk
+I'd like to see a current comedy,SearchMovies
+how old are you,SmallTalk
+who stars in fallen,LookupActors
+Show me whats playing,SearchMovies
+comedy,SearchMovies
+tonight,SearchMovies
+pg,SearchMovies
+I'd like to see a recent movie,SearchMovies
+I want to find movie actors,LookupActors
+show more,OtherClass
+I'd like to see a recent drama,SearchMovies
+What's playing?,SearchMovies
+Show me some latest movies,SearchMovies
+is the movie 99 homes rated R?,OtherClass
+are you male or female,SmallTalk
+I don't get it,RepairTalk
+SIRI IS SMARTER THAN YOU,SmallTalk
+how about romantic movies,SearchMovies
+i'd like to check showtimes,CheckShowtimes
+hi,OpeningTalk
+movies playing in San Jose,CheckShowtimes
+what did you mean,RepairTalk
+I'd like to see a recent comedy,SearchMovies
+good,OpeningTalk
+What current movies are playing?,SearchMovies
+hi,OpeningTalk
+romance,SearchMovies
+I'd like to see a recent drama,SearchMovies
+What new adventure movies are coming out?,SearchMovies
+showtimes,CheckShowtimes
+Romance,SearchMovies
+gotta go,ClosingTalk
+what do you mean,RepairTalk
+Marti,GiveName
+another time,SearchMovies
+now,SearchMovies
+Hi,OpeningTalk
+action,SearchMovies
+R,SearchMovies
+bye,ClosingTalk
+Comedy,SearchMovies
+who plays in Star Wars?,LookupActors
+what's in theaters,SearchMovies
+upcoming PG movies,SearchMovies
+What current movies are playing?,SearchMovies
+new,SearchMovies
+I'd like to see a recent drama,SearchMovies
+g rated,SearchMovies
+all movies made by Francis Ford Coppola,LookupDirectors
+in the 95118 area,CheckShowtimes
+look up movie showtimes,CheckShowtimes
+upcoming,SearchMovies
+im looking for a romantic movie,SearchMovies
+5 stars,OtherClass
+What rated R current comedies,SearchMovies
+more,OtherClass
+what happens in 2001,SmallTalk
+Kyle,GiveName
+what does trailers mean,RepairTalk
+bye bye,ClosingTalk
+Show me upcoming comedies,SearchMovies
+I'd like to see a recent drama,SearchMovies
+R,SearchMovies
+Jurassic Park,OtherClass
+Show me movies,SearchMovies
+What current movies are playing?,SearchMovies
+What's playing in theatres?,SearchMovies
+R,SearchMovies
+Are there any new comedies?,SearchMovies
+HELP,RepairTalk
+What current movies are playing?,SearchMovies
+can you show me recent R-rated action movies,SearchMovies
+I'd like to see a recent movie,SearchMovies
+do you speak English,SmallTalk
+What's out now?,SearchMovies
+movies by director,LookupDirectors
+comedy,SearchMovies
+current,SearchMovies
+I want to find showtimes near me.,CheckShowtimes
+I'd like to see a recent drama,SearchMovies
+current,SearchMovies
+BYE,ClosingTalk
+comedy,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+romantic comedy,SearchMovies
+what's upcoming?,SearchMovies
+do you have,PreSequence
+what G movies are current,SearchMovies
+what's playing my friend?,SearchMovies
+help,RepairTalk
+Current movies drama R,SearchMovies
+what's playing near me,CheckShowtimes
+what movies has Brad Pitt been in?,LookupActors
+Reviews,OtherClass
+I'd like to see a recent comedy,SearchMovies
+what movies has woody allen made,LookupDirectors
+Horror,SearchMovies
+Ben,GiveName
+I'd like to see an upcoming moovie,SearchMovies
+action,SearchMovies
+no i mean family,RepairTalk
+nvm,RepairTalk
+got to go,ClosingTalk
+what is your favorite genre,SmallTalk
+comedy,SearchMovies
+what were those again,RepairTalk
+new movies,SearchMovies
+Lets go with entertainment movies,SearchMovies
+ok so science fiction and G,SearchMovies
+What current movies are playing?,SearchMovies
+nvm,RepairTalk
+pat,GiveName
+What current movies are playing?,SearchMovies
+Hello,OpeningTalk
+drama,SearchMovies
+Alva,GiveName
+hi,OpeningTalk
+musical,SearchMovies
+adventure,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+Kindra,GiveName
+what pg 13 comedies,SearchMovies
+What current movies are playing?,SearchMovies
+What current movies are playing?,SearchMovies
+my nickname is Bob,GiveName
+NC-17,SearchMovies
+Any action movies out right now?,SearchMovies
+Show me upcoming movies,SearchMovies
+I would like to watch upcoming R-rated romantic movies,SearchMovies
+upcoming romantic movies,SearchMovies
+should be going,ClosingTalk
+that doesn't make sense,RepairTalk
+What are all current comedies playing,SearchMovies
+good how are you,OpeningTalk
+What is playing,SearchMovies
+say that again,RepairTalk
+tell me more about this,RepairTalk
+Is Matt Damon starring in any current movies?,LookupActors
+What current movies are playing?,SearchMovies
+What current movies are playing?,SearchMovies
+r,SearchMovies
+Hi,OpeningTalk
+What current movies are playing?,SearchMovies
+what's playing,SearchMovies
+What current movies are playing?,SearchMovies
+show me more,OtherClass
+PG,SearchMovies
+Andrew,GiveName
+upcoming movies,SearchMovies
+what happens in the Terminator,SmallTalk
+What is trainwreck about?,OtherClass
+Howdy,OpeningTalk
+sdfsafd,OtherClass
+Yi,GiveName
+What current movies are playing?,SearchMovies
+what movies are playing now?,SearchMovies
+do you like sports,SmallTalk
+whats playing?,SearchMovies
+comedy,SearchMovies
+another time,SearchMovies
+look up cast,LookupActors
+Show me recent PG13-rated action movies,SearchMovies
+What about kids movies?,SearchMovies
+PG 13,SearchMovies
+historical Current  NR,SearchMovies
+I want to see showtime,CheckShowtimes
+science fiction then,SearchMovies
+What current movies are playing?,SearchMovies
+my time is up,ClosingTalk
+Jim,GiveName
+go back,OtherClass
+jkfl;sa,OtherClass
+tonight,SearchMovies
+what's your favorite book,SmallTalk
+I'd like to see a recent movie,SearchMovies
+what kind of movies do you prefer,SmallTalk
+PG13,SearchMovies
+farewell,ClosingTalk
+makes no sense,RepairTalk
+now playing,SearchMovies
+hi there,OpeningTalk
+I'd like to see a recent drama,SearchMovies
+What current movies are playing?,SearchMovies
+what's in theaters,SearchMovies
+Show me movies,SearchMovies
+I would like to go for comedy,SearchMovies
+Hi,OpeningTalk
+i'm Natalie,GiveName
+ok so what else do you need to know?,OtherClass
+hi,OpeningTalk
+I want to look up directors,LookupDirectors
+family,SearchMovies
+i want to see movies in my area,CheckShowtimes
+what's your favorite song,SmallTalk
+look up actors,LookupActors
+did you see the game,SmallTalk
+comedy,SearchMovies
+have to go,ClosingTalk
+people call me Chuck,GiveName
+Goodbye,ClosingTalk
+kids,SearchMovies
+Show me what's playing,SearchMovies
+What is playing,SearchMovies
+What current movies are playing?,SearchMovies
+derp,OtherClass
+hi,OpeningTalk
+what action movies are showing,SearchMovies
+what's in theaters,SearchMovies
+Siri is smarter than you,SmallTalk
+Joe,GiveName
+Forest,GiveName
+What current movies are playing?,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+show me current movies,SearchMovies
+what is your favorite movie,SmallTalk
+good,OpeningTalk
+4 stars,OtherClass
+gotta run,ClosingTalk
+search for movies,SearchMovies
+au revoir,ClosingTalk
+get showtimes,CheckShowtimes
+Michael,GiveName
+what is the Terminator about,SmallTalk
+hi,OpeningTalk
+nearest future,SearchMovies
+hello,OpeningTalk
+sdfa,OtherClass
+i dont like any of these options,OtherClass
+find showtimes for favorited movies,CheckShowtimes
+HI,OpeningTalk
+What current movies are playing?,SearchMovies
+I'd like to see a recent comedy,SearchMovies
+I'd like to see a recent movie,SearchMovies
+war movies upcoming PG-13,SearchMovies
+famil,SearchMovies
+aloha,OpeningTalk
+I'd like to see a recent movie,SearchMovies
+no g-rated horror,RepairTalk
