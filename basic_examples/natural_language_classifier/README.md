@@ -12,7 +12,7 @@ Standard NLC Demo -> [Demo](http://natural-language-classifier-demo.mybluemix.ne
 
 ##Creating and populating a NLC Service on Bluemix
 
-Within Bluemix you can create an unbound instance of the NLC Service, by selecting Natural Language Classifier
+Within Bluemix you can create an **unbound instance** of the NLC Service, by selecting Natural Language Classifier
 in the Bluemix catalog.
 
 ![ScreenShot](images/nlc_std_service.png)
@@ -29,7 +29,9 @@ Confirm authorization for the toolkit access your instance.
 ![ScreenShot](images/nlc_toolkit_authorize.png)
 
 Click on Training and then follow the steps as documented in [NLC toolkit](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/tool_examples.shtml).  
+
 Train the NLC Service with the sample CSV file.
+
 
 ![ScreenShot](images/nlc_toolkit_training.png)
 
@@ -105,7 +107,55 @@ Click the button of the Inject node and look at the contents of the Debug Tab
 
 ![ScreenShot](images/nlc_debug_ask_output.png)
 
-##Using the NLC Service from Node-RED (using Node-RED node : TBC)
+##Using the NLC Service from Node-RED
+
+First bind a NLC Watson Service to your Application
+
+Select your Application and click the Natural Language Classifier Watson Service
+
+![ScreenShot](images\nlc_bluemix_icon.png)
+
+Click Create
+
+![ScreenShot](images\nlc_bluemix_bind_create.png)
+
+Click Restage
+
+![ScreenShot](images\nlc_bluemix_restage.png)
+
+Once the Application has started go back to your palette and drag a Natural Language Classifier (NLC) node to the palette.  Double click and set the Mode to **Training** and give it a name.
+
+![ScreenShot](\images\nlc_edit_training.png)
+
+We assume that you have enabled your Application to have the both the Dropbox and Box Node-RED nodes added to your Application - if you haven't then see -> ???.  Make sure you have uploaded file weather_data_train.csv to your Dropbox or Box locations (copy of the file is here -> [weather csv file](weather_data_train.csv).
+
+Add the right Dropbox node to the palette
+
+![ScreenShot](\images\nlc_dropbox_node.png)
+
+Add your Dropbox node credentials and click Add
+
+![ScreenShot](\images\nlc_dropbox_setup.png)
+
+Add the weather_data_train.csv file to the Dropbox node settings
+
+![ScreenShot](\images\nlc_dropbox_filename.png)
+
+Join this to the NLC node and also introduce a Inject node to thus be able to start Dropbox to get the file and feed it into the NLC node, also add a Debug node to the output of the NLC node
+
+![ScreenShot](\images\nlc_nlc_flow_inject_debug.png)
+
+The ID of the NLC is returned in the Debug Tab of Node-RED - i n the example below this is **cd6374x52-nlc-1515**
+
+![ScreenShot](\images\nlc_debug_tab_nlc_id.png)
+
+To see the status of the training then go to the ???
+
+NOTE : the NLC is now being trained - this could take some time.  There is currently (April 2016) no method of being able to know when the training is finished.  As an example some loop code has been written in Node-RED which poles the NLC Service to determine when the service has completed the training and is in Available mode - this is shown below and including in the copy of the flow but will not be explained in detail.
+
+
+
+
 
 
 The flows for this lab are here -> [flows](nlc_flows.json)
