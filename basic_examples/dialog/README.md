@@ -118,6 +118,6 @@ Send the output to a debug node
 
 ![delete all dialogs : output](images/dialog_delete_all_output.png)
 
+# Available Flows :
+- [Dialog Flow](dialog_flow.json) : illustrates all availables Dialog Node Modes, and proposes an automated Simulation of a Dialog Creation, Starting and following a Conversation.
 
-The completed flow is available at [Dialog Flow](dialog_flow.json)
-A new flow that illustrates all available Dialog Node Modes is available at [Dialog Flow2](dialog_flow2.json), and proposes an automated Simulation of a Dialog Creation, Starting and following a Conversation. This second flow also shows you the 2 two new modes <b>Delete a Dialog</b>, and <b>Delete All Dialogs</b>.
