@@ -25,7 +25,7 @@ If you want to contribute to the repository, follow these steps:
 # Getting start !
 
 The main steps are :
-* check pre-requisites on your laptop (Linux, Mac, Windows)
+* check pre-requisites on your laptop (Linux, Mac)
 * setup your development environment to use Node-RED on localhost
 * coding : modify or create a new node using Node-RED on localhost
 * commit your work and pull-request
@@ -36,7 +36,6 @@ Note : this procedure have been tested on OS X Yosemite
 
 Install a Node version manager if not already done :
 - Linux/OS X : use [nvm](https://github.com/creationix/nvm)
-- Windows : [nvm-windows](https://github.com/coreybutler/nvm-windows) or [nodist](https://github.com/marcelklehr/nodist)
 Example :
 ```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
@@ -54,7 +53,7 @@ Notice : npm is provided along with Node.js
 ## Setup your development environment
 Here are the steps to successfully setup your development environment to contribute to this project
 
-- Fork the main [Node-RED Watson project](https://github.com/node-red/node-red-node-watson) using your GitHub account (ex: @ylecleach)
+- Fork the main [Node-RED Watson project](https://github.com/watson-developer-cloud/node-red-node-watson) using your GitHub account (ex: @ylecleach)
 - Create a work directory that will contains the source code of your fork
 ```
 mkdir ~/dev/src ; cd ~/dev/src
@@ -99,11 +98,11 @@ vi ~/dev/src/node-red-node-watson/package.json
 
 If you want to add a watson node, then you have to create an entry such as :
 ```
-"watson-dialog": "watson/di.js"
+"watson-dialog": "services/dialog/v1.js"
 ```
 using the same name convention. For example the Watson Dialog Node is composed of these two files :
-- watson/di.js
-- watson/di.html
+- services/dialog/v1.js
+- services/dialog/v1.html
 
 Please refer to those examples and to the [NodeRED.org](http://nodered.org/docs/creating-nodes/) documentation.
 
