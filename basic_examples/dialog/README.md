@@ -100,6 +100,24 @@ Where you will be able to see the response from the dialog service.
 
 ![dialog input converse](images/dialog_converse_results.png)
 
+## Delete a Dialog
+This mode enables you to delete a Dialog given its Dialog ID. To do so, just add the Dialog ID in the node configuration.
+
+![delete a dialog : input](images/dialog_delete_input.png)
+
+Send the output to a debug node
+
+![delete a dialog : output](images/dialog_delete_output.png)
+
+## Delete all Dialogs
+This mode enables you to delete all Dialogs associated to the underlying Watson Dialog service instance. <b>Use it with caution as the deletion is permanent</b>
+
+![delete all dialogs : input](images/dialog_delete_all_input.png)
+
+Send the output to a debug node
+
+![delete all dialogs : output](images/dialog_delete_all_output.png)
 
 
 The completed flow is available at [Dialog Flow](dialog_flow.json)
+A new flow that illustrates all available Dialog Node Modes is available at [Dialog Flow2](dialog_flow2.json), and proposes an automated Simulation of a Dialog Creation, Starting and following a Conversation. This second flow also shows you the 2 two new modes <b>Delete a Dialog</b>, and <b>Delete All Dialogs</b>.
