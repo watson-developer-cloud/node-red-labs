@@ -167,11 +167,11 @@ In the picture we can see how the Box node has been used to retrieve the files. 
 
 The only thing that we need to take into account is that the files which are going to be used for training need to be specified in <b>msg.positive</b> and <b>msg.negative</b>. This is why the change nodes have been used. The configuration of one of this nodes is displayed in the image. 
 
-![Training flow](images/vr_training2.png)
+![Change node](images/vr_training2.png)
 
 To configure the visual recognition training node, only a name for the resulting classifier and the credentials have to be provided. Credentials can be specified either selecting an existing Alchemy service binded to the Node-RED application or providing them manually.
 
-![Training flow](images/vr_training3.png)
+![Training node](images/vr_training3.png)
 
 The training will take a few seconds and after that the response will include the id of the generated classifier. This unique id (and not the provided name) is required for other operations on the visual recognition engine.
 
