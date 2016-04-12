@@ -30,5 +30,24 @@ The concepts returned are then passed to the Concept Insights Search node where 
 
 Finally, the result of the conceptual search query is passed to the HTTP response and returned to the user.
 
+## Lab 2: Upload a document to a corpus for indexing
+This lab will show you how to upload your own file from Dropbox for indexing and analysis so you can perform queries based around your own data. Before you start, make sure you have the Dropbox node on your palette and have configured it correctly. [These instructions](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup) explain this step in more detail. First of all, import the `concept-insights-upload-document-lab-2.json` file into the Node-RED flow editor as detailed in Lab 1, then deploy the flow using the button in the top right corner. Select a file to upload by editing the configuration of the Dropbox node.
 
+![conceptualsearch](images/dropbox.png)
+
+The upload document node has been populated with some default information, such as the name of a corpus, the name of a document and a document label. If you wish to change this, double click the upload document node to reconfigure it.
+
+![conceptualsearch](images/uploaddoc.png)
+
+Deploy the flow and click the inject node to begin uploading the file. The file will begin to upload to the Concept Insights service and a status is shown underneath the upload document node. The document will begin indexing and this is indicated as follows:
+
+![conceptualsearch](images/indexing.png)
+
+Once the document is ready, the status will change as follows:
+
+![conceptualsearch](images/ready.png)
+
+When the document has finished uploading, queries can be performed on the corpus and the document using the Concept Insights search node. The following flow retrieves corpus statistics and outputs the result to the debug tab. Click the inject node to try it out. Other queries are available by changing the configuration of the search node.
+
+![conceptualsearch](images/search.png)
 
