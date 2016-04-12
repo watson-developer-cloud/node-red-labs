@@ -161,7 +161,7 @@ The completed flow is available at [Visual Recognition Image Classification Flow
 
 Now training can also be done by using a new Node-RED node. The requirements for the training are still the same: two sets of positive and negative images. These sets will have to be packed in a ZIP file and then made available to the application either as a binary stream or as an URL pointing to the file.
 
-In the picture we can see how the Box node has been used to retrieve the files. The pictures which have been used are from the retriever and non-retriever dogs example which can be found within the <a href='https://visual-recognition-demo.mybluemix.net/train'>Visual Recognition documentation</a>. The zipped image sets are also available at <a href='files/retrievers_positive.zip'>Positive</a> and <a href='files/retrievers_negative.zip'>Negative</a>
+In the picture we can see how the Box node has been used to retrieve the files. The pictures which have been used are from the retriever and non-retriever dogs example which can be found within the [Visual Recognition documentation](https://visual-recognition-demo.mybluemix.net/train). The zipped image sets are also available at [Positive](files/retrievers_positive.zip) and [Negative](files/retrievers_negative.zip).
 
 ![Training flow](images/vr_training1.png)
 
