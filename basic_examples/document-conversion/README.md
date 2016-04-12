@@ -7,3 +7,17 @@ that can be used with other Watson services: prepare documents for use with the 
 
 In this example the Document Conversion node will take one document and convert it to plain HTML. 
 
+![Conversion node](images/dc_overview.png)
+
+The input message to the Document Coversion node must provide the file to be converted in the payload either as a binary stream or the URL to file contents. Additionally it is possible to specify information on the formats in the document. More information on the different options [Document Conversion documentation](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/document-conversion/customizing.shtml). In this example a PDF file will be converted and so a pdf field has been included with the format details.
+
+![Input data](images/dc_dialog2.png)
+
+In the configuration dialog for the node only the output format and the credentials have to be provided. Credentials can be specified either selecting an existing Alchemy service binded to the Node-RED application or providing them manually.
+The output format can be selected from three different options: a Answer unit JSON, a plain text or a HTML document.
+
+![Conversion node](images/dc_dialog1.png)
+
+Once the document has been converted, the output will be placed on the msg.payload. The contents will depend on the type of conversion: text, JSON or HTML (in a XML).
+
+![Conversion output](images/dc_output_html.png)![Conversion output](images/dc_output_json.png)
