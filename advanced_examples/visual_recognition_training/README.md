@@ -156,3 +156,37 @@ that it matches will be returned.
 
 
 The completed flow is available at [Visual Recognition Image Classification Flow](avr_classify_image_flow.json)
+
+## Training using the new Visual Recognition Training node for Node-RED
+
+Now training can also be done by using a new Node-RED node. The requirements for the training are still the same: two sets of positive and negative images. These sets will have to be packed in a ZIP file and then made available to the application either as a binary stream or as an URL pointing to the file.
+
+In the picture we can see how the Box node has been used to retrieve the files. The pictures which have been used are from the retriever and non-retriever dogs example which can be found within the <a href='https://visual-recognition-demo.mybluemix.net/train'>Visual Recognition documentation</a>. The zipped image sets are also available at <a href='files/retrievers_positive.zip'>Positive</a> and <a href='files/retrievers_negative.zip'>Negative</a>
+
+![Training flow](images/vr_training1.png)
+
+The only thing that we need to take into account is that the files which are going to be used for training need to be specified in <b>msg.positive</b> and <b>msg.negative</b>. This is why the change nodes have been used. The configuration of one of this nodes is displayed in the image. 
+
+![Training flow](images/vr_training2.png)
+
+To configure the visual recognition training node, only a name for the resulting classifier and the credentials have to be provided. Credentials can be specified either selecting an existing Alchemy service binded to the Node-RED application or providing them manually.
+
+![Training flow](images/vr_training3.png)
+
+The training will take a few seconds and after that the response will include the id of the generated classifier. This unique id (and not the provided name) is required for other operations on the visual recognition engine.
+
+```
+{   
+    "name": "Test", 
+    "classifier_id": "Test_1002609660", 
+    "created": "2016-04-12T13:44:43.000Z", 
+    "owner": "9d768f31-1805-3007-b070-1def5fe9cd0a-us-south" 
+}
+```
+
+## Additional tooling nodes
+
+Additionally to the new training node, a utils node has been included. This node is useful for getting a list of classifiers, querying the details for a single classifier or deleting it from the repository.
+
+![Training flow](images/vr_utils1.png)
+
