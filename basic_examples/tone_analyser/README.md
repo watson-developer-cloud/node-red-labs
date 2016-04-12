@@ -8,10 +8,10 @@ Input email and other written media into the Tone Analyzer service, and use the 
 
 The node is available as a Watson Developer Cloud contribution to Node-RED and needs to be installed. 
 
-## Installation of the Dialog Node
+## Installation of the Tone Analyser Node
 
 Follow the instructions at [watson contribution nodes](/watson_contribution_nodes/README.md) 
-to install the dialog node into your Bluemix instance of Node-RED. 
+to install the tone analyser node into your Bluemix instance of Node-RED. 
 
 ## How to use the Tone Analyser node ?
 
@@ -30,17 +30,17 @@ The provided Flows file (see below) proposes you amongst 3 differents way to con
 - Drobox node : you use a Dropbox account that hold the text file you want to be processed
 - Buffer : you can provide any text source in binary format, but it should be a Node.js Buffer. (ex : the HTTP REQUEST node using the binary mode)
 
-# Connect a Function node as input
+## Connect a Function node as input
 
 ![tone analyser connection](images/tone_analyser_2.png)
 
-# Connect a Dropbox node as input
+## Connect a Dropbox node as input
 
 ![tone analyser connection](images/tone_analyser_3.png)
 
 To configure a Dropbox node please follow the [Dropbox nodes setup](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup) procedure.
 
-# Connect a (Node.js) Buffer as input
+## Connect a (Node.js) Buffer as input
 
 You can take a HTTP REQUEST node and configure it such :
 - mode : GET
@@ -57,8 +57,6 @@ Add a Debug Node, and configure it to msg.response to see only the results data 
 
 ![tone analyser connection](images/tone_analyser_6.png)
 
-Now, configure the options proposed in the Tone Analyser node.
-
 Now configure your Tone Analyser node by selecting in the dropdown list 
 - the Tones (All / Emotion / Social / Writing): by default All. 
 - the Sentences Flag (True / False) : by default the value is True
@@ -69,8 +67,15 @@ Availables options for Tones
 Availables options for Sentences
 ![tone analyser configuration 2](images/tone_analyser_8.png)
 
-# Available Flows :
+## Available Flows :
 - [Tone Analyser Flow](flow.json) : illustrates all kind of inputs availables for the Tone Analyser node.
+
+## Tone Analyser Documentation
+
+To have more information on the Watson Tone Analyser underlying service, you can check these two reference :
+- [Tone Analyser Documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tone-analyzer/)
+- [Tone Ananalyser API Documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tone-analyzer/api/v3/)
+
 
 <n>Notice</b> : as this flow suggest it, you can also use Dropbox  : How to setup your Node-RED with [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup)
 
