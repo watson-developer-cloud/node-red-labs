@@ -23,6 +23,7 @@ In the list below, you can select different services and see how these can be im
 - [Relationship Extraction](relationship_extraction/README.md)
 - [Dialog Template Creation](dialog_template_creation/README.md)
 - [Dialog](dialog/README.md)
+- [Tone Analyser](tone_analyser/README.md)
 
 If you want to combine the different services, you can go [here](../advanced_examples/README.md).
 
