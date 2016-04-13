@@ -56,6 +56,22 @@ In Dropbox go to the Home page and then right click and pick Upload and upload t
 
 ![NodeRedStarter](images/dropbox_files.png)
 
+##How to use the API access, security and token when using the Dropbox node
+
+When in Node-RED, drag the dropbox node to the palette and double click it - you will be presented with the Edit popup
+
+![NodeRedStarter](images/dropbox_edit.png)
+
+
+Click the pencil button - you will be presented with the "Add new dropbox-config" config node
+
+
+![NodeRedStarter](images/dropbox_edit_appkeys.png)
+
+Fill in the App Key, App Secret and Token with the ones you saved earlier in this description - you will now be able to access your dropbox account from within Node-RED on Bluemix for any of the Labs.  Click Add.  NOTE : if you use a dropbox node in different Tabs of Node-RED then you only need to configure one of them and all dropbox nodes will share the configuration. 
+
+NOTE : if you delete a dropbox node from one Tab of Node-RED then you will lose the config for all dropbox nodes !!
+
 
 
 
