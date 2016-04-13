@@ -18,7 +18,7 @@ If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a s
 
 ### Uploading from a URL
 
-![`S2TBluemixURLFlowOverview`](images/s2t_bluemix_url_overview.jpg)
+![`S2TBluemixURLFlowOverview`](images/s2t_bluemix_url_overview.png)
 
 In this lab an audio file will be transcribed. An example audiofile can be found [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav), feel free to use this URL or to provide your own. 
 
@@ -28,19 +28,19 @@ First you start with an Inject node that will provide the URL to our WAV file in
 
 The inject node is configured like this:
 
-![`S2TBluemixURLFlowinject`](images/s2t_bluemix_url_inject.jpg)
+![`S2TBluemixURLFlowinject`](images/s2t_bluemix_url_inject.png)
 
 The next node is the Speech to Text node that will stream the .wav file from the URL provided and transcribe it.
 This node is configured like this by default:
 
-![`S2TFBluemixURLFlowS2T`](images/s2t_bluemix_url_s2t.jpg)
+![`S2TFBluemixURLFlowS2T`](images/s2t_bluemix_url_s2t.png)
 
 The file used as an example is in English but if you're providing your own file in a different language make sure to change it. You can also select the quality of your .wav file and chose whether you want the transcription to stop at the first pause detected or to keep going until the end of the file.
 (Note: The continuous parameter is now working at the moment.)
 
 The last node is the debug node that will allow you to see the results of the transcription, it is configured like this:
 
-![`S2TBluemixURLFlowDebug`](images/s2t_bluemix_url_debug.jpg)
+![`S2TBluemixURLFlowDebug`](images/s2t_bluemix_url_debug.png)
 
 The output is set to msg.transcription so only the transcript is shown in the debug tab.
 
