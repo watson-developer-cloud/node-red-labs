@@ -1,1 +1,53 @@
-[{"id":"b7d18006.d9984","type":"watson-translate","name":"Translate to another Language","srclang":"en","destlang":"fr","domain":"conversational","x":437,"y":547,"z":"6f0da98d.8b486","wires":[["7b949bc6.956bf4"]]},{"id":"f0b18982.2b205","type":"inject","name":"Inject some text","topic":"","payload":"\"Node-Red\" & Watson is a strong combination","payloadType":"string","repeat":"","crontab":"","once":false,"x":199,"y":547,"z":"6f0da98d.8b486","wires":[["b7d18006.d9984"]]},{"id":"7b949bc6.956bf4","type":"debug","name":"translated text","active":false,"console":"false","complete":"payload","x":669,"y":547,"z":"6f0da98d.8b486","wires":[]}]
+[  
+   {  
+      "id":"67cebdd3.4f5754",
+      "type":"inject",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "topic":"",
+      "payload":"\"Node-RED & Watson\" is a strong combination",
+      "payloadType":"str",
+      "repeat":"",
+      "crontab":"",
+      "once":false,
+      "x":110,
+      "y":340,
+      "wires":[  
+         [  
+            "39c42b8f.94ac54"
+         ]
+      ]
+   },
+   {  
+      "id":"39c42b8f.94ac54",
+      "type":"watson-translate",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "srclang":"en",
+      "destlang":"fr",
+      "domain":"conversational",
+      "action":"translate",
+      "filetype":"forcedglossary",
+      "x":400,
+      "y":340,
+      "wires":[  
+         [  
+            "6ce7c49a.b3bacc"
+         ]
+      ]
+   },
+   {  
+      "id":"6ce7c49a.b3bacc",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "active":true,
+      "console":"false",
+      "complete":"false",
+      "x":670,
+      "y":340,
+      "wires":[  
+
+      ]
+   }
+]
