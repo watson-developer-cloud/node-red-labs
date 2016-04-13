@@ -62,4 +62,6 @@ If you run the flow again, then you the create should be rejected as a duplicate
 
 ![Dialog duplicate name](images/dialog_create_duplicate.png)
 
-The completed flow is available at [Dialog Template Creation Flow](dialog_template_creation_flow.json)
+The completed flow is available at [Dialog Template Creation Flow](dialog_template_creation_flow.json).
+
+<n>Notice</b> : you can also use Dropbox instead of using the HTTP Request node : How to setup your Node-RED with [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup)

@@ -33,7 +33,7 @@ The Template prompts the user to enter a url.
 
 ## Fetch the Audio
 If a url has been provided, it should point to a wav 
-file (eg. [Example Wav URL](http://www-mobile.ecs.soton.ac.uk/hth97r/links/Database/man1_wb.wav)
+file (eg. [Example Wav URL](http://www-mobile.ecs.soton.ac.uk/hth97r/links/Database/man1_wb.wav))
 Use a function to setup a HTTP Request for the audio file
 
 ![HTTP GET Node](images/astt_function_prepare_audio.png)
@@ -46,9 +46,9 @@ msg.url=audiourl;
 return msg;
 ```
 
-Use a HTTP Response node,
+Use a HTTP Request node,
 
-![HTTP Response Node for Audio](images/astt_fetch_audio_request.png)
+![HTTP Request Node for Audio](images/astt_fetch_audio_request.png)
 
 configured to return a binary buffer
 
