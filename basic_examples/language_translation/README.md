@@ -67,4 +67,4 @@ Finally, drag and drop a debug node and let it set to msg.payload. This will sho
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
-[Language Translation Training flow](lang_train_flow.txt)
+[Language Translation Training flow](lang_train_flow.json)
