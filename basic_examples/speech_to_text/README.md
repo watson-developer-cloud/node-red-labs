@@ -1,6 +1,6 @@
-#Speech to Text
+# Speech to Text
 
-Note: To use the Speech To Text node we ran into some restrictions, which will be solved soon. This is why this lab is based on a stand-alone system.
+Note: This lab can be done either on a stand-alone system (using a local file or your microphone) or done on Bluemix uploading a WAV file using an upload node (Dropbox, Box...) or straight from an URL.
 
 Speech to Text service can be used anywhere voice-interactivity is needed. The service is great for mobile experiences, transcribing media files, call centre transcriptions, voice control of embedded systems, or converting sound to text to then make data searchable. Supported languages include:
 - US English 
@@ -10,6 +10,49 @@ Speech to Text service can be used anywhere voice-interactivity is needed. The s
 - Mandarin. 
 
 To use the Speech To Text service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. 
+There are two ways of doing that depending if you use Node-RED in Bluemix or use a local Node-RED instance. Both ways are described here.
+
+## On Bluemix
+
+If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Speec to Text service. Then you click on 'Use' a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+
+### Uploading from a URL
+
+![`S2TBluemixURLFlowOverview`](images/s2t_bluemix_url_overview.jpg)
+
+In this lab an audio file will be transcribed. An example audiofile can be found [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav), feel free to use this URL or to provide your own. 
+
+In the following screenshots you can see how the nodes are configured.
+
+First you start with an Inject node that will provide the URL to our WAV file into the Speech To Text service in Bluemix
+
+The inject node is configured like this:
+
+![`S2TBluemixURLFlowinject`](images/s2t_bluemix_url_inject.jpg)
+
+The next node is the Speech to Text node that will stream the .wav file from the URL provided and transcribe it.
+This node is configured like this by default:
+
+![`S2TFBluemixURLFlowS2T`](images/s2t_bluemix_url_s2t.jpg)
+
+The file used as an example is in English but if you're providing your own file in a different language make sure to change it. You can also select the quality of your .wav file and chose whether you want the transcription to stop at the first pause detected or to keep going until the end of the file.
+(Note: The continuous parameter is now working at the moment.)
+
+The last node is the debug node that will allow you to see the results of the transcription, it is configured like this:
+
+![`S2TBluemixURLFlowDebug`](images/s2t_bluemix_url_debug.jpg)
+
+The output is set to msg.transcription so only the transcript is shown in the debug tab.
+
+You're now good to go: make sure to connect your node, deploy and click on the inject node to see it working!
+
+The complete flow can be found here: [Text To Speech on Bluemix lab flow 1](s2t_bluemix_url_flow.json)
+
+### Uploading from the Drobox node
+
+
+
+## On a stand-alone system
 
 You need to have a local instance of Node-RED with IBM nodes available. If you don't have that yet, you can go [here](/introduction_to_node_red/README.md).
 Then go to the Bluemix catalog and go to the Speech to Text service and click on it. Make sure that there is no app bound to this service and click 'Use"
