@@ -53,6 +53,8 @@ In Dropbox go to the Home page and then right click and pick Upload and upload t
 
 ##Using the Dropbox node in Node-RED
 
+Full documentation is [here](http://flows.nodered.org/node/node-red-node-dropbox)
+
 When in Node-RED, drag the dropbox node to the palette and double click it - you will be presented with the Edit popup
 
 ![NodeRedStarter](images/dropbox_edit.png)
