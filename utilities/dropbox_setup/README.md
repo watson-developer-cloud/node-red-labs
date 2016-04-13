@@ -43,12 +43,7 @@ Record the token value - again you will use this in combination with the 'App ke
 
 ##Loading files
 
-Open another browser and download and save to your local system the following files
-
-[weatherdatatrain.csv](weather_data_train.csv)
-
-[conversational-agent-application-starter-kit.csv](conversational-agent-application-starter-kit.csv)
-
+Open another browser and download and save to your local system the files in this github 
 
 In Dropbox go to the Home page and then right click and pick Upload and upload the files
 
