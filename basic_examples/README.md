@@ -4,7 +4,7 @@ In this section, Watson services are highlighted. The labs will show you how you
 The labs will require that you have instances of the Watson services you need. For instructions on how to instantiate
 and use the Watson services inside Node-RED follow this link.
 
-- [Using Watson Servcies](using_watson_services/README.md)
+- [Using Watson Services](using_watson_services/README.md)
 
 NOTE : All the labs listed below assume that you have first created an Application from the Bluemix Node-RED Starter Boilerplate - see [here](../introduction_to_node_red/README.md) how to do that.
 
