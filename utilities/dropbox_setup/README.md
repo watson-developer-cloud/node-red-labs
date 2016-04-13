@@ -56,7 +56,7 @@ In Dropbox go to the Home page and then right click and pick Upload and upload t
 
 ![NodeRedStarter](images/dropbox_files.png)
 
-##How to use the API access, security and token when using the Dropbox node
+##Using the Dropbox node in Node-RED
 
 When in Node-RED, drag the dropbox node to the palette and double click it - you will be presented with the Edit popup
 
