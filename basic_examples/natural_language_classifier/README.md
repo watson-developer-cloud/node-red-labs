@@ -145,13 +145,23 @@ Join this to the NLC node and also introduce a Inject node to thus be able to st
 
 ![ScreenShot](\images\nlc_nlc_flow_inject_debug.png)
 
-The ID of the NLC is returned in the Debug Tab of Node-RED - i n the example below this is **cd6374x52-nlc-1515**
+The ID of the NLC is returned in the Debug Tab of Node-RED - in the example below this is **cd6374x52-nlc-1515**
 
 ![ScreenShot](\images\nlc_debug_tab_nlc_id.png)
 
-To see the status of the training then go to the ???
-
 NOTE : the NLC is now being trained - this could take some time.  There is currently (April 2016) no method of being able to know when the training is finished.  As an example some loop code has been written in Node-RED which poles the NLC Service to determine when the service has completed the training and is in Available mode - this is shown below and including in the copy of the flow but will not be explained in detail.
+
+To see the status of the training then go to the NLC Service of your App and click on the Service
+
+![ScreenShot](\images\nlc_status.png)
+
+You should be presented with a page which has a "Access beta toolkit" button
+
+![ScreenShot](\images\nlc_access_beta_toolkit.png)
+
+Click the button and you should see a list of NLC classifiers which are in Traing or Available mode.
+
+
 
 
 
