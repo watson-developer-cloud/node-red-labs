@@ -121,6 +121,8 @@ Send the output to a debug node
 # Available Flows :
 - [Dialog Flow](dialog_flow.json) : illustrates all availables Dialog Node Modes, and proposes an automated Simulation of a Dialog Creation, Starting and following a Conversation.
 
+![Dialog Flow : complete ](images/dialog_final_flow.png)
+
 <n>Notice</b> : you can also use Dropbox instead of using the HTTP Request node : How to setup your Node-RED with [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup)
 
 
