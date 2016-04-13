@@ -46,7 +46,7 @@ The output is set to msg.transcription so only the transcript is shown in the de
 
 You're now good to go: make sure to connect your node, deploy and click on the inject node to see it working!
 
-The complete flow can be found here: [Text To Speech on Bluemix lab flow 1](s2t_bluemix_url_flow.json)
+The complete flow can be found here: [Text To Speech on Bluemix lab flow using an URL](s2t_bluemix_url_flow.json)
 
 
 ### Uploading from the Drobox node
@@ -80,7 +80,7 @@ The output is set to msg.transcription so only the transcript is shown in the de
 
 You're now good to go: make sure to connect your node, deploy and click on the inject node to see it working!
 
-The complete flow can be found here: [Text To Speech on Bluemix lab flow 1](s2t_bluemix_box_flow.json)
+The complete flow can be found here: [Text To Speech on Bluemix lab flow using the Dropbox node](s2t_bluemix_box_flow.json)
 
 
 ## On a stand-alone system
