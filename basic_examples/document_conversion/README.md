@@ -26,12 +26,9 @@ Once the document has been converted, the output will be placed on the msg.paylo
 
 * Answer unit option
 
-![Conversion output JSON](images/dc_output_json2.png)!
+![Conversion output JSON](images/dc_output_json2.png)
 
 * Plain text option
 
-<<<<<<< HEAD
-[Conversion output TEXT](images/dc_output_txt2.png)
-=======
-[Conversion output TEXT](images/dc_output_txt2.png)
->>>>>>> 6d52a7fc4f0b907ebcb462e6a8c397234473574f
+![Conversion output TEXT](images/dc_output_txt2.png)
+
