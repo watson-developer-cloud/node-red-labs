@@ -48,7 +48,7 @@ The flow code for this is in [TTS-Lab-Basic](tts_lab_basic.json).
 
 _Now try the flow:_
 
-* Open a new tab or window in your browser, and direct it to `/http://xxxx.mybluemix.net/tts/sayit?text_to_say=Hello`
+* Open a new tab or window in your browser, and direct it to `/http://xxxx.mybluemix.net/talk/sayit?text_to_say=Hello`
 * This should prompt you to save a file.
 Depending on how your browser is configured, it may save it automatically or prompt for a name and location. In any case, store or rename it with the `.wav` extension on your local file system. 
 * Then locate that file from windows explorer and open it with Windows Media Player.

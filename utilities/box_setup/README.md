@@ -1,10 +1,10 @@
-# Dropbox setup
+# Box setup
 
-For many of the Watson Labs the Dropbox and Box Node-RED nodes are used.  The information in this section describes how to create a Dropbox account and what artifacts are needed to obtain files from the repositories.
+For some of the Watson Labs the Box Node-RED nodes are used.  The information in this section describes how to create a Box account and what artifacts are needed to obtain files from the repositories.  IBMers - please not you should NOT use your internal IBM Box account, you must use the external Box website.
 
 ##Setup
 
-Go to[ http://dropbox.com]( http://dropbox.com) and create an account
+Go to[https://www.box.com](https://www.box.com) and create an account.
 
 Go to the Home location and then scroll to the bottom of the page until you see the Help Privacy together 
 
