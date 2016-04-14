@@ -1,0 +1,51 @@
+[  
+   {  
+      "id":"105f83e8.b7d43c",
+      "type":"inject",
+      "z":"8164d243.b4fb2",
+      "name":".wav URL",
+      "topic":"",
+      "payload":"https://github.com/watson-developer-cloud/node-red-labs/blob/master/basic_examples/speech_to_text/audio_message.wav",
+      "payloadType":"str",
+      "repeat":"",
+      "crontab":"",
+      "once":false,
+      "x":240,
+      "y":180,
+      "wires":[  
+         [  
+            "caf2c0cb.5b5fb"
+         ]
+      ]
+   },
+   {  
+      "id":"caf2c0cb.5b5fb",
+      "type":"watson-speech-to-text",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "lang":"en-US",
+      "band":"BroadbandModel",
+      "continuous":"true",
+      "x":460,
+      "y":180,
+      "wires":[  
+         [  
+            "447edc21.07cbb4"
+         ]
+      ]
+   },
+   {  
+      "id":"447edc21.07cbb4",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "active":true,
+      "console":"false",
+      "complete":"transcription",
+      "x":710,
+      "y":180,
+      "wires":[  
+
+      ]
+   }
+]
