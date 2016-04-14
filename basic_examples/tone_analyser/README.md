@@ -12,6 +12,11 @@ The node is available as a Watson Developer Cloud contribution to Node-RED and n
 
 Follow the instructions at [watson contribution nodes](/watson_contribution_nodes/README.md) 
 to install the tone analyser node into your Bluemix instance of Node-RED. 
+*Notice* : in the Watson Node-RED Boilerplate this installation have been already done.
+
+## On Bluemix
+
+If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Watson Tone Analyser service. Then you click on 'Use' a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
 
 ## How to use the Tone Analyser node ?
 

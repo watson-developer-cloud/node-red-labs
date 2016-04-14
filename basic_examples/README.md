@@ -13,7 +13,7 @@ In the list below, you can select different services and see how these can be im
 - [Language Identification](language_identification/README.md)
 - [Language Translation](language_translation/README.md)
 - [Personality insights](personality_insights/README.md)
-- [Speech to Text](speech_to_text/README.md) Only available on local Node_RED instance
+- [Speech to Text](speech_to_text/README.md)
 - [Text to Speech](text_to_speech/README.md)
 - [Tradeoff Analytics](tradeoff_analytics/README.md)
 - [Visual Recognition](visual_recognition/README.md)

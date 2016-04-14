@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tmx version="1.4">
+  <header adminlang="EN" creationdate="20151018T112347Z" creationtool="mktmx"
+		creationtoolversion="0.1" datatype="rtf" o-encoding="UTF-8" o-tmf="mktmx"
+		segtype="sentence" srclang="en"/>
+  <body>
+    <tu tuid="1">
+      <tuv xml:lang="en">
+        <seg>Cloud Computing</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Cloud Computing</seg>
+      </tuv>
+    </tu>
+    <tu tuid="2">
+      <tuv xml:lang="en">
+        <seg>Social Media</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Médias Sociaux</seg>
+      </tuv>
+    </tu>
+    <tu tuid="3">
+      <tuv xml:lang="en">
+        <seg>Hybrid Cloud</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Cloud Hybride</seg>
+      </tuv>
+    </tu>
+    <tu tuid="4">
+      <tuv xml:lang="en">
+        <seg>hashtag</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>mot-dièse</seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>
