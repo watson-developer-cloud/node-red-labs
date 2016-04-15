@@ -32,7 +32,6 @@ Click on Training and then follow the steps as documented in [NLC toolkit](https
 
 Train the NLC Service with the sample CSV file.
 
-
 ![ScreenShot](images/nlc_toolkit_training.png)
 
 You will need a Classifier ID, this can be obtained by clicking the Classifiers button and the Classifier ID is shown.
@@ -41,23 +40,26 @@ You will need a Classifier ID, this can be obtained by clicking the Classifiers 
 
 The flows for this part of the lab are here -> [flows](nlc_flows.json)
 
-##Connecting to a existing NLC Service on Bluemix
+##Connecting to an existing NLC Service on Bluemix
  
-In this lab we will assume (for now) that you have created a NLC Service in Bluemix and now wish to (a) check it's status and (b) ask it a question via calls in Node-RED. We also assume you have created a Node-RED application using the Node-RED Starter Community boilerplate in Bluemix.
+In this lab we will assume (for now) that you have created a NLC Service in Bluemix and now wish to:
+1. check it's status and 
+2. ask it a question via calls in Node-RED. 
+We also assume you have created a Node-RED application using the Node-RED Starter Community boilerplate in Bluemix.
 
-Open your Node-RED flow editor and drag/drop an two Inject nodes, two Function nodes, one http request node and one Debug node and join up as shown below  :
+Open your Node-RED flow editor, then drag/drop two Inject nodes, two Function nodes, one http request node and one Debug node and join up as shown below :
  
 ![ScreenShot](images/nlc_nodes_joined.png)
 
 Notice the blue icons next to each node which indicates further configurations are needed on each node.
 
-Double-click the top Inject node and select Blank from the option
+Double-click the top Inject node, select the string option and leave blank.
 
 ![ScreenShot](images/nlc_inject_node.png)
 
 Double-click the top Function node and enter the following code and name the node "get NLC status".  
 
-NOTE : the NLC classifier ID has been hard coded in the request (msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/**D385B2-nlc-530**") just for speed - when the official Node-RED NLC nodes are created then there will be some other mechanism (to be decided) on how the NLC classifier ID is used/entered.  
+NOTE : the NLC classifier ID has been hard coded in the request (msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/**_D385B2-nlc-530_**") just for speed - when the official Node-RED NLC nodes are created then there will be some other mechanism (to be decided) on how the NLC classifier ID is used/entered. **_You must replace the D385B2-nlc-530 with your own classifier id_**
 
     `msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/D385B2-nlc-530";`
 
