@@ -1,59 +1,25 @@
 [  
    {  
-      "id":"67cebdd3.4f5754",
+      "id":"a124385f.c46268",
       "type":"inject",
       "z":"8164d243.b4fb2",
-      "name":"getStatus",
+      "name":"Translate",
       "topic":"",
-      "payload":"",
-      "payloadType":"date",
+      "payload":"Hello! My name is Watson and here is an example of a translated text.",
+      "payloadType":"str",
       "repeat":"",
       "crontab":"",
       "once":false,
-      "x":120,
-      "y":320,
+      "x":100,
+      "y":80,
       "wires":[  
          [  
-            "39c42b8f.94ac54"
+            "38ca07f1.af65a8"
          ]
       ]
    },
    {  
-      "id":"39c42b8f.94ac54",
-      "type":"watson-translate",
-      "z":"8164d243.b4fb2",
-      "name":"",
-      "srclang":"en",
-      "destlang":"fr",
-      "domain":"news",
-      "basemodel":"ar-en",
-      "action":"getstatus",
-      "filetype":"forcedglossary",
-      "trainid":"",
-      "x":400,
-      "y":320,
-      "wires":[  
-         [  
-            "6ce7c49a.b3bacc"
-         ]
-      ]
-   },
-   {  
-      "id":"6ce7c49a.b3bacc",
-      "type":"debug",
-      "z":"8164d243.b4fb2",
-      "name":"",
-      "active":true,
-      "console":"false",
-      "complete":"payload",
-      "x":690,
-      "y":320,
-      "wires":[  
-
-      ]
-   },
-   {  
-      "id":"c55fa362.5672a",
+      "id":"5adaa851.64d158",
       "type":"inject",
       "z":"8164d243.b4fb2",
       "name":"Train",
@@ -63,65 +29,35 @@
       "repeat":"",
       "crontab":"",
       "once":false,
-      "x":110,
-      "y":240,
+      "x":90,
+      "y":140,
       "wires":[  
          [  
-            "d0955cab.4ecc"
+            "dd863ea7.e3b45"
          ]
       ]
    },
    {  
-      "id":"d0955cab.4ecc",
-      "type":"dropbox",
+      "id":"e77c8c0f.278bf",
+      "type":"inject",
       "z":"8164d243.b4fb2",
-      "dropbox":"",
-      "filename":"glossary.tmx",
-      "name":"Glossary",
-      "x":260,
-      "y":240,
+      "name":"Get status",
+      "topic":"",
+      "payload":"",
+      "payloadType":"date",
+      "repeat":"",
+      "crontab":"",
+      "once":false,
+      "x":100,
+      "y":200,
       "wires":[  
          [  
-            "d3a52f43.0c62c"
+            "b1dea685.3215e8"
          ]
       ]
    },
    {  
-      "id":"d3a52f43.0c62c",
-      "type":"watson-translate",
-      "z":"8164d243.b4fb2",
-      "name":"",
-      "srclang":"ar",
-      "destlang":"en",
-      "domain":"news",
-      "basemodel":"en-fr",
-      "action":"train",
-      "filetype":"forcedglossary",
-      "trainid":"",
-      "x":460,
-      "y":240,
-      "wires":[  
-         [  
-            "a2cdb11.aaa4a5"
-         ]
-      ]
-   },
-   {  
-      "id":"a2cdb11.aaa4a5",
-      "type":"debug",
-      "z":"8164d243.b4fb2",
-      "name":"",
-      "active":true,
-      "console":"false",
-      "complete":"payload",
-      "x":690,
-      "y":240,
-      "wires":[  
-
-      ]
-   },
-   {  
-      "id":"329b7421.e7bbfc",
+      "id":"b802ec26.75227",
       "type":"inject",
       "z":"8164d243.b4fb2",
       "name":"Delete",
@@ -131,98 +67,162 @@
       "repeat":"",
       "crontab":"",
       "once":false,
-      "x":110,
-      "y":400,
+      "x":90,
+      "y":260,
       "wires":[  
          [  
-            "b1dce3f4.21529"
+            "75046aec.1efba4"
          ]
       ]
    },
    {  
-      "id":"b1dce3f4.21529",
+      "id":"dd863ea7.e3b45",
+      "type":"dropbox",
+      "z":"8164d243.b4fb2",
+      "filename":"",
+      "name":"",
+      "x":360,
+      "y":140,
+      "wires":[  
+         [  
+            "369dc0cf.c4ce4"
+         ]
+      ]
+   },
+   {  
+      "id":"38ca07f1.af65a8",
       "type":"watson-translate",
       "z":"8164d243.b4fb2",
       "name":"",
       "srclang":"en",
       "destlang":"fr",
       "domain":"news",
-      "basemodel":"ar-en",
-      "action":"delete",
-      "filetype":"forcedglossary",
-      "trainid":"",
-      "x":400,
-      "y":400,
-      "wires":[  
-         [  
-            "88dac2af.cf04"
-         ]
-      ]
-   },
-   {  
-      "id":"88dac2af.cf04",
-      "type":"debug",
-      "z":"8164d243.b4fb2",
-      "name":"",
-      "active":true,
-      "console":"false",
-      "complete":"true",
-      "x":670,
-      "y":400,
-      "wires":[  
-
-      ]
-   },
-   {  
-      "id":"99859bd.bebfe68",
-      "type":"inject",
-      "z":"8164d243.b4fb2",
-      "name":"Translate",
-      "topic":"",
-      "payload":"I'm hungry, let's go eat!",
-      "payloadType":"str",
-      "repeat":"",
-      "crontab":"",
-      "once":false,
-      "x":120,
-      "y":160,
-      "wires":[  
-         [  
-            "554ec43a.28883c"
-         ]
-      ]
-   },
-   {  
-      "id":"554ec43a.28883c",
-      "type":"watson-translate",
-      "z":"8164d243.b4fb2",
-      "name":"",
-      "srclang":"en",
-      "destlang":"es",
-      "domain":"conversational",
+      "basemodel":"",
       "action":"translate",
       "filetype":"forcedglossary",
       "trainid":"",
       "x":400,
-      "y":160,
+      "y":80,
       "wires":[  
          [  
-            "e2156ebd.78f1c"
+            "7f2c697a.221228"
          ]
       ]
    },
    {  
-      "id":"e2156ebd.78f1c",
-      "type":"debug",
+      "id":"b1dea685.3215e8",
+      "type":"watson-translate",
       "z":"8164d243.b4fb2",
       "name":"",
+      "srclang":"en",
+      "destlang":"fr",
+      "domain":"news",
+      "basemodel":"",
+      "action":"translate",
+      "filetype":"forcedglossary",
+      "trainid":"",
+      "x":400,
+      "y":200,
+      "wires":[  
+         [  
+            "527fdc7e.94aad4"
+         ]
+      ]
+   },
+   {  
+      "id":"75046aec.1efba4",
+      "type":"watson-translate",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "srclang":"en",
+      "destlang":"fr",
+      "domain":"news",
+      "basemodel":"",
+      "action":"translate",
+      "filetype":"forcedglossary",
+      "trainid":"",
+      "x":400,
+      "y":260,
+      "wires":[  
+         [  
+            "4c48d3c7.412dbc"
+         ]
+      ]
+   },
+   {  
+      "id":"7f2c697a.221228",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"Translated text",
       "active":true,
       "console":"false",
       "complete":"payload",
-      "x":690,
-      "y":160,
+      "x":900,
+      "y":80,
       "wires":[  
 
+      ]
+   },
+   {  
+      "id":"8d705b31.aa6728",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"Translated text",
+      "active":true,
+      "console":"false",
+      "complete":"payload",
+      "x":900,
+      "y":140,
+      "wires":[  
+
+      ]
+   },
+   {  
+      "id":"527fdc7e.94aad4",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"Status",
+      "active":true,
+      "console":"false",
+      "complete":"payload",
+      "x":870,
+      "y":200,
+      "wires":[  
+
+      ]
+   },
+   {  
+      "id":"4c48d3c7.412dbc",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"State",
+      "active":true,
+      "console":"false",
+      "complete":"payload",
+      "x":870,
+      "y":260,
+      "wires":[  
+
+      ]
+   },
+   {  
+      "id":"369dc0cf.c4ce4",
+      "type":"watson-translate",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "srclang":"en",
+      "destlang":"fr",
+      "domain":"news",
+      "basemodel":"",
+      "action":"translate",
+      "filetype":"forcedglossary",
+      "trainid":"",
+      "x":660,
+      "y":140,
+      "wires":[  
+         [  
+            "8d705b31.aa6728"
+         ]
       ]
    }
 ]
