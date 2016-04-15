@@ -56,15 +56,15 @@ Click Authenticate with Box button
 
 Box will show you an option of "Grant access to Box" 
 
-C:\$watson_node_red_Labs_April2016_github\node-red-labs\utilities\box_setup\images\box_developer_node_red_auth_box.png
+![NodeRedStarter](images/box_developer_node_red_auth_box.png)
 
 Click on the "Grant access to Box" button
 
-C:\$watson_node_red_Labs_April2016_github\node-red-labs\utilities\box_setup\images\box_developer_node_red_authorised.png
+![NodeRedStarter](images/box_developer_node_red_authorised.png)
 
 Your Node-RED Box node should now be configured and the only field shown is your Box user name 
 
-C:\$watson_node_red_Labs_April2016_github\node-red-labs\utilities\box_setup\images\box_developer_node_red_configured.png
+![NodeRedStarter](images/box_developer_node_red_configured.png)
 
 Click Add
 
@@ -78,7 +78,17 @@ Go to [https://app.box.com/files](https://app.box.com/files) and login if you ha
 
 Click the Upload button and upload the files needed for various labs.  This github has he following files you can use :
 
+conversational-agent-application-starter-kit.csv
 
+Exercise_8_end.xml
+
+glossary.tmx
+
+SpaceShuttle.wav
+
+tone_analyser_sample.txt
+
+weatherdatatrain.csv
 
 
 
