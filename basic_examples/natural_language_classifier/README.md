@@ -1,5 +1,5 @@
 #Natural Language Classifier
-**Note** For this exercise please check that your Bluemix region is set to US South
+**Note** For this exercise please check that your Bluemix region is set to **_US South_**
 
 The Natural Language Classifier (NLC) is a service that can be trained and it 
 is useful to describe how to create the steps to use it since it offers some cognitive learning features. 
