@@ -51,6 +51,17 @@ In Dropbox go to the Home page and then right click and pick Upload and upload t
 
 ![NodeRedStarter](images/dropbox_files.png)
 
+The list of files for various Labs are listed below and are in this github :
+Exercise_8_end.xml
+
+glossary.tmx
+
+SpaceShuttle.wav
+
+tone_analyser_sample.txt
+
+weatherdatatrain.csv
+
 ##Using the Dropbox node in Node-RED
 
 Full documentation is [here](http://flows.nodered.org/node/node-red-node-dropbox)
