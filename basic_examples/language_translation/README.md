@@ -48,6 +48,8 @@ For this part, we'll see how to send your own glossary using Dropbox.
 
 **Note:** If you haven't done it yet, set up the Dropbox node as shown [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
+### Training
+
 Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
 
 Next, add a Dropbox node, put your credentials and the name of your file (or path to your file if it's in a subfolder), your node configuration should look like this:
@@ -63,8 +65,41 @@ If you want to add your own parallel corpus or monolingual corpus, upload the ri
 
 Finally, drag and drop a debug node and let it set to msg.payload. This will show the model_id of the new file that has been created. 
 
-*The training will be improved later with new nodes allowing to see the state of the training and to delete a previsoulty created domain model.*
-
-You can also copy the code for the flow here and import it from clipboard into Node-RED:
-
 [Language Translation Training flow](lang_train_flow.json)
+
+### Get the status of a model
+
+![`LTStatusOverview`](images/lt_status_overview.png)
+
+Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere. 
+
+Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
+
+After, put a Language Translation node, set its action to "Get status" and provide the ID of the model you want to get the status of, as shown below:
+
+![`LTStatusLT`](images/lt_status_lt.png)
+
+Finally, drag and drop a debug node and let it set to msg.payload. This will give you the status of the model, it can be either:
+
+ - training - Training is still in progress.
+ - queued@<#> - Training has not yet started and the model is in the queue. The # indicates the number of your model in the queue.
+ - error - Training did not complete because of an error.
+ - available - Training is completed, and the service is now available to use with your custom translation model.
+ 
+ [Language Translation Get Status flow](lang_getstatus_flow.json)
+
+### Delete a model
+
+![`LTDeleteOverview`](images/lt_delete_overview.png)
+
+Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere. 
+
+Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
+
+After, put a Language Translation node, set its action to "Get status" and provide the ID of the model you want to get the status of, as shown below:
+
+![`LTDeleteLT`](images/lt_delete_lt.png)
+
+Finally, drag and drop a debug node and let it set to msg.payload. This will only return an error if the model couldn't be deleted (modelid not found).
+
+ [Language Translation Get Status flow](lang_delete_flow.json)
