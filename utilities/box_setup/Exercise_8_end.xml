@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog xsi:noNamespaceSchemaLocation="WatsonDialogDocument_1.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <flow>
+        <folder label="Main">
+            <output>
+                <prompt selectionType="RANDOM">
+                    <item>Hello, welcome to Mike's Pizza!</item>
+                </prompt>
+                <goto ref="getUserInput_2442994"/>
+            </output>
+            <output>
+                <prompt selectionType="RANDOM">
+                    <item>Did you have any other questions today?</item>
+                </prompt>
+                <getUserInput id="getUserInput_2442994">
+                    <search ref="folder_2442998"/>
+                    <default>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>I'm sorry I did not understand your question, please try again.</item>
+                            </prompt>
+                        </output>
+                    </default>
+                </getUserInput>
+            </output>
+        </folder>
+        <folder label="Library">
+            <folder label="Live Content" id="folder_2442998">
+                <input>
+                    <grammar>
+                        <item>What toppings do you have?</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>We have pepperoni, mushrooms, and sausage.</item>
+                        </prompt>
+                    </output>
+                </input>
+                <input>
+                    <grammar>
+                        <item>What food do you sell</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>Are you looking for appetizers, entrees, or drinks?</item>
+                        </prompt>
+                        <getUserInput>
+                            <input>
+                                <grammar>
+                                    <item>Appetizers</item>
+                                </grammar>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                    <item>We have breadsticks and chicken wings</item>
+                                    </prompt>
+                                </output>
+                            </input>
+                            <input>
+                                <grammar>
+                                    <item>Entrees</item>
+                                </grammar>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                    <item>Our main dish is pizza</item>
+                                    </prompt>
+                                </output>
+                            </input>
+                            <input>
+                                <grammar>
+                                    <item>Drinks</item>
+                                </grammar>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                    <item>We have Pepsi and Root Beer</item>
+                                    </prompt>
+                                </output>
+                            </input>
+                        </getUserInput>
+                    </output>
+                </input>
+                <input>
+                    <grammar>
+                        <item>What type of pizza do you have?</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>We have &lt;b&gt;four&lt;/b&gt; types of pizza: &lt;ul&gt;&lt;li&gt;[Meat_Pizza]&lt;/li&gt;&lt;li&gt;veggie&lt;/li&gt;&lt;li&gt;plain cheese&lt;/li&gt;&lt;li&gt;everything on top&lt;/li&gt;&lt;/ul&gt;</item>
+                        </prompt>
+                    </output>
+                </input>
+                <input>
+                    <grammar>
+                        <item>Do you deliver?</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>Yes we do. What is your zip code?</item>
+                        </prompt>
+                        <getUserInput>
+                            <input>
+                                <grammar>
+                                    <item>12345</item>
+                                </grammar>
+                                <action varName="ZipCode" operator="SET_TO">12345</action>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                    <item>Great, we deliver to your area!</item>
+                                    </prompt>
+                                </output>
+                            </input>
+                            <input>
+                                <grammar>
+                                    <item>23456</item>
+                                </grammar>
+                                <action varName="ZipCode" operator="SET_TO">23456</action>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                    <item>Okay, we can deliver right to you!</item>
+                                    </prompt>
+                                </output>
+                            </input>
+                            <input>
+                                <grammar>
+                                    <item>34567</item>
+                                </grammar>
+                                <action varName="ZipCode" operator="SET_TO">34567</action>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                    <item>We can deliver right to your door!</item>
+                                    </prompt>
+                                </output>
+                            </input>
+                            <output>
+                                <prompt>
+                                    <item>I'm sorry, we do not deliver to your area</item>
+                                </prompt>
+                            </output>
+                        </getUserInput>
+                    </output>
+                </input>
+                <input>
+                    <grammar>
+                        <item>I want to order a pizza</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>Do you want to place your order with me now?</item>
+                        </prompt>
+                        <getUserInput>
+                            <input>
+                                <grammar>
+                                    <item>Yes</item>
+                                </grammar>
+                                <goto ref="output_2443132"/>
+                            </input>
+                            <input>
+                                <grammar>
+                                    <item>No</item>
+                                </grammar>
+                                <output>
+                                    <prompt selectionType="RANDOM">
+                                    <item>Okay, let me know if you change your mind</item>
+                                    </prompt>
+                                </output>
+                            </input>
+                        </getUserInput>
+                    </output>
+                </input>
+                <input>
+                    <grammar>
+                        <item>Do you have (Toppings)?</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>Yes, our list of toppings is as follows:
+&lt;ul&gt;&lt;li&gt;Pepperoni&lt;/li&gt;&lt;li&gt;Mushrooms&lt;/li&gt;&lt;li&gt;Sausage&lt;/li&gt;&lt;li&gt;Onions&lt;/li&gt;&lt;li&gt;Peppers&lt;/li&gt;&lt;li&gt;Anchovy&lt;/li&gt;&lt;li&gt;Pineapple&lt;/li&gt;&lt;li&gt;Chicken&lt;/li&gt;&lt;li&gt;Broccoli&lt;/li&gt;&lt;li&gt;Pesto&lt;/li&gt;&lt;li&gt;Garlic&lt;/li&gt;&lt;li&gt;Shrimp&lt;/li&gt;&lt;li&gt;Olives&lt;/li&gt;&lt;/ul&gt;</item>
+                        </prompt>
+                    </output>
+                </input>
+                <input>
+                    <grammar>
+                        <item>Please call me</item>
+                    </grammar>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>Okay, what is your number?</item>
+                        </prompt>
+                        <getUserInput>
+                            <input>
+                                <grammar>
+                                    <item>My number is</item>
+                                    <item>! \d{10}</item>
+                                    <item>! \d{3}-\d{3}-\d{4}</item>
+                                    <item>! \d{3}.\d{3}.\d{4}</item>
+                                    <item>! \d{3} \d{3} \d{4}</item>
+                                    <item>! \d{3} \d{7}</item>
+                                </grammar>
+                                <output>
+                                    <prompt/>
+                                    <action varName="Phone_Number" operator="SET_TO_USER_INPUT"/>
+                                    <function>
+                                    <script name="Calculate">Name=Calculate
+
+Line= "{Phone_Number}".replace(/-/g, "").replace("(", "").replace(")", "").replace(/ /g, "")</script>
+                                    <output>
+                                    <prompt/>
+                                    <action varName="Phone_Number" operator="SET_TO">{MCT:CUSTOM:Calculate:value}</action>
+                                    <output>
+                                    <prompt/>
+                                    <action varName="Phone_Number" operator="SET_TO">({Phone_Number}</action>
+                                    <function>
+                                    <script name="Calculate">Name=Calculate
+
+Line= "{Phone_Number}".replace(/(\d)(?=(\d\d\d\d\d\d\d)+(?!\d))/, "$1) ")</script>
+                                    <output>
+                                    <prompt/>
+                                    <action varName="Phone_Number" operator="SET_TO">{MCT:CUSTOM:Calculate:value}</action>
+                                    <function>
+                                    <script name="Calculate">Name=Calculate
+
+Line= "{Phone_Number}".replace(/(\d)(?=(\d\d\d\d)+(?!\d))/, "$1-")</script>
+                                    <output>
+                                    <prompt/>
+                                    <action varName="Phone_Number" operator="SET_TO">{MCT:CUSTOM:Calculate:value}</action>
+                                    <output>
+
+                                    <prompt selectionType="RANDOM">
+                                    <item>We will have an agent call you at &lt;br&gt;
+{Phone_Number}</item>
+                                    </prompt>
+                                    </output>
+                                    </output>
+                                    </function>
+                                    </output>
+                                    </function>
+                                    </output>
+                                    </output>
+                                    </function>
+                                </output>
+                            </input>
+                        </getUserInput>
+                    </output>
+                </input>
+            </folder>
+            <folder label="Zip Code Capture">
+                <output id="output_2456237">
+                    <prompt selectionType="RANDOM">
+                        <item>What is your zip code?</item>
+                    </prompt>
+                    <getUserInput>
+                        <input>
+                            <grammar>
+                                <item>12345</item>
+                            </grammar>
+                            <action varName="ZipCode" operator="SET_TO">12345</action>
+                            <goto ref="profileCheck_2456241"/>
+                        </input>
+                        <input>
+                            <grammar>
+                                <item>23456</item>
+                            </grammar>
+                            <action varName="ZipCode" operator="SET_TO">23456</action>
+                            <goto ref="profileCheck_2456241"/>
+                        </input>
+                        <input>
+                            <grammar>
+                                <item>34567</item>
+                            </grammar>
+                            <action varName="ZipCode" operator="SET_TO">34567</action>
+                            <goto ref="profileCheck_2456241"/>
+                        </input>
+                        <output>
+                            <prompt selectionType="RANDOM">
+                                <item>I'm sorry, we do not deliver to your area</item>
+                            </prompt>
+                        </output>
+                    </getUserInput>
+                </output>
+            </folder>
+            <folder label="Pizza Ordering">
+                <output id="output_2443132">
+                    <prompt selectionType="RANDOM">
+                        <item>What type of pizza do you want?</item>
+                    </prompt>
+                    <getUserInput>
+                        <input>
+                            <grammar>
+                                <item>Meat Lovers</item>
+                                <item>$ [Meat_Pizza]</item>
+                            </grammar>
+                            <action varName="PizzaType" operator="SET_TO">[Meat_Pizza]</action>
+                            <goto ref="profileCheck_2456241"/>
+                        </input>
+                        <input>
+                            <grammar>
+                                <item>Veggie</item>
+                                <item>$ Veggie</item>
+                            </grammar>
+                            <action varName="PizzaType" operator="SET_TO">Veggie</action>
+                            <goto ref="profileCheck_2456241"/>
+                        </input>
+                        <input>
+                            <grammar>
+                                <item>Cheese</item>
+                                <item>$ Cheese</item>
+                            </grammar>
+                            <action varName="PizzaType" operator="SET_TO">Cheese</action>
+                            <goto ref="profileCheck_2456241"/>
+                        </input>
+                        <input>
+                            <grammar>
+                                <item>Everything on top</item>
+                                <item>$ everything</item>
+                            </grammar>
+                            <action varName="PizzaType" operator="SET_TO">Everything on top</action>
+                            <goto ref="profileCheck_2456241"/>
+                        </input>
+                        <input>
+                            <grammar>
+                                <item>Custom</item>
+                            </grammar>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Sure thing, what type of toppings do you want?</item>
+                                </prompt>
+                                <getUserInput id="getUserInput_2456327">
+                                    <input>
+                                    <grammar>
+                                    <item>I want (Toppings)</item>
+                                    <item>$ (Toppings)={Topping1} * (Toppings)={Topping2} * (Toppings)={Topping3} * (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} * (Toppings)={Topping2} * (Toppings)={Topping3} (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} * (Toppings)={Topping2} (Toppings)={Topping3} * (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} (Toppings)={Topping2} * (Toppings)={Topping3} * (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} (Toppings)={Topping2} (Toppings)={Topping3} * (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} * (Toppings)={Topping2} (Toppings)={Topping3} (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} (Toppings)={Topping2} * (Toppings)={Topping3} (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} (Toppings)={Topping2} (Toppings)={Topping3} (Toppings)={Topping4}</item>
+                                    <item>$ (Toppings)={Topping1} * (Toppings)={Topping2} * (Toppings)={Topping3}</item>
+                                    <item>$ (Toppings)={Topping1} (Toppings)={Topping2} * (Toppings)={Topping3}</item>
+                                    <item>$ (Toppings)={Topping1} * (Toppings)={Topping2} (Toppings)={Topping3}</item>
+                                    <item>$ (Toppings)={Topping1} (Toppings)={Topping2} (Toppings)={Topping3}</item>
+                                    <item>$ (Toppings)={Topping1} * (Toppings)={Topping2} </item>
+                                    <item>$ (Toppings)={Topping1} (Toppings)={Topping2}</item>
+                                    <item>$ (Toppings)={Topping1}</item>
+                                    </grammar>
+                                    <output>
+                                    <prompt/>
+                                    <action varName="Topping1" operator="SET_TO">{Topping1.value:main}</action>
+                                    <action varName="Topping2" operator="SET_TO">{Topping2.value:main}</action>
+                                    <action varName="Topping3" operator="SET_TO">{Topping3.value:main}</action>
+                                    <action varName="Topping4" operator="SET_TO">{Topping4.value:main}</action>
+                                    <if matchType="ANY">
+                                    <cond varName="Topping1" operator="HAS_VALUE"/>
+                                    <if matchType="ANY">
+                                    <cond varName="Topping1" operator="EQUALS">{Topping2}</cond>
+                                    <cond varName="Topping1" operator="EQUALS">{Topping3}</cond>
+                                    <cond varName="Topping1" operator="EQUALS">{Topping4}</cond>
+                                    <output id="output_2456510">
+                                    <prompt selectionType="RANDOM">
+                                    <item>Oops! It looks like you've repeated some toppings there, we wouldn't want to charge you twice for the same thing! Let's try that again.</item>
+                                    </prompt>
+                                    <goto ref="getUserInput_2456327"/>
+                                    </output>
+                                    </if>
+                                    <output id="output_2456511">
+                                    <prompt selectionType="RANDOM">
+                                    <item>That pizza sounds delicious. Let me make sure I have all the info I need and then we can review your order.</item>
+                                    </prompt>
+                                    <goto ref="profileCheck_2456241"/>
+                                    </output>
+                                    </if>
+                                    <if>
+                                    <cond varName="Topping2" operator="HAS_VALUE"/>
+                                    <if>
+                                    <cond varName="Topping2" operator="EQUALS">{Topping3}</cond>
+                                    <cond varName="Topping2" operator="EQUALS">{Topping4}</cond>
+                                    <goto ref="output_2456510"/>
+                                    </if>
+                                    <goto ref="output_2456511"/>
+                                    </if>
+                                    <if>
+                                    <cond varName="Topping3" operator="HAS_VALUE"/>
+                                    <if>
+                                    <cond varName="Topping3" operator="EQUALS">{Topping4}</cond>
+                                    <goto ref="output_2456510"/>
+                                    </if>
+                                    <goto ref="output_2456511"/>
+                                    </if>
+                                    </output>
+                                    </input>
+                                </getUserInput>
+                            </output>
+                        </input>
+                    </getUserInput>
+                </output>
+            </folder>
+            <folder label="Check Out">
+                <if id="profileCheck_2456241">
+                    <cond varName="ZipCode" operator="HAS_VALUE"/>
+                    <if matchType="ANY">
+                        <cond varName="ZipCode" operator="EQUALS">12345</cond>
+                        <cond varName="ZipCode" operator="EQUALS">23456</cond>
+                        <cond varName="ZipCode" operator="EQUALS">34567</cond>
+                        <if>
+                            <cond varName="PizzaType" operator="HAS_VALUE"/>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Here is a summary of your order: &lt;br&gt;
+Pizza: {PizzaType}
+Zip Code: {ZipCode}</item>
+                                </prompt>
+                            </output>
+                        </if>
+                        <if>
+                            <cond varName="Topping4" operator="HAS_VALUE"/>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Here is a summary of your order:
+&lt;br&gt;Pizza with {Topping1}, {Topping2}, {Topping3} &amp; {Topping4}
+&lt;br&gt;Zip Code: {ZipCode}</item>
+                                </prompt>
+                            </output>
+                        </if>
+                        <if>
+                            <cond varName="Topping3" operator="HAS_VALUE"/>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Here is a summary of your order:
+&lt;br&gt;Pizza with {Topping1}, {Topping2} &amp; {Topping3}
+&lt;br&gt;Zip Code: {ZipCode}</item>
+                                </prompt>
+                            </output>
+                        </if>
+                        <if>
+                            <cond varName="Topping2" operator="HAS_VALUE"/>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Here is a summary of your order:
+&lt;br&gt;Pizza with {Topping1} &amp; {Topping2}
+&lt;br&gt;Zip Code: {ZipCode}</item>
+                                </prompt>
+                            </output>
+                        </if>
+                        <if>
+                            <cond varName="Topping1" operator="HAS_VALUE"/>
+                            <output>
+                                <prompt selectionType="RANDOM">
+                                    <item>Here is a summary of your order:
+&lt;br&gt;Pizza with {Topping1}
+&lt;br&gt;Zip Code: {ZipCode}</item>
+                                </prompt>
+                            </output>
+                        </if>
+                        <goto ref="output_2443132"/>
+                    </if>
+                    <output>
+                        <prompt selectionType="RANDOM">
+                            <item>I'm sorry, we don't deliver to your zip code.</item>
+                        </prompt>
+                    </output>
+                </if>
+                <goto ref="output_2456237"/>
+            </folder>
+            <folder label="Storage"/>
+        </folder>
+        <folder label="Global"/>
+        <folder label="Concepts">
+            <concept>
+                <grammar>
+                    <item>Pizza</item>
+                    <item>Pie</item>
+                    <item>Za</item>
+                    <item>Slice</item>
+                    <item>Pizza Pie</item>
+                </grammar>
+            </concept>
+        </folder>
+    </flow>
+    <entities>
+        <entity name="FACES_NAME">
+            <value name="Faces name query" value="David">
+                <grammar>
+                    <item>David</item>
+                </grammar>
+            </value>
+        </entity>
+        <entity name="Destination"/>
+        <entity name="Toppings">
+            <value name="Pepperoni" value="Pepperoni"/>
+            <value name="Mushrooms" value="Mushrooms"/>
+            <value name="Sausage" value="Sausage"/>
+            <value name="Onions" value="Onions"/>
+            <value name="Peppers" value="Peppers"/>
+            <value name="Anchovy" value="Anchovy"/>
+            <value name="Pineapple" value="Pineapple"/>
+            <value name="Chicken" value="Chicken"/>
+            <value name="Broccoli" value="Broccoli"/>
+            <value name="Pesto" value="Pesto"/>
+            <value name="Shrimp" value="Shrimp"/>
+            <value name="Garlic" value="Garlic"/>
+            <value name="Olives" value="Olives"/>
+        </entity>
+    </entities>
+    <constants>
+        <var_folder name="Home">
+            <var_folder name="General" type="CONST">
+                <var name="VA" type="TAG">Virtual Agent</var>
+                <var name="Meat_Pizza" type="TAG" description="The name of the meat pizza">Meat Lover's</var>
+            </var_folder>
+        </var_folder>
+    </constants>
+    <variables>
+        <var_folder name="Home">
+            <var name="ZipCode" type="TEXT" description="The user's zip code"/>
+            <var name="PizzaType" type="TEXT" description="What type of pizza the user has ordered"/>
+            <var name="Topping1" type="TEXT"/>
+            <var name="Topping2" type="TEXT"/>
+            <var name="Topping3" type="TEXT"/>
+            <var name="Topping4" type="TEXT"/>
+            <var name="Phone_Number" type="TEXT"/>
+        </var_folder>
+    </variables>
+    <settings>
+        <setting name="USERIDNUM" type="USER">17384</setting>
+        <setting name="EMAIL" type="USER"/>
+        <setting name="PASSWORD" type="USER"/>
+        <setting name="FIRSTNAME" type="USER">IBM</setting>
+        <setting name="LASTNAME" type="USER">Watson</setting>
+        <setting name="COUNTRY" type="USER">USA</setting>
+        <setting name="STATE" type="USER">NY State</setting>
+        <setting name="CITY" type="USER">NY</setting>
+        <setting name="BDAY" type="USER">1</setting>
+        <setting name="BMONTH" type="USER">1</setting>
+        <setting name="BYEAR" type="USER">2000</setting>
+        <setting name="SEX" type="USER">Male</setting>
+        <setting name="DISPLAYNAME" type="USER">Viney</setting>
+        <setting name="PROVIDESECURITYPASSWORD" type="USER">false</setting>
+        <setting name="SECURITYPASSWORD" type="USER"/>
+        <setting name="SHOWPERSPROFILE" type="USER">false</setting>
+        <setting name="USETYPE" type="USER">0</setting>
+        <setting name="DATEJOINED" type="USER">2015-07-14 15:12:07.745</setting>
+        <setting name="LASTLOGIN" type="USER">2015-07-14 15:12:07.745</setting>
+        <setting name="LOGINCOUNT" type="USER">0</setting>
+        <setting name="CREDIT" type="USER">100</setting>
+        <setting name="CONVCOUNT" type="USER">4</setting>
+        <setting name="PERSONALITYTYPEID" type="USER">6</setting>
+        <setting name="SHOWSENDMESSAGE" type="USER">true</setting>
+        <setting name="ACTIVATED" type="USER">true</setting>
+        <setting name="MESSENGEREMAIL" type="USER"/>
+        <setting name="MESSENGERPASSWORD" type="USER"/>
+        <setting name="SENDCHATEMAIL" type="USER">false</setting>
+        <setting name="SENDFAVEMAIL" type="USER">true</setting>
+        <setting name="CACHE" type="USER">true</setting>
+        <setting name="CLASSTYPE" type="USER">3</setting>
+        <setting name="AUTOLEARN" type="USER">false</setting>
+        <setting name="LANGUAGE" type="USER">EN</setting>
+        <setting name="RESPONSETIME" type="USER">-2</setting>
+        <setting name="MAXAUTOLEARNITEMS" type="USER">4</setting>
+        <setting name="NUMAUTOSETRELATED" type="USER">0</setting>
+        <setting name="TIMEZONEID" type="USER">America/New_York</setting>
+        <setting name="AUTOSETRELATEDNODEID" type="USER">0</setting>
+        <setting name="RETURNTOCHATNODEID" type="USER">0</setting>
+        <setting name="INPUTMASKTYPE" type="USER">0</setting>
+        <setting name="NUMLOGINATTEMPTS" type="USER">0</setting>
+        <setting name="CONCEPTMATCHING" type="USER">1</setting>
+        <setting name="UI_COLOUR"/>
+        <setting name="USE_CONCEPTS">3</setting>
+        <setting name="PARENT_ACCOUNT"/>
+        <setting name="AL_NONE_LABEL">None of the above</setting>
+        <setting name="ASR_RANDOM">true</setting>
+        <setting name="DYNAMIC_MESSAGING">false</setting>
+        <setting name="DOCBASE_NUM_RESULTS">3</setting>
+        <setting name="DOCBASE_DESC_LEN">250</setting>
+        <setting name="STATUS">0</setting>
+        <setting name="DEFAULT_DNR_RETURN_POINT_CANDIDATE">-1</setting>
+        <setting name="ENTITIES_SCOPE">3</setting>
+        <setting name="POSTNODEID"/>
+        <setting name="MULTISENT">0</setting>
+        <setting name="DNR_NODE_ID">-15</setting>
+        <setting name="CLEARCACHE"/>
+    </settings>
+    <specialSettings>
+        <specialSetting label="DNR Join Statement">
+            <variations/>
+        </specialSetting>
+    </specialSettings>
+</dialog>
