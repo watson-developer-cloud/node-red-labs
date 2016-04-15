@@ -1,51 +1,53 @@
 [  
    {  
-      "id":"67cebdd3.4f5754",
+      "id":"a124385f.c46268",
       "type":"inject",
       "z":"8164d243.b4fb2",
-      "name":"",
+      "name":"Translate",
       "topic":"",
-      "payload":"\"Node-RED & Watson\" is a strong combination",
+      "payload":"Hello! My name is Watson and here is an example of a translated text.",
       "payloadType":"str",
       "repeat":"",
       "crontab":"",
       "once":false,
-      "x":110,
-      "y":340,
+      "x":100,
+      "y":80,
       "wires":[  
          [  
-            "39c42b8f.94ac54"
+            "38ca07f1.af65a8"
          ]
       ]
    },
    {  
-      "id":"39c42b8f.94ac54",
+      "id":"38ca07f1.af65a8",
       "type":"watson-translate",
       "z":"8164d243.b4fb2",
       "name":"",
       "srclang":"en",
       "destlang":"fr",
-      "domain":"conversational",
+      "domain":"news",
+      "basemodel":"",
       "action":"translate",
       "filetype":"forcedglossary",
+      "trainid":"",
       "x":400,
-      "y":340,
+      "y":80,
       "wires":[  
          [  
-            "6ce7c49a.b3bacc"
+            "7f2c697a.221228"
          ]
       ]
    },
    {  
-      "id":"6ce7c49a.b3bacc",
+      "id":"7f2c697a.221228",
       "type":"debug",
       "z":"8164d243.b4fb2",
-      "name":"",
+      "name":"Translated text",
       "active":true,
       "console":"false",
-      "complete":"false",
-      "x":670,
-      "y":340,
+      "complete":"payload",
+      "x":900,
+      "y":80,
       "wires":[  
 
       ]
