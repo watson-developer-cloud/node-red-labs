@@ -76,7 +76,7 @@ You are now ready to enter a filename which is saved in your Box account.  Click
 
 Go to [https://app.box.com/files](https://app.box.com/files) and login if you haven't already
 
-Click the Upload button and upload the files needed for various labs.  This github has he following files you can use :
+Click the Upload button and upload the files needed for various labs.  This github has the following files you may use in one of the other Labs :
 
 conversational-agent-application-starter-kit.csv
 
@@ -89,11 +89,4 @@ SpaceShuttle.wav
 tone_analyser_sample.txt
 
 weatherdatatrain.csv
-
-
-
-
-
-
-
 
