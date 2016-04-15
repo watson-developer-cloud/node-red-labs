@@ -113,21 +113,7 @@ Click the button of the Inject node and look at the contents of the Debug Tab
 
 ##Using the NLC Service from Node-RED
 
-Create a new Application using the IOT Starter Boilerplate.  Then bind a NLC Watson Service to your Application using the steps below.
-
-Select your Application and click the Natural Language Classifier Watson Service
-
-![ScreenShot](images/nlc_bluemix_icon.png)
-
-Click Create
-
-![ScreenShot](images/nlc_bluemix_bind_create.png)
-
-Click Restage
-
-![ScreenShot](images/nlc_bluemix_restage.png)
-
-Once the Application has started go back to your palette and drag a Natural Language Classifier (NLC) node to the palette.  Double click and set the Mode to **Training** and give it a name.
+Using your existing boilerplate, drag a Natural Language Classifier (NLC) node to the palette.  Double click and set the Mode to **Training** and give it a name.
 
 ![ScreenShot](images/nlc_edit_training.png)
 
