@@ -153,15 +153,16 @@ Click the button and you should see a list of NLC classifiers which are in Train
 
 ![ScreenShot](images/nlc_access_beta_toolkit_list.png)
 
-Add 3 more injectm NLC and Debug nodes as shown below
+Add 4 Inject nodes, 3 Classifier nodes and 3 debug nodes as shown below:
 
 ![ScreenShot](images/nlc_all_flows.png)
 
-Change the second NLC node to contain List in the dropdown
+Change the first new Classifier node to List in the dropdown.
 
 ![ScreenShot](images/nlc_dropdown_list.png)
 
-Change the next NLC to Classify and the final one to Remove.  NOTE : For the Remove Inject node you must change the Inject string to a Classifier that exists (you noted one down earlier).
+Change the next classifier node to Classify and the final one to Remove. 
+**NOTE : For the Remove Inject node you must change the Inject string to a Classifier that exists (you noted one down earlier).**
 
 Click on the Get List Inject node - in the Debug Tab you will see a list of possible classifiers.
 
