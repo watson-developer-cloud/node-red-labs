@@ -1,68 +1,69 @@
 [  
    {  
-      "id":"c55fa362.5672a",
+      "id":"5adaa851.64d158",
       "type":"inject",
       "z":"8164d243.b4fb2",
-      "name":"",
+      "name":"Train",
       "topic":"",
       "payload":"",
       "payloadType":"date",
       "repeat":"",
       "crontab":"",
       "once":false,
-      "x":160,
-      "y":180,
+      "x":90,
+      "y":140,
       "wires":[  
          [  
-            "d0955cab.4ecc"
+            "dd863ea7.e3b45"
          ]
       ]
    },
    {  
-      "id":"d0955cab.4ecc",
+      "id":"dd863ea7.e3b45",
       "type":"dropbox",
       "z":"8164d243.b4fb2",
-      "dropbox":"",
-      "filename":"glossary.tmx",
-      "name":"Glossary",
-      "x":320,
-      "y":220,
+      "filename":"",
+      "name":"",
+      "x":360,
+      "y":140,
       "wires":[  
          [  
-            "b68b9f5d.e95fb"
+            "369dc0cf.c4ce4"
          ]
       ]
    },
    {  
-      "id":"b68b9f5d.e95fb",
+      "id":"8d705b31.aa6728",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"Translated text",
+      "active":true,
+      "console":"false",
+      "complete":"payload",
+      "x":900,
+      "y":140,
+      "wires":[  
+
+      ]
+   },
+   {  
+      "id":"369dc0cf.c4ce4",
       "type":"watson-translate",
       "z":"8164d243.b4fb2",
       "name":"",
-      "srclang":"ar",
-      "destlang":"en",
+      "srclang":"en",
+      "destlang":"fr",
       "domain":"news",
-      "action":"train",
+      "basemodel":"",
+      "action":"translate",
       "filetype":"forcedglossary",
-      "x":520,
-      "y":180,
+      "trainid":"",
+      "x":660,
+      "y":140,
       "wires":[  
          [  
-            "1decbec6.d7c191"
+            "8d705b31.aa6728"
          ]
-      ]
-   },
-   {  
-      "id":"1decbec6.d7c191",
-      "type":"debug",
-      "z":"8164d243.b4fb2",
-      "name":"",
-      "active":true,
-      "console":"false",
-      "complete":"false",
-      "x":730,
-      "y":220,
-      "wires":[  
-
       ]
    }
 ]

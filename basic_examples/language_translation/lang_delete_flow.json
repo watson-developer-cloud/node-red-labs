@@ -1,25 +1,25 @@
 [  
    {  
-      "id":"a124385f.c46268",
+      "id":"b802ec26.75227",
       "type":"inject",
       "z":"8164d243.b4fb2",
-      "name":"Translate",
+      "name":"Delete",
       "topic":"",
-      "payload":"Hello! My name is Watson and here is an example of a translated text.",
-      "payloadType":"str",
+      "payload":"",
+      "payloadType":"date",
       "repeat":"",
       "crontab":"",
       "once":false,
-      "x":100,
-      "y":80,
+      "x":90,
+      "y":260,
       "wires":[  
          [  
-            "38ca07f1.af65a8"
+            "75046aec.1efba4"
          ]
       ]
    },
    {  
-      "id":"38ca07f1.af65a8",
+      "id":"75046aec.1efba4",
       "type":"watson-translate",
       "z":"8164d243.b4fb2",
       "name":"",
@@ -31,23 +31,23 @@
       "filetype":"forcedglossary",
       "trainid":"",
       "x":400,
-      "y":80,
+      "y":260,
       "wires":[  
          [  
-            "7f2c697a.221228"
+            "4c48d3c7.412dbc"
          ]
       ]
    },
    {  
-      "id":"7f2c697a.221228",
+      "id":"4c48d3c7.412dbc",
       "type":"debug",
       "z":"8164d243.b4fb2",
-      "name":"Translated text",
+      "name":"State",
       "active":true,
       "console":"false",
       "complete":"payload",
-      "x":900,
-      "y":80,
+      "x":870,
+      "y":260,
       "wires":[  
 
       ]
