@@ -1,6 +1,6 @@
 # Dropbox setup
 
-For many of the Watson Labs the Dropbox and Box Node-RED nodes are used.  The information in this section describes how to create a Dropbox account and what artifacts are needed to obtain files from the repositories.
+For many of the Watson Labs the Dropbox node is used.  The information in this section describes how to create a Dropbox account and what artifacts are needed to obtain files from the repositories.
 
 ##Setup
 
