@@ -1,0 +1,55 @@
+[  
+   {  
+      "id":"e77c8c0f.278bf",
+      "type":"inject",
+      "z":"8164d243.b4fb2",
+      "name":"Get status",
+      "topic":"",
+      "payload":"",
+      "payloadType":"date",
+      "repeat":"",
+      "crontab":"",
+      "once":false,
+      "x":100,
+      "y":200,
+      "wires":[  
+         [  
+            "b1dea685.3215e8"
+         ]
+      ]
+   },
+   {  
+      "id":"b1dea685.3215e8",
+      "type":"watson-translate",
+      "z":"8164d243.b4fb2",
+      "name":"",
+      "srclang":"en",
+      "destlang":"fr",
+      "domain":"news",
+      "basemodel":"",
+      "action":"translate",
+      "filetype":"forcedglossary",
+      "trainid":"",
+      "x":400,
+      "y":200,
+      "wires":[  
+         [  
+            "527fdc7e.94aad4"
+         ]
+      ]
+   },
+   {  
+      "id":"527fdc7e.94aad4",
+      "type":"debug",
+      "z":"8164d243.b4fb2",
+      "name":"Status",
+      "active":true,
+      "console":"false",
+      "complete":"payload",
+      "x":870,
+      "y":200,
+      "wires":[  
+
+      ]
+   }
+]
