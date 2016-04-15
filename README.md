@@ -13,8 +13,6 @@ Some nodes in Node-RED make use of the same service in Bluemix, like:
 - The Language Identification and Language Translation nodes make use of the Language Translation service in Bluemix.  
 - The Feature extract and image analysis nodes make use of the Alchemy API service in Bluemix
 
-![NodeRedStarter](images/watson_services_overview.jpg)
-
 You can find different labs in this project:
 
 - [Introduction to Node-RED](/introduction_to_node_red/README.md) (same link as above)
@@ -23,6 +21,8 @@ You can find different labs in this project:
 - [Watson Contribution Nodes](/watson_contribution_nodes/README.md) how to add watson developer cloud contribution nodes to Node-RED
 
 Feel free to use this content, please let us know what you think of it! :bowtie:
+## Region
+All the labs have been tested against the US South region but have not been fully tested against any other region - please use the US South region unless otherwise informed (by an update to this page).
 
 ## Contributing
 You want to contribute to this project by updating or creating new nodes for Watson Developer Cloud API ?
