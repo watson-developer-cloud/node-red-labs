@@ -184,6 +184,8 @@ The training will take a few seconds and after that the response will include th
 }
 ```
 
+This completed flow can be retrieved from [here](./avr_train_image_flow.json).
+
 ## Additional tooling nodes
 
 Additionally to the new training node, a utils node has been included. This node is useful for getting a list of classifiers, querying the details for a single classifier or deleting it from the repository.
