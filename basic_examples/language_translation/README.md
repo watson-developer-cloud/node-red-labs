@@ -56,6 +56,8 @@ Next, add a Dropbox node, put your credentials and the name of your file (or pat
 
 ![`LTConfigDropbox`](images/lt_train_dropbox.png)
 
+Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/language-translation/customizing.shtml).
+
 The next node is the Language Translation node that will get the file from the Dropbox node and send it to the service.
 This node should be configured like this:
 
