@@ -1,7 +1,6 @@
 # Box setup
 
 For some of the Watson Labs the Box Node-RED nodes are used.  The information in this section describes how to create a Box account and what artifacts are needed to obtain files from the repositories.  IBMers - you should NOT use your internal IBM Box account, you must use the external Box website.
-![NodeRedStarter](images/dropbox_option.png)
 
 ##Setup
 
