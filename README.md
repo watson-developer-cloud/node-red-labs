@@ -25,8 +25,9 @@ Feel free to use this content, please let us know what you think of it! :bowtie:
 All the labs have been tested against the US South region but have not been fully tested against any other region. Most labs will work in other regions but there are some Watson utilities (eg. Natural Language Classifier Toolkit) that only work in the US South region. 
 
 ## Contributing
-You want to contribute to this project by updating or creating new nodes for Watson Developer Cloud API ?
-Please follow those intructions on [this page](/CONTRIBUTING.md).
+You want to contribute to this project? Please follow those intructions on [this page](/CONTRIBUTING.md).
+If you would like to contribute by updating or creating new nodes for the Watson Developer Cloud API, 
+then switch to the [node-red-node-watson](http://github.com/watson-developer-cloud/node-red-node-watson) project.
 
 ## License
 
