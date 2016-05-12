@@ -6,7 +6,7 @@ and use the Watson services inside Node-RED follow this link.
 
 - [Using Watson Services](../using_watson_services/README.md)
 
-NOTE : All the labs listed below assume that you have first created an Application from the customised [Node-RED Starter Boilerplate](http://github.com/watson-developer-cloud/node-red-bluemix-starter). If you have used the [Bluemix Node-RED Starter Boilerplate](../introduction_to_node_red/README.md) then you may find that not all the nodes area available on the Node-RED pallete. If you have instantiated the Bluemix boilerplate and would like to incorporate the latest Watson nodes then please follow the instructions [here](watson_contribution_nodes/README.md)
+NOTE : All the labs listed below assume that you have first created an Application from the customised [Node-RED Starter Boilerplate](http://github.com/watson-developer-cloud/node-red-bluemix-starter). If you have used the [Bluemix Node-RED Starter Boilerplate](../../introduction_to_node_red/README.md) then you may find that not all the nodes area available on the Node-RED pallete. If you have instantiated the Bluemix boilerplate and would like to incorporate the latest Watson nodes then please follow the instructions [here](watson_contribution_nodes/README.md)
 
 In the list below, you can select different services and see how these can be implemented in Node-RED
 
