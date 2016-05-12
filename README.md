@@ -22,7 +22,7 @@ You can find different labs in this project:
 
 Feel free to use this content, please let us know what you think of it! :bowtie:
 ## Region
-All the labs have been tested against the US South region but have not been fully tested against any other region - please use the US South region unless otherwise informed (by an update to this page).
+All the labs have been tested against the US South region but have not been fully tested against any other region. Most labs will work in other regions but there are some Watson utilities (eg. Natural Language Classifier Toolkit) that only work in the US South region. 
 
 ## Contributing
 You want to contribute to this project by updating or creating new nodes for Watson Developer Cloud API ?
