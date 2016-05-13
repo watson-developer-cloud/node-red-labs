@@ -21,7 +21,7 @@ The nodes required to build this flow are:
 <h1>Welcome to the Alchemy Vision Face Detection Demo on Node-RED</h1>
 <H2>Select an image</H2>
 <form  action="{{req._parsedUrl.pathname}}">
-    <img src="http://www.ambafrance-mt.org/local/cache-vignettes/L945xH539/family_photo8851-b0e9b.jpg" height='100'/>
+    <img src="https://si.wsj.net/public/resources/images/MK-CK494_SELFIE_GR_20140303174816.jpg" height='100'/>
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/34th_G8_summit_member_20080707.jpg" height='100'/>
     <img src="http://demo1.alchemyapi.com/images/vision/politicians.jpg" height='100'/>
         <br/>Copy above image location URL or enter any image URL:<br/>

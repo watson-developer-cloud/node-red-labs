@@ -5,7 +5,7 @@
     "name": "Prompt Images",
     "field": "payload",
     "format": "html",
-    "template": "<h1>Welcome to the Alchemy Vision Face Detection Demo on Node-RED<\/h1>\n<H2>Select an image<\/H2>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <img src=\"http:\/\/www.ambafrance-mt.org\/local\/cache-vignettes\/L945xH539\/family_photo8851-b0e9b.jpg\" height='100'\/>\n    <img src=\"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f1\/34th_G8_summit_member_20080707.jpg\" height='100'\/>\n    <img src=\"http:\/\/demo1.alchemyapi.com\/images\/vision\/politicians.jpg\" height='100'\/>\n        <br\/>Copy above image location URL or enter any image URL:<br\/>\n    Image URL: <input type=\"text\" name=\"imageurl\"\/>\n    <input type=\"submit\" value=\"Analyze\"\/>\n<\/form>",
+    "template": "<h1>Welcome to the Alchemy Vision Face Detection Demo on Node-RED<\/h1>\n<H2>Select an image<\/H2>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <img src=\"https:\/\/si.wsj.net\/public\/resources\/images\/MK-CK494_SELFIE_GR_20140303174816.jpg\" height='100'\/>\n    <img src=\"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/f\/f1\/34th_G8_summit_member_20080707.jpg\" height='100'\/>\n    <img src=\"http:\/\/demo1.alchemyapi.com\/images\/vision\/politicians.jpg\" height='100'\/>\n        <br\/>Copy above image location URL or enter any image URL:<br\/>\n    Image URL: <input type=\"text\" name=\"imageurl\"\/>\n    <input type=\"submit\" value=\"Analyze\"\/>\n<\/form>",
     "x": 545,
     "y": 60,
     "wires": [
