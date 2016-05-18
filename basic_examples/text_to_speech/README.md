@@ -3,6 +3,9 @@
 The Watson text-To-Speech (TTS) service produces an audio file from literal text.
 The spoken text can be emitted with a choice of voices and languages.
 
+'nsure you have added TTS service to your NodeRed App in Bluemix
+
+
 ### Node-RED Watson TTS node
 The Node-RED node provides a very easy wrapper node that takes a text string as input and produces a binary buffer holding the spoken text audio stream in `.wav` format.
 The selection of language and voice are made through  the node's properties editor.
