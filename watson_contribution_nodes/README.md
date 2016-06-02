@@ -1,13 +1,13 @@
 # Installing Watson Developer Cloud Contribution Nodes 
 
 ## Node-RED Bluemix Boilerplate
-We are working with the distributers of the Node-RED boilerplate on Bluemix to incorporate the Watson service nodes from the 
-Watson Developer Cloud. In the meantime follow these instructions to install node-RED nodes that offer a richer set of 
-Watson capabilities.  
+The Watson nodes in the node-red-node-watson project in the watson-developer-cloud repo are the Watson nodes that are
+included with the Node-RED boilerplate on Bluemix.  
 
 ## Overview
-A more complete set of Watson services nodes are available from the Watson Developer Cloud. If you wish to use these nodes
-you will need to modify Node-RED dependencies. These instructions show how to install these contribution nodes into 
+There will be times when we are working on updates that the project will
+contain updates that we haven't yet published to npm. If you wish to try out these updates before we publish, then 
+you will need to modify Node-RED dependencies. These instructions show how to install these pre-release changes into 
 your Node-RED instance on Bluemix. Alternatively you can deploy from 
 the [node red bluemix starter repository](https://github.com/watson-developer-cloud/node-red-bluemix-starter), which 
 brings in these nodes, along with box and dropbox nodes that the sample flows make use of to feed data into the Watson nodes. 
