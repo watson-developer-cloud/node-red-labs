@@ -22,6 +22,8 @@ Check out this [page]( http://nodered.org/docs/getting-started/) for full instru
 
 - Go back to the Bluemix dashboard and click on the icon of the nodered application you just created.
 - Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Use.  Click on Restage.
+- After Restage is complete and the app has started click on the url under the name of APP on the top left side.
+- Once NodeRed opens click on 'Go to your Node-Red flow editor'
 - Drag an inject node to the palette.
 - Drag the personality insights node to the palette.
 - Drag a debug node to the palette.
