@@ -9,7 +9,7 @@ Check out this page for full instructions on getting started with Node-RED.
 ##Deploy Node-RED on Bluemix
 
 - You need a [Bluemix](https://console.ng.bluemix.net/) account. Log into the Bluemix.
-- Verify that your region setting is set to your local region. ![ScreenShot](images/pi_region_setting.png)
+- Verify that your region setting is set to US South. ![ScreenShot](images/pi_region_setting.png)
 - When you are logged in go to 'Catalog' and click on the 'Node-RED starter' application in Boilerplates. 
 - On the right side of the screen you must give it a name, which must be unique. Then click 'Create'. 
 - Right now the Node-RED application is being created and deployed. This will take a few minutes.
