@@ -38,6 +38,8 @@ field below the Payload field (this is the same text that is used in the demo).
 
 ![ScreenShot](images/pi_edit_inject_node.png)
 
+```
+Optional Steps if you want to see logs on the cloud 
 - Open a command line on your laptop and login to Bluemix with your username/password. Making sure that you 
 are connecting to the appropriate datacenter for your application. 
 - For US South it will look like
@@ -50,6 +52,8 @@ are connecting to the appropriate datacenter for your application.
 
 ![ScreenShot](images/pi_cf_sydney_login.png)
 - Type **cf logs app_name** where **app_name** is the name of your application.  
+```
+
 - Return to the Node-RED palette.
 - Click the Deploy button
 - Click on the debug tab to the top right of the palette.
