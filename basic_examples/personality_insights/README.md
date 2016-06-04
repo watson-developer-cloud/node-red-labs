@@ -13,7 +13,7 @@ Check out this page for full instructions on getting started with Node-RED.
 - When you are logged in go to 'Catalog' and click on the 'Node-RED starter' application in Boilerplates. 
 - On the right side of the screen you must give it a unique name ( this name is your hostname and so needs to be unique across all of Bluemix. For example < YourName >nodered< pick3numbers > like salnodered123.) Then click 'Create'. 
 - Right now the Node-RED application is being created and deployed. This will take a few minutes.
-- Follow the instructions to install cloud foundry or cf
+- OPTIONAL FOR DEVELOPERS - Follow the instructions to install cloud foundry or cf
 - When finished click on the URL, which opens up your Node-RED application.
 
 Check out this [page]( http://nodered.org/docs/getting-started/) for full instructions on getting started with Node-RED.
