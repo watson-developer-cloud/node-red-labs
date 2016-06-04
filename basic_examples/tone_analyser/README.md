@@ -39,11 +39,11 @@ The provided Flows file (see below) proposes you amongst 3 differents way to con
 
 ![tone analyser connection](images/tone_analyser_2.png)
 
-## Connect a Dropbox node as input
+> Not in scope ## Connect a Dropbox node as input
 
-![tone analyser connection](images/tone_analyser_3.png)
+>![tone analyser connection](images/tone_analyser_3.png)
 
-To configure a Dropbox node please follow the [Dropbox nodes setup](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup) procedure.
+> To configure a Dropbox node please follow the [Dropbox nodes setup](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup) procedure.
 
 ## Connect a (Node.js) Buffer as input
 
