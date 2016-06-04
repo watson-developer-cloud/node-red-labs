@@ -48,14 +48,18 @@ Optional Steps if you want to see logs on the cloud
 - Open a command line on your laptop and login to Bluemix with your username/password. Making sure that you 
 are connecting to the appropriate datacenter for your application. 
 - For US South it will look like
+```
 
 ![ScreenShot](images/pi_cf_us_login.png), 
+```
 - for the UK 
-
+```
 ![ScreenShot](images/pi_cf_uk_login.png)
+```
 - and for Sydney 
-
+```
 ![ScreenShot](images/pi_cf_sydney_login.png)
+```
 - Type **cf logs app_name** where **app_name** is the name of your application.  
 
 ***
