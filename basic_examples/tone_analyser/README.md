@@ -6,17 +6,10 @@ The IBM Watson™ Tone Analyzer Service uses linguistic analysis to detect three
 
 Input email and other written media into the Tone Analyzer service, and use the results to determine if your writing comes across with the emotional impact, social tone, and writing style that you want your intended audience to see. 
 
-The node is available as a Watson Developer Cloud contribution to Node-RED and needs to be installed. 
-
-## Installation of the Tone Analyser Node
-
-Follow the instructions at [watson contribution nodes](/watson_contribution_nodes/README.md) 
-to install the tone analyser node into your Bluemix instance of Node-RED. 
-*Notice* : in the Watson Node-RED Boilerplate this installation have been already done.
 
 ## On Bluemix
 
-If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Watson Tone Analyser service. Then you click on 'Use' a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Watson Tone Analyser service. Then you click on 'Create' a screen will show which asks for a restage, click on 'Restage' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
 
 ## How to use the Tone Analyser node ?
 
