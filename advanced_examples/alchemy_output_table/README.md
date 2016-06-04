@@ -86,7 +86,15 @@ Here you use the same name as you used in the 'http in' node.
 
 You have to wire the nodes together in the way you can see in the overview at the beginning of this lab.
 
+The final flow looks like this:
 
+![`AlchemyOverview](images/alchapi_table_overview.jpg)
 
+In order the execute this app open a new browser and browse to {http://XXXX.mybluemix.net/resp?fetext="<enter text here>"}
+```
+For example - 
+http://XXXX.mybluemix.net/resp?fetext="AlchemyAPI uses natural language processing, artificial intelligence, deep learning and massive-scale web crawling to power it's text analysis capabilities. Try entering your own text in this text box to see what knowledge AlchemyAPI can extract from your unstructured data."
+```
 
+You can download the completed flow here
 
