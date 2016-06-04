@@ -14,7 +14,7 @@ There are two ways of doing that depending if you use Node-RED in Bluemix or use
 
 ## On Bluemix
 
-If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Speech to Text service. Then you click on 'Use' a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Speech to Text service. Then you click on 'Create' a screen will show which asks for a restage, click on 'Restage' and wait a few minutes. When the application is started click on the Url to go to your Node-RED application.
 
 ### Uploading from a URL
 
