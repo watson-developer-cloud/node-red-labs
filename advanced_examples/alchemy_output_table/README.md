@@ -96,5 +96,5 @@ For example -
 http://XXXX.mybluemix.net/resp?fetext="AlchemyAPI uses natural language processing, artificial intelligence, deep learning and massive-scale web crawling to power it's text analysis capabilities. Try entering your own text in this text box to see what knowledge AlchemyAPI can extract from your unstructured data."
 ```
 
-You can download the completed flow here
+You can download the completed ![`flow](aapi_table_flow.txt)
 
