@@ -37,6 +37,7 @@ Check out this page for full instructions on getting started with Node-RED.
 - Double-click the inject node and change Payload to string.  
 Go to [sample file](personal_insights_input_text.txt) and open the file and paste the text to the blank 
 field below the Payload field (this is the same text that is used in the demo).
+- Click Ok
 
 ![ScreenShot](images/pi_edit_inject_node.png)
 
