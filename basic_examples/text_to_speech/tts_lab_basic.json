@@ -18,7 +18,7 @@
     "id": "505628d0.31fbc",
     "type": "http in",
     "name": "",
-    "url": "\/tts\/sayit",
+    "url": "\/talk\/sayit",
     "method": "get",
     "swaggerDoc": "",
     "x": 80,
