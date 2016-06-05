@@ -1,9 +1,9 @@
 # Watson Text to Speech with Node-RED Lab
 ### Overview
-The Watson text-To-Speech (TTS) service produces an audio file from literal text.
+The Watson Text-To-Speech (TTS) service produces an audio file from literal text.
 The spoken text can be emitted with a choice of voices and languages.
 
-'nsure you have added TTS service to your NodeRed App in Bluemix
+> **Ensure you have added TTS service to your NodeRed App in Bluemix**
 
 
 ### Node-RED Watson TTS node
@@ -16,7 +16,7 @@ In this first exercise, we will show how to simply produce a `.wav` file from in
 The first part of the flow will take text input from a web invocation and return the spoken text `.wav` file:
 
 1. Open the Node-RED Flow Editor and create a new flow by clicking the '+' on the top right corner. Let's call it `TTS Web` 
-2. Add an ![`HTTPInput`](/introduction_to_node_red/images/node_red_httpinput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/tts/sayit` This URL will be exposed below our BlueMix main URL.
+2. Add an ![`HTTPInput`](/introduction_to_node_red/images/node_red_httpinput.png) node to collect the incoming speech request. Set the `URL` property of this node to `/talk/sayit` This URL will be exposed below our BlueMix main URL.
 ![TTS Lab 1 ScreenShot 1](images/tts_lab_1_set_http_node.png)
 When invoked with query parameters such as `?text_to_say=Hello`, they will be added as properties on the `msg.payload` object. 
 3. Add a ![`change`](/introduction_to_node_red/images/node_red_change.png) node to 
@@ -51,7 +51,7 @@ The flow code for this is in [TTS-Lab-Basic](tts_lab_basic.json).
 
 _Now try the flow:_
 
-* Open a new tab or window in your browser, and direct it to `/http://xxxx.mybluemix.net/talk/sayit?text_to_say=Hello`
+* Open a new tab or window in your browser, and direct it to `http://xxxx.mybluemix.net/talk/sayit?text_to_say=Hello`
 * This should prompt you to save a file.
 Depending on how your browser is configured, it may save it automatically or prompt for a name and location. In any case, store or rename it with the `.wav` extension on your local file system. 
 * Then locate that file from windows explorer and open it with Windows Media Player.
