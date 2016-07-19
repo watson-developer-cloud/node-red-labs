@@ -18,7 +18,7 @@ Check out this page for full instructions on getting started with Node-RED.
 ##Personality Insights Lab
 
 - Go back to the Bluemix dashboard by clicking DASHBOARD on top and click on the icon of the nodered application you just created.
-- Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Use.  Click on Restage.
+- Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Create.  Click on Restage.
 - After Restage is complete and the app has started click on the url under the name of APP on the top left side.
 - Once NodeRed opens click on 'Go to your Node-Red flow editor'
 
