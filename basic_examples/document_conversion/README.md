@@ -11,7 +11,7 @@ In this example the Document Conversion node will take a PDF document and conver
 
 ![Input data](images/dc_dialog.png)
 
-In the configuration dialog for the node you need to provide the output format and the credentials. In this example, the credentials (userid and password) can be specified either by selecting an existing service that has been added to your Node-RED application or providing them manually and the output format, Normalized HTML, can be selected from the drop-down list.
+In the configuration dialog for the node you need to provide the output format and the credentials. In this example, the credentials (userid and password) can be specified either by selecting an existing service that has been added to your Node-RED application or providing them manually and the output format, Normalized HTML, can be selected from the drop-down list. **Do not use the credentials in the diagram they will not work)**
 
 ![Conversion node](images/dc_dialog1.png)
 
