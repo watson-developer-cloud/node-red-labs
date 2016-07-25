@@ -5,11 +5,11 @@ The Document Conversion Service converts a single HTML, PDF, or Word document. T
 
 The input message to the Document Conversion node must provide the file to be converted either as a binary stream or the URL to file contents. it is, also, possible to specify information on the formats in the document. For more information on the different options please see the [Document Conversion documentation] (https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/document-conversion/customizing.shtml).
 
-Add to your template 4 nodes:
-1. Inject 
-2. Function 
-3. Convert
-4. Debug
+Add to your template 4 nodes:  
+1. Inject   
+2. Function   
+3. Convert  
+4. Debug  
 and wire the nodes together to complete the flow 
 
 ![Conversion node](images/dc_overview.png)
