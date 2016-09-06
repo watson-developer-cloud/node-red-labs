@@ -1,0 +1,116 @@
+[
+  {
+    "id": "91b97c0d.6e468",
+    "type": "watson-conversation-v1",
+    "z": "7c88ce6d.23512",
+    "name": "My Bot",
+    "workspaceid": "75fcabe1-d1b5-4bdf-bfec-970ca495505b",
+    "x": 405,
+    "y": 503,
+    "wires": [
+      [
+        "66bc2bf9.9943d4"
+      ]
+    ]
+  },
+  {
+    "id": "c0db01fc.3f25",
+    "type": "http in",
+    "z": "7c88ce6d.23512",
+    "name": "BOT Home Page",
+    "url": "/bot",
+    "method": "get",
+    "swaggerDoc": "",
+    "x": 130,
+    "y": 397,
+    "wires": [
+      [
+        "e0317820.1fce88"
+      ]
+    ]
+  },
+  {
+    "id": "e0317820.1fce88",
+    "type": "template",
+    "z": "7c88ce6d.23512",
+    "name": "Conversation BOT Template",
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "handlebars",
+    "syntax": "mustache",
+    "template": "<html>\n  <head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title>\n\t  My BOT\n\t</title>\n\t<link rel=\"stylesheet\"\n        type=\"text/css\"\n        href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" />\n  </head>\n  <body>\n\n    <div class=\"container\">\n      <div id=\"no-script\"class=\"bg-info\">\n        This application needs JavaScript enabled in your browser!\n      </div>\n      <div id=\"id_contextdump\"></div>\n\n      <h1>My BOT</h1>\n      <div id=id_botchathistory>\n\t  </div>\n\t  \n\t  <div>\n\t      <form>\n            <label for=\"id_chattext\">Your Input: </label>\n            <input type=\"text\" name=\"chattext\" id=\"id_chattext\">\n            <br/><br/>\n\t      </form>\n\t      <button onclick=\"javascript:onChatClick()\">Send</button>\n\t  </div>\n    </div>\n    <script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n\n    <script type=\"text/javascript\">\n    \n      $(document).ready(function() {\n          javascriptCheck();\n          \t$('#id_contextdump').hide();\n      });\n\n      // if javascript is enabled on the browser then can\n      // remove the warning message\n      function javascriptCheck() {\n        $('#no-script').remove();\n      }\n      \n      function createNewDiv(who, message) {\n        console.log('002-001');  \n        var txt = who + ' : ' + message;\n        return $('<div></div>').text(txt);\n      }\n\n      function chat(person, txt) {\n        $('#id_botchathistory').append(createNewDiv(person, txt));\n      }    \n      \n      function processOK(response) {\n        console.log('003-001');\n        console.log(response);\n        console.log(response.botresponse.messageout);\n        console.log(response.botresponse.messageout.output.text);\n        console.log(response.botresponse.messageout.context);\n        chat('Bot', response.botresponse.messageout.output.text); \n        $('#id_contextdump').data('convContext', response.botresponse.messageout.context);\n      }\n      \n      function processNotOK() {\n        chat('Error', 'Error whilst attempting to talk to Bot');\n      }\n      \n      function invokeAjax(message) {\n        var contextdata = $('#id_contextdump').data('convContext');\n        console.log('checking stashed context data');\n        console.log(contextdata);\n        \n  \n        //var ajaxData = \"msgdata=\" + message;\n        var ajaxData = {};\n        ajaxData.msgdata = message;\n        if (contextdata) {\n          ajaxData.context = contextdata;    \n        }\n\n        $.ajax({\n          type: 'POST',\n          url: 'botchat',\n          data: ajaxData,\n          success: processOK,\n          error: processNotOK\n        });\n      }\n          \n      // User has entered some text.\n      function onChatClick() {\n        console.log('001-001');\n        var txt = $('#id_chattext').val();\n        chat('You', txt); \n        invokeAjax(txt);\n        console.log('001-002');\n      }\n      \n        \n    </script>\n  </body>\n</html>\n",
+    "x": 364,
+    "y": 397,
+    "wires": [
+      [
+        "36870f96.c978f"
+      ]
+    ]
+  },
+  {
+    "id": "36870f96.c978f",
+    "type": "http response",
+    "z": "7c88ce6d.23512",
+    "name": "",
+    "x": 600,
+    "y": 397,
+    "wires": []
+  },
+  {
+    "id": "4837582.fb7c8a8",
+    "type": "http in",
+    "z": "7c88ce6d.23512",
+    "name": "BOT REST API",
+    "url": "/botchat",
+    "method": "post",
+    "swaggerDoc": "",
+    "x": 118,
+    "y": 504,
+    "wires": [
+      [
+        "66366b4f.99c994"
+      ]
+    ]
+  },
+  {
+    "id": "6ef2b900.910d48",
+    "type": "http response",
+    "z": "7c88ce6d.23512",
+    "name": "",
+    "x": 667,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "66366b4f.99c994",
+    "type": "function",
+    "z": "7c88ce6d.23512",
+    "name": "Pre Service Processing",
+    "func": "// stash away incoming data\nmsg.mydata = {};\nmsg.mydata.messagein = msg.req.body.msgdata;\nmsg.payload = msg.mydata.messagein;\n\nmsg.params = { \"context\": msg.req.body.context};\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 242,
+    "y": 592,
+    "wires": [
+      [
+        "91b97c0d.6e468"
+      ]
+    ]
+  },
+  {
+    "id": "66bc2bf9.9943d4",
+    "type": "function",
+    "z": "7c88ce6d.23512",
+    "name": "Post Service Processing",
+    "func": "msg.mydata.messageout = msg.payload;\n\nmsg.payload = {};\nmsg.payload.botresponse = msg.mydata;\n\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 545,
+    "y": 596,
+    "wires": [
+      [
+        "6ef2b900.910d48"
+      ]
+    ]
+  }
+]

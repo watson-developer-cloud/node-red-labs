@@ -14,12 +14,13 @@ In the list below, you can select different services and see how these can be im
 - [Alchemy Vision](alchemy_api_image_analysis/README.md)
 - [Alchemy News](alchemy_data_news/README.md)
 - [Concept Insights](concept_insights/README.md)
+- [Conversation](conversation/README.md)
 - [Dialog](dialog/README.md)
 - [Dialog Template Creation](dialog_template_creation/README.md)
 - [Document Conversion](document_conversion/README.md)
 - [Language Identification](language_identification/README.md)
 - [Language Translation](language_translation/README.md)
-- [Natural Language Classifier](natural_language_classifier/README.md) 
+- [Natural Language Classifier](natural_language_classifier/README.md)
 - [Personality insights](personality_insights/README.md)
 - [Relationship Extraction](relationship_extraction/README.md)
 - [Retrieve and Rank](retrieve_and_rank/README.md)
@@ -31,6 +32,3 @@ In the list below, you can select different services and see how these can be im
 
 
 If you want to see examples of combining the different services, you can go [here](../advanced_examples/README.md).
-
-
-
