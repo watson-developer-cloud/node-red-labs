@@ -151,7 +151,7 @@ Configure the HTTP In node as a POST API.
 ![Conversation-rest-httpim](images/conversation_lab_rest_httpin.png)
 
 Configure the first function to pull out the user text and any conversation context information, with the following code.
-,,,
+```
 // stash away incoming data
 msg.mydata = {};
 msg.mydata.messagein = msg.req.body.msgdata;
@@ -160,20 +160,20 @@ msg.payload = msg.mydata.messagein;
 msg.params = { "context": msg.req.body.context};
 
 return msg;
-,,,
+```
 
 Configure the Conversation node with the Workspace ID:
 ![Conversation-rest-conversation](images/conversation_lab_rest_conversation.png)
 
 Configure the second function to build a response, incorporating the conversation context and bot response, with the following code.
-,,,
+```
 msg.mydata.messageout = msg.payload;
 
 msg.payload = {};
 msg.payload.botresponse = msg.mydata;
 
 return msg;
-,,,
+```
 
 ### Testing the flow
 To run the web page, point your browser to  `/http://xxxx.mybluemix.net/bot` and enter text to drive your bot.
