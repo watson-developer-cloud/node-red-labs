@@ -5,7 +5,7 @@ how to create apps using Node-RED and the [Watson Nodes](https://github.com/wats
 **Coming Soon**
 Five new apps exploring the capabilities of Watson Developer Cloud in Node-RED.
 
-1. [Live Translation](live_translation/README.md)
+1. [Interpreter](interpreter/README.md)
 
 2. [Video Captioning](video_captioning/README.md)
 
