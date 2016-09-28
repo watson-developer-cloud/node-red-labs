@@ -1,6 +1,6 @@
 # Dashboard Translation
-**Coming Soon**
-Link to video description
+
+[dashbaord-translation.mov](./dashbaord-translation.mov)
 
 ## Overview
 
