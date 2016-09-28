@@ -17,6 +17,8 @@ Five new apps exploring the capabilities of Watson Developer Cloud in Node-RED.
 
 6. [Accessibility](accessibility/README.md)
 
+7. [Dashboard Translation](dashboard_translation/README.md)
+
 
 ## Set up Instructions
 Description of the components needed to build the application starter-kits and how to install them.
