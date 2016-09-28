@@ -17,7 +17,7 @@ Node-RED will:
 [dashboard-translation-node.json](./dashboard-translation-node.json)
 
 [dashboard-translation.png](./dashboard-translation.png)
-
+![dashboard-translation.png](./dashboard-translation.png)
 
 
 ## Flow description
