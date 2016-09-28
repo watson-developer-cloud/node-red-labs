@@ -15,7 +15,7 @@ Node-RED will:
 
 ## Application flow
 
-1. Application Flow:
+- Application Flow:
 
 [dashboard-translation-node.json](./dashboard-translation-node.json)
 
@@ -23,7 +23,7 @@ Node-RED will:
 
 ![dashboard-translation.png](./dashboard-translation.png)
 
-2. Application Output:
+- Application Output:
 
 [dashboard-translation-utility-sample.png](./dashboard-translation-utility-sample.png)
 
