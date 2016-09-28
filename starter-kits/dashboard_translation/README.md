@@ -14,7 +14,7 @@ Node-RED will:
 * Send back and display the translated text based upon the chosen options
 
 ## Application flow
-Link to json file
+[dashboard-translation-node.json](./dashboard-translation-node.json)
 
 ## Flow description
 Description of the flow process.
