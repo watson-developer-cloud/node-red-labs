@@ -14,11 +14,19 @@ Node-RED will:
 * Send back and display the translated text based upon the chosen options
 
 ## Application flow
+
+1. Application Flow:
+
 [dashboard-translation-node.json](./dashboard-translation-node.json)
 
 [dashboard-translation.png](./dashboard-translation.png)
+
 ![dashboard-translation.png](./dashboard-translation.png)
+
+2. Application Output:
+
 [dashboard-translation-utility-sample.png](./dashboard-translation-utility-sample.png)
+
 ![dashboard-translation-utility-sample.png](./dashboard-translation-utility-sample.png)
 
 
