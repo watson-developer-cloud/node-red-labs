@@ -6,7 +6,7 @@
 
 This Node-RED accessibility flow takes written documents and converts them to the spoken word for the visually impaired.
 
-The flow uses the <a href="">Camera</a> and <a href="https://github.com/lorentzlasson/node-red-contrib-play-audio">Play Audio</a> nodes with the Watson <a href="https://github.com/watson-developer-cloud/node-red-node-watson/tree/master/services/visual_recognition">Visual Recognition</a> and <a href="https://github.com/watson-developer-cloud/node-red-node-watson/tree/master/services/text_to_speech">Text-to-Speech</a> services to enhance system accessibility.
+The flow uses the <a href="https://github.com/ibm-early-programs/node-red-contrib-browser-utils/tree/master/camera">Camera</a> and <a href="https://github.com/lorentzlasson/node-red-contrib-play-audio">Play Audio</a> nodes with the Watson <a href="https://github.com/watson-developer-cloud/node-red-node-watson/tree/master/services/visual_recognition">Visual Recognition</a> and <a href="https://github.com/watson-developer-cloud/node-red-node-watson/tree/master/services/text_to_speech">Text-to-Speech</a> services to enhance system accessibility.
 
 
 Node-RED will:
