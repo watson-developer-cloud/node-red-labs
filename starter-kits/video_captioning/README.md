@@ -5,7 +5,7 @@ Link to video description
 
 ## Overview
 
-Uses the FFmpeg nodes (<a href="">FFmpeg-Conversion</a>, <a href="">FFmpeg-Silence-Detect</a> and <a href="">FFmpeg-Segment</a>), <a href="">Watson Speech-to-Text</a> and optionally <a href="">Watson Language-Translation</a> to create live captions for a video stream.
+Uses the <a href="https://github.com/ibm-early-programs/node-red-contrib-media-utils">FFmpeg nodes</a> (Conversion, Silence Detect and Segment) and the <a href="https://github.com/watson-developer-cloud/node-red-node-watson">Watson nodes</a> (Speech to Text and optionally Language Translation) to create live captions for a video.
 
 The UI allows a user to load up a video file (eg. Ted Talk) and send the URL to a Node-RED flow.
 
