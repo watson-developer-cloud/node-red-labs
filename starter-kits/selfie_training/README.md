@@ -5,7 +5,7 @@ Link to video description
 
 ## Overview
 
-This demo uses Similarity Search to determine who a selfie depicts.
+This demo uses Watson <a href="https://github.com/watson-developer-cloud/node-red-node-watson">Similarity Search</a> to determine who a selfie depicts.
 
 A user can take pictures using their webcam to train Similarity Search on different users.
 
