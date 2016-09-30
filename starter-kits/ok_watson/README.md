@@ -24,7 +24,7 @@ The flow also illustrates the use of the new <a href="">microphone</a> node in c
 
 2. Add the Watson Conversations Service to your Blumix and note your service credentials.
 
-3. Launch the Watson Conversations GUI. You can  import the OK Watson Starter Conversation workspace by selecting ![icon](importconv.png) and navigating to the JSON file saved in 1. above.
+3. Launch the Watson Conversations GUI. You can  import the OK Watson Starter Conversation workspace by selecting ![icon](img/importconv.png) and navigating to the JSON file saved in 1. above.
 
 4. Make a note of the workspace ID, which can be accessed under "View details" from the menu on the workspace tile: <br/> <center><img src=img/workspace.png width=200>&nbsp;<img src=img/workspaceid.png width=200></center>
 
