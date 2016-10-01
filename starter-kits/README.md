@@ -26,9 +26,10 @@ video instructions to come
 To make use of the starter kit applications, you will need some extra node-RED nodes. The easiest way
 to get them is to start from our [custom boilerplate starter](https://github.com/watson-developer-cloud/node-red-bluemix-starter)
 
-Otherwise add the following to your package.json, to pull in the extra nodes.
+Otherwise add the following to your package.json, to pull in the extra nodes. 
 ````
     "node-red-contrib-browser-utils":"0.x",
     "node-red-contrib-media-utils":"0.x",
     "node-red-contrib-play-audio": "2.0.x",
+    "node-red-dashboard": "2.0.x",
 ````
