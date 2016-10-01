@@ -1,6 +1,5 @@
 # Video Captioning
-**Coming Soon**
-
+**video is waiting release**
 Link to video description
 
 ## Overview

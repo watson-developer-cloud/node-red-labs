@@ -1,1 +1,143 @@
-[{"id":"1815066.5547bfa","type":"change","z":"c9f096ea.1bb3a8","name":"","rules":[{"t":"set","p":"payload","pt":"msg","to":"speech","tot":"msg"}],"action":"","property":"","from":"","to":"","reg":false,"x":512,"y":342,"wires":[["9ead2f93.aecd3"]]}]
+[
+  {
+    "id": "c6523de8.276fe",
+    "type": "microphone",
+    "z": "c9f096ea.1bb3a8",
+    "name": "",
+    "x": 155.5,
+    "y": 166,
+    "wires": [
+      [
+        "5540bd6f.ecd524"
+      ]
+    ]
+  },
+  {
+    "id": "9ead2f93.aecd3",
+    "type": "play audio",
+    "z": "c9f096ea.1bb3a8",
+    "name": "",
+    "x": 689.5,
+    "y": 342,
+    "wires": []
+  },
+  {
+    "id": "5540bd6f.ecd524",
+    "type": "watson-speech-to-text",
+    "z": "c9f096ea.1bb3a8",
+    "name": "",
+    "continuous": true,
+    "lang": "en-US",
+    "langhidden": "en-US",
+    "band": "BroadbandModel",
+    "bandhidden": "",
+    "password": "",
+    "x": 331,
+    "y": 166,
+    "wires": [
+      [
+        "8d558661.2e2108"
+      ]
+    ]
+  },
+  {
+    "id": "99b04ba5.82f698",
+    "type": "watson-text-to-speech",
+    "z": "c9f096ea.1bb3a8",
+    "name": "",
+    "lang": "fr-FR",
+    "langhidden": "fr-FR",
+    "voice": "fr-FR_ReneeVoice",
+    "voicehidden": "en-US_LisaVoice",
+    "format": "audio/wav",
+    "password": "",
+    "x": 325,
+    "y": 342,
+    "wires": [
+      [
+        "1815066.5547bfa"
+      ]
+    ]
+  },
+  {
+    "id": "193666d6.df9809",
+    "type": "watson-translate",
+    "z": "c9f096ea.1bb3a8",
+    "name": "",
+    "action": "translate",
+    "basemodel": "ar-en",
+    "domain": "conversational",
+    "srclang": "en",
+    "destlang": "fr",
+    "password": "",
+    "custom": "",
+    "domainhidden": "conversational",
+    "srclanghidden": "en",
+    "destlanghidden": "fr",
+    "basemodelhidden": "ar-en",
+    "customhidden": "",
+    "filetype": "forcedglossary",
+    "trainid": "",
+    "x": 715,
+    "y": 166,
+    "wires": [
+      [
+        "99b04ba5.82f698"
+      ]
+    ]
+  },
+  {
+    "id": "8d558661.2e2108",
+    "type": "change",
+    "z": "c9f096ea.1bb3a8",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "transcription",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 513,
+    "y": 166,
+    "wires": [
+      [
+        "193666d6.df9809"
+      ]
+    ]
+  },
+  {
+    "id": "1815066.5547bfa",
+    "type": "change",
+    "z": "c9f096ea.1bb3a8",
+    "name": "",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "speech",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 512,
+    "y": 342,
+    "wires": [
+      [
+        "9ead2f93.aecd3"
+      ]
+    ]
+  }
+]

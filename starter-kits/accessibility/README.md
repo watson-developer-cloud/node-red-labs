@@ -2,6 +2,7 @@
 
 ## Overview
 
+**video is waiting release**
 [Video Introduction]()
 
 This Node-RED accessibility flow takes written documents and converts them to the spoken word for the visually impaired.

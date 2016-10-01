@@ -1,5 +1,5 @@
 # Dashboard Translation
-
+**video is waiting release**
 To be posted!
 
 ## Overview

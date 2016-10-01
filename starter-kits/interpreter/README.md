@@ -1,9 +1,7 @@
 # Interpreter
-
-## Overview
-
 [Video Introduction](https://www.youtube.com/watch?v=uI-kBSnyvuQ&feature=youtu.be)
 
+## Overview
 This Node-RED flow translates audio recorded by the microphone into a variety of languages directly from the flow itself.
 
 The flow uses the <a href="https://github.com/ibm-early-programs/node-red-contrib-browser-utils/tree/master/microphone">Microphone</a> and <a href="https://github.com/lorentzlasson/node-red-contrib-play-audio">Play Audio</a> nodes with the Watson <a href="https://github.com/watson-developer-cloud/node-red-node-watson/tree/master/services/speech_to_text">Speech-to-Text</a>, <a href="https://github.com/watson-developer-cloud/node-red-node-watson/tree/master/services/language_translation">Language Translation</a> and <a href="https://github.com/watson-developer-cloud/node-red-node-watson/tree/master/services/text_to_speech">Text-to-Speech</a> to perform the role of an interpreter.
