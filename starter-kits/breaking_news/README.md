@@ -9,7 +9,10 @@ Ever wanted to know how people are responding to news and events in real-time?  
 
 First a news category is selected from the UI, then this category is passed to the Alchemy News Service, which grabs a recent headline (within the last hour) and returns the headline title along with concepts of highest relevancy to the article.  Live twitter streams start listening for tweets about those concepts and analyzing those tweets for emotional tone, which is then rendered on the UI in real-time.
 
-Please note: This lab makes use of an enhanced twitter node with a left-side input connector.  That node should be delivered to base nodes soon, until then, grab it from [here](https://github.com/node-red/node-red-nodes/tree/master/social/twitter).
+Your User Interface will be available on /ui of your node-RED url.
+
+Please note: This lab makes use of an enhanced twitter node with a left-side input connector. You may need to update your
+instance of node-RED to ensure that you have it. 
 
 ## Application flow
 ![Transcription Flow](flow.jpg)

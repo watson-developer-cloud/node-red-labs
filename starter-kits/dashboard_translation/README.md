@@ -13,6 +13,8 @@ Node-RED will:
 * Offer to chose translation modes
 * Send back and display the translated text based upon the chosen options
 
+Your User Interface will be available on /ui of your node-RED url.
+
 ## Application flow
 
 - Application Flow:
