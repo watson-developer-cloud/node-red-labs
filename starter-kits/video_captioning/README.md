@@ -3,6 +3,7 @@
 Link to video description
 
 ## Overview
+** Note ** this stater-kit will need you to allocate more memory to your node-RED instance.
 
 Uses the <a href="https://github.com/ibm-early-programs/node-red-contrib-media-utils">FFmpeg nodes</a> (Conversion, Silence Detect and Segment) and the <a href="https://github.com/watson-developer-cloud/node-red-node-watson">Watson nodes</a> (Speech to Text and optionally Language Translation) to create live captions for a video.
 

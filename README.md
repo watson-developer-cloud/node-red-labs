@@ -19,15 +19,15 @@ You can find different labs in this project:
 - [Basic Labs using Watson nodes](/basic_examples/README.md) show how to invoke nodes from a simple flow
 - [Advanced Labs using multiple Watson nodes](/advanced_examples/README.md) show how to extend or combine where different nodes and services
 - [Watson Contribution Nodes](/watson_contribution_nodes/README.md) how to add watson developer cloud contribution nodes to Node-RED
-- **[New Node-RED Starter Kits](/starter-kits/README.md) ** 
+- ** New ** [Node-RED Starter Kits](/starter-kits/README.md) Prebuilt applications from which to start your own prototypes
 
 Feel free to use this content, please let us know what you think of it! :bowtie:
 ## Region
-All the labs have been tested against the US South region but have not been fully tested against any other region. Most labs will work in other regions but there are some Watson utilities (eg. Natural Language Classifier Toolkit) that only work in the US South region. 
+All the labs have been tested against the US South region but have not been fully tested against any other region. Most labs will work in other regions but there are some Watson utilities (eg. Natural Language Classifier Toolkit) that only work in the US South region.
 
 ## Contributing
 You want to contribute to this project? Please follow those intructions on [this page](/CONTRIBUTING.md).
-If you would like to contribute by updating or creating new nodes for the Watson Developer Cloud API, 
+If you would like to contribute by updating or creating new nodes for the Watson Developer Cloud API,
 then switch to the [node-red-node-watson](http://github.com/watson-developer-cloud/node-red-node-watson) project.
 
 ## License
