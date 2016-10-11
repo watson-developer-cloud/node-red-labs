@@ -1,6 +1,6 @@
 # Dashboard Translation
-**video is waiting release**
-To be posted!
+[Video Instructions](https://www.youtube.com/watch?v=osbBXA1Rsh0)
+
 
 ## Overview
 

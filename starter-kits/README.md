@@ -21,12 +21,13 @@ Each kit comes with a video introduction, which shows each application in use.
 
 
 ## Set up Instructions
-video instructions to come
+[Video Instructions](https://www.youtube.com/watch?v=Gi-XnsdByJA)
+
 
 To make use of the starter kit applications, you will need some extra node-RED nodes. The easiest way
 to get them is to start from our [custom boilerplate starter](https://github.com/watson-developer-cloud/node-red-bluemix-starter)
 
-Otherwise add the following to your package.json, to pull in the extra nodes. 
+Otherwise add the following to your package.json, to pull in the extra nodes.
 ````
     "node-red-contrib-browser-utils":"0.x",
     "node-red-contrib-media-utils":"0.x",
