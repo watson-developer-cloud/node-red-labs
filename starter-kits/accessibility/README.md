@@ -38,3 +38,4 @@ Node-RED will:
 ## Gotchas
 
 * The `camera` node has a 2000ms delay to prevent slow camera driver startup causing an issue in some browsers
+* The `Visual Recognition` service is currently in dark beta, as a result there may be breaking changes without warning. We'll do our best to keep up with these changes - but if you find a bug please let us know on Stack Overflow or Developer Works.
