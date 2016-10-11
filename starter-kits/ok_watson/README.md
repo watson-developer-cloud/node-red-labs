@@ -1,6 +1,5 @@
 # OK Watson
-**video is waiting release**
-Link to video description
+[Video Introduction](https://www.youtube.com/watch?v=4L3CjH_f58I)
 
 ## Overview
 
