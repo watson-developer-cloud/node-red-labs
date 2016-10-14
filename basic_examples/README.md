@@ -20,6 +20,7 @@ In the list below, you can select different services and see how these can be im
 - [Document Conversion](document_conversion/README.md)
 - [Language Identification](language_identification/README.md)
 - [Language Translation](language_translation/README.md)
+- [Language Translator](language_translator/README.md) (new)
 - [Natural Language Classifier](natural_language_classifier/README.md)
 - [Personality insights](personality_insights/README.md)
 - [Relationship Extraction](relationship_extraction/README.md)
