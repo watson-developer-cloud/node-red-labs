@@ -1,20 +1,18 @@
 # Language Translator
 
-The Language Translator service enables you to translate text from one language to another. These languages are supported: Arabic, Spoken Arabic, German, English, Spanish, French, Italian, Portuguese.
+The Language Translator service enables you to translate text from one language to another. See Watson Translator API for supported languages list.
 
 The following domains are proposed by default :
 
-- The News domain - targeted at news articles and transcripts, it translates English to and from Arabic, Spoken Arabic, German, Spanish, French, Italian, Portuguese.
-- The Conversational domain - targeted at conversational colloquialisms, it translates English to and from French, Spanish, Portuguese or Arabic.
-- The Patent domain - targeted at technical and legal terminology, it translates Spanish, Portuguese, Chinese, or Korean to English.
+- The News domain - targeted at news articles and transcripts.
+- The Conversational domain - targeted at conversational colloquialisms.
+- The Patent domain - targeted at technical and legal terminology.
 
 To use the Language Translator service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in Bluemix or use a local Node-RED instance. Both ways are described here.
 
 **Note**: If you want to do the training part of this lab, then make sure than you select the **Trainable plan** when creating the service. 
 
 If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Language Translator service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
-
-If you use a local instance of Node-RED go to the Bluemix catalog and go to the Language Translator service and click on it. Make sure that there is no app bound to this service and click 'Use"
 
 If one of either ways are done, you can continue with the following.
 
