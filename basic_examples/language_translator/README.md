@@ -20,13 +20,13 @@ If one of either ways are done, you can continue with the following.
 
 ## Translate 
 
-![`LTOverview`](images/lt.jpg)
+![`LTOverview`](images/lt.png)
 
 In this example some random text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
 The inject node:
 
-![`LTInject`](images/lt_inject.jpg)
+![`LTInject`](images/lt_inject.png)
 
 You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
 
@@ -36,7 +36,7 @@ The language translator node wil be configured like this. The text in this case 
 
 As the translated text will be returned on message.payload, make sure that you select this in de debug node. The output from the debug node will then be:
 
-![`LTOutput`](images/lt_debug.jpg)
+![`LTOutput`](images/lt_debug.png)
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
@@ -46,11 +46,11 @@ You can also copy the code for the flow here and import it from clipboard into N
 
 You can also use the new language identify node to identify one or more language in a text.
 
-![`LTIdenOverview`](images/lt_identify_overview.jpg)
+![`LTIdenOverview`](images/lt_identify_overview.png)
 
 The inject node:
 
-![`LTIdenInject`](images/lt_identify_inject.jpg)
+![`LTIdenInject`](images/lt_identify_inject.png)
 
 You can use any text for this.
 
@@ -58,7 +58,7 @@ The language identify node does not need to be configured.
 
 The output will show the detected language(s) with the level of confidence.
 
-![`LTIdenOutput`](images/lt_identify_output.jpg)
+![`LTIdenOutput`](images/lt_identify_output.png)
 
 Node output :
 
