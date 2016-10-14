@@ -133,7 +133,7 @@ Finally, drag and drop a debug node and let it set to msg.payload. This will onl
 
  [Language Translation Get Status flow](lang_delete_flow.json)
 
- ### Available Flows
+### Available Flows
 
 - [Language Translator and Identify Complete flow](lang_complete_flow.json) : illustrates the 3 nodes : language translator, language identify, and language translator util.
 
