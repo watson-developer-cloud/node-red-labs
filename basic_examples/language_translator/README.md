@@ -1,12 +1,6 @@
 # Language Translator
 
-The Language Translator service enables you to translate text from one language to another. See Watson Translator API for supported languages list.
-
-The following domains are proposed by default :
-
-- The News domain - targeted at news articles and transcripts.
-- The Conversational domain - targeted at conversational colloquialisms.
-- The Patent domain - targeted at technical and legal terminology.
+The Language Translator service enables you to translate text from one language to another. See Watson Translator API for supported languages list, and for the default domains proposed.
 
 To use the Language Translator service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in Bluemix or use a local Node-RED instance. Both ways are described here.
 
