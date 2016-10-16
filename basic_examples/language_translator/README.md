@@ -57,6 +57,11 @@ Node output :
 - msg.lang : The identified language with the highest confidence level
 - msg.languages : array of identified languages with the language 5-letter ISO language code with the associated confidence score
 
+You can also copy the code for the flow here and import it from clipboard into Node-RED:
+
+[Language Translator Identify flow](language_identify_flow.txt)
+
+
 ## Customizing your domain
 
 Are you creating a customer support translator, and do you have company-specific terms that you want dealt with in a certain way in conversations? Are you creating a way for your engineers in one country to look up patent data in another language, and you usually file patents on a specific technology? You can use your own data to create a custom dictionary, and a custom translation model in the Watson Language Translator API.
@@ -72,6 +77,8 @@ Drag and drop an inject node on your palette, this node won't need any configura
 Next, add a Dropbox node, put your credentials and the name of your file (or path to your file if it's in a subfolder), your node configuration should look like this:
 
 ![`LTConfigDropbox`](images/lt_train_dropbox.png)
+
+Dropbox setup documentation : [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
 Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/language-translation/customizing.shtml).
 
