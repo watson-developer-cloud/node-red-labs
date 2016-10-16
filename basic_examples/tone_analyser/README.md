@@ -72,7 +72,7 @@ Availables options for Sentences
 
 To have more information on the Watson Tone Analyser underlying service, you can check these two reference :
 - [Tone Analyser Documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tone-analyzer/)
-- [Tone Ananalyser API Documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tone-analyzer/api/v3/)
+- [Tone Analyser API Documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tone-analyzer/api/v3/)
 
 
 <n>Notice</b> : as this flow suggest it, you can also use Dropbox  : How to setup your Node-RED with [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup)
