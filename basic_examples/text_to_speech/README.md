@@ -102,4 +102,4 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
 
 The complete flow is available at [TTS-Lab-WebPage](tts_lab_webpage.json).
 
-To run it, point your browser to  `/http://xxxx.mybluemix.net/tts/talk` and enter some text.
+To run it, point your browser to  `/http://xxxx.mybluemix.net/talk` and enter some text.
