@@ -1,6 +1,5 @@
 # Video Captioning
-**video is waiting release**
-Link to video description
+Link to <a href="https://youtu.be/aSP0_6Oyv9A"> video description</a>
 
 ## Overview
 **Note:** this stater-kit will need you to allocate more memory to your node-RED instance.
