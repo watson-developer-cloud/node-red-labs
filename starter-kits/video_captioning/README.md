@@ -2,13 +2,13 @@
 Link to <a href="https://youtu.be/aSP0_6Oyv9A"> video description</a>
 
 ## Overview
-**Note:** this stater-kit will need you to allocate more memory to your node-RED instance.
+**Note:** This starter-kit will need you to allocate more memory to your node-RED instance.
 
-Uses the <a href="https://github.com/ibm-early-programs/node-red-contrib-media-utils">FFmpeg nodes</a> (Conversion, Silence Detect and Segment) and the <a href="https://github.com/watson-developer-cloud/node-red-node-watson">Watson nodes</a> (Speech to Text and optionally Language Translation) to create live captions for a video.
+It uses the <a href="https://github.com/ibm-early-programs/node-red-contrib-media-utils">FFmpeg nodes</a> (Conversion, Silence Detect and Segment) and the <a href="https://github.com/watson-developer-cloud/node-red-node-watson">Watson nodes</a> (Speech to Text and optionally Language Translation) to create live captions for a video.
 
-The UI allows a user to load up a video file (eg. Ted Talk) and send the URL to a Node-RED flow.
+The UI allows a user to load a video file (eg. Ted Talk) and send the URL to a Node-RED flow.
 
-Node-RED will:
+The Node-RED flow will:
 * Download the video
 * Convert the video into an audio buffer
 * Perform silence detection on the audio
