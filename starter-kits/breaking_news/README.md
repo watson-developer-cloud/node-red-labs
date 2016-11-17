@@ -1,6 +1,5 @@
 # Breaking News
-**video is waiting release**
-Link to video description
+Link to [video description](https://youtu.be/40WDieYsk_0)
 
 ## Overview
 Ever wanted to know how people are responding to news and events in real-time?  Well now you can!  The "Breaking News" application powered by Node-RED and Watson has a GUI which provides real-time tone analysis of tweets regarding concepts of live news headline articles.  The intent is to see how users on twitter are responding to events happening in the world.  Each tweet is assigned a score for each of 5 emotional tones (anger, disgust, fear, joy, sadness).  For example, this UI shows what people are tweeting about the military and the Star Spangled Banner in response to an article about the "military's ritual of saluting the national anthem".
