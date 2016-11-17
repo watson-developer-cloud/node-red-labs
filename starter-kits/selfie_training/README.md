@@ -1,7 +1,6 @@
 # Selfie Training
 
-**video is waiting release**
-Link to video description
+Link to [video description](https://youtu.be/f4atHS0El2k)
 
 ## Overview
 
