@@ -17,6 +17,7 @@ In the list below, you can select different services and see how these can be im
 - [Conversation](conversation/README.md)
 - [Dialog](dialog/README.md)
 - [Dialog Template Creation](dialog_template_creation/README.md)
+- [Discovery](discovery/README.md)
 - [Document Conversion](document_conversion/README.md)
 - [Language Identification](language_identification/README.md)
 - [Language Translation](language_translation/README.md)
