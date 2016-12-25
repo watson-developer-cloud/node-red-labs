@@ -35,4 +35,4 @@ Configure the debug node to display the search results.
 ![Discovery-Debug-Environments](images/discovery_lab_querybuilder_debug.png)
 
 ## Completed Flows
-The complete flow is available at [Conversation-Lab-WebPage](conversation_lab.json).
+The complete flow is available at [Discovery-Lab](discovery_lab.json).
