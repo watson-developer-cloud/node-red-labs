@@ -3,13 +3,13 @@
 Note: This lab can be done either on a stand-alone system (using a local file or your microphone) or done on Bluemix uploading a WAV file using an upload node (Dropbox, Box...) or straight from an URL.
 
 Speech to Text service can be used anywhere voice-interactivity is needed. The service is great for mobile experiences, transcribing media files, call centre transcriptions, voice control of embedded systems, or converting sound to text to then make data searchable. Supported languages include:
-- US English 
-- Spanish 
-- Japanese 
+- US English
+- Spanish
+- Japanese
 - Brazilian Portuguese
-- Mandarin. 
+- Mandarin.
 
-To use the Speech To Text service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. 
+To use the Speech To Text service in Node-RED you first need to make this service available in a way Node-RED can connect to that service.
 There are two ways of doing that depending if you use Node-RED in Bluemix or use a local Node-RED instance. Both ways are described here.
 
 ## On Bluemix
@@ -20,7 +20,7 @@ If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a s
 
 ![`S2TBluemixURLFlowOverview`](images/s2t_bluemix_url_overview.png)
 
-In this lab an audio file will be transcribed. An example audiofile can be found [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav), feel free to use this URL or to provide your own. 
+In this lab an audio file will be transcribed. An example audiofile can be found [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav), feel free to use this URL or to provide your own.
 
 In the following screenshots you can see how the nodes are configured.
 
@@ -56,7 +56,7 @@ The complete flow can be found here: [Text To Speech on Bluemix lab flow using a
 This is quite similar from injecting the file from an URL, except here you are going to provide the file from your Dropbox account.
 Note: If you haven't done it yet, set up the Dropbox node as shown [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
-First you need to upload a WAV file to your dropbox, upload your own or download the example WAV file from [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav) (right-click, save-as) and upload it to your Dropbox. 
+First you need to upload a WAV file to your dropbox, upload your own or download the example WAV file from [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav) (right-click, save-as) and upload it to your Dropbox.
 
 Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
 
@@ -82,7 +82,7 @@ You're now good to go: make sure to connect your node, deploy and click on the i
 
 The complete flow can be found here: [Text To Speech on Bluemix lab flow using the Dropbox node](s2t_bluemix_box_flow.json)
 
-```
+
 ## OPTIONAL On a stand-alone system
 
 You need to have a local instance of Node-RED with IBM nodes available. If you don't have that yet, you can go [here](/introduction_to_node_red/README.md).
@@ -91,7 +91,7 @@ Wait until this service is deployed and click on 'Show Credentials', you will ne
 
 ![`S2TOverview`](images/s2t_overview.jpg)
 
-In this lab an audio file will be transcribed. This audiofile can be downloaded [here](audio_message.wav). 
+In this lab an audio file will be transcribed. This audiofile can be downloaded [here](audio_message.wav).
 In the following screenshots you can see how the nodes are configured.
 
 First you start with an Inject node, to start uploading of the .Wav file from your local machine into the Speech To Text service in Bluemix
@@ -146,8 +146,7 @@ First you need to add a 'MQTT In' node. This node must subscribe to the same top
 Then you can connect any node to this, like [Language Identification](/basic_examples/language_identification/README.md) to identify the language of the transcript. I this case I added a debug node, to see the output. The transcript is in the message.payload:
 
 ![`S2TDebugBL`](images/s2t_debugbl.jpg)
-```
+
 
 The extended flow can be found here: [Extended Text To Speech lab flow ](s2t_flow_extended.json)
 The flow in Node-Red in Bluemix can be found here: [Text To Speech lab flow for Bluemix](s2t_flow_bluemix.json)
-
