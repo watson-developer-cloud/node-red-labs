@@ -32,5 +32,7 @@ In the list below, you can select different services and see how these can be im
 - [Tradeoff Analytics](tradeoff_analytics/README.md)
 - [Visual Recognition](visual_recognition/README.md)
 
+- [Virtual Agent](virtual_agent/README.md)
+
 
 If you want to see examples of combining the different services, you can go [here](../advanced_examples/README.md).
