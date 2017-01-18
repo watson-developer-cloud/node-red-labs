@@ -177,7 +177,7 @@ return msg;
 
 ### Complete Application
 Your application should resemble
-![Virtual-Agent-Full-Flow](images/virtual_full_flow.png)
+![Virtual-Agent-Full-Flow](images/virtual_agent_full_flow.png)
 
 
 ## Completed Flows
