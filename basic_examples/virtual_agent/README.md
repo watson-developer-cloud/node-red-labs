@@ -31,12 +31,13 @@ Configure the HTTP In as a GET (in the example as /wva)
 In the function set the Bot ID and background homepage for your application.
 ![Virtual-Agent-BOTID_Set](images/virtual_agent_function_botid.png)
 
+Note: If you are going to use https for your agent page, then the homepage will also need to be addressed as https
 
 ````
 
   msg.wva = {};
   msg.wva.botid = 'your bot id';
-  msg.wva.homepage = 'http://www.ibm.com/watson/developercloud/';
+  msg.wva.homepage = 'https://www.ibm.com/watson/developercloud/';
   return msg;
 
 ````
