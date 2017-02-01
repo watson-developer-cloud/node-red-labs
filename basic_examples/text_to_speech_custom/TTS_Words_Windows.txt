@@ -1,0 +1,6 @@
+[ {"word":"schedule", "translation":"Shed ule"},
+  {"word":"garage", "translation":"Garrage"},
+  {"word":"bouquet", "translation":"Bookay"},
+  {"word":"vase", "translation":"Varze"},
+  {"word":"zebras", "translation":"zebrahz"}
+]

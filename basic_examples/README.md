@@ -27,6 +27,7 @@ In the list below, you can select different services and see how these can be im
 - [Relationship Extraction](relationship_extraction/README.md)
 - [Retrieve and Rank](retrieve_and_rank/README.md)
 - [Speech to Text](speech_to_text/README.md)
+- [Speech to Text Customization](speech_to_text_customizatio/README.md)
 - [Text to Speech](text_to_speech/README.md)
 - [Tone Analyser](tone_analyser/README.md)
 - [Tradeoff Analytics](tradeoff_analytics/README.md)
