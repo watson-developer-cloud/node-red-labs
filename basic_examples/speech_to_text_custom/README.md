@@ -129,11 +129,11 @@ To do this, add 2 microphone nodes, 2 speech to text nodes and 2 debug nodes and
 
 You do not need to do anything with the microphone nodes. For the first speech to text node, name it 'Non-Customized', choose your language (either US English or Japanese) and select 'None' as the language customization. Select ‘Broadband Model’ for quality and check the continuous box. This will give you results without the customization.
 
-![`Step_5_Non-customized`](Images/Step_5_Non-customized.jpg)
+![`Step_5_Non-customized`](Images/Step_5_Non-Customized.jpg)
 
 For the second speech to text node, you must select US English or Japanese as these are currently only supported for the customization. Choose the language customization you created in step 1 from the drop down box. Select ‘Broadband Model’ for quality and check the continuous box.
 
-![`Step_5_Speech_To_Text`](Images/Step_5_Speech_To_Text.jpg)
+![`Step_5_Speech_To_Text`](Images/Step_5_Speech_to_Text.jpg)
 
 For one of the debug tabs, set the output to msg.transcription. This will output the text converted from speech.  
 
