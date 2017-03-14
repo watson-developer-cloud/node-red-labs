@@ -9,8 +9,16 @@ The Natural Language Classifier is a service that can analyze semantic features 
 
 ## Getting Started
 Before you can use the service through the node on node-RED you will need to create an instance of the service in Bluemix.
+
 ![ScreenShot](images/nlu_service_tile.png)
-...
+
+To bind the new service to your instance of Node-RED select the connections tab for your new service
+
+ ![ScreenShot](images/nlu_connections.png)
+
+and create the connection to your Node-RED instance.
+
+![ScreenShot](images/nlu_create_connections.png)
 
 
 ## Completed Flows
