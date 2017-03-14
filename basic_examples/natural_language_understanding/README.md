@@ -1,4 +1,4 @@
-#Natural Language Understanding
+# Natural Language Understanding
 
 ## Overview
 The Natural Language Classifier is a service that can analyze semantic features of text input, including - categories, concepts, emotion, entities, keywords, metadata, relations, semantic roles, and sentiment.
@@ -8,6 +8,8 @@ The Natural Language Classifier is a service that can analyze semantic features 
 - [API reference](https://www.ibm.com/watson/developercloud/natural-language-understanding/api/), which includes helpful information about curl and the SDKs.
 
 ## Getting Started
+Before you can use the service through the node on node-RED you will need to create an instance of the service in Bluemix.
+![ScreenShot](images/nlu_service_tile.png)
 ...
 
 
