@@ -18,8 +18,29 @@ To bind the new service to your instance of Node-RED select the connections tab 
 
 and create the connection to your Node-RED instance.
 
-![ScreenShot](images/nlu_create_connections.png)
+![ScreenShot](images/nlu_create_connection.png)
 
+
+## Building the Flow
+
+### Required Nodes
+Add the following nodes from the palette to your flow canvas
+
+Two Inject nodes.
+
+![ScreenShot](images/nlu_inject_node.png)
+
+A function node.
+
+![ScreenShot](images/nlu_inject_node.png)
+
+A Natural Language Understanding node.
+
+![ScreenShot](images/nlu_nlu_node.png)
+
+A Debug node.
+
+![ScreenShot](images/nlu_debug_node.png) 
 
 ## Completed Flows
 The complete flow is available at ...
