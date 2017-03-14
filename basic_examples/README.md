@@ -23,6 +23,7 @@ In the list below, you can select different services and see how these can be im
 - [Language Translation](language_translation/README.md)
 - [Language Translator](language_translator/README.md)
 - [Natural Language Classifier](natural_language_classifier/README.md)
+- [Natural Language Understanding](natural_language_understanding/README.md)
 - [Personality insights](personality_insights/README.md)
 - [Relationship Extraction](relationship_extraction/README.md)
 - [Retrieve and Rank](retrieve_and_rank/README.md)
