@@ -30,9 +30,6 @@ Two Inject nodes.
 
 ![ScreenShot](images/nlu_inject_node.png)
 
-A function node.
-
-![ScreenShot](images/nlu_inject_node.png)
 
 A Natural Language Understanding node.
 
@@ -49,7 +46,32 @@ Wire the nodes together.
 ![ScreenShot](images/nlu_wiring.png)
 
 ### Node configuration
+The first inject node will be used to inject a url into the flow.
 
+![ScreenShot](images/nlu_url_inject.png)
+
+The second inject node will be used to inject text into the flow.
+
+![ScreenShot](images/nlu_text_inject.png)
+
+Configure the Natural Language Understanding node for the service
+features that you want to detect.
+
+![ScreenShot](images/nlu_nlu_config.png)
+
+
+Configure the debug node to show the complete msg object.
+
+![ScreenShot](images/nlu_debug_config.png)
+
+### Completed Configuration
+You flow should look like
+
+![ScreenShot](images/nlu_config_wiring.png)
+
+
+## Trying your flow
+The Natural L
 
 ## Completed Flows
-The complete flow is available at ...
+The complete flow is available at [flows](nlu_flow.json) 

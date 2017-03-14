@@ -1,0 +1,86 @@
+[
+  {
+    "id": "dfae1ed.fd525e",
+    "type": "inject",
+    "z": "4bfa03f1.d1c1ec",
+    "name": "URL",
+    "topic": "",
+    "payload": "http://www.ibm.com/us-en/",
+    "payloadType": "str",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 91,
+    "y": 383,
+    "wires": [
+      [
+        "457a4a71.898214"
+      ]
+    ]
+  },
+  {
+    "id": "f1af34f0.1b57f8",
+    "type": "inject",
+    "z": "4bfa03f1.d1c1ec",
+    "name": "Text",
+    "topic": "",
+    "payload": "This is the sample text on which I want some understanding.",
+    "payloadType": "str",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "x": 96,
+    "y": 428,
+    "wires": [
+      [
+        "457a4a71.898214"
+      ]
+    ]
+  },
+  {
+    "id": "457a4a71.898214",
+    "type": "natural-language-understanding",
+    "z": "4bfa03f1.d1c1ec",
+    "name": "",
+    "categories": true,
+    "concepts": true,
+    "maxconcepts": "5",
+    "doc-emotion": true,
+    "doc-emotion-target": "apples, pears",
+    "doc-sentiment": true,
+    "doc-sentiment-target": "sharks, dolphins, whales",
+    "entity": true,
+    "entity-emotion": false,
+    "entity-sentiment": false,
+    "maxentities": "50",
+    "keyword": true,
+    "keyword-emotion": true,
+    "keyword-sentiment": true,
+    "maxkeywords": "10",
+    "metadata": false,
+    "relation": false,
+    "semantic": true,
+    "semantic-entities": true,
+    "semantic-keywords": false,
+    "maxsemantics": "20",
+    "x": 347,
+    "y": 396,
+    "wires": [
+      [
+        "74a18e3e.f0e37"
+      ]
+    ]
+  },
+  {
+    "id": "74a18e3e.f0e37",
+    "type": "debug",
+    "z": "4bfa03f1.d1c1ec",
+    "name": "",
+    "active": true,
+    "console": "false",
+    "complete": "true",
+    "x": 566,
+    "y": 393,
+    "wires": []
+  }
+]
