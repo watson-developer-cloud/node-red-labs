@@ -71,7 +71,15 @@ You flow should look like
 
 
 ## Trying your flow
-The Natural L
+The output from the URL inject should look like
+
+
+![ScreenShot](images/nlu_url_response.png)
+
+and the output from the Text inject should look like
+
+![ScreenShot](images/nlu_text_response.png)
+
 
 ## Completed Flows
-The complete flow is available at [flows](nlu_flow.json) 
+The complete flow is available at [flows](nlu_flow.json)
