@@ -40,7 +40,16 @@ A Natural Language Understanding node.
 
 A Debug node.
 
-![ScreenShot](images/nlu_debug_node.png) 
+![ScreenShot](images/nlu_debug_node.png)
+
+
+### Flow Wiring
+Wire the nodes together.
+
+![ScreenShot](images/nlu_wiring.png)
+
+### Node configuration
+
 
 ## Completed Flows
 The complete flow is available at ...
