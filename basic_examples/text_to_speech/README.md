@@ -103,3 +103,9 @@ When a text_to_say query parameter is set, we generate an HTML page with a \<aud
 The complete flow is available at [TTS-Lab-WebPage](tts_lab_webpage.json).
 
 To run it, point your browser to  `/http://xxxx.mybluemix.net/talk` and enter some text.
+
+## Text to Speech Documentation
+
+To have more information on the Watson Language Translator underlying service, you can check these two reference :
+- [Text to Speech Documentation](https://www.ibm.com/watson/developercloud/doc/text-to-speech/)
+- [Text to Speech API Documentation](https://www.ibm.com/watson/developercloud/text-to-speech/api/v1/)
