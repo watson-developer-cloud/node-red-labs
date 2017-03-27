@@ -82,7 +82,7 @@ Next, add a Dropbox node, put your credentials and the name of your file (or pat
 
 Dropbox setup documentation : [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
-Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/language-translation/customizing.shtml).
+Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/watson/developercloud/doc/language-translator/customizing.html).
 
 Download the TMX file  [here](https://raw.githubusercontent.com/watson-developer-cloud/node-red-labs/master/utilities/box_setup/glossary.tmx).
 
