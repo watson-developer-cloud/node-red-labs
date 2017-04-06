@@ -1,10 +1,10 @@
 [{
 		"id" : "99cd6f6a.147ae",
-		"type" : "watson-visual-recognition",
+		"type" : "visual-recognition-v3",
 		"name" : "",
 		"x" : 542,
 		"y" : 307,
-		"wires" : [["25699d65.bcf17a", "c04bcd07.e27f5"]]
+		"wires" : [["25699d65.bcf17a", "db7e6d2f.db138"]]
 	}, {
 		"id" : "52bedda6.5f6fdc",
 		"type" : "http in",
@@ -54,7 +54,7 @@
 		"name" : "Report",
 		"field" : "payload",
 		"format" : "html",
-		"template" : "<html>\n<head><title>Watson Visual Recognition on Node-RED</title></head>\n<body>\n<h1>Node-RED Watson Visual Recognition output</h1>\n<p>Analyzed image: {{payload}}<br/><img src=\"{{payload}}\" height='100'/></p>\n<table border='1'>\n    <thead><tr><th>Name</th><th>Score</th></tr></thead>\n{{#labels}}\n  <tr><td><b>{{label_name}}</b></td><td><i>{{label_score}}</i></td></tr>\n{{/labels}}\n</table>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"submit\" value=\"Try again\"/>\n</form>\n</body>\n</html>",
+		"template" : "<html>\n<head><title>Watson Visual Recognition on Node-RED</title></head>\n<body>\n<h1>Node-RED Watson Visual Recognition output</h1>\n<p>Analyzed image: {{payload}}<br/><img src=\"{{payload}}\" height='100'/></p>\n<table border='1'>\n    <thead><tr><th>Name</th><th>Score</th></tr></thead>\n{{#result.images.0.classifiers.0.classes}}\n  <tr><td><b>{{class}}</b></td><td><i>{{score}}</i></td></tr>\n{{/result.images.0.classifiers.0.classes}}\n</table>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"submit\" value=\"Try again\"/>\n</form>\n</body>\n</html>",
 		"x" : 673,
 		"y" : 224,
 		"wires" : [["531aa621.2fd37"]]
@@ -85,13 +85,24 @@
 		"y" : 342,
 		"wires" : []
 	}, {
+		"id": "db7e6d2f.db138",
+		"type": "function",
+		"z": "3c316fb3.391bb",
+		"name": "get labels",
+		"func": "var labels = msg.result.images[0].classifiers[0].classes;\nmsg.payload = labels.map(function(i){\n   return i.class;\n});\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"x": 740,
+		"y": 300,
+		"wires": [["c04bcd07.e27f5"]]
+    	}, {
 		"id" : "c04bcd07.e27f5",
 		"type" : "debug",
 		"name" : "",
 		"active" : true,
 		"console" : "false",
-		"complete" : "labels",
-		"x" : 834,
+		"complete" : "payload",
+		"x" : 900,
 		"y" : 274,
 		"wires" : []
 	}
