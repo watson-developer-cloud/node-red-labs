@@ -9,7 +9,7 @@ Input email and other written media into the Tone Analyzer service, and use the 
 
 ## On Bluemix
 
-If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Watson Tone Analyser service. Then you click on 'Create' a screen will show which asks for a restage, click on 'Restage' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+If you are using Node-RED on Bluemix, in the Bluemix Dashboard select your Node-RED app and click on 'Connect new'. This will open a new window where you can select the Watson Tone Analyser service. Then you click on 'Create' a screen will show which asks for a restage, click on 'Restage' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
 
 ## How to use the Tone Analyser node ?
 
@@ -71,8 +71,8 @@ Availables options for Sentences
 ## Tone Analyser Documentation
 
 To have more information on the Watson Tone Analyser underlying service, you can check these two reference :
-- [Tone Analyser Documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/tone-analyzer/)
-- [Tone Analyser API Documentation](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tone-analyzer/api/v3/)
+- [Tone Analyser Documentation](https://www.ibm.com/watson/developercloud/doc/tone-analyzer/index.html)
+- [Tone Analyser API Documentation](https://www.ibm.com/watson/developercloud/tone-analyzer/api/v3/)
 
 
 <n>Notice</b> : as this flow suggest it, you can also use Dropbox  : How to setup your Node-RED with [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup)

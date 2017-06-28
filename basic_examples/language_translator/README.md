@@ -6,7 +6,7 @@ To use the Language Translator service in Node-RED you first need to make this s
 
 **Note**: If you want to do the training part of this lab, then make sure than you select the **Trainable plan** when creating the service. 
 
-If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Language Translator service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+If you are using Node-RED on Bluemix, in the Bluemix Dashboard select your Node-RED app and click on 'Connect new'. This will open a new window where you can select the Language Translator service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
 
 If one of either ways are done, you can continue with the following.
 
@@ -20,13 +20,13 @@ The inject node:
 
 ![`LTInject`](images/lt_inject.png)
 
-You can use any text for this. I put Node-RED in double quotes, otherwise it would be translated as well.
+You can use any text for this. Tips : use double quotes for terms you do not want to be translated by Watson.
 
 The language translator node wil be configured like this. The text in this case is English so select English. Based on your source choose the right domain: News, Conversational or Patent.
 
 ![`LTConfig`](images/lt_config.png)
 
-As the translated text will be returned on message.payload, make sure that you select this in de debug node. The output from the debug node will then be:
+As the translated text will be returned on message.payload, make sure that you select this in the Debug node. The output from the debug node will then be:
 
 ![`LTOutput`](images/lt_debug.png)
 
@@ -72,6 +72,8 @@ For this part, we'll see how to send your own glossary using Dropbox.
 
 ### Training
 
+![`LTTrain`](images/lt_train.png)
+
 Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
 
 Next, add a Dropbox node, put your credentials and the name of your file (or path to your file if it's in a subfolder), your node configuration should look like this:
@@ -80,7 +82,7 @@ Next, add a Dropbox node, put your credentials and the name of your file (or pat
 
 Dropbox setup documentation : [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
-Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/language-translation/customizing.shtml).
+Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/watson/developercloud/doc/language-translator/customizing.html).
 
 Download the TMX file  [here](https://raw.githubusercontent.com/watson-developer-cloud/node-red-labs/master/utilities/box_setup/glossary.tmx).
 
@@ -130,9 +132,17 @@ After, put a Language Translation node, set its action to "Get status" and provi
 
 Finally, drag and drop a debug node and let it set to msg.payload. This will only return an error if the model couldn't be deleted (modelid not found).
 
- [Language Translation Get Status flow](lang_delete_flow.json)
+ [Language Translation Delete flow](lang_delete_flow.json)
 
 ### Available Flows
 
 - [Language Translator and Identify Complete flow](lang_complete_flow.json) : illustrates the 3 nodes : language translator, language identify, and language translator util.
 
+## Language Translator Documentation
+
+To have more information on the Watson Language Translator underlying service, you can check these two reference :
+- [Language Translator Documentation](https://www.ibm.com/watson/developercloud/doc/language-translator/index.html)
+- [Language Translator API Documentation](https://www.ibm.com/watson/developercloud/language-translator/api/v2)
+
+
+<n>Notice</b> : as this flow suggest it, you can also use Dropbox  : How to setup your Node-RED with [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup)
