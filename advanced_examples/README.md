@@ -14,3 +14,4 @@ please [click here, read and understand the process](/introduction_to_node_red/R
 - [Train the Visual Recognition service with your own images](visual_recognition_training/README.md)
 - [Speech to Text Timestamps](speech_to_text_timestamps/README.md)
 - [Classsify webcasts (in progress, not completed yet)](webcast_classifier/README.md)
+- [Sending a file to Watson Recongition for classification from a webpage](visual_recognitin_file_send/README.md)
