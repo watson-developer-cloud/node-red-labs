@@ -1,5 +1,5 @@
 # OK Watson
-[Video Introduction](https://www.youtube.com/watch?v=4L3CjH_f58I)
+[Video Introduction](https://youtu.be/JiQYB19WUz0)
 
 ## Overview
 
