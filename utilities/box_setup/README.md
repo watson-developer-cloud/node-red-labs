@@ -22,7 +22,7 @@ Enter an App name of your choice and click Create Application
 
 Click on Configure your Application
 
-**IMPORTANT** : go to your Bluemix App and your Node-RED flow Editor
+**IMPORTANT** : go to your IBM Cloud App and your Node-RED flow Editor
 
 ![NodeRedStarter](images/box_developer_bmix_http.png)
 

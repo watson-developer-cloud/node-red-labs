@@ -1,6 +1,6 @@
 # Sending a file to Watson Recongition for classification
 
-Note: This lab assumes you have prior knowledge of the Visual Recognition Service and/or have completed the [Visual Recognition lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/visual_recognition). You will need a Bluemix account with a Node-RED application connected to the Visual Recognition service to complete this lab.
+Note: This lab assumes you have prior knowledge of the Visual Recognition Service and/or have completed the [Visual Recognition lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/visual_recognition). You will need an IBM Cloud account with a Node-RED application connected to the Visual Recognition service to complete this lab.
 
 ## Overview
 This flow will allow you to create a webpage, select a picture from your file system and submit it into Node-RED. You will receive the image classifications both on the webpage and in the Node-RED debug tab. The lab makes use of an HTTP Multipart node and a file buffer node.

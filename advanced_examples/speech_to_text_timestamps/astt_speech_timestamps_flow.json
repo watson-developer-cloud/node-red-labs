@@ -115,7 +115,7 @@
 	{	"id":"52c0efc2.371ed",
 		"type":"comment",
 		"name":"!!Remember to add Speech to Text service credentials!!",
-		"info":"Specify basic credentials for the http response node that interacts with the speech to\ntext service. Get these credentials from Bluemix.\n",
+		"info":"Specify basic credentials for the http response node that interacts with the speech to\ntext service. Get these credentials from IBM Cloud.\n",
 		"x":400,"y":352,"z":"246e966b.09b7c2",
 		"wires":[]
 	}

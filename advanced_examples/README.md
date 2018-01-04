@@ -2,7 +2,7 @@
 
 In this part of the project you can find the advanced labs. In these labs different services are combined to build apps to show the possibilities of Watson in Node-RED.
 
-NOTE: All the labs listed below assume that you have first created an Application from the Bluemix Node-RED Starter Boilerplate - see [here](/introduction_to_node_red/README.md) how to do that.
+NOTE: All the labs listed below assume that you have first created an Application from the IBM Cloud Node-RED Starter Boilerplate - see [here](/introduction_to_node_red/README.md) how to do that.
 
 Before trying these labs you should already be comfortable with Node-RED flows and how to import flows. if not then
 please [click here, read and understand the process](/introduction_to_node_red/README.md) on how to import flows.
