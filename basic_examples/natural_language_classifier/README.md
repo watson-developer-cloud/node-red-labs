@@ -1,17 +1,17 @@
 #Natural Language Classifier
 
-**Note:** For this exercise, make sure that your Bluemix region is set to **_US South_**
+**Note:** For this exercise, make sure that your IBM Cloud region is set to **_US South_**
 
 The Natural Language Classifier is a service that needs to be trained. Take a look at the documentation and demo for the service to learn about it:
 
-- [Overview](http://www.ibm.com/watson/developercloud/doc/natural-language-classifier/index.html) of the Natural Language Classifier service.
-- [Demo](http://natural-language-classifier-demo.mybluemix.net) of the service.
+- [Overview](https://console.bluemix.net/docs/services/natural-language-classifier/natural-language-classifier-overview.html) of the Natural Language Classifier service.
+- [Demo](https://natural-language-classifier-demo.ng.bluemix.net/) of the service.
 - [API reference](http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/?node#introduction), which includes helpful information about curl and the SDKs.
 
-##Creating and populating the service on Bluemix
-Create an unbound instance of the service in Bluemix.
+##Creating and populating the service on IBM Cloud
+Create an unbound instance of the service in IBM Cloud.
 
-Select **Natural Language Classifier** in the Bluemix catalog.
+Select **Natural Language Classifier** in the IBM Cloud catalog.
 
 Click **Create** to instantiate your instance of the service:
 
@@ -20,13 +20,13 @@ Click **Create** to instantiate your instance of the service:
 On the service dashboard, click **Access the beta toolkit**.
 ![ScreenShot](images/nlc_access_toolkit.png)
 
-Log in to Bluemix to load your instance of the Natural Language Classifier.
+Log in to IBM Cloud to load your instance of the Natural Language Classifier.
 ![ScreenShot](images/nlc_toolkit_signon.png)
 
 Confirm that you allow the toolkit to access your instance:
 ![ScreenShot](images/nlc_toolkit_authorize.png)
 
-Click **Training**, and then follow the steps as documented in the [documentation](http://www.ibm.com/watson/developercloud/doc/natural-language-classifier/tool-overview.html).
+Click **Training**, and then follow the steps as documented in the [documentation](https://console.bluemix.net/docs/services/natural-language-classifier/tool-overview.html).
 
 Train the Natural Language Classifier service with the sample CSV file:
 
@@ -36,13 +36,13 @@ You need a Classifier ID, which you can find by clicking **Classifiers**:
 
 ![ScreenShot](images/nlc_classifier_id.png)
 
-##Connecting to an existing service on Bluemix
+##Connecting to an existing service on IBM Cloud
 
 **Tip:** You can download the [flows](nlc_flows.json) for this part of the lab.
 
-In this lab, we assume (for now) that you created an instance of the Natural Language Classifier service in Bluemix. 
+In this lab, we assume (for now) that you created an instance of the Natural Language Classifier service in IBM Cloud. 
 
-We also assume that you created a Node-RED application by using the Node-RED Starter Community boilerplate in Bluemix.
+We also assume that you created a Node-RED application by using the Node-RED Starter Community boilerplate in IBM Cloud.
 
 These are your next steps:
 
@@ -71,7 +71,7 @@ The classifier ID is hardcoded in this example request (msg.url="https://gateway
 
 ![ScreenShot](images/nlc_get_status_function.png)
 
-Back in Bluemix, open your application and navigate to the Natural Language Classifier service.
+Back in IBM Cloud, open your application and navigate to the Natural Language Classifier service.
 
 Go to your service instance and click **Show Credentials**:
 

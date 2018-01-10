@@ -1,6 +1,6 @@
 # Speech to Text Customization
 
-Note: This lab assumes you have prior knowledge of the Speech to Text Service and/or have completed the [Speech to Text lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/speech_to_text). You will need a Bluemix account with a Node-RED application connected to the Speech to Text service to complete this lab.
+Note: This lab assumes you have prior knowledge of the Speech to Text Service and/or have completed the [Speech to Text lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/speech_to_text). You will need an IBM Cloud account with a Node-RED application connected to the Speech to Text service to complete this lab.
 
 ##Introduction
 The speech to text customization feature has been introduced so the service can learn specific input that is unique to your use case. It is then trained based on pronunciations of unusual words within the input which it otherwise would not know, for example medical terms.
@@ -16,14 +16,14 @@ The steps follow the usage model for working with Speech to text customization:
 4.	Train the custom language model
 5.	Use the custom language model in a recognition request
 
-For more information on the steps, view the documentation [here](https://www.ibm.com/watson/developercloud/doc/speech-to-text/custom.shtml).  
+For more information on the steps, view the documentation [here](https://console.bluemix.net/docs/services/speech-to-text/custom.html).
 
-## On Bluemix
+## On IBM Cloud
 Make sure you have installed the node-red-node-watson palette by clicking ‘Manage Palette’ under settings in the Node-RED editor. Click the ‘Install’ tab and search for node-red-node-watson then click install. Verify that the version is 0.4.37 or higher.
 
 ![`Manage_Palette`](Images/Manage_Palette.jpg)
 
-Ensure that in the package.json file for your Node-RED application the version for node-red-node-watson is set to at least 0.4.37. (Access this from the application overview page on Bluemix. Under 'Continous Delivery' in the bottom right hand corner, click 'Add Git Repo' if you haven't previously used the function or ‘Edit Code’. Navigate to the package.json file and update the line according to the image below. You will need to stop your application and restart it after saving the package.json file).
+Ensure that in the package.json file for your Node-RED application the version for node-red-node-watson is set to at least 0.4.37. (Access this from the application overview page on IBM Cloud. Under 'Continous Delivery' in the bottom right hand corner, click 'Add Git Repo' if you haven't previously used the function or ‘Edit Code’. Navigate to the package.json file and update the line according to the image below. You will need to stop your application and restart it after saving the package.json file).
 
 ![`Edit_Code`](Images/Intro_Edit_Code.jpg)
 

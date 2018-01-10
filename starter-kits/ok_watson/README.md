@@ -4,7 +4,7 @@
 ## Overview
 
 
-This starter kit flow demonstrates usage of the new version of the <a href="">Watson Conversation</a> node, which simplifies the persistence of the conversation context. (See <a href="https://www.ibm.com/watson/developercloud/doc/conversation/advanced_overview.shtml#advanced_context">here</a> for more detail on Conversation context).
+This starter kit flow demonstrates usage of the new version of the <a href="">Watson Conversation</a> node, which simplifies the persistence of the conversation context. (See <a href="https://console.bluemix.net/docs/services/conversation/dialog-overview.html">here</a> for more detail on Conversation context).
 The flow shows two examples of how conversation context can be set and manipulated to create more complex conversation behaviour.
 * <b>Pre-processing</b> the user input to enrich the user question with additional data, such as for example the emotion detected by the <a href="">Tone-Analyser</a> node, and then using that data to direct the conversation dialog path.
 *  <b>Post-processing</b> of the response provided by Conversations by using set context variables (in this case user preferences) and string processing, for example to allow certain Conversations paths to trigger the sending of a tweet in parallel with providing an answer as normal.
@@ -27,7 +27,7 @@ The flow also illustrates the use of the new <a href="">microphone</a> node in c
 
 4. Make a note of the workspace ID, which can be accessed under "View details" from the menu on the workspace tile: <br/> <center><img src=img/workspace.png width=250>&nbsp;<img src=img/workspaceid.png width=250></center>
 
-5. (*Optional*) To modify the conversation flow, refer to the documentation for the Watson Conversation GUI <a href="https://www.ibm.com/watson/developercloud/doc/conversation/index.shtml">here</a>.
+5. (*Optional*) To modify the conversation flow, refer to the documentation for the Watson Conversation GUI <a href="https://console.bluemix.net/docs/services/conversation/index.html#about">here</a>.
 
 <br/>
 ***Node-RED Flow Setup***

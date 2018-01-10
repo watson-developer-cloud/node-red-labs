@@ -76,7 +76,7 @@ Click the pencil button - you will be presented with the "Add new dropbox-config
 
 ![NodeRedStarter](images/dropbox_edit_appkeys.png)
 
-Fill in the App Key, App Secret and Token with the ones you saved earlier in this description - you will now be able to access your dropbox account from within Node-RED on Bluemix for any of the Labs.  Click Add.  NOTE : if you use a dropbox node in different Tabs of Node-RED then you only need to configure one of them and all dropbox nodes will share the configuration. 
+Fill in the App Key, App Secret and Token with the ones you saved earlier in this description - you will now be able to access your dropbox account from within Node-RED on IBM Cloud for any of the Labs.  Click Add.  NOTE : if you use a dropbox node in different Tabs of Node-RED then you only need to configure one of them and all dropbox nodes will share the configuration. 
 
 NOTE : if you delete a dropbox node from one Tab of Node-RED then you will lose the config for all dropbox nodes !!
 

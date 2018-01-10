@@ -1,14 +1,14 @@
 # Installing Watson Developer Cloud Contribution Nodes 
 
-## Node-RED Bluemix Boilerplate
+## Node-RED IBM Cloud Boilerplate
 The Watson nodes in the node-red-node-watson project in the watson-developer-cloud repo are the Watson nodes that are
-included with the Node-RED boilerplate on Bluemix.  
+included with the Node-RED boilerplate on IBM Cloud.  
 
 ## Overview
-There will be times when we are working on updates to this project when there will be updates that we haven't yet published to npm. If you wish to try out these updates before we publish, then you will need to modify Node-RED dependencies. These instructions show how to install these pre-release changes into your Node-RED instance on Bluemix. Alternatively you can deploy from the [node red bluemix starter repository](https://github.com/watson-developer-cloud/node-red-bluemix-starter), which brings in these nodes, along with box and dropbox nodes that the sample flows make use of to feed data into the Watson nodes. 
+There will be times when we are working on updates to this project when there will be updates that we haven't yet published to npm. If you wish to try out these updates before we publish, then you will need to modify Node-RED dependencies. These instructions show how to install these pre-release changes into your Node-RED instance on IBM Cloud. Alternatively you can deploy from the [node red bluemix starter repository](https://github.com/watson-developer-cloud/node-red-bluemix-starter), which brings in these nodes, along with box and dropbox nodes that the sample flows make use of to feed data into the Watson nodes. 
 
 ## Modify Node-RED Dependencies.
-On the Bluemix console, select your Node-RED application. At the top right you will see an "ADD GIT" button.
+On the IBM Cloud console, select your Node-RED application. At the top right you will see an "ADD GIT" button.
 
 ![Add GIT Option](images/contribution-add-git.png)
 

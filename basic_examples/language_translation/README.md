@@ -6,13 +6,13 @@ The Language Translation service enables you to translate text from one language
 - The Conversational domain - targeted at conversational colloquialisms, it translates English to and from French, Spanish, Portuguese or Arabic.
 - The Patent domain - targeted at technical and legal terminology, it translates Spanish, Portuguese, Chinese, or Korean to English.
 
-To use the Language Translation service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in Bluemix or use a local Node-RED instance. Both ways are described here.
+To use the Language Translation service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in IBM Cloud or use a local Node-RED instance. Both ways are described here.
 
 **Note**: If you want to do the training part of this lab, then make sure than you select the Trainable plan when creating the service. 
 
-If you are using Node-RED on Bluemix, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Language Translation service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+If you are using Node-RED on IBM Cloud, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Language Translation service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
 
-If you use a local instance of Node-RED go to the Bluemix catalog and go to the Language Translation service and click on it. Make sure that there is no app bound to this service and click 'Use"
+If you use a local instance of Node-RED go to the IBM Cloud catalog and go to the Language Translation service and click on it. Make sure that there is no app bound to this service and click 'Use"
 
 If one of either ways are done, you can continue with the following.
 
@@ -56,7 +56,7 @@ Next, add a Dropbox node, put your credentials and the name of your file (or pat
 
 ![`LTConfigDropbox`](images/lt_train_dropbox.png)
 
-Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/language-translation/customizing.shtml).
+Note: You can get a sample TMX file from the documentation [here](https://console.bluemix.net/docs/services/language-translator/customizing.html).
 
 The next node is the Language Translation node that will get the file from the Dropbox node and send it to the service.
 This node should be configured like this:

@@ -5,16 +5,16 @@ The IBM Watson™ Retrieve and Rank service combines two information retrieval c
 
 ## Installation of the Retrieve and Rank Nodes
 Follow the instructions at [watson contribution nodes](/watson_contribution_nodes/README.md) 
-to install the retrieve and rank nodes into your Bluemix instance of Node-RED. 
+to install the retrieve and rank nodes into your IBM Cloud instance of Node-RED. 
 
 ## Lab 1: Retrieve and Rank using the Cranfield data collection
-To complete this tutorial, you use the publicly available test data that is called the [Cranfield collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cran/). The collection contains abstracts of aerodynamics journal articles, a set of questions about aerodynamics, and indicators of how relevant an article is to a question. To use your own data, please refer to the [documentation](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/retrieve-rank/data_format.shtml).
+To complete this tutorial, you use the publicly available test data that is called the [Cranfield collection](http://ir.dcs.gla.ac.uk/resources/test_collections/cran/). The collection contains abstracts of aerodynamics journal articles, a set of questions about aerodynamics, and indicators of how relevant an article is to a question. To use your own data, please refer to the [documentation](https://console.bluemix.net/docs/services/retrieve-and-rank/overview.html).
 
 This lab will use a given flow contained in this directory. Copy the contents of `lab.json` to the clipboard. In the Node-RED flow editor, import the flow as follows:
 
 ![Import Flow](images/importflow.png)
 
-and paste in the contents of `lab.json`. Once imported, click "Deploy" in the top right corner. This flow sets up all the configuration nodes and searching facilities that are present in the [Cranfield sample tutorial](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/retrieve-rank/get_start.shtml).
+and paste in the contents of `lab.json`. Once imported, click "Deploy" in the top right corner. This flow sets up all the configuration nodes and searching facilities that are present in the [Cranfield sample tutorial](https://console.bluemix.net/docs/services/retrieve-and-rank/getting-started.html).
 
 Before you proceed, make sure you have the Dropbox node on your palette and have configured it correctly. [These instructions](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup) explain this step in more detail.
 
