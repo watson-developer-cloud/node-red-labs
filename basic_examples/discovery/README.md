@@ -5,7 +5,7 @@ The discovery service makes it possible to prepare and search your unstructured 
 
 ## Getting Started
 Before you can use the service through the node on node-RED you will need to create your discovery environment. Follow the
-[Getting Started Guide](https://www.ibm.com/watson/developercloud/doc/discovery/getting-started-tool.shtml) to guide you through the process of
+[Getting Started Guide](https://console.bluemix.net/docs/services/discovery/getting-started-tool.html) to guide you through the process of
 launching the discovery service tooling, creating a collection, and adding content.
 
 ## Discovery Flow construction

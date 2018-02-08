@@ -1,6 +1,6 @@
 # Text to Speech Customization
 
-Note: This lab assumes you have prior knowledge of the Text to Speech Service and/or have completed the [Text to Speech lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/text_to_speech). You will need a Bluemix account with a Node-RED app connected to the Text to Speech service to complete this lab.
+Note: This lab assumes you have prior knowledge of the Text to Speech Service and/or have completed the [Text to Speech lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/text_to_speech). You will need an IBM Cloud account with a Node-RED app connected to the Text to Speech service to complete this lab.
 
 ##Introduction
 The text to speech customization feature has been introduced so that the service can learn specific words and phrases unique to your use case which it otherwise would not know, for example abbreviations, acronyms and local dialect.
@@ -9,12 +9,12 @@ The language model customization interface of the text to speech service is curr
 
 This lab demonstrates how to create a sample customization. You will create a customization and add words to convert your text to speech. The customization will demonstrate differences in pronunciation of words between the American accent and the British accent.
 
-## On Bluemix
+## On IBM Cloud
 Make sure you have installed the node-red-node-watson palette by clicking ‘Manage Palette’ under settings in the Node-RED editor. Click the ‘Install’ tab and search for node-red-node-watson then click install. Verify that the version is 0.4.38 or higher.
 
 ![`Manage_Palette`](Images/Manage_Palette.jpg)
 
-Ensure that in the package.json file for your Node-RED application the version for node-red-node-watson is set to at least 0.4.37. (Access this from the application overview page on Bluemix. Under 'Continous Delivery' in the bottom right hand corner, click 'Add Git Repo' if you haven't previously used the function or ‘Edit Code’. Navigate to the package.json file and update the line according to the image below. You will need to stop your application and restart it after saving the package.json file).
+Ensure that in the package.json file for your Node-RED application the version for node-red-node-watson is set to at least 0.4.37. (Access this from the application overview page on IBM Cloud. Under 'Continous Delivery' in the bottom right hand corner, click 'Add Git Repo' if you haven't previously used the function or ‘Edit Code’. Navigate to the package.json file and update the line according to the image below. You will need to stop your application and restart it after saving the package.json file).
 
 ![`Intro_Edit_Code`](Images/Intro_Edit_Code.jpg)
 
@@ -28,7 +28,7 @@ You do not need to configure the inject nodes. For the first text to speech node
 
 ![`Step_1_Create_Customization`](Images/Create_Customization.jpg)
 
-This will create the customization ‘Bluemix TTS’ using US English as the language. You can choose your own model names and descriptions.
+This will create the customization ‘IBM Cloud TTS’ using US English as the language. You can choose your own model names and descriptions.
 
 Configure the second text to speech node like this:
 

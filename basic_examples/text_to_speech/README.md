@@ -3,7 +3,7 @@
 The Watson Text-To-Speech (TTS) service produces an audio file from literal text.
 The spoken text can be emitted with a choice of voices and languages.
 
-> **Ensure you have added TTS service to your NodeRed App in Bluemix**
+> **Ensure you have added TTS service to your NodeRed App in IBM Cloud**
 
 
 ### Node-RED Watson TTS node
@@ -107,5 +107,5 @@ To run it, point your browser to  `/http://xxxx.mybluemix.net/talk` and enter so
 ## Text to Speech Documentation
 
 To have more information on the Watson Language Translator underlying service, you can check these two reference :
-- [Text to Speech Documentation](https://www.ibm.com/watson/developercloud/doc/text-to-speech/)
+- [Text to Speech Documentation](https://console.bluemix.net/docs/services/text-to-speech/index.html)
 - [Text to Speech API Documentation](https://www.ibm.com/watson/developercloud/text-to-speech/api/v1/)

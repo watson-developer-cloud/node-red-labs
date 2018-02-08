@@ -2,11 +2,11 @@
 
 The Language Translator service enables you to translate text from one language to another. See Watson Translator API for supported languages list, and for the default domains proposed.
 
-To use the Language Translator service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in Bluemix or use a local Node-RED instance. Both ways are described here.
+To use the Language Translator service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in IBM Cloud or use a local Node-RED instance. Both ways are described here.
 
 **Note**: If you want to do the training part of this lab, then make sure than you select the **Trainable plan** when creating the service. 
 
-If you are using Node-RED on Bluemix, in the Bluemix Dashboard select your Node-RED app and click on 'Connect new'. This will open a new window where you can select the Language Translator service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+If you are using Node-RED on IBM Cloud, in the IBM Cloud Dashboard select your Node-RED app and click on 'Connect new'. This will open a new window where you can select the Language Translator service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
 
 If one of either ways are done, you can continue with the following.
 
@@ -82,7 +82,7 @@ Next, add a Dropbox node, put your credentials and the name of your file (or pat
 
 Dropbox setup documentation : [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
-Note: You can get a sample TMX file from the documentation [here](https://www.ibm.com/watson/developercloud/doc/language-translator/customizing.html).
+Note: You can get a sample TMX file from the documentation [here](https://console.bluemix.net/docs/services/language-translator/customizing.html).
 
 Download the TMX file  [here](https://raw.githubusercontent.com/watson-developer-cloud/node-red-labs/master/utilities/box_setup/glossary.tmx).
 
@@ -141,7 +141,7 @@ Finally, drag and drop a debug node and let it set to msg.payload. This will onl
 ## Language Translator Documentation
 
 To have more information on the Watson Language Translator underlying service, you can check these two reference :
-- [Language Translator Documentation](https://www.ibm.com/watson/developercloud/doc/language-translator/index.html)
+- [Language Translator Documentation](https://console.bluemix.net/docs/services/language-translator/index.html)
 - [Language Translator API Documentation](https://www.ibm.com/watson/developercloud/language-translator/api/v2)
 
 

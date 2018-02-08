@@ -3,7 +3,7 @@
 
 The Document Conversion Service converts a single HTML, PDF, or Word document. The input document is transformed into normalized HTML, plain text, or a set of JSON-formatted Answer units that can be used with other Watson services, like the Watson Retrieve and Rank Service.
 
-The input message to the Document Conversion node must provide the file to be converted either as a binary stream or the URL to file contents. it is, also, possible to specify information on the formats in the document. For more information on the different options please see the [Document Conversion documentation] (https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/document-conversion/customizing.shtml).
+The input message to the Document Conversion node must provide the file to be converted either as a binary stream or the URL to file contents. it is, also, possible to specify information on the formats in the document. For more information on the different options please see the [Document Conversion documentation] (https://console.bluemix.net/docs/services/document-conversion/customizing.html).
 
 Add to your template 4 nodes:  
 1. Inject   

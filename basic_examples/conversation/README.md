@@ -6,7 +6,7 @@ dialog tools which allow for a natural conversation flow between your applicatio
 
 ## Getting Started
 Before you can use the service through the node on node-RED you will need to create your conversation. Follow the
-[Tutorial](http://www.ibm.com/watson/developercloud/doc/conversation/tutorial_basic.shtml) to guide you through the process of
+[Getting started tutorial](https://console.bluemix.net/docs/services/conversation/getting-started.html) to guide you through the process of
 launching the conversation service tooling, creating a workspace, registering intents and entities and creating a dialog.
 The tooling is the only way in which dialogs, intents and entities can be registered with the service.
 
@@ -15,8 +15,8 @@ In this exercise, we will show how create a Conversation Bot Flow. It will consi
 consist of the HTML template, with javascripts, that will be the front end of your Bot. The second will be an REST API that will
 encaspulate the Conversation service.
 
-### Connecting to an existing Conversation service on Bluemix
-To use the conversation node you will have already created an instance of the Service in Bluemix and used the service tooling to
+### Connecting to an existing Conversation service on IBM Cloud
+To use the conversation node you will have already created an instance of the Service in IBM Cloud and used the service tooling to
 register intents, entities and dialogs.
 You will need the workspace id. Obtain this from the service tooling. Select details for your workspace,
 ![Conversation-Workspace-Tile](images/conversation_lab_workspace_tile.png)

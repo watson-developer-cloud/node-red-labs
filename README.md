@@ -9,9 +9,9 @@ The information on [this page](/introduction_to_node_red/README.md) will get you
 - build your first 'Hello World' flow
 - additional information on the non-Watson Nodes you use in the labs
 
-Some nodes in Node-RED make use of the same service in Bluemix, like:
-- The Language Identification and Language Translation nodes make use of the Language Translation service in Bluemix.  
-- The Feature extract and image analysis nodes make use of the Alchemy API service in Bluemix
+Some nodes in Node-RED make use of the same service in IBM Cloud, like:
+- The Language Identification and Language Translation nodes make use of the Language Translation service in IBM Cloud.  
+- The Feature extract and image analysis nodes make use of the Alchemy API service in IBM Cloud
 
 You can find different labs in this project:
 

@@ -1,9 +1,9 @@
 # Using Watson Services
 
 To use any Watson service inside Node-RED you will need to instantiate an instance of the service from 
-Bluemix. The services can then either be bound or unbound to your Node-RED
+IBM Cloud. The services can then either be bound or unbound to your Node-RED
 application. If they are bound then when you add the service node to your flow you will not see options to enter
-credentials as they are obtained by Node-RED from Bluemix.
+credentials as they are obtained by Node-RED from IBM Cloud.
 
 ![`BoundAlchemyService`](images/uws_bound_alchemy_service.png)
 
@@ -12,9 +12,9 @@ service credentials.
 
 ![`UnboundPIService`](images/uws_unbound_pi_service.png)
 
-You obtain these service credentials from Bluemix. Select the unbound service in your Bluemix dashboard
+You obtain these service credentials from IBM Cloud. Select the unbound service in your IBM Cloud dashboard
 
-![`UnboundBluemixService`](images/uws_unbound_bluemix_service.png)
+![`UnboundIBM CloudService`](images/uws_unbound_bluemix_service.png)
 
 to see the service credentials
 

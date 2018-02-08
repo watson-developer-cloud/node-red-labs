@@ -12,8 +12,7 @@ The bot is trained to recognize intents related to customer engagement, such as 
 The virtual agent chat interface, can be used to converse with the bot. You can use the provided chat widget, with or without customization.
 
 ## Getting Started
-Follow the getting started guide [Getting Started](
-https://www.ibm.com/watson/developercloud/doc/virtual-agent/wva_getstart.shtml) to register for the virtual agent and to configure the intents and responses according to your requirements.
+Follow the getting started guide [Getting Started](https://console.bluemix.net/docs/services/virtual-agent/getting-started.html) to register for the virtual agent and to configure the intents and responses according to your requirements.
 
 ## Node-RED Flow
 This node-RED flow will show you how to integrate the Virtual Agent chat interface, and communications into your node-RED application.
@@ -37,7 +36,7 @@ Note: If you are going to use https for your agent page, then the homepage will 
 
   msg.wva = {};
   msg.wva.botid = 'your bot id';
-  msg.wva.homepage = 'https://www.ibm.com/watson/developercloud/';
+  msg.wva.homepage = 'https://www.ibm.com/watson/developer/';
   return msg;
 
 ````

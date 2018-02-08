@@ -5,7 +5,7 @@ The IBM Watson™ Concept Insights service enables you to identify conceptual as
 
 ## Installation of the Concept Insights Nodes
 Follow the instructions at [watson contribution nodes](/watson_contribution_nodes/README.md) 
-to install the concept insights nodes into your Bluemix instance of Node-RED. 
+to install the concept insights nodes into your IBM Cloud instance of Node-RED. 
 
 ## Lab 1: Discover TED talks using topics, words or concepts
 This lab will use a given flow contained in this directory. Copy the contents of `concept-insights-ted-talks-lab-1.json` to the clipboard. In the Node-RED flow editor, import the flow as follows:
