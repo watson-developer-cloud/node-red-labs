@@ -48,6 +48,7 @@ The nodes required to build this flow are:
 ![Reco-Lab-Change_and_Reco-Node-Props](images/reco_lab_change_and_reco_node_props.png)
 
  - The ![Watson Visual Recognition](images/node_red_watson_visual_recognition.png) node. Make sure that the credentials are setup from IBM Cloud, i.e. that the service is bound to the application. This can be verified by checking that the properties for the Visual Recognition node are clear:
+
  ![Visual Recognition node properties](images/reco_lab_visual_recognition_service_credentials.png)
 
  - And a final  ![`template`](/introduction_to_node_red/images/node_red_template.png) node linked to the ![`HTTPResponse`](/introduction_to_node_red/images/node_red_httpresponse.png) output node. The template will format the output returned from the Visual Recognition node into an HTML table for easier reading:
