@@ -1,109 +1,140 @@
 [{
-		"id" : "99cd6f6a.147ae",
-		"type" : "visual-recognition-v3",
-		"name" : "",
-		"x" : 542,
-		"y" : 307,
-		"wires" : [["25699d65.bcf17a", "db7e6d2f.db138"]]
-	}, {
-		"id" : "52bedda6.5f6fdc",
-		"type" : "http in",
-		"name" : "",
-		"url" : "/reco",
-		"method" : "get",
-		"swaggerDoc" : "",
-		"x" : 160,
-		"y" : 125,
-		"wires" : [["b2105f77.d22cb"]]
-	}, {
-		"id" : "531aa621.2fd37",
-		"type" : "http response",
-		"name" : "HTTP Response",
-		"x" : 828,
-		"y" : 190,
-		"wires" : []
-	}, {
-		"id" : "b2105f77.d22cb",
-		"type" : "switch",
-		"name" : "Check image param",
-		"property" : "payload.imageurl",
-		"rules" : [{
-				"t" : "null"
-			}, {
-				"t" : "else"
-			}
-		],
-		"checkall" : "false",
-		"outputs" : 2,
-		"x" : 284,
-		"y" : 187,
-		"wires" : [["a07fb791.06f72"], ["8233012.715c88"]]
-	}, {
-		"id" : "a07fb791.06f72",
-		"type" : "template",
-		"name" : "Get Image URL",
-		"field" : "payload",
-		"format" : "html",
-		"template" : "<html>\n<head><title>Watson Visual Recognition on Node-RED</title></head>\n<body>\n<h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>\n<h2>Select an image URL</h2>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <img src=\"http://visual-recognition-demo.mybluemix.net/images/horses.jpg\" height='100'/>\n    <img src=\"http://visual-recognition-demo.mybluemix.net/images/73388.jpg\" height='100'/>\n    <img src=\"http://visual-recognition-demo.mybluemix.net/images/26537.jpg\" height='100'/>\n    <img src=\"http://visual-recognition-demo.mybluemix.net/images/4068.jpg\" height='100'/>\n    <br/>Copy above image location URL or enter any image URL:<br/>\n    <input type=\"text\" name=\"imageurl\"/>\n    <input type=\"submit\" value=\"Analyze\"/>\n</form>\n</body>\n</html>",
-		"x" : 578,
-		"y" : 156,
-		"wires" : [["531aa621.2fd37"]]
-	}, {
-		"id" : "25699d65.bcf17a",
-		"type" : "template",
-		"name" : "Report",
-		"field" : "payload",
-		"format" : "html",
-		"template" : "<html>\n<head><title>Watson Visual Recognition on Node-RED</title></head>\n<body>\n<h1>Node-RED Watson Visual Recognition output</h1>\n<p>Analyzed image: {{payload}}<br/><img src=\"{{payload}}\" height='100'/></p>\n<table border='1'>\n    <thead><tr><th>Name</th><th>Score</th></tr></thead>\n{{#result.images.0.classifiers.0.classes}}\n  <tr><td><b>{{class}}</b></td><td><i>{{score}}</i></td></tr>\n{{/result.images.0.classifiers.0.classes}}\n</table>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"submit\" value=\"Try again\"/>\n</form>\n</body>\n</html>",
-		"x" : 673,
-		"y" : 224,
-		"wires" : [["531aa621.2fd37"]]
-	}, {
-		"id" : "8233012.715c88",
-		"type" : "change",
-		"name" : "Extract img URL",
-		"rules" : [{
-				"t" : "set",
-				"p" : "payload",
-				"to" : "msg.payload.imageurl"
-			}
-		],
-		"action" : "",
-		"property" : "",
-		"from" : "",
-		"to" : "",
-		"reg" : false,
-		"x" : 370,
-		"y" : 245,
-		"wires" : [["99cd6f6a.147ae"]]
-	}, {
-		"id" : "79431c21.52306c",
-		"type" : "comment",
-		"name" : "!!Make sure you bind Visual Recognition Service to Node-RED App!!",
-		"info" : "When running in BlueMix, the credentials for the service will be filled-in from BMix credentials management.\nFor this to work, the Visual Recognition Service has to be bound to the Node-RED application.\n",
-		"x" : 549,
-		"y" : 342,
-		"wires" : []
-	}, {
-		"id": "db7e6d2f.db138",
-		"type": "function",
-		"z": "3c316fb3.391bb",
-		"name": "get labels",
-		"func": "var labels = msg.result.images[0].classifiers[0].classes;\nmsg.payload = labels.map(function(i){\n   return i.class;\n});\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"x": 740,
-		"y": 300,
-		"wires": [["c04bcd07.e27f5"]]
-    	}, {
-		"id" : "c04bcd07.e27f5",
-		"type" : "debug",
-		"name" : "",
-		"active" : true,
-		"console" : "false",
-		"complete" : "payload",
-		"x" : 900,
-		"y" : 274,
-		"wires" : []
-	}
-]
+  "id": "fc3ae686.66d858",
+  "type": "visual-recognition-v3",
+  "z": "8455ce2f.33f63",
+  "name": "",
+  "apikey": "",
+  "image-feature": "classifyImage",
+  "lang": "en",
+  "x": 490,
+  "y": 300,
+  "wires": [
+    ["cf54ba94.c6fd88", "30060444.e2e4cc"]
+  ]
+}, {
+  "id": "f5a32532.8f0a58",
+  "type": "http in",
+  "z": "8455ce2f.33f63",
+  "name": "",
+  "url": "/reco",
+  "method": "get",
+  "swaggerDoc": "",
+  "x": 108,
+  "y": 118,
+  "wires": [
+    ["685392e3.cf7a0c"]
+  ]
+}, {
+  "id": "2f813da2.398862",
+  "type": "http response",
+  "z": "8455ce2f.33f63",
+  "name": "HTTP Response",
+  "x": 776,
+  "y": 183,
+  "wires": []
+}, {
+  "id": "685392e3.cf7a0c",
+  "type": "switch",
+  "z": "8455ce2f.33f63",
+  "name": "Check image param",
+  "property": "payload.imageurl",
+  "propertyType": "msg",
+  "rules": [{
+    "t": "null"
+  }, {
+    "t": "else"
+  }],
+  "checkall": "false",
+  "outputs": 2,
+  "x": 232,
+  "y": 180,
+  "wires": [
+    ["847527da.4729d8"],
+    ["7c5f9c4e.85cf04"]
+  ]
+}, {
+  "id": "847527da.4729d8",
+  "type": "template",
+  "z": "8455ce2f.33f63",
+  "name": "Get Image URL",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "html",
+  "syntax": "mustache",
+  "template": "<html>\n<head><title>Watson Visual Recognition on Node-RED</title></head>\n<body>\n<h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>\n    <h2>Select an image URL</h2>\n    <form  action=\"{{req._parsedUrl.pathname}}\">\n        <img src=\"https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/1.jpg\" height='100'/>\n        <img src=\"https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/2.jpg\" height='100'/>\n        <img src=\"https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/3.jpg\" height='100'/>\n        <img src=\"https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/4.jpg\" height='100'/>\n        <br/>Copy above image location URL or enter any image URL:<br/>\n        <input type=\"text\" name=\"imageurl\"/>\n        <input type=\"submit\" value=\"Analyze\"/>\n    </form>\n</body>\n</html>",
+  "x": 526,
+  "y": 149,
+  "wires": [
+    ["2f813da2.398862"]
+  ]
+}, {
+  "id": "cf54ba94.c6fd88",
+  "type": "template",
+  "z": "8455ce2f.33f63",
+  "name": "Report",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "html",
+  "syntax": "mustache",
+  "template": "<html>\n<head><title>Watson Visual Recognition on Node-RED</title></head>\n<body>\n<h1>Node-RED Watson Visual Recognition output</h1>\n<p>Analyzed image: {{payload}}<br/><img src=\"{{payload}}\" height='100'/></p>\n<table border='1'>\n    <thead><tr><th>Name</th><th>Score</th></tr></thead>\n{{#result.images.0.classifiers.0.classes}}\n  <tr><td><b>{{class}}</b></td><td><i>{{score}}</i></td></tr>\n{{/result.images.0.classifiers.0.classes}}\n</table>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"submit\" value=\"Try again\"/>\n</form>\n</body>\n</html>",
+  "x": 621,
+  "y": 217,
+  "wires": [
+    ["2f813da2.398862"]
+  ]
+}, {
+  "id": "7c5f9c4e.85cf04",
+  "type": "change",
+  "z": "8455ce2f.33f63",
+  "name": "Extract img URL",
+  "rules": [{
+    "t": "set",
+    "p": "payload",
+    "pt": "msg",
+    "to": "payload.imageurl",
+    "tot": "msg"
+  }],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 318,
+  "y": 238,
+  "wires": [
+    ["fc3ae686.66d858"]
+  ]
+}, {
+  "id": "4b4f26c5.6728c8",
+  "type": "comment",
+  "z": "8455ce2f.33f63",
+  "name": "!!Make sure you bind Visual Recognition Service to Node-RED App!!",
+  "info": "When running in BlueMix, the credentials for the service will be filled-in from BMix credentials management.\nFor this to work, the Visual Recognition Service has to be bound to the Node-RED application.\n",
+  "x": 497,
+  "y": 335,
+  "wires": []
+}, {
+  "id": "30060444.e2e4cc",
+  "type": "function",
+  "z": "8455ce2f.33f63",
+  "name": "get labels",
+  "func": "var labels = msg.result.images[0].classifiers[0].classes;\nmsg.payload = labels.map(function(i){\n   return i.class;\n});\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 688,
+  "y": 293,
+  "wires": [
+    ["d41ba3e3.43d06"]
+  ]
+}, {
+  "id": "d41ba3e3.43d06",
+  "type": "debug",
+  "z": "8455ce2f.33f63",
+  "name": "",
+  "active": true,
+  "console": "false",
+  "complete": "payload",
+  "x": 848,
+  "y": 267,
+  "wires": []
+}]
