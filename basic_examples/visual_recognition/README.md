@@ -77,4 +77,9 @@ The Watson Visual Recognition API will return an array with the recognized featu
 ![Visual RecognitionScreenshot ](images/reco_lab_visual_recognition_screenshot.png)
 
 ### Flow source
-The complete flow is available at [Reco-Lab-WebPage](reco_lab_web_page.json).
+The complete flow is available [here](reco_lab_web_page.json).
+
+## Visual Recognition Documentation
+To find more information on the Watson Tone Analyzer underlying service, visit these webpages :
+- [Visual Recognition Documentation](https://console.bluemix.net/docs/services/visual-recognition/index.html#about)
+- [Visual Recognition API Documentation](https://www.ibm.com/watson/developercloud/visual-recognition/api/v3/)
