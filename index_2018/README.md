@@ -109,6 +109,7 @@ Connect the `Speech In` component into the `Conversation` component to allow you
 
 Add the `Visual Recognition` component to recognise you and start the conversation accordingly.
 
+This is now your `Working Conversation` part.
 
 ## HTML Components
 Upto now your application has been confined to the Node-RED flow editor. You will now build components that will make your application available as a web page.
@@ -123,8 +124,11 @@ Edit the template node to add in a button and javascript that will retrieve some
 
 Add a new HTTP In node, a function node and a new HTTP Out node. This will act as your REST API. Edit the function node to return some text.
 
+### HTML Translator
+Edit the template node to display an input text field. Modify the javascript to send the input to the REST API. Modify the REST API to accept the field. Add the `Translate` component to translate the entered text and send the translation back to the web page.
 
-
+### HTML Conversation
+Modify your REST API to send text to your `Working Conversation` part, and return the response back to your web page. Modify the template and javascript to show a history of the chat.
 
 
 
