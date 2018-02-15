@@ -56,6 +56,7 @@ You will need some additional nodes in this workshop. Use `Manage Palette` to in
 * node-red-contrib-browser-utils
 * node-red-contrib-play-audio
 * node-red-contrib-file-buffer
+* node-red-contrib-http-multipart
 
 
 ## Components
@@ -67,14 +68,22 @@ Take an inject node and wire it into a debug node. Configure the Inject node to 
 ### Translation
 Add a Watson Translation node in between the inject and debug node. Configure the Translation node to use neural translation and pick a language. Trigger the inject to see the translation.
 
-It is possible to dynamically configure the Watson Translation node, by setting msg.srclang and msg.destlang. Node-RED [function nodes](https://nodered.org/docs/writing-functions) allow you to add snippets of javascript into the flow. Add a function node upstream of the Translation node and set the source and destination language in the function node.
+It is possible to dynamically configure the Watson Translation node, by setting `msg.srclang` and `msg.destlang`. Node-RED [function nodes](https://nodered.org/docs/writing-functions) allow you to add snippets of javascript into the flow. Add a function node upstream of the Translation node and set the source and destination language in the function node.
 
 You can also use Node-RED [Context](https://nodered.org/docs/writing-functions#storing-data) to remember settings. Use a separate flow to set the translation language. Modify your translation flow to use the global context to determine source and destination languages for the translation. Try it out.
 
 The neural translation models all use English, but you can wire two translation nodes to go from for example 'Japanese' to 'French'. Wire two translation nodes to use English as a hop. Use the global context to determine how your translation initial source and final destination. You will need to add a function node between the two translation nodes.
 
-### Speech
+### Speech In
+Create a new tab. Drop a microphone node, delay node and play audio node onto the flow canvas. Wire the microphone to the delay to the play audio. Configure the delay node to delay for 5 seconds. Trigger the microphone node, and hear yourself speaking. This will gauge the quality of your microphone. If it is undecipherable then use a better quality microphone.
 
+Add a Watson Speech to Text node to your flow. Wire the microphone to the Speech to Text node to a debug node. Configure the Speech to Text node for your language. Trigger the microphone and check the transcription.
+
+The Speech to Text node can be dynamically configured by setting `msg.srclang`. Use a function node and the global context to switch the language setting for the Speech to Text node.
+
+Wire the `Speech In` component to the `Translation` component to get a translation.
+
+### Speech Out
 
 ## Parts
 
