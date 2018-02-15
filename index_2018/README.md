@@ -17,6 +17,8 @@ All the Watson APIs are available on Node-RED. In this session we will show you 
 ## The workshop
 In this workshop we will guide you as you build a web application making use of several Watson APIS. You will start by constructing basic components, which you will then assemble into parts, which you will then assemble into an application. We start simple and gradually build a more intricate flow. Please shout out at any point where you are not clear of the instructions. We will be glad to help.  
 
+---
+
 ## Getting Started
 You will need and instance of Node-RED to start this workshop. This can be an instance running on IBM Cloud, or on your own machine, or on any other platform that
 Node-RED supports, for example a Rasberry Pi.
@@ -72,7 +74,7 @@ It is possible to dynamically configure the Watson Translation node, by setting 
 
 You can also use Node-RED [Context](https://nodered.org/docs/writing-functions#storing-data) to remember settings. Use a separate flow to set the translation language. Modify your translation flow to use the global context to determine source and destination languages for the translation. Try it out.
 
-The neural translation models all use English, but you can wire two translation nodes to go from for example 'Japanese' to 'French'. Wire two translation nodes to use English as a hop. Use the global context to determine how your translation initial source and final destination. You will need to add a function node between the two translation nodes.
+The neural translation models all use English, but you can wire two translation nodes to go from for example *Japanese* to *French*. Wire two translation nodes to use English as a hop. Use the global context to determine how your translation initial source and final destination. You will need to add a function node between the two translation nodes.
 
 ### Speech In
 Create a new tab. Drop a microphone node, delay node and play audio node onto the flow canvas. Wire the microphone to the delay to the play audio. Configure the delay node to delay for 5 seconds. Trigger the microphone node, and hear yourself speaking. This will gauge the quality of your microphone. If it is undecipherable then use a better quality microphone.
@@ -93,7 +95,15 @@ Change the flow such that the voice setting for the Speech to Text node is deter
 Wire the `Translation` component to the `Speech Out` component so that you can now hear the translation.
 
 ### Conversation
+For this you will need a Conversation workspace. If you don't have one, we will provide a prebuilt Conversation that you can import into your Conversation instance.
 
+Create a new tab. Drop an inject node, Watson Conversation node and a debug node onto the flow canvas. Configure the Watson Conversation node for your Conversation Workspace. Also pick the option that allows the Conversation node to manage the conversation context object.
+
+Use the inject node to send in text, and the debug node to see the response.
+
+Connect the `Speech In` component into the `Conversation` component to allow you to speak to your Conversation. Connect the `Speech Out` component to hear the response from the Conversation. Connect the `Translation` component to allow you to converse with the service in another language.
+
+### HTML 
 
 
 ## Parts
