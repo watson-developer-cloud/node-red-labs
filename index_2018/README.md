@@ -83,7 +83,18 @@ The Speech to Text node can be dynamically configured by setting `msg.srclang`. 
 
 Wire the `Speech In` component to the `Translation` component to get a translation.
 
-### Speech Out
+### Speech out
+Create a new tab. Drop an inject node, Watson Text to Speech node and a play audio node onto the flow canvas. Wire the inject node to the Text to Speech node to the play audio node. Configure the Text to Speech for language and voice. Configure the inject node to send a string. Trigger the inject node to hear the text.
+
+The Text to Speech node can be dynamically configured by setting msg.voice. Open the developer console on your browser. In the developer console enter tts.voice. You will see a list of the valid options for voice. Pick a voice and making use of a function node dynamically configure the voice for the speech to text node.
+
+Change the flow such that the voice setting for the Speech to Text node is determined by the Node-RED context.
+
+Wire the `Translation` component to the `Speech Out` component so that you can now hear the translation.
+
+### Conversation
+
+
 
 ## Parts
 
