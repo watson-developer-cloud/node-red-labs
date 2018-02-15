@@ -1,0 +1,210 @@
+[{
+  "id": "6dd194fd.d1c2cc",
+  "type": "http response",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 937,
+  "y": 282,
+  "wires": []
+}, {
+  "id": "ad7a7a5a.99b138",
+  "type": "debug",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "active": false,
+  "console": false,
+  "complete": "true",
+  "x": 345.99996185302734,
+  "y": 281.99998664855957,
+  "wires": []
+}, {
+  "id": "71a1ca59.e30b04",
+  "type": "http in",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "url": "/demo/image",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 236,
+  "y": 98,
+  "wires": [
+    ["f1a546dd.581238"]
+  ]
+}, {
+  "id": "f17bb85f.e4cd28",
+  "type": "http response",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 826,
+  "y": 98,
+  "wires": []
+}, {
+  "id": "f1a546dd.581238",
+  "type": "template",
+  "z": "c28cb032.d0bd8",
+  "name": "Styles",
+  "field": "payload.css",
+  "fieldType": "msg",
+  "format": "css",
+  "syntax": "mustache",
+  "template": "html, body{\n    padding : 0;\n    width : 100%;\n    height : 100%;\n    margin: 0;\n    font-family: sans-serif;\n}\n\nbody{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\nbody[data-recording=\"true\"] #start-recording, body[data-recording=\"false\"] #stop-recording{\n    display: none;\n}\n\nvideo{\n    position: fixed;\n    top:100%;\n}\n\nbutton {\n    display: inline-block;\n    padding: 1em 1.2em;\n    border-radius: 5px;\n    border: 2px solid;\n    font-weight: 800;\n    cursor: pointer;\n    outline: transparent;\n    margin-top: 1em;\n}\n\nbutton:hover{\n    background: black;\n    color: white;\n}\n\n#response-message{\n    position: fixed;\n    top: 75%;\n    left: 0;\n    width: 100%;\n    padding: 1em;\n    color: white;\n    text-align: center;\n    font-weight: 800;\n    box-shadow: 0 1px 1px black;\n    text-shadow: 0 1px 1px black;\n    box-sizing: border-box;\n    display: none;\n}\n\n#response-message[data-success=\"true\"]{\n    background-color: green;\n}\n\n#response-message[data-success=\"false\"]{\n    background-color: red;\n}\n\n.capture-canvas {\n    align: left;\n}",
+  "output": "str",
+  "x": 406.5,
+  "y": 98,
+  "wires": [
+    ["56991fb.d53b9e"]
+  ]
+}, {
+  "id": "56991fb.d53b9e",
+  "type": "template",
+  "z": "c28cb032.d0bd8",
+  "name": "JavaScript",
+  "field": "payload.javascript",
+  "fieldType": "msg",
+  "format": "javascript",
+  "syntax": "mustache",
+  "template": "(function(){\n    \n    'use strict';\n    \n    console.log('Hello!');\n    \n    const formStatus = document.querySelector('#response-message');\n    const video = document.querySelector('#camera-capture');\n    const canvas = document.querySelector('#capture-canvas');\n    const ctx = canvas.getContext('2d');\n    \n    const sendImageToServerBtn = document.querySelector('#snap-image');\n    \n    const constraints = {\n        video : true,\n        audio : false\n    };\n    \n    function createNewDiv() {\n        return document.createElement(\"div\");\n    }\n    \n    function createNewSpan(message) {\n        var temp = document.createElement(\"span\");\n        temp.innerHTML = message;\n        return temp;\n    }\n    \n    function removeChildren(node) {\n        var last;\n        while (last = node.lastChild) node.removeChild(last);\n    }\n    \n    navigator.mediaDevices.getUserMedia(constraints)\n        .then(function(stream) {\n            console.log(stream);\n            \n            let hideResult;\n\n            video.addEventListener('canplay', function(){\n                this.play();\n\n                canvas.width = video.offsetWidth;\n                canvas.height = video.offsetHeight;\n\n            });\n\n            const vidURL = window.URL.createObjectURL(stream);\n            video.src = vidURL;\n        \n            function drawVideoToCanvas(){\n                ctx.drawImage(video, 0, 0);\n                window.requestAnimationFrame(drawVideoToCanvas);\n            }\n            \n            drawVideoToCanvas();\n            \n            sendImageToServerBtn.addEventListener('click', function(){\n                console.log('Click!');\n                \n                canvas.toBlob(function(blob){\n                    \n                    console.log(blob);\n                    const form = new FormData();\n                    \n                    form.append('image', blob, `${Date.now() / 1000 | 0}.png`);\n                    \n                    console.log( form.get('image') );\n                        \n                    fetch('/post', {\n                            method : 'post',\n                            body : form\n                        })\n                        .then(function(res){\n                            console.log('response is: ', res);\n                            console.log('res.ok is: ', res.ok);\n                            if(res.ok){\n                                formStatus.textContent = 'Image saved!';\n                                formStatus.dataset.success = \"true\";\n                                formStatus.style.display = \"block\";\n                                \n                                clearTimeout(hideResult);\n\n                                hideResult = setTimeout(function(){\n                                    formStatus.style.display = \"none\";\n                                }, 3000);\n                                \n                                //console.log('res text is: ', res.text());\n                                return res.text();\n                            } else {\n                                throw res;\n                            }\n                        })\n                        .then(function(vrclass){\n                            console.log('vr class response is :', vrclass);\n                            var temp = JSON.parse(vrclass)\n                            console.log('temp is: ', temp);\n                            var result = document.getElementById(\"result-message\");\n                            removeChildren(result);\n                            temp.classes.forEach(function(element) {\n                                console.log(element);\n                                var tempDiv = createNewDiv(\"\");\n                                var tempSpan = createNewSpan(element.class);\n                                tempDiv.append(tempSpan);\n                                tempSpan = createNewSpan(\"&nbsp;\");\n                                tempDiv.append(tempSpan);\n                                tempSpan = createNewSpan(element.score);\n                                tempDiv.append(tempSpan);\n                                result.append(tempDiv);\n                            }) \n                        })\n                        .catch(function(err){\n                            formStatus.textContent = 'Could not save image :(';\n                            formStatus.dataset.success = \"false\";\n                            formStatus.style.display = \"block\";\n\n                            clearTimeout(hideResult);\n\n                            hideResult = setTimeout(function(){\n                                formStatus.style.display = \"none\";\n                            }, 3000);\n\n                            console.log('fetch err:', err);\n                        })\n                    ;\n                    \n                    \n                }, 'image/png', 100);\n                \n            }, false);\n          \n        })\n        .catch(function(err) {\n            console.log('gUM Error:', err);\n        })\n    ;\n    \n})();",
+  "output": "str",
+  "x": 561,
+  "y": 98,
+  "wires": [
+    ["c3afc2a2.ac73e"]
+  ]
+}, {
+  "id": "c3afc2a2.ac73e",
+  "type": "template",
+  "z": "c28cb032.d0bd8",
+  "name": "HTML",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<html>\n    <head>\n        <style>\n            {{{payload.css}}}\n        </style>\n    </head>\n    <body>\n        <h1>Smile!</h1>\n        <p>A demo app for sending an image to a Node-red server (with Fetch, FormData, and Multipart)</p>\n        <table>\n             <tr>\n                <td><video id=\"camera-capture\"></video><canvas id=\"capture-canvas\"></canvas></td>\n                <td valign=\"top\">Results: <div id=\"result-message\"></div> </td> \n\n            </tr>\n        </table>\n        \n        <button id=\"snap-image\">Send image to server</button>\n        \n        <div id=\"response-message\"></div>\n        \n        <script>{{{payload.javascript}}}</script>\n    </body>\n    \n</html>",
+  "output": "str",
+  "x": 706,
+  "y": 98,
+  "wires": [
+    ["f17bb85f.e4cd28"]
+  ]
+}, {
+  "id": "23f46835.cb4208",
+  "type": "comment",
+  "z": "c28cb032.d0bd8",
+  "name": "Handle the form",
+  "info": "",
+  "x": 226,
+  "y": 157,
+  "wires": []
+}, {
+  "id": "6100600d.423b5",
+  "type": "comment",
+  "z": "c28cb032.d0bd8",
+  "name": "Load the demo image app",
+  "info": "",
+  "x": 255.5,
+  "y": 53,
+  "wires": []
+}, {
+  "id": "9090ae6f.db677",
+  "type": "debug",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "active": false,
+  "console": false,
+  "complete": "req.files.image[0].path",
+  "x": 387,
+  "y": 216,
+  "wires": []
+}, {
+  "id": "60f48026.1e034",
+  "type": "function",
+  "z": "c28cb032.d0bd8",
+  "name": "Pre Recognition Processing",
+  "func": "msg.payload = msg.req.files.image[0].path;\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 346.99998474121094,
+  "y": 339.99999046325684,
+  "wires": [
+    ["70b79b22.844fd4"]
+  ]
+}, {
+  "id": "f33a9222.ba19c",
+  "type": "visual-recognition-v3",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "apikey": "",
+  "image-feature": "classifyImage",
+  "lang": "en",
+  "x": 683.9999694824219,
+  "y": 402.99999237060547,
+  "wires": [
+    ["4152cc7.1287b34", "8aeaa0cd.9209d"]
+  ]
+}, {
+  "id": "fe57bf48.03616",
+  "type": "camera",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "x": 543.9999847412109,
+  "y": 455.99997329711914,
+  "wires": [
+    ["f33a9222.ba19c"]
+  ]
+}, {
+  "id": "c28c88c1.6536d8",
+  "type": "httpInMultipart",
+  "z": "c28cb032.d0bd8",
+  "name": "/post",
+  "url": "/post",
+  "method": "post",
+  "fields": "[ { \"name\" : \"image\"}, { \"name\" : \"video\" } ]",
+  "swaggerDoc": "",
+  "x": 195,
+  "y": 282,
+  "wires": [
+    ["ad7a7a5a.99b138", "9090ae6f.db677", "60f48026.1e034"]
+  ]
+}, {
+  "id": "4152cc7.1287b34",
+  "type": "function",
+  "z": "c28cb032.d0bd8",
+  "name": "Post Recognition Processing",
+  "func": "msg.payload = {};\nmsg.payload.classes = msg.result.images[0].classifiers[0].classes;\n\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 757.4999694824219,
+  "y": 338.99999046325684,
+  "wires": [
+    ["6dd194fd.d1c2cc"]
+  ]
+}, {
+  "id": "8aeaa0cd.9209d",
+  "type": "debug",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "active": false,
+  "tosidebar": true,
+  "console": false,
+  "tostatus": false,
+  "complete": "true",
+  "x": 825.4999961853027,
+  "y": 461.99999237060547,
+  "wires": []
+}, {
+  "id": "70b79b22.844fd4",
+  "type": "file-buffer",
+  "z": "c28cb032.d0bd8",
+  "name": "",
+  "mode": "asBuffer",
+  "x": 497.4999771118164,
+  "y": 402.99999046325684,
+  "wires": [
+    ["f33a9222.ba19c"]
+  ]
+}]

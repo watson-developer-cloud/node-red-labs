@@ -1,0 +1,112 @@
+[{
+  "id": "9f54f143.a0054",
+  "type": "http in",
+  "z": "6f36d455.70311c",
+  "name": "",
+  "url": "/ttshome",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 208,
+  "y": 88,
+  "wires": [
+    ["a9de336f.a6cb8"]
+  ]
+}, {
+  "id": "625d23d0.834e6c",
+  "type": "http in",
+  "z": "6f36d455.70311c",
+  "name": "",
+  "url": "/ttsaudio",
+  "method": "post",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 106,
+  "y": 215,
+  "wires": [
+    ["96d9a83d.fd3c78"]
+  ]
+}, {
+  "id": "46e5f504.63e0cc",
+  "type": "http response",
+  "z": "6f36d455.70311c",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 760,
+  "y": 86,
+  "wires": []
+}, {
+  "id": "2ff5415e.86942e",
+  "type": "http response",
+  "z": "6f36d455.70311c",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 815,
+  "y": 221,
+  "wires": []
+}, {
+  "id": "a9de336f.a6cb8",
+  "type": "template",
+  "z": "6f36d455.70311c",
+  "name": "TTS Home Page",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<!--\n# Copyright 2018 IBM\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n-->\n\n<html>\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>\n    My Speaker\n  </title>\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" />\n</head>\n\n<body>\n\n  <div class=\"container\">\n    <div id=\"no-script\" class=\"bg-info\">\n      This application needs JavaScript enabled in your browser!\n    </div>\n\n    <div>\n      <form>\n        <label for=\"id_chattext\">Your Input: </label>\n        <input type=\"text\" name=\"chattext\" id=\"id_chattext\">\n        <br/><br/>\n      </form>\n      <button onclick=\"javascript:onChatClick()\" id=\"id_enter\">Send</button>\n      <div>\n\n        <!-- If you want to see the audio control on the page change to -->\n        <!-- <audio controls autoplay id='audiotag'> -->\n        <audio autoplay id='audiotag'>\n           <source id='audiosource' type=\"audio/mpeg\">\n        </audio>\n\n      </div>\n    </div>\n\n\n    <script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-3.2.1.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n\n    <script type=\"text/javascript\">\n      $(document).ready(function() {\n        javascriptCheck();\n        enterbutton();\n      });\n\n      // if javascript is enabled on the browser then can\n      // remove the warning message\n      function javascriptCheck() {\n        $('#no-script').remove();\n      }\n\n\n      // Audio has come back\n      function processOK(response) {\n        console.log('Audio Received');\n\n        var audio = document.getElementById('audiotag');\n        var blob = new Blob([response], {\n          type: 'audio/webm'\n        });\n        var objectURL = URL.createObjectURL(blob);\n\n        audio.src = objectURL;\n\n        audio.onload = function(evt) {\n          URL.revokeObjectURL(objectURL);\n        }\n\n        console.log('Attempting to play audio');\n\n        audio.play()\n          .then(() => {}).catch((error) => {\n            console.log('unable to play audio');\n            console.log(error);\n          });\n\n      }\n\n      function processNotOK() {\n        console.log('Error whilst attempting to generate speech');\n      }\n\n      // Can not use jQuery to format the request, as it can't handle a\n      // binary response.\n      function invokeAjax(message) {\n        var params = 'msgdata=' + message;\n\n        var xhr = new XMLHttpRequest();\n        xhr.open('POST', 'ttsaudio', true);\n        xhr.responseType = \"arraybuffer\";\n\n        xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n        xhr.onload = function(e) {\n          var arrayBuffer = this.response;\n          processOK(arrayBuffer);\n        };\n        xhr.send(params);\n      }\n\n      // User has entered some text.\n      function onChatClick() {\n        var txt = $('#id_chattext').val();\n        $('#id_chattext').val('')\n        invokeAjax(txt);\n      }\n\n      function enterbutton() {\n        $(function() {\n          $(\"form input\").keypress(function(e) {\n            if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {\n              $('#id_enter').click();\n              return false;\n            } else {\n              return true;\n            }\n          });\n        });\n      }\n    </script>\n</body>\n\n</html>",
+  "output": "str",
+  "x": 520,
+  "y": 87,
+  "wires": [
+    ["46e5f504.63e0cc"]
+  ]
+}, {
+  "id": "96d9a83d.fd3c78",
+  "type": "function",
+  "z": "6f36d455.70311c",
+  "name": "Determine Text to Speak",
+  "func": "msg.payload = 'I did not receive any input';\nif (msg.req && msg.req.body && msg.req.body.msgdata) {\n    msg.payload = msg.req.body.msgdata;\n} \n\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 323,
+  "y": 250,
+  "wires": [
+    ["edd086f6.890e48"]
+  ]
+}, {
+  "id": "ff17b066.5907",
+  "type": "function",
+  "z": "6f36d455.70311c",
+  "name": "Set Headers",
+  "func": "// Set Headers for audio out\nmsg.headers = {'content-type':'audio/webm'};\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 666.5,
+  "y": 251,
+  "wires": [
+    ["2ff5415e.86942e"]
+  ]
+}, {
+  "id": "edd086f6.890e48",
+  "type": "watson-text-to-speech",
+  "z": "6f36d455.70311c",
+  "name": "",
+  "lang": "en-US",
+  "langhidden": "en-US",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "NoCustomisationSetting",
+  "voice": "en-US_MichaelVoice",
+  "voicehidden": "",
+  "format": "audio/webm",
+  "password": "pig2LWVwjVge",
+  "payload-response": true,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+  "x": 520,
+  "y": 175,
+  "wires": [
+    ["ff17b066.5907"]
+  ]
+}]
