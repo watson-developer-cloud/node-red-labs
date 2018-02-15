@@ -15,7 +15,7 @@ Track: Programming languages and platforms
 All the Watson APIs are available on Node-RED. In this session we will show you how you can make use of the full capabilities of the APIs to create cognitive models and quickly make use of them in real applications with little coding.
 
 ## The workshop
-In this workshop we will guide you as you build a web application making use of several Watson APIS. You will start by constructing basic components, which you will then assemble into parts, which you will then assemble into an application. We start simple and gradually build a more intricate flow. Please shout out at any point where you are not clear of the instructions. We will be glad to help.  
+In this workshop we will guide you as you build a web application making use of several Watson APIS. You will start by constructing basic components, which you will then assemble into parts, which you will then assemble into an application. We start simple and gradually build a more intricate flow. Please shout out at any point where you are not clear of the instructions. We will be glad to help. We will be providing sample flows to help you get started at each step.
 
 ---
 
@@ -59,6 +59,7 @@ You will need some additional nodes in this workshop. Use `Manage Palette` to in
 * node-red-contrib-play-audio
 * node-red-contrib-file-buffer
 * node-red-contrib-http-multipart
+* node-red-contrib-extract-keyframes
 
 
 ## Components
@@ -77,7 +78,7 @@ You can also use Node-RED [Context](https://nodered.org/docs/writing-functions#s
 The neural translation models all use English, but you can wire two translation nodes to go from for example *Japanese* to *French*. Wire two translation nodes to use English as a hop. Use the global context to determine how your translation initial source and final destination. You will need to add a function node between the two translation nodes.
 
 ### Speech In
-Create a new tab. Drop a microphone node, delay node and play audio node onto the flow canvas. Wire the microphone to the delay to the play audio. Configure the delay node to delay for 5 seconds. Trigger the microphone node, and hear yourself speaking. This will gauge the quality of your microphone. If it is undecipherable then use a better quality microphone.
+Create a new Node-RED tab. Drop a microphone node, delay node and play audio node onto the flow canvas. Wire the microphone to the delay to the play audio. Configure the delay node to delay for 5 seconds. Trigger the microphone node, and hear yourself speaking. This will gauge the quality of your microphone. If it is undecipherable then use a better quality microphone.
 
 Add a Watson Speech to Text node to your flow. Wire the microphone to the Speech to Text node to a debug node. Configure the Speech to Text node for your language. Trigger the microphone and check the transcription.
 
@@ -86,7 +87,7 @@ The Speech to Text node can be dynamically configured by setting `msg.srclang`. 
 Wire the `Speech In` component to the `Translation` component to get a translation.
 
 ### Speech out
-Create a new tab. Drop an inject node, Watson Text to Speech node and a play audio node onto the flow canvas. Wire the inject node to the Text to Speech node to the play audio node. Configure the Text to Speech for language and voice. Configure the inject node to send a string. Trigger the inject node to hear the text.
+Create a new Node-RED tab. Drop an inject node, Watson Text to Speech node and a play audio node onto the flow canvas. Wire the inject node to the Text to Speech node to the play audio node. Configure the Text to Speech for language and voice. Configure the inject node to send a string. Trigger the inject node to hear the text.
 
 The Text to Speech node can be dynamically configured by setting msg.voice. Open the developer console on your browser. In the developer console enter tts.voice. You will see a list of the valid options for voice. Pick a voice and making use of a function node dynamically configure the voice for the speech to text node.
 
@@ -94,19 +95,36 @@ Change the flow such that the voice setting for the Speech to Text node is deter
 
 Wire the `Translation` component to the `Speech Out` component so that you can now hear the translation.
 
+### Visual Recognition
+Create a new Node-RED tab. Drop a camera node, Watson Visual Recognition and a debug node on to the flow canvas. Wire the camera node to the Visual Recognition node to the debug node. Trigger the camera to take a selfie and see the output in the debug node.
+
 ### Conversation
 For this you will need a Conversation workspace. If you don't have one, we will provide a prebuilt Conversation that you can import into your Conversation instance.
 
-Create a new tab. Drop an inject node, Watson Conversation node and a debug node onto the flow canvas. Configure the Watson Conversation node for your Conversation Workspace. Also pick the option that allows the Conversation node to manage the conversation context object.
+Create a new Node-RED tab. Drop an inject node, Watson Conversation node and a debug node onto the flow canvas. Configure the Watson Conversation node for your Conversation Workspace. Also pick the option that allows the Conversation node to manage the conversation context object.
 
 Use the inject node to send in text, and the debug node to see the response.
 
 Connect the `Speech In` component into the `Conversation` component to allow you to speak to your Conversation. Connect the `Speech Out` component to hear the response from the Conversation. Connect the `Translation` component to allow you to converse with the service in another language.
 
-### HTML 
+Add the `Visual Recognition` component to recognise you and start the conversation accordingly.
 
 
-## Parts
+## HTML Components
+Upto now your application has been confined to the Node-RED flow editor. You will now build components that will make your application available as a web page.
+
+### HTML Hello World
+Create a new Node-RED tab. Drop a HTTP In node, a Template node and a HTTP Out node on to the flow canvas. Wire the HTTP In node to the Template node to the HTTP Out node. Configure the HTTP In node as a `GET`. Edit the Template node to for a basic *hello world* HTML template.
+
+Open a new browser tab and test your *hello world* web page.
+
+### HTML REST API
+Edit the template node to add in a button and javascript that will retrieve some text from a REST API.
+
+Add a new HTTP In node, a function node and a new HTTP Out node. This will act as your REST API. Edit the function node to return some text.
+
+
+
 
 
 
