@@ -1,1 +1,135 @@
-[{"id":"36aa5742.b7bea8","type":"http request","z":"f44213e0.6b0cc","name":"Get Buffer => Binary","method":"GET","ret":"bin","url":"https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/dialog/download/Exercise_8_end.xml","x":334,"y":196,"wires":[["f16c0ca5.a35598"]]},{"id":"73003e38.6d70e","type":"inject","z":"f44213e0.6b0cc","name":"String","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":91,"y":68,"wires":[["9a38b7c2.f7eb38"]]},{"id":"bde75f46.94e3a","type":"debug","z":"f44213e0.6b0cc","name":"","active":true,"console":"false","complete":"response","x":776.5000610351562,"y":123.93333435058594,"wires":[]},{"id":"9a38b7c2.f7eb38","type":"function","z":"f44213e0.6b0cc","name":"Prepare Request","func":"var data = \"Hi Team, I know the times are difficult! Our sales have been disappointing for the past three quarters for our data analytics product suite. We have a competitive data analytics product suite in the industry. But we need to do our job selling it!\";\nmsg.payload=data;\nreturn msg;","outputs":1,"noerr":0,"x":325.5,"y":67.933349609375,"wires":[["f16c0ca5.a35598"]]},{"id":"3cddcc5a.d67834","type":"dropbox","z":"f44213e0.6b0cc","dropbox":"","filename":"aDialogTemplateFile.txt","name":"","x":342.5,"y":134,"wires":[["f16c0ca5.a35598"]]},{"id":"4746b6e8.5737a8","type":"inject","z":"f44213e0.6b0cc","name":"From Dropbox","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":111.5,"y":134,"wires":[["3cddcc5a.d67834"]]},{"id":"60db19a0.ff0848","type":"inject","z":"f44213e0.6b0cc","name":"Buffer Test","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":104,"y":196,"wires":[["36aa5742.b7bea8"]]},{"id":"8ab1fc53.d520a","type":"comment","z":"f44213e0.6b0cc","name":"Link to the Lab instructions","info":"See corresponding Lab instructions in the link below :\n\n- [Watson Tone Analyser Lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/tone_analyser)\n","x":115,"y":20,"wires":[]},{"id":"cb847d2d.0ad25","type":"comment","z":"f44213e0.6b0cc","name":"Make sure you bind Tone Analyser Service to Node-RED App !","info":"When running in IBM Cloud, the credentials for the service will be filled-in from IBM Cloud credentials management.\nFor this to work, the Tone Analyser Service has to be bound to the Node-RED application.\n","x":652,"y":20,"wires":[]},{"id":"f16c0ca5.a35598","type":"watson-tone-analyzer-v3","z":"f44213e0.6b0cc","name":"","tones":"all","sentences":"true","contentType":"false","x":571.5,"y":123,"wires":[["bde75f46.94e3a"]]}]
+[{
+  "id": "46d84fce.e4245",
+  "type": "http request",
+  "z": "8b3fa2d0.13a76",
+  "name": "Get Buffer => Binary",
+  "method": "GET",
+  "ret": "bin",
+  "url": "https://raw.githubusercontent.com/watson-developer-cloud/tone-analyzer-nodejs/master/public/data/corporate-announcement.txt",
+  "tls": "",
+  "x": 364,
+  "y": 373,
+  "wires": [
+    ["56609e2b.63e12"]
+  ]
+}, {
+  "id": "e9249ac4.2d7c08",
+  "type": "inject",
+  "z": "8b3fa2d0.13a76",
+  "name": "String",
+  "topic": "",
+  "payload": "",
+  "payloadType": "date",
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "x": 121,
+  "y": 245,
+  "wires": [
+    ["968f5cd3.4db84"]
+  ]
+}, {
+  "id": "f91ab2b5.f0edd",
+  "type": "debug",
+  "z": "8b3fa2d0.13a76",
+  "name": "",
+  "active": true,
+  "console": "false",
+  "complete": "response",
+  "x": 806.5000610351562,
+  "y": 300.93333435058594,
+  "wires": []
+}, {
+  "id": "968f5cd3.4db84",
+  "type": "function",
+  "z": "8b3fa2d0.13a76",
+  "name": "Prepare Request",
+  "func": "var data = \"Hi Team, I know the times are difficult! Our sales have been disappointing for the past three quarters for our data analytics product suite. We have a competitive data analytics product suite in the industry. But we need to do our job selling it!\";\nmsg.payload=data;\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 355.5,
+  "y": 244.933349609375,
+  "wires": [
+    ["56609e2b.63e12"]
+  ]
+}, {
+  "id": "def9a47d.d2b028",
+  "type": "dropbox",
+  "z": "8b3fa2d0.13a76",
+  "dropbox": "",
+  "filename": "aDialogTemplateFile.txt",
+  "name": "",
+  "x": 372.5,
+  "y": 311,
+  "wires": [
+    ["56609e2b.63e12"]
+  ]
+}, {
+  "id": "159549e6.9c4936",
+  "type": "inject",
+  "z": "8b3fa2d0.13a76",
+  "name": "From Dropbox",
+  "topic": "",
+  "payload": "",
+  "payloadType": "date",
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "x": 141.5,
+  "y": 311,
+  "wires": [
+    ["def9a47d.d2b028"]
+  ]
+}, {
+  "id": "2e0ae1fb.2c1d8e",
+  "type": "inject",
+  "z": "8b3fa2d0.13a76",
+  "name": "Buffer Test",
+  "topic": "",
+  "payload": "",
+  "payloadType": "date",
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "x": 134,
+  "y": 373,
+  "wires": [
+    ["46d84fce.e4245"]
+  ]
+}, {
+  "id": "248651fc.07dd1e",
+  "type": "comment",
+  "z": "8b3fa2d0.13a76",
+  "name": "Link to the Lab instructions",
+  "info": "See corresponding Lab instructions in the link below :\n\n- [Watson Tone Analyser Lab](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/tone_analyser)\n",
+  "x": 145,
+  "y": 197,
+  "wires": []
+}, {
+  "id": "72e34504.18114c",
+  "type": "comment",
+  "z": "8b3fa2d0.13a76",
+  "name": "Make sure you bind Tone Analyser Service to Node-RED App !",
+  "info": "When running in IBM Cloud, the credentials for the service will be filled-in from IBM Cloud credentials management.\nFor this to work, the Tone Analyser Service has to be bound to the Node-RED application.\n",
+  "x": 682,
+  "y": 197,
+  "wires": []
+}, {
+  "id": "56609e2b.63e12",
+  "type": "watson-tone-analyzer-v3",
+  "z": "8b3fa2d0.13a76",
+  "name": "",
+  "tones": "all",
+  "sentences": "true",
+  "contentType": "false",
+  "tone-method": "generalTone",
+  "interface-version": "2016-05-19",
+  "inputlang": "en",
+  "default-endpoint": false,
+  "service-endpoint": "",
+  "x": 601.5,
+  "y": 300,
+  "wires": [
+    ["f91ab2b5.f0edd"]
+  ]
+}]

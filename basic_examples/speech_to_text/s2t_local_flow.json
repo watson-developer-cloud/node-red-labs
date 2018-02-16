@@ -1,0 +1,52 @@
+[{
+  "id": "e430e3d3.0f97e8",
+  "type": "debug",
+  "name": "output sst",
+  "active": true,
+  "console": "false",
+  "complete": "transcription",
+  "x": 815,
+  "y": 39,
+  "z": "7c0bdf8c.3c2f1",
+  "wires": []
+}, {
+  "id": "9de7cf9a.591d4",
+  "type": "file in",
+  "name": "",
+  "filename": "/Audio Message.wav",
+  "format": "",
+  "x": 372,
+  "y": 39,
+  "z": "7c0bdf8c.3c2f1",
+  "wires": [
+    ["9244b888.53856"]
+  ]
+}, {
+  "id": "1f5527aa.1afe2",
+  "type": "inject",
+  "name": "",
+  "topic": "",
+  "payload": "/Audio Message.wav",
+  "payloadType": "none",
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "x": 127,
+  "y": 39,
+  "z": "7c0bdf8c.3c2f1",
+  "wires": [
+    ["9de7cf9a.591d4"]
+  ]
+}, {
+  "id": "9244b888.53856",
+  "type": "watson-speech-to-text",
+  "name": "",
+  "lang": "en-US",
+  "band": "BroadbandModel",
+  "x": 640,
+  "y": 39,
+  "z": "7c0bdf8c.3c2f1",
+  "wires": [
+    ["e430e3d3.0f97e8"]
+  ]
+}]
