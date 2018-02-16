@@ -1,0 +1,64 @@
+[{
+  "id": "8406cb38.9d7cb8",
+  "type": "inject",
+  "z": "be41e0e.58b392",
+  "name": "",
+  "topic": "",
+  "payload": "",
+  "payloadType": "date",
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "x": 124,
+  "y": 416,
+  "wires": [
+    ["944dae2e.dd141"]
+  ]
+}, {
+  "id": "944dae2e.dd141",
+  "type": "dropbox",
+  "z": "be41e0e.58b392",
+  "dropbox": "",
+  "filename": "SpaceShuttle.wav",
+  "name": "Dropbox",
+  "x": 324,
+  "y": 416,
+  "wires": [
+    ["78827e7.191958"]
+  ]
+}, {
+  "id": "78827e7.191958",
+  "type": "watson-speech-to-text",
+  "z": "be41e0e.58b392",
+  "name": "",
+  "alternatives": "",
+  "speakerlabels": false,
+  "smartformatting": false,
+  "lang": "en-US",
+  "langhidden": "en-US",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "NoCustomisationSetting",
+  "band": "BroadbandModel",
+  "bandhidden": "BroadbandModel",
+  "password": "",
+  "payload-response": false,
+  "streaming-mode": false,
+  "default-endpoint": false,
+  "service-endpoint": "",
+  "x": 544,
+  "y": 416,
+  "wires": [
+    ["8703f9dd.364d18"]
+  ]
+}, {
+  "id": "8703f9dd.364d18",
+  "type": "debug",
+  "z": "be41e0e.58b392",
+  "name": "",
+  "active": true,
+  "console": "false",
+  "complete": "transcription",
+  "x": 794,
+  "y": 416,
+  "wires": []
+}]

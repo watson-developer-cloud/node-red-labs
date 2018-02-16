@@ -2,89 +2,70 @@
 
 For many of the Watson Labs the Dropbox node is used.  The information in this section describes how to create a Dropbox account and what artifacts are needed to obtain files from the repositories.
 
-##Setup
+## Setup
 
-Go to[ http://dropbox.com]( http://dropbox.com) and create an account
+Go to[http://dropbox.com](http://dropbox.com) and create an account.
 
-Go to the Home location and then scroll to the bottom of the page until you see the Help Privacy together 
+Go to the Home location and then scroll to the bottom of the page until you see '...' and 'Privacy' together.
 
 ![NodeRedStarter](images/dropbox_option.png)
 
-Click on the ellipses
+Click on the ellipses and select 'Developers'.
 
 ![NodeRedStarter](images/dropbox_developers_option.png)
 
-Click on 'Create your app'
+Select 'Create your app'.
 
 ![NodeRedStarter](images/dropbox_create_app01.png)
 
-In 'Choose an API' select 'Dropbox API'
-In 'Choose the type of access you need' select 'Full Dropbox'
+Under 'Choose an API', select 'Dropbox API'
+Then under 'Choose the type of access you need' select 'Full Dropbox'
+And give the app a name, then click 'Create App'.
 
-Accept the terms and Click Submit - you should be presented another window 
+![NodeRedStarter](images/dropbox_choose_an_api.png)
 
-![NodeRedStarter](images/dropbox_create_app01.png)
+Under the 'Settings' page, scroll down until you see 'Generate access token'.
 
 ![NodeRedStarter](images/dropbox_app.png)
 
-Click on Show option
-
-![NodeRedStarter](images/dropbox_api_keys.png)
-
-Record the 'App key' and 'App secret' values - you will need these in other Labs.
-
-Scroll down until you see 'Generate access token', click on the Generate button
+Click on the Generate button. Record the token value - you will use this later.
 
 ![NodeRedStarter](images/dropbox_generate_token.png)
 
-![NodeRedStarter](images/dropbox_generate_token_show.png)
 
-Record the token value - again you will use this in combination with the 'App key' and 'App secret' values.
+## Loading files
 
-##Loading files
+Open another browser. Download and save the following files to your local system.
+- [Exercise_8_end.xml](Exercise_8_end.xml)
+- [glossary.tmx](glossary.tmx)
+- [SpaceShuttle.wav](SpaceShuttle.wav)
+- [tone_analyser_sample.txt](tone_analyser_sample.txt)
+- [weatherdatatrain.csv](weatherdatatrain.csv)
 
-Open another browser and download and save to your local system the files in this github 
 
-In Dropbox go to the Home page and then right click and pick Upload and upload the files
+In Dropbox, go to the Home page and Upload the files
 
-![NodeRedStarter](images/dropbox_upload.png) 
+![NodeRedStarter](images/dropbox_upload.png)
 
 ![NodeRedStarter](images/dropbox_files.png)
 
-The list of files for various Labs are listed below and are in this github :
-Exercise_8_end.xml
 
-glossary.tmx
+## Using the Dropbox node in Node-RED
 
-SpaceShuttle.wav
+Full documentation for the dropbox node is [here](http://flows.nodered.org/node/node-red-node-dropbox)
 
-tone_analyser_sample.txt
-
-weatherdatatrain.csv
-
-##Using the Dropbox node in Node-RED
-
-Full documentation is [here](http://flows.nodered.org/node/node-red-node-dropbox)
-
-When in Node-RED, drag the dropbox node to the palette and double click it - you will be presented with the Edit popup
+When in Node-RED, drag the dropbox node onto the canvas and double click to configure it.
 
 ![NodeRedStarter](images/dropbox_edit.png)
 
-
-Click the pencil button - you will be presented with the "Add new dropbox-config" config node
-
+Click the pencil button - you will be presented with the 'Add new dropbox-config' config node
 
 ![NodeRedStarter](images/dropbox_edit_appkeys.png)
 
-Fill in the App Key, App Secret and Token with the ones you saved earlier in this description - you will now be able to access your dropbox account from within Node-RED on IBM Cloud for any of the Labs.  Click Add.  NOTE : if you use a dropbox node in different Tabs of Node-RED then you only need to configure one of them and all dropbox nodes will share the configuration. 
+Fill in the access token with the one you saved earlier in this description.
 
-NOTE : if you delete a dropbox node from one Tab of Node-RED then you will lose the config for all dropbox nodes !!
+Click 'Add' and 'Done'.
 
+You will now be able to access your Dropbox account from within Node-RED on IBM Cloud for any of the Labs. If you use a Dropbox node in different tabs of Node-RED, then you only need to configure one of them and all Dropbox nodes will share the configuration.
 
-
-
-
-
-
-
-
+NOTE: If you delete a Dropbox node from one tab of Node-RED then you will lose the config for all dropbox nodes!!

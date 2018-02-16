@@ -1,152 +1,126 @@
-# Speech to Text
-
-Note: This lab can be done either on a stand-alone system (using a local file or your microphone) or done on IBM Cloud uploading a WAV file using an upload node (Dropbox, Box...) or straight from an URL.
-
-Speech to Text service can be used anywhere voice-interactivity is needed. The service is great for mobile experiences, transcribing media files, call centre transcriptions, voice control of embedded systems, or converting sound to text to then make data searchable. Supported languages include:
-- US English
-- Spanish
-- Japanese
+# Lab: Speech to Text with Node-RED
+## Overview
+The Watson Speech to Text service can be used anywhere voice-interactivity is needed. The service is great for mobile experiences, transcribing media files, call centre transcriptions, voice control of embedded systems, or converting sound to text to then make data searchable. Supported languages include:
 - Brazilian Portuguese
-- Mandarin.
+- Korean
+- French
+- US English
+- Mandarin
+- Japanese
+- UK English
+- Spanish
+- Arabic
 
-To use the Speech To Text service in Node-RED you first need to make this service available in a way Node-RED can connect to that service.
-There are two ways of doing that depending if you use Node-RED in IBM Cloud or use a local Node-RED instance. Both ways are described here.
+## Node-RED Watson Speech to Text node
+The Node-RED ![`STT`](images/stt_node.png) node provides a very easy wrapper node to convert human voice into written words.
 
-## On IBM Cloud
+## Watson Speech to Text Flow
+This lab can be completed in 3 ways:
+1. On IBM Cloud straight from an URL
+2. On IBM Cloud uploading a WAV file using an upload node (Dropbox, Box...)
+3. A stand-alone system (using a local file or your microphone)
 
-If you are using Node-RED on IBM Cloud, go to your Node-RED app and click 'add a service or API' This will open a new window where you can select the Speech to Text service. Then you click on 'Create' a screen will show which asks for a restage, click on 'Restage' and wait a few minutes. When the application is started click on the Url to go to your Node-RED application.
+### Prerequisites and setup
+To get the Speech to Text service credentials on IBM Cloud automatically filled-in by Node-RED, you should connect the Speech to Text service to the Node-RED application in IBM Cloud.
 
-### Uploading from a URL
+![STTSerivce](images/stt_service.png)
 
-![`S2TIBM CloudURLFlowOverview`](images/s2t_bluemix_url_overview.png)
+Please refer to the [Node-RED setup lab](/introduction_to_node_red/README.md) for instructions.
 
-In this lab an audio file will be transcribed. An example audiofile can be found [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav), feel free to use this URL or to provide your own.
+## Building the flow
+### 1. Uploading from a URL
 
-In the following screenshots you can see how the nodes are configured.
+![`S2TURLFlowOverview`](images/s2t_url_overview.png)
 
-First you start with an Inject node that will provide the URL to our WAV file into the Speech To Text service in IBM Cloud
+In this step, an audio file will be transcribed. An example audio file can be found [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav). Feel free to use this URL or provide your own.
 
-The inject node is configured like this:
+Start by adding an Inject node. This will provide the URL to the WAV file which will be passed into the Speech To Text service. The inject node is configured like this:
 
-![`S2TIBM CloudURLFlowinject`](images/s2t_bluemix_url_inject.png)
+![`S2TURLFlowinject`](images/s2t_url_inject.png)
 
-The next node is the Speech to Text node that will stream the .wav file from the URL provided and transcribe it.
-This node is configured like this by default:
+Next, add a Speech to Text node. This will stream the .wav file from the URL provided and transcribe it. Configure the node like this:
 
-![`S2TFIBM CloudURLFlowS2T`](images/s2t_bluemix_url_s2t.png)
+![`S2TURLFlowS2T`](images/s2t_url_s2t.png)
 
-The file used as an example is in English but if you're providing your own file in a different language make sure to change it. You can also select the quality of your .wav file and chose whether you want the transcription to stop at the first pause detected or to keep going until the end of the file.
-(Note: The continuous parameter is now working at the moment.)
-
-The last node is the debug node that will allow you to see the results of the transcription, it is configured like this:
-
-![`S2TIBM CloudURLFlowDebug`](images/s2t_bluemix_url_debug.png)
-
-The output is set to msg.transcription so only the transcript is shown in the debug tab.
-
-You're now good to go: make sure to connect your node, deploy and click on the inject node to see it working!
-
-The complete flow can be found here: [Text To Speech on IBM Cloud lab flow using an URL](s2t_bluemix_url_flow.json)
+The .wav file provided as an example is in English. If you're using your own file in a different language make sure to change it the language in the Speech to Text node. You can also select the quality of your .wav file (narrowband or broadband) and choose whether you want the speaker labels to be on to identify which individuals are speaking.
 
 
-### Uploading from the Drobox node
+Finally add a debug node. This will allow you to see the results of the transcription, it is configured like this:
 
-![`S2TIBM CloudBoxFlowOverview`](images/s2t_bluemix_box_overview.png)
+![`S2TURLFlowDebug`](images/s2t_url_debug.png)
 
-This is quite similar from injecting the file from an URL, except here you are going to provide the file from your Dropbox account.
+The output is set to msg.transcription so only the transcription is shown in the debug tab.
+
+You're now good to go! Make sure to connect your nodes together, deploy and initiate the inject node to see it working.
+
+#### Flow Source
+The complete flow can be found here: [Text To Speech on IBM Cloud lab flow using an URL](s2t_url_flow.json)
+
+### 2. Uploading from a Dropbox node
+
+![`S2TFlowOverview`](images/s2t_dropbox_overview.png)
+
+This is similar to injecting the file from an URL, except here you are going to provide the file from your Dropbox account.
 Note: If you haven't done it yet, set up the Dropbox node as shown [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
-First you need to upload a WAV file to your dropbox, upload your own or download the example WAV file from [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav) (right-click, save-as) and upload it to your Dropbox.
+Firstly, you need to upload a WAV file to your Dropbox account. Upload your own file or download the example WAV file from [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav) (right-click, save-as) and upload it to your Dropbox.
 
-Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
+Drag and drop an inject node onto your canvas. This doesn't need any configuration as will simply initiate the flow.
 
-Next, add a Dropbox node, put your credentials and the name of your file (or path to your file if it's in a subfolder), your node configuration should look like this:
+Next, add a Dropbox node. Add in your credentials and the name of your file (or path to your file if it's in a subfolder). Your node configuration should look like this:
 
-![`S2TIBM CloudBoxFlowinject`](images/s2t_bluemix_box_dropbox.png)
+![`S2TFlowinject`](images/s2t_box_dropbox.png)
 
-The next node is the Speech to Text node that will get the .wav file from the Dropbox node and transcribe it.
-This node is configured like this by default:
+Next, add a Speech to Text node that transcribe the .wav file from the Dropbox node. The node should be configured like so:
 
-![`S2TFIBM CloudURLFlowS2T`](images/s2t_bluemix_url_s2t.png)
+![`S2TURLFlowS2T`](images/s2t_url_s2t.png)
 
-The file used as an example is in English but if you're providing your own file in a different language make sure to change it. You can also select the quality of your .wav file and chose whether you want the transcription to stop at the first pause detected or to keep going until the end of the file.
-(Note: The continuous parameter is now working at the moment.)
+The .wav file provided as an example is in English. If you're using your own file in a different language make sure to change it the language in the Speech to Text node. You can also select the quality of your .wav file (narrowband or broadband) and choose whether you want the speaker labels to be on to identify which individuals are speaking.
 
-The last node is the debug node that will allow you to see the results of the transcription, it is configured like this:
+Finally add a debug node that will allow you to see the results of the transcription, it is configured like this:
 
-![`S2TIBM CloudURLFlowDebug`](images/s2t_bluemix_url_debug.png)
+![`S2TFlowDebug`](images/s2t_url_debug.png)
 
-The output is set to msg.transcription so only the transcript is shown in the debug tab.
+The output is set to msg.transcription so only the transcription is shown in the debug tab.
 
-You're now good to go: make sure to connect your node, deploy and click on the inject node to see it working!
+You're now good to go! Make sure to connect your nodes together, deploy and initiate the inject node to see it working.
 
-The complete flow can be found here: [Text To Speech on IBM Cloud lab flow using the Dropbox node](s2t_bluemix_box_flow.json)
+#### Flow Source
+The complete flow can be found here: [Text To Speech on IBM Cloud lab flow using the Dropbox node](s2t_dropbox_flow.json)
 
+### 3. On a stand-alone system
+#### Prerequisites
+To complete this section, you need to have a local instance of Node-RED running with the IBM Watson nodes installed. If you don't have that yet, go to [this link](/introduction_to_node_red/README.md) to find out how to install.
 
-## OPTIONAL On a stand-alone system
+You also need to go the IBM Cloud catalog and add a Speech to Text service. Once the service is deployed, click on 'Service Credentials', then 'New Credential', 'Add' and then 'View Credentials'. Make a note of the username and password as you will need this shortly.
 
-You need to have a local instance of Node-RED with IBM nodes available. If you don't have that yet, you can go [here](/introduction_to_node_red/README.md).
-Then go to the IBM Cloud catalog and go to the Speech to Text service and click on it. Make sure that there is no app bound to this service and click 'Use"
-Wait until this service is deployed and click on 'Show Credentials', you will need the username and the password later on in this lab.
+![`S2TOverview`](images/s2t_overview.png)
 
-![`S2TOverview`](images/s2t_overview.jpg)
-
-In this lab an audio file will be transcribed. This audiofile can be downloaded [here](audio_message.wav).
+In this lab an audio file will be transcribed. This audio file can be downloaded [here](http://sd-2.archive-host.com/membres/up/102033098234604628/SpaceShuttle.wav) (click the download arrow).
 In the following screenshots you can see how the nodes are configured.
 
-First you start with an Inject node, to start uploading of the .Wav file from your local machine into the Speech To Text service in IBM Cloud
+Start by adding an Inject node and configure it like this:
 
-The inject node is configured like this:
+![`S2Tinject`](images/s2t_local_inject.png)
 
-![`S2Tinject`](images/s2t_inject.jpg)
+Next add a File in node. This node points to the file on the local system. Configure it like this:
 
-The next node is a File in node. This node points to the file on the local system.It is configured in the following way
+![`S2TFileIn`](images/s2t_filein.png)
 
-![`S2TFileIn`](images/s2t_filein.jpg)
+Add a Speech to Text node after the File In Node. This is where you need the username and password from the Speech to Text service in IBM Cloud. Configure the node like so:
 
-Then the Speech to text node will be added. In the image below you can see how it is configured. You will need the credentials from the IBM Cloud service.
+![`S2TFileIn`](images/s2t_config.png)
 
-![`S2TFileIn`](images/s2t_config.jpg)
+Finally, add a Debug node. You need to configure this for getting the output in the debug window. The Speech to Text node outputs the transcribed text into msg.transcription so you need to set the debug node to listen for msg.transcription:
 
-The last node is the Debug node. You need to configure this for getting the output in the debug window. The Speech to text node, will put the transcribed text into msg.transcription.
+![`S2TURLFlowDebug`](images/s2t_url_debug.png)
 
-Then you need to wire all the nodes together and press on 'Deploy'
+Wire all the nodes together and click on 'Deploy'. Initiate the Inject node and you will see the transcribed text from the audio file in the debug window.
 
-When you click on the Inject node, you will see the transcribed text from the audio file in the debug window.
+#### Flow Source
+The complete flow can be found here: [Text To Speech lab flow](s2t_local_flow.json)
 
-The complete flow can be found here: [Text To Speech lab flow](s2t_flow.json)
-
-Optional:
-
-If you want to use the transcribed text in another applications, you can easily bring the transcribed text to IBM Cloud.
-Therefore you need to add a few extra nodes, the flow will look like te following:
-
-![`S2TOverviewExtra`](images/s2t_overview_extra.jpg)
-
-First you add the 'Change' node to move the transcript to the payload. You configure this node as shown below:
-
-![`S2TChange`](images/s2t_change.jpg)
-
-Next you add the 'MQTT out' node to the canvas. This node will send the payload to a broker with a certain topic. You can use any MQTT broker with your own topic. You can configure this node like this:
-
-![`S2TMQTTOut`](images/s2t_mqttout.jpg)
-
-Note: someone else can use the same broker and topic (if the topic is known), and will see the date being send.
-
-Then click on deploy. If everything went allright, you will see that the MQTT node is connected.
-
-Then go to your Node-RED application in IBM Cloud. You have to build a small flow to get the transcript of your Speech to Text in your application. The flow would look like this:
-
-![`S2TIBM Cloud`](images/s2t_bluemix.jpg)
-
-First you need to add a 'MQTT In' node. This node must subscribe to the same topic as the MQTT out node you configured previously. It would look like this:
-
-![`S2TMQTTOin`](images/s2t_mqttin.jpg)
-
-Then you can connect any node to this, like [Language Identification](/basic_examples/language_identification/README.md) to identify the language of the transcript. I this case I added a debug node, to see the output. The transcript is in the message.payload:
-
-![`S2TDebugBL`](images/s2t_debugbl.jpg)
-
-
-The extended flow can be found here: [Extended Text To Speech lab flow ](s2t_flow_extended.json)
-The flow in Node-Red in IBM Cloud can be found here: [Text To Speech lab flow for IBM Cloud](s2t_flow_bluemix.json)
+## Speech to Text Documentation
+To find more information on the Watson Speech to Text underlying service, visit these webpages :
+- [STT Documentation](https://console.bluemix.net/docs/services/speech-to-text/index.html#about)
+- [STT API Documentation](https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/)
