@@ -1,4 +1,4 @@
-# Dictophone
+# Dictaphone
 ## Overview
 This starter kit flow demonstrates how to use the Watson Speech to Text Node-RED node in 'Web Socket mode'.
 
