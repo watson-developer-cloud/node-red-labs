@@ -1,0 +1,126 @@
+[{
+  "id": "4308ca91.312eb4",
+  "type": "websocket in",
+  "z": "614122fb.ca373c",
+  "name": "STT In",
+  "server": "4acb16d1.58a1c8",
+  "client": "",
+  "x": 190,
+  "y": 259,
+  "wires": [
+    ["76988658.26cf48", "3d778072.98697"]
+  ]
+}, {
+  "id": "3d778072.98697",
+  "type": "watson-speech-to-text",
+  "z": "614122fb.ca373c",
+  "name": "STT with Sockets",
+  "alternatives": 1,
+  "speakerlabels": true,
+  "smartformatting": true,
+  "lang": "en-US",
+  "langhidden": "en-US",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "NoCustomisationSetting",
+  "band": "NarrowbandModel",
+  "bandhidden": "NarrowbandModel",
+  "password": "",
+  "payload-response": true,
+  "streaming-mode": true,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/speech-to-text/api",
+  "x": 399.5,
+  "y": 260,
+  "wires": [
+    ["37254848.e0af08", "33357ed.81e1c82"]
+  ]
+}, {
+  "id": "33357ed.81e1c82",
+  "type": "websocket out",
+  "z": "614122fb.ca373c",
+  "name": "",
+  "server": "4acb16d1.58a1c8",
+  "client": "",
+  "x": 615,
+  "y": 261,
+  "wires": []
+}, {
+  "id": "76988658.26cf48",
+  "type": "debug",
+  "z": "614122fb.ca373c",
+  "name": "Socket Input",
+  "active": true,
+  "console": "false",
+  "complete": "payload",
+  "x": 356,
+  "y": 338,
+  "wires": []
+}, {
+  "id": "37254848.e0af08",
+  "type": "debug",
+  "z": "614122fb.ca373c",
+  "name": "STT Output",
+  "active": true,
+  "console": "false",
+  "complete": "true",
+  "x": 597,
+  "y": 338,
+  "wires": []
+}, {
+  "id": "d618c53.5de8f38",
+  "type": "http in",
+  "z": "614122fb.ca373c",
+  "name": "",
+  "url": "/transcribe",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 188,
+  "y": 154,
+  "wires": [
+    ["c3452fdf.90ba5"]
+  ]
+}, {
+  "id": "c3452fdf.90ba5",
+  "type": "http request",
+  "z": "614122fb.ca373c",
+  "name": "",
+  "method": "GET",
+  "ret": "txt",
+  "url": "https://raw.githubusercontent.com/ibm-early-programs/watson-speech-sockets/master/transcriber.html",
+  "tls": "",
+  "x": 378,
+  "y": 155,
+  "wires": [
+    ["21d96322.b11e8c"]
+  ]
+}, {
+  "id": "21d96322.b11e8c",
+  "type": "function",
+  "z": "614122fb.ca373c",
+  "name": "Reset msg.headers",
+  "func": "msg.headers = {};\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 575.5,
+  "y": 156,
+  "wires": [
+    ["2af619d6.ae52a6"]
+  ]
+}, {
+  "id": "2af619d6.ae52a6",
+  "type": "http response",
+  "z": "614122fb.ca373c",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 728.5,
+  "y": 77,
+  "wires": []
+}, {
+  "id": "4acb16d1.58a1c8",
+  "type": "websocket-listener",
+  "z": "",
+  "path": "/ws/stt",
+  "wholemsg": "false"
+}]
