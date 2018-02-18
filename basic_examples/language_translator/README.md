@@ -4,13 +4,13 @@ The Language Translator service enables you to translate text from one language 
 
 To use the Language Translator service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in IBM Cloud or use a local Node-RED instance. Both ways are described here.
 
-**Note**: If you want to do the training part of this lab, then make sure than you select the **Trainable plan** when creating the service. 
+**Note**: If you want to do the training part of this lab, then make sure than you select the **Trainable plan** when creating the service.
 
 If you are using Node-RED on IBM Cloud, in the IBM Cloud Dashboard select your Node-RED app and click on 'Connect new'. This will open a new window where you can select the Language Translator service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
 
 If one of either ways are done, you can continue with the following.
 
-## Translate 
+## Translate
 
 ![`LTOverview`](images/lt.png)
 
@@ -66,7 +66,7 @@ You can also copy the code for the flow here and import it from clipboard into N
 
 Are you creating a customer support translator, and do you have company-specific terms that you want dealt with in a certain way in conversations? Are you creating a way for your engineers in one country to look up patent data in another language, and you usually file patents on a specific technology? You can use your own data to create a custom dictionary, and a custom translation model in the Watson Language Translator API.
 
-For this part, we'll see how to send your own glossary using Dropbox.
+For this part, we'll see how to send your own glossary using Dropbox. You might find it easier to use the file inject node instead. 
 
 **Note:** If you haven't done it yet, set up the Dropbox node as shown [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
@@ -93,7 +93,7 @@ This node should be configured like this with Base Model set to English to Frenc
 
 If you want to add your own parallel corpus or monolingual corpus, upload the right file and select the right option in the language translator node dialog.
 
-Finally, drag and drop a debug node and let it set to msg.payload. This will show the model_id of the new file that has been created. 
+Finally, drag and drop a debug node and let it set to msg.payload. This will show the model_id of the new file that has been created.
 
 [Language Translator Training flow](lang_train_flow.json)
 
@@ -101,7 +101,7 @@ Finally, drag and drop a debug node and let it set to msg.payload. This will sho
 
 ![`LTStatusOverview`](images/lt_status_overview.png)
 
-Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere. 
+Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere.
 
 Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
 
@@ -115,14 +115,14 @@ Finally, drag and drop a debug node and let it set to msg.payload. This will giv
  - queued@<#> - Training has not yet started and the model is in the queue. The # indicates the number of your model in the queue.
  - error - Training did not complete because of an error.
  - available - Training is completed, and the service is now available to use with your custom translation model.
- 
+
  [Language Translation Get Status flow](lang_getstatus_flow.json)
 
 ### Delete a model
 
 ![`LTDeleteOverview`](images/lt_delete_overview.png)
 
-Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere. 
+Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere.
 
 Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
 
