@@ -69,7 +69,9 @@ You are now ready to build the basic components that you will be using in your a
 Take an inject node and wire it into a debug node. Configure the Inject node to send a string, and see it appear in the debug panel
 
 ### Translation
-Add a Watson Translation node in between the inject and debug node. Configure the Translation node to use neural translation and pick a language. Trigger the inject to see the translation.
+Add a Watson Translator node in between the inject and debug node. Configure the Translator node to use neural translation and pick a language. Trigger the inject to see the translation.
+
+You can use the flow on the [language translator basic example](/basic_examples/language_translator/README.md) as a guide.
 
 It is possible to dynamically configure the Watson Translation node, by setting `msg.srclang` and `msg.destlang`. Node-RED [function nodes](https://nodered.org/docs/writing-functions) allow you to add snippets of javascript into the flow. Add a function node upstream of the Translation node and set the source and destination language in the function node.
 
