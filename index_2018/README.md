@@ -148,7 +148,7 @@ Use our sample flow to create a flow that will allow you to listen to audio gene
 
 Combine with your `HTML Conversation` component to listen to the response from your conversation.
 
-Make use of the [audio starter kit example](/starter-kits/text_to_speech/README.md) as a guide.
+Make use of the [audio starter kit example](/starter-kits/text_to_speech_audio/README.md) as a guide.
 
 ### HTML Camera In
 Use our sample flow to create a flow that will allow you to send a picture captured by your web page to your application.
