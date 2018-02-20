@@ -155,11 +155,13 @@ Use our sample flow to create a flow that will allow you to send a picture captu
 
 Combine with your `HTML Conversation` component to recognise you.
 
-Make use of the [selfie description starter kit example](/starter-kits/selfie_description/README.md) as a guide.
+Make use of the [selfie description starter kit example](/starter-kits/selfie_description/README.md) and [the sample flow from Node-RED flows](https://flows.nodered.org/flow/982d5f1450bde431820c486e7d57be11) as guides.
 
 ## Application
 You final application will be a combination of the parts that you have constructed.
 
 The application will render a web page, that takes a photograph to recognise you, and start a conversation appropriately.
+
+For the Speech to Speech component you can use the [speech echo sample](https://github.com/ibm-early-programs/watson-speech-sockets) as a guide.
 
 It will allow you to configure your input and output language which can be different. You will be able to speak in your chosen input language and hear the conversation response in your chosen output language.
