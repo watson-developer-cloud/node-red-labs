@@ -162,6 +162,6 @@ You final application will be a combination of the parts that you have construct
 
 The application will render a web page, that takes a photograph to recognise you, and start a conversation appropriately.
 
-For the Speech to Speech component you can use the [speech echo sample](https://github.com/ibm-early-programs/watson-speech-sockets) as a guide.
+For the Speech to Speech (with translation) component you can use the [bablfish starter kit example](/starter-kits/babelfish/README.md) as a guide.
 
 It will allow you to configure your input and output language which can be different. You will be able to speak in your chosen input language and hear the conversation response in your chosen output language.
