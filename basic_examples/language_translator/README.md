@@ -1,84 +1,132 @@
-# Language Translator
+# Lab: Watson Language Translator with Node-RED
 
-The Language Translator service enables you to translate text from one language to another. See Watson Translator API for supported languages list, and for the default domains proposed.
+## Overview
+The Language Translator service can identify language of a text or provides domain-specific translation between languages. Currently, three domains are available. For best results, a domain that matches the content to be translated should be chosen. The service includes a new Glossary-Based Customization function, which requires the Translator service to be connected via the advanced plan.
 
-To use the Language Translator service in Node-RED you first need to make this service available in a way Node-RED can connect to that service. There are two ways of doing that depending if you use Node-RED in IBM Cloud or use a local Node-RED instance. Both ways are described here.
+To get the latest on languages and domains supported please refer the latest documentation [Language Translator Documentation](https://console.bluemix.net/docs/services/language-translator/index.html)
 
-**Note**: If you want to do the training part of this lab, then make sure than you select the **Trainable plan** when creating the service.
+To get the Watson Translator service credentials on IBM Cloud automatically filled-in by Node-RED, you should connect the service to the Node-RED application in IBM Cloud.
 
-If you are using Node-RED on IBM Cloud, in the IBM Cloud Dashboard select your Node-RED app and click on 'Connect new'. This will open a new window where you can select the Language Translator service (Language Identification is part of this service.). Then you click on 'Use' then a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+## Node-RED Watson Language Translator nodes
+The Node-RED ![`Translator`](images/translator-nodes.jpg) nodes provide a set of easy wrapper nodes to 
+* translate text within a domain or
+* identify the language of a text.
+the service will also provide a confidence level of it's result.
 
-If one of either ways are done, you can continue with the following.
+## Watson Translator Flow Construction
+In this exercise we have 5 basic flows using the Identify or Translator nodes broken into 3 sections
+1. Translate text
+2. Identify the language
+3. Managing Custom Models 
+   * Create a custom model
+   * Get the Status of a model
+   * Delete an existing model
 
-## Translate
+## Building the Translator flow 
 
-![`LTOverview`](images/lt.png)
+![`translator-flow`](images/translator-flow.jpg)
 
-In this example some random text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
+In this example some text (in English in this case) is injected, translated (to French) and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
 
-The inject node:
+### The first inject node:
 
-![`LTInject`](images/lt_inject.png)
+![`tf-inject01`](images/tf-inject01.jpg)
 
-You can use any text for this. Tips : use double quotes for terms you do not want to be translated by Watson.
+You can use any text for this node. I have used 
+> Hello I am Watson. I am very happy to translate you this message. Have a lovely day. Bye.
 
-The language translator node wil be configured like this. The text in this case is English so select English. Based on your source choose the right domain: News, Conversational or Patent.
+**Tips** : use double quotes for terms you do not want to be translated by Watson.
 
-![`LTConfig`](images/lt_config.png)
+### The language translator node:
 
+![`tf-translate`](images/tf-translate.jpg)
+
+If you use the given text then set the node parameters
+* Mode = Translate
+* Domains = Conversational
+* Source = English 
+* Target = French
+
+### The Debug node: 
 As the translated text will be returned on message.payload, make sure that you select this in the Debug node. The output from the debug node will then be:
 
-![`LTOutput`](images/lt_debug.png)
+![`tf-debug01`](images/tf-debug01.jpg)
+
+It is also possible to change the config dynamically, 
+### duplicate the Inject node 
+
+### Add a function node:
+
+![`tf-function`](images/tf-function.jpg) 
+
+and set 
+* msg.srclang = 'en'
+* msg.destlang = 'es'
+this will translate your text from English to Spanish. 
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
-[Language Translator flow](language_translator_flow.txt)
+[Language Translator flow](language_translator-flow.json)
 
-## Identify languages
+## Building the Identify flow
+This example will have 3 inputs with different languages. The language identify flow should look like 
 
-You can also use the new language identify node to identify one or more language in a text.
+![`identify-flow`](images/identify-flow.jpg)
 
-![`LTIdenOverview`](images/lt_identify_overview.png)
+### First inject node
+Add an inject node to the canvas. Double-click the node, then change the name to identify the block, change the input type to string   and add your required text. I have used the English text:
 
-The inject node:
+> Give me one good reason why I should never make a change
 
-![`LTIdenInject`](images/lt_identify_inject.png)
+![`if-en-inject`](images/if-en-inject.jpg) 
 
-You can use any text for this.
+### Second inject node
+Add another inject node to the canvas. Double-click the node, then change the name to identify the block, change the input type to string and add your required text. I have used the Afrikaans text: 
 
-The language identify node does not need to be configured.
+> As jy in die bende wil wees, moet jy cool wees, soos pappa!
 
-The output will show the detected language(s) with the level of confidence.
+![`if-af-inject`](images/if-af-inject.jpg) 
 
-![`LTIdenOutput`](images/lt_identify_output.png)
+### Third inject node
+Add another inject node to the canvas. Double-click the node, then change the name to identify the block, change the input type to string and add your required text. I have used the Italian text: 
 
-Node output :
+> Dovresti solo spegnere le dannate porte!
 
-- msg.lang : The identified language with the highest confidence level
-- msg.languages : array of identified languages with the language 5-letter ISO language code with the associated confidence score
+![`if-it-inject`](images/if-it-inject.jpg) 
+
+### Add the Language Identification node
+Drag and drop a Language Identification node from the nodes palette, and wire it to your input node. It does not require any modification.
+
+### Add first debug node
+Drag and drop a debug node from the nodes palette, and wire it to your Language Identification node. Double-click the node, then change the output to msg.lang. This will give you primary language identified.
+
+### Add second debug node
+Drag and drop a debug node from the nodes palette, and wire it to your Language Identification node. Double-click the node, then change the output to msg.languages. This will give you an array of all languages identified in order of the confidence level.
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
-[Language Translator Identify flow](language_identify_flow.txt)
+![identify-flow](identify-flow.json)
 
+## Building flows to customize your domain
 
-## Customizing your domain
+This example will show 3 flows to train a custom domain, get the status of a domain and delete custom models. The custom model flows should look like 
+
+![`custom-models`](images/custom-models.jpg)
+
+**Note**: If you want to do the training part of this lab, then make sure than you select the **Advanced plan** when creating the service. 
 
 Are you creating a customer support translator, and do you have company-specific terms that you want dealt with in a certain way in conversations? Are you creating a way for your engineers in one country to look up patent data in another language, and you usually file patents on a specific technology? You can use your own data to create a custom dictionary, and a custom translation model in the Watson Language Translator API.
-
-For this part, we'll see how to send your own glossary using Dropbox. You might find it easier to use the file inject node instead. 
 
 **Note:** If you haven't done it yet, set up the Dropbox node as shown [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
 ### Training
 
-![`LTTrain`](images/lt_train.png)
+Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow. However I have named my example Create.
 
-Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
+#### Add a Dropbox node 
+Put your credentials and the name of your file (or path to your file if it's in a subfolder), your node configuration should look like this:
 
-Next, add a Dropbox node, put your credentials and the name of your file (or path to your file if it's in a subfolder), your node configuration should look like this:
-
-![`LTConfigDropbox`](images/lt_train_dropbox.png)
+![`cm-dropbox-complete`](images/cm-dropbox-complete.jpg)
 
 Dropbox setup documentation : [here](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
@@ -86,63 +134,62 @@ Note: You can get a sample TMX file from the documentation [here](https://consol
 
 Download the TMX file  [here](https://raw.githubusercontent.com/watson-developer-cloud/node-red-labs/master/utilities/box_setup/glossary.tmx).
 
-The next node is the Language Translator node that will get the file from the Dropbox node and send it to the service.
-This node should be configured like this with Base Model set to English to French and File type to Forced Glossary:
+#### Add a Language Translator node 
+To get the file from the Dropbox node and send it to the service. This node should be configured 
+* Mode = Train
+* Base Model = English to French 
+* File type = Forced Glossary
 
-![`LTConfigLT`](images/lt_train_config.png)
+![`cm-train`](images/cm-train.jpg)
 
-If you want to add your own parallel corpus or monolingual corpus, upload the right file and select the right option in the language translator node dialog.
-
-Finally, drag and drop a debug node and let it set to msg.payload. This will show the model_id of the new file that has been created.
-
-[Language Translator Training flow](lang_train_flow.json)
+#### Add debug node
+Drag and drop a debug node and set to msg.payload. This will show the model_id of the new file that has been created. You will need this if you want use the model elsewhere.
 
 ### Get the status of a model
 
-![`LTStatusOverview`](images/lt_status_overview.png)
+**Note:** In order to get the status of a model you've sent for training, you'll need to provide its ID. This was would output from the Training flow, make sure that you've saved it somewhere. 
 
-Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere.
+Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow. However I have named my example Status.
 
-Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
+#### Add a Language Translator node 
+This node should be configured 
+* Mode = Get Status
+* Model ID = use the model-id from the training flow 
 
-After, put a Language Translator node, set its action to "Get status" and provide the ID of the model you want to get the status of, as shown below:
+![`cm-status`](images/cm-status.jpg)
 
-![`LTStatusLT`](images/lt_status_lt.png)
-
-Finally, drag and drop a debug node and let it set to msg.payload. This will give you the status of the model, it can be either:
+#### Add debug node
+Drag and drop a debug node and let it set to msg.payload. This will give you the status of the model, it can be either:
 
  - training - Training is still in progress.
  - queued@<#> - Training has not yet started and the model is in the queue. The # indicates the number of your model in the queue.
  - error - Training did not complete because of an error.
  - available - Training is completed, and the service is now available to use with your custom translation model.
-
- [Language Translation Get Status flow](lang_getstatus_flow.json)
-
+ 
 ### Delete a model
 
-![`LTDeleteOverview`](images/lt_delete_overview.png)
+**Note:** In order to get the status of a model you've sent for training, you'll need to provide its ID. This was would output from the Training flow, make sure that you've saved it somewhere.
 
-Note: In order to get the status of a model you've sent for training, you'll need to provide its ID. Make sure that you've saved it somewhere.
+Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow. However I have named my example Delete.
 
-Drag and drop an inject node on your palette, this node won't need any configuration it is just here to start the flow.
+#### Add a Language Translator node 
+This node should be configured 
+* Mode = Delete
+* Model ID = use the model-id from the training flow 
 
-After, put a Language Translation node, set its action to "Get status" and provide the ID of the model you want to get the status of, as shown below:
+![`cm-delete`](images/cm-delete.jpg)
 
-![`LTDeleteLT`](images/lt_delete_lt.png)
-
-Finally, drag and drop a debug node and let it set to msg.payload. This will only return an error if the model couldn't be deleted (modelid not found).
-
- [Language Translation Delete flow](lang_delete_flow.json)
+#### Add debug node
+Drag and drop a debug node and let it set to msg.payload. This will only return an error if the model couldn't be deleted (modelid not found).
 
 ### Available Flows
-
-- [Language Translator and Identify Complete flow](lang_complete_flow.json) : illustrates the 3 nodes : language translator, language identify, and language translator util.
+You can also copy the code for the flows here and import them from clipboard into Node-RED:
+- Building the Translator flow ![`translator-flow`](translator-flow.json)
+- Building the Identify flow ![`identify-flow`](identify-flow.json) 
+- Building flows to customize your domain ![`training-flow`](training-flow.json)
 
 ## Language Translator Documentation
 
-To have more information on the Watson Language Translator underlying service, you can check these two reference :
+To have more information on the Watson Language Translator underlying service, you can check these two references :
 - [Language Translator Documentation](https://console.bluemix.net/docs/services/language-translator/index.html)
 - [Language Translator API Documentation](https://www.ibm.com/watson/developercloud/language-translator/api/v2)
-
-
-<n>Notice</b> : as this flow suggest it, you can also use Dropbox  : How to setup your Node-RED with [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup)

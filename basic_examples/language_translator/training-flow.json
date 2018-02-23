@@ -1,0 +1,222 @@
+[
+    {
+        "id": "123c1a2c.3428fe",
+        "type": "comment",
+        "z": "8df658fb.0b181",
+        "name": "Training Mode ",
+        "info": "This example uses 3 flows below to:\n* Create a custom model\n* Check the status of a model\n* Delete an existing model\n\nYou must have instantiated the service using the Advanced plans in order to use the custom model features.",
+        "x": 97,
+        "y": 559,
+        "wires": []
+    },
+    {
+        "id": "5ef03d25.086b5c",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "Create ",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 601,
+        "wires": [
+            [
+                "16bf29e2.c6380e"
+            ]
+        ]
+    },
+    {
+        "id": "e2735e88.900d3",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "Status",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 660,
+        "wires": [
+            [
+                "ef2de5f5.77b668"
+            ]
+        ]
+    },
+    {
+        "id": "bd21a1a.cc14be",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "Delete",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 111,
+        "y": 721,
+        "wires": [
+            [
+                "5a235f94.66c008"
+            ]
+        ]
+    },
+    {
+        "id": "16bf29e2.c6380e",
+        "type": "dropbox",
+        "z": "8df658fb.0b181",
+        "dropbox": "",
+        "filename": "glossary.tmx",
+        "name": "Custom Glossary",
+        "x": 293,
+        "y": 601,
+        "wires": [
+            [
+                "28dbdb3f.abeca4"
+            ]
+        ]
+    },
+    {
+        "id": "28dbdb3f.abeca4",
+        "type": "watson-translator",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "action": "translate",
+        "basemodel": "",
+        "domain": "news",
+        "srclang": "en",
+        "destlang": "fr",
+        "password": "",
+        "custom": "",
+        "domainhidden": "",
+        "srclanghidden": "",
+        "destlanghidden": "",
+        "basemodelhidden": "",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": "lparams",
+        "neural": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+        "x": 520,
+        "y": 601,
+        "wires": [
+            [
+                "2ccf5067.7aa67"
+            ]
+        ]
+    },
+    {
+        "id": "ef2de5f5.77b668",
+        "type": "watson-translator",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "action": "translate",
+        "basemodel": "",
+        "domain": "news",
+        "srclang": "en",
+        "destlang": "fr",
+        "password": "",
+        "custom": "",
+        "domainhidden": "",
+        "srclanghidden": "",
+        "destlanghidden": "",
+        "basemodelhidden": "",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": "lparams",
+        "neural": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+        "x": 519,
+        "y": 660,
+        "wires": [
+            [
+                "f9ea0cd5.8ac9b8"
+            ]
+        ]
+    },
+    {
+        "id": "5a235f94.66c008",
+        "type": "watson-translator",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "action": "translate",
+        "basemodel": "es-en",
+        "domain": "conversational",
+        "srclang": "en",
+        "destlang": "es",
+        "password": "",
+        "custom": "",
+        "domainhidden": "conversational",
+        "srclanghidden": "en",
+        "destlanghidden": "es",
+        "basemodelhidden": "",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "neural": false,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+        "x": 516,
+        "y": 720,
+        "wires": [
+            [
+                "3ed33e0b.70b3ba"
+            ]
+        ]
+    },
+    {
+        "id": "2ccf5067.7aa67",
+        "type": "debug",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 720,
+        "y": 601,
+        "wires": []
+    },
+    {
+        "id": "f9ea0cd5.8ac9b8",
+        "type": "debug",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 721,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "3ed33e0b.70b3ba",
+        "type": "debug",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 721,
+        "y": 720,
+        "wires": []
+    }
+]
