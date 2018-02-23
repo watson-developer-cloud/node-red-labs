@@ -66,7 +66,7 @@ this will translate your text from English to Spanish.
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
-[Language Translator flow](language_translator-flow.txt)
+[Language Translator flow](language_translator-flow.json)
 
 ## Building the Identify flow
 This example will have 3 inputs with different languages. The language identify flow should look like 
@@ -105,7 +105,7 @@ Drag and drop a debug node from the nodes palette, and wire it to your Language 
 
 You can also copy the code for the flow here and import it from clipboard into Node-RED:
 
-[identify-flow](identify-flow.txt)
+![identify-flow](identify-flow.json)
 
 ## Building flows to customize your domain
 
@@ -183,7 +183,7 @@ This node should be configured
 Drag and drop a debug node and let it set to msg.payload. This will only return an error if the model couldn't be deleted (modelid not found).
 
 ### Available Flows
-
+You can also copy the code for the flows here and import them from clipboard into Node-RED:
 - Building the Translator flow ![`translator-flow`](translator-flow.json)
 - Building the Identify flow ![`identify-flow`](identify-flow.json) 
 - Building flows to customize your domain ![`training-flow`](training-flow.json)
