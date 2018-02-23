@@ -1,0 +1,116 @@
+[
+    {
+        "id": "d5b05d7d.91d758",
+        "type": "comment",
+        "z": "8df658fb.0b181",
+        "name": "Identify Mode ",
+        "info": "The example below is to identify text using Language Translator service.\n\nThere are 3 injection nodes with examples of English, Afrikaans and Italian that can fed into the translator node.\n\nThe 2 debug nodes are used to show the primary language with confidence score(msg.lang) and all languages with their respective confidence score(msg.languages).",
+        "x": 96,
+        "y": 337,
+        "wires": []
+    },
+    {
+        "id": "7db490a0.ce90d",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "en text",
+        "topic": "",
+        "payload": "Give me one good reason why I should never make a change",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "b978c0f8.b9deb8"
+            ]
+        ]
+    },
+    {
+        "id": "ae54708d.deff28",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "af text",
+        "topic": "",
+        "payload": "As jy in die bende wil wees, moet jy cool wees, soos pappa!",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 111,
+        "y": 420,
+        "wires": [
+            [
+                "b978c0f8.b9deb8"
+            ]
+        ]
+    },
+    {
+        "id": "d8f67a90.caed18",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "it text",
+        "topic": "",
+        "payload": "Dovresti solo spegnere le dannate porte!",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 113,
+        "y": 461,
+        "wires": [
+            [
+                "b978c0f8.b9deb8"
+            ]
+        ]
+    },
+    {
+        "id": "b978c0f8.b9deb8",
+        "type": "watson-language-translator-identify",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+        "x": 321,
+        "y": 421,
+        "wires": [
+            [
+                "541f28cc.35ac5",
+                "c247e83c.57ddd"
+            ]
+        ]
+    },
+    {
+        "id": "c247e83c.57ddd",
+        "type": "debug",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "lang",
+        "x": 544,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "541f28cc.35ac5",
+        "type": "debug",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "languages",
+        "x": 564,
+        "y": 441,
+        "wires": []
+    }
+]
