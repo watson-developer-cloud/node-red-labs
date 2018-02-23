@@ -8,7 +8,7 @@ To get the latest on languages and domains supported please refer the latest doc
 To get the Watson Translator service credentials on IBM Cloud automatically filled-in by Node-RED, you should connect the service to the Node-RED application in IBM Cloud.
 
 ## Node-RED Watson Language Translator nodes
-The Node-RED ![`Translator`](images/translator-nodes.png) nodes provide a set of easy wrapper nodes to 
+The Node-RED ![`Translator`](images/translator-nodes.jpg) nodes provide a set of easy wrapper nodes to 
 * translate text within a domain or
 * identify the language of a text.
 the service will also provide a confidence level of it's result.
