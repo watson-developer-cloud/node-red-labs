@@ -1,19 +1,19 @@
-# Discovery service
+# Lab : Watson Discovery service with Node-RED
 
 ## Overview
-The discovery service makes it possible to prepare and search your unstructured data  in the same was as the Alchemy News prepares and allows search for News.
+The Discovery service makes it possible to prepare and search your unstructured data, in the similar way to the deprecated Alchemy News, the Discovery node allows you to create, manage and search the Watson system environment (News in English, Spanish and Korean), as well as any private collections.
+Although the node can be used to create and manage your environments and collections, there is tooling provided in the IBM Cloud to create your own discovery environment. Follow the [Getting Started Guide](https://console.bluemix.net/docs/services/discovery/getting-started-tool.html#getting-started-with-the-tooling) to guide you through the process of launching the discovery service tooling, creating a collection, and adding content.
 
-## Getting Started
-Before you can use the service through the node on node-RED you will need to create your discovery environment. Follow the
-[Getting Started Guide](https://console.bluemix.net/docs/services/discovery/getting-started-tool.html) to guide you through the process of
-launching the discovery service tooling, creating a collection, and adding content.
+## Node-RED Watson Discovery nodes
+There 3 nodes provided for the Watson Discovery service:
+1. Discovery Node - list environments, collections, configurations and run queries.
+1. Query Builder node - fetches the searchable fields in the collection and allows you to set upto 3 query search items. 
+1. Document Loader - will load a document into a collection.
+  
+## Discovery Flows construction
+In this exercise, we will show you how to create several flows to list environments, collections, configurations and run a simple query. Then you will use the Query Builder node to prepare a query to be used by a Discovery Node.
 
-## Discovery Flow construction
-In this exercise, we will show how create a Discovery Flow. Initially you will use
-the Discovery Node to list environments, collections, configurations and run query. Then you will use the Query Builder node to prepare a query to be used by a Discovery
-Node.
-
-### List Environments
+### **List Environments**
 Build the following flow.
 ![Discovery-List-Environments-Flow](images/discovery_lab_list_environments.png)
 Configure the Discovery Node to list environments.
