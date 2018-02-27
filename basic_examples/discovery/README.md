@@ -88,17 +88,35 @@ The timestamp inject node is used purely to initiate the flow. Configure the Dis
 Configure the debug node to display msg.search_results. 
 
 ### Discovery Query Builder Node
-The Discovery Query Builder Node can be used to build a query to be used by the
-Discovery Node.
+The Discovery Query Builder Node can be used to build a query to be used by the Discovery Node.
 Build the following flow.
-![Discovery-QueryBuilder-Flow](images/discovery_lab_query_builder.png)
-Configure the Query Builder Node to search the News Environment, for the Entities
-'Watson' and 'Facebook', with a docSentiment of 'positive'.
-![Discovery-QueryBuilder-QBConfig](images/discovery_lab_querybuilder_config.png)
-Configure the Discovery Node to limit the search to 5 items, and only the text.
-![Discovery-QueryBuilder-DConfig](images/discovery_lab_querybuilder_dconfig.png)
-Configure the debug node to display the search results.
-![Discovery-Debug-Environments](images/discovery_lab_querybuilder_debug.png)
+![Discovery-QueryBuilder-Flow](images/Query-Builder.jpg)
+
+The Query Builder Node will pre-fill menu lists for Environment and Collection. 
+
+![Discovery-QueryBuilder-Node](images/QB-Node.jpg)
+
+Select Watson System Environment and "news-en" for the collection, type your search argument(s) in the NLP Query. I have used the word "Carabao" but you can build a more sophisticated query.
+
+The first debug node should be set to msg.discoveryparams, which will show you the parameters that will be used 
+
+![Discovery-QB-Discoveryparams](images/QB-DParms-Output.jpg)
+
+Change the method to be "Retrieve collections details", add "system" for the environment ID and "news-en" for the collection ID.
+
+![Discovery-QB-List-Collections](images/CE-List.jpg)
+
+The next debug node should be set to msg.collection-details, which will show you what will be searched
+
+![Discovery-QB-Debug-Collections](images/QB-Collection-Output.jpg)
+
+Change the method to be "Search in collections" and the number of documents to 5. All other params will be over-ridden by those set in Query Builder node.
+
+![Discovery-QB-Search](images/QB-Search.jpg)
+
+The final debug node should be set to msg.search_results, so that you can see the 5 results.
+
+![Discovery-QB-Debug-Search](images/QB-Search-Output.jpg)
 
 ## Completed Flows
-The complete flow is available at [Discovery-Lab](discovery_lab.json).
+The complete flow is available at [Discovery-Lab](images/Discovery-Flows.json).
