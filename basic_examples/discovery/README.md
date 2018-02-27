@@ -7,7 +7,7 @@ Although the node can be used to create and manage your environments and collect
 ## Node-RED Watson Discovery nodes
 There are 2 nodes used in these examples for the Watson Discovery service:
 1. ![Discovery-Node](images/discovery-node.jpg) Discovery Node - list environments, collections, configurations and run queries.
-1. ![Query-Builder-Node](images/query-builder-node.jpg)Query Builder node - fetches the searchable fields in the collection and allows you to set upto 3 query search items. 
+1. ![Query-Builder-Node](images/query-bulider-node.jpg) Query Builder node - fetches the searchable fields in the collection and allows you to set upto 3 query search items. 
 
   
 ## Discovery Flows construction
