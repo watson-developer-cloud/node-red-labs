@@ -19,13 +19,19 @@ Build the following flows to list existing environments and then extract the det
 The timestamp inject nodes are used purely to initiate the flows. Configure the Discovery Node to list environments.
 
 ![Discovery-List-Environments](images/EE-List.jpg)
+
 Change the method to be "List existing environments" 
+
 ![Discovery-List-Environments-Outputs](images/EE-List-Output.jpg)
+
 Configure the debug node to display msg.environments 
 
 ![Discovery-Environment-Details](images/EE-Details.jpg)
-Change the method to be "List existing environments" 
+
+Change the method to be "Retrieve environment details" 
+
 ![Discovery-Environments-Details-Outputs](images/EE-Details-Output.jpg)
+
 Configure the debug node to display msg.environments_details
 
 ### Collections Examples
@@ -34,13 +40,19 @@ Build the following flows to list existing collections, within the system enviro
 The timestamp inject nodes are used purely to initiate the flows. Configure the Discovery Node to list environments.
 
 ![Discovery-List-Collections](images/CE-List.jpg)
-Change the method to be "List existing collections" 
+
+Change the method to be "List existing collections"
+
 ![Discovery-List-Collections-Outputs](images/CE-List-Output.jpg)
+
 Configure the debug node to display msg.Ccollections 
 
 ![Discovery-Collection-Details](images/CE-Details.jpg)
+
 Change the method to be "List existing environments" 
+
 ![Discovery-Collections-Details-Outputs](images/CE-Details-Output.jpg)
+
 Configure the debug node to display msg.environments_details
 
 **here**
