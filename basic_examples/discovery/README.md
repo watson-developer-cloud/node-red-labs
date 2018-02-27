@@ -37,25 +37,56 @@ Configure the debug node to display msg.environments_details
 ### Collections Examples
 Build the following flows to list existing collections, within the system environment, and then extract the details for one of the collections.
 ![Collections-Examples](images/Collection-Examples.jpg)
-The timestamp inject nodes are used purely to initiate the flows. Configure the Discovery Node to list environments.
+The timestamp inject nodes are used purely to initiate the flows. Configure the Discovery Node to list collectionss.
 
 ![Discovery-List-Collections](images/CE-List.jpg)
 
-Change the method to be "List existing collections"
+Change the method to be "List existing collections" and add "system" for the environment ID.
 
 ![Discovery-List-Collections-Outputs](images/CE-List-Output.jpg)
 
-Configure the debug node to display msg.Ccollections 
+Configure the debug node to display msg.collections. 
 
 ![Discovery-Collection-Details](images/CE-Details.jpg)
 
-Change the method to be "List existing environments" 
+Change the method to be "Retrieve collections details", add "system" for the environment ID and "news-en" for the collection ID.
 
 ![Discovery-Collections-Details-Outputs](images/CE-Details-Output.jpg)
 
-Configure the debug node to display msg.environments_details
+Configure the debug node to display msg.collection_details
 
-**here**
+### Configurations Example
+Build the following flow to list existing configurations, within the system environment, and then extract the details for one of the collections.
+![Configurations-Example](images/Configuration-Example.jpg)
+The timestamp inject node is used purely to initiate the flow. Configure the Discovery Node to list configurations.
+
+![Discovery-List-Configurations](images/CfE-List.jpg)
+
+Change the method to be "List existing configurations", add "system" for the environment ID and "news-en" for the configuration ID.
+
+![Discovery-List-Configurations-Outputs](images/CfE-List-Output.jpg)
+
+Configure the debug node to display msg.configurations. (There are **NO** configurations on the system collection "news-en").
+
+### Query Example
+Build the following flow to run a sample query, within the system environment.
+![Query-Example](images/Query-Example.jpg)
+The timestamp inject node is used purely to initiate the flow. Configure the Discovery Node to run a query.
+
+![Discovery-Query](images/QE-Query.jpg)
+
+* Change the method to be "Search in collection" 
+* add "system" for the environment ID 
+* "news-en" for the collection ID
+* Number of documents can be set to 10
+* Query for Search can set change to your requirements, I have used "text:Carabao" 
+* Aggregation for Search can set change to your requirements, I have used "term(text)" 
+* List of sections to return can set change to your requirements, I have used "text,website" 
+
+![Discovery-Query-Outputs](images/QE-Query-Output.jpg)
+
+Configure the debug node to display msg.search_results. 
+
 ### Discovery Query Builder Node
 The Discovery Query Builder Node can be used to build a query to be used by the
 Discovery Node.
