@@ -5,22 +5,45 @@ The Discovery service makes it possible to prepare and search your unstructured 
 Although the node can be used to create and manage your environments and collections, there is tooling provided in the IBM Cloud to create your own discovery environment. Follow the [Getting Started Guide](https://console.bluemix.net/docs/services/discovery/getting-started-tool.html#getting-started-with-the-tooling) to guide you through the process of launching the discovery service tooling, creating a collection, and adding content.
 
 ## Node-RED Watson Discovery nodes
-There 3 nodes provided for the Watson Discovery service:
-1. Discovery Node - list environments, collections, configurations and run queries.
-1. Query Builder node - fetches the searchable fields in the collection and allows you to set upto 3 query search items. 
-1. Document Loader - will load a document into a collection.
+There are 2 nodes used in these examples for the Watson Discovery service:
+1. ![Discovery-Node](images/discovery-node.jpg) Discovery Node - list environments, collections, configurations and run queries.
+1. ![Query-Builder-Node](images/query-builder-node.jpg)Query Builder node - fetches the searchable fields in the collection and allows you to set upto 3 query search items. 
+
   
 ## Discovery Flows construction
 In this exercise, we will show you how to create several flows to list environments, collections, configurations and run a simple query. Then you will use the Query Builder node to prepare a query to be used by a Discovery Node.
 
-### **List Environments**
-Build the following flow.
-![Discovery-List-Environments-Flow](images/discovery_lab_list_environments.png)
-Configure the Discovery Node to list environments.
-![Discovery-List-Environments](images/discovery_lab_list_environments_config.png)
-Configure the debug node to display the selected list.
-![Discovery-Debug-Environments](images/discovery_lab_list_environments_debug.png)
+### Environments Examples
+Build the following flows to list existing environments and then extract the details of the environment.
+![Environment-Examples](images/Environment-Examples.jpg)
+The timestamp inject nodes are used purely to initiate the flows. Configure the Discovery Node to list environments.
 
+![Discovery-List-Environments](images/EE-List.jpg)
+Change the method to be "List existing environments" 
+![Discovery-List-Environments-Outputs](images/EE-List-Output.jpg)
+Configure the debug node to display msg.environments 
+
+![Discovery-Environment-Details](images/EE-Details.jpg)
+Change the method to be "List existing environments" 
+![Discovery-Environments-Details-Outputs](images/EE-Details-Output.jpg)
+Configure the debug node to display msg.environments_details
+
+### Collections Examples
+Build the following flows to list existing collections, within the system environment, and then extract the details for one of the collections.
+![Collections-Examples](images/Collection-Examples.jpg)
+The timestamp inject nodes are used purely to initiate the flows. Configure the Discovery Node to list environments.
+
+![Discovery-List-Collections](images/CE-List.jpg)
+Change the method to be "List existing collections" 
+![Discovery-List-Collections-Outputs](images/CE-List-Output.jpg)
+Configure the debug node to display msg.Ccollections 
+
+![Discovery-Collection-Details](images/CE-Details.jpg)
+Change the method to be "List existing environments" 
+![Discovery-Collections-Details-Outputs](images/CE-Details-Output.jpg)
+Configure the debug node to display msg.environments_details
+
+**here**
 ### Discovery Query Builder Node
 The Discovery Query Builder Node can be used to build a query to be used by the
 Discovery Node.
