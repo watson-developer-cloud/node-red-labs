@@ -83,6 +83,8 @@ The timestamp inject node is used purely to initiate the flow. Configure the Dis
 * Aggregation for Search can set change to your requirements, I have used "term(text)" 
 * List of sections to return can set change to your requirements, I have used "text,website" 
 
+Always check the latest [Query reference materials](https://console.bluemix.net/docs/services/discovery/query-reference.html#query-reference) for details on Querying your collections.
+
 ![Discovery-Query-Outputs](images/QE-Query-Output.jpg)
 
 Configure the debug node to display msg.search_results. 
@@ -119,4 +121,4 @@ The final debug node should be set to msg.search_results, so that you can see th
 ![Discovery-QB-Debug-Search](images/QB-Search-Output.jpg)
 
 ## Completed Flows
-The complete flow is available at [Discovery-Lab](images/Discovery-Flows.json).
+The complete flow is available at [Discovery-Lab](Discovery-Flows.json).
