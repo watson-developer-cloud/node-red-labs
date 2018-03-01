@@ -1,6 +1,8 @@
-#Natural Language Classifier
+# Lab : Watson Natural Language Classifier with Node-RED
 
-**Note:** For this exercise, make sure that your IBM Cloud region is set to **_US South_**
+**Note:** The Natural Language Classifier(NLC) service was not available in all regions, at the time of testing (1st March 2018).  For this exercise, please set your IBM Cloud region to **_US South_**
+
+## Overview
 
 The Natural Language Classifier is a service that needs to be trained. Take a look at the documentation and demo for the service to learn about it:
 
@@ -8,34 +10,52 @@ The Natural Language Classifier is a service that needs to be trained. Take a lo
 - [Demo](https://natural-language-classifier-demo.ng.bluemix.net/) of the service.
 - [API reference](http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/?node#introduction), which includes helpful information about curl and the SDKs.
 
-##Creating and populating the service on IBM Cloud
-Create an unbound instance of the service in IBM Cloud.
+## Node-RED Watson Natural Language Classifier Node
 
-Select **Natural Language Classifier** in the IBM Cloud catalog.
+The Node-RED ![`NLC`](images/NLC-node.jpg) node provides an easy wrapper node to use the NLC API. The node has 4 modes 
+* Classify 
+  * matches the input with the classifier and returns the top classes with a confidence rating.
+* Train 
+  * creates a classifier from the input training data. The training data should be a String or String Array.
+* Remove
+  * deletes a classifier
+* List
+  * produces an array of available classifiers
+  
+## Creating and populating the service on IBM Cloud
 
-Click **Create** to instantiate your instance of the service:
+Create an instance of the service in IBM Cloud by selecting the **Natural Language Classifier** in the IBM Cloud catalog.
 
-![ScreenShot](images/nlc_std_service.png)
+![ScreenShot](images/NLC-Service.jpg)
+
+Click **Create** to instantiate your instance of the service. Once created, return to the Dashboard and click on the service in the **Cloud Foundary services** 
+
+![ScreenShot](images/NLC-Service-CFS.jpg)
 
 On the service dashboard, click **Access the beta toolkit**.
-![ScreenShot](images/nlc_access_toolkit.png)
 
-Log in to IBM Cloud to load your instance of the Natural Language Classifier.
-![ScreenShot](images/nlc_toolkit_signon.png)
+![ScreenShot](images/NLC-Toolkit-beta.jpg)
 
-Confirm that you allow the toolkit to access your instance:
-![ScreenShot](images/nlc_toolkit_authorize.png)
+Log in to IBM Cloud to load your instance of the Natural Language Classifier and you will be asked to confirm that you allow the toolkit to access your instance:
 
-Click **Training**, and then follow the steps as documented in the [documentation](https://console.bluemix.net/docs/services/natural-language-classifier/tool-overview.html).
+![ScreenShot](images/NLC-Conf-Auth.jpg)
 
-Train the Natural Language Classifier service with the sample CSV file:
+Click **Training Data** and then follow the steps as documented in the [documentation](https://console.bluemix.net/docs/services/natural-language-classifier/tool-overview.html).
+
+![ScreenShot](images/NLC-Classifiers.jpg)
+
+Train the Natural Language Classifier service with the sample CSV file from the documentation.
 
 ![ScreenShot](images/nlc_toolkit_training.png)
 
 You need a Classifier ID, which you can find by clicking **Classifiers**:
 
-![ScreenShot](images/nlc_classifier_id.png)
+![ScreenShot](images/NLC-Classifier-ID.jpg)
 
+Make a note of the Classifier ID, it will be used throughout the rest of the exercise. 
+
+## NLC Flows construction
+**here**
 ##Connecting to an existing service on IBM Cloud
 
 **Tip:** You can download the [flows](nlc_flows.json) for this part of the lab.
