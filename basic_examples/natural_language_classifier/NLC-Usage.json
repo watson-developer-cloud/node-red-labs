@@ -1,0 +1,234 @@
+[
+    {
+        "id": "28ce5138.226876",
+        "type": "watson-natural-language-classifier",
+        "z": "336a2b17.c7be34",
+        "name": "Train",
+        "mode": "create",
+        "language": "en",
+        "classifier": "",
+        "x": 458,
+        "y": 359,
+        "wires": [
+            [
+                "91b9a725.37fe9"
+            ]
+        ]
+    },
+    {
+        "id": "6e5a15e3.d777e4",
+        "type": "inject",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "topic": "",
+        "payload": "Create",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 104,
+        "y": 359,
+        "wires": [
+            [
+                "f344202.cb7816"
+            ]
+        ]
+    },
+    {
+        "id": "91b9a725.37fe9",
+        "type": "debug",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 678,
+        "y": 359,
+        "wires": []
+    },
+    {
+        "id": "f344202.cb7816",
+        "type": "dropbox",
+        "z": "336a2b17.c7be34",
+        "dropbox": "",
+        "filename": "weather_data_train.csv",
+        "name": "Weather Data",
+        "x": 269,
+        "y": 359,
+        "wires": [
+            [
+                "28ce5138.226876"
+            ]
+        ]
+    },
+    {
+        "id": "c605334.956a85",
+        "type": "inject",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "topic": "",
+        "payload": "Get List",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 104,
+        "y": 419,
+        "wires": [
+            [
+                "fe9e5df3.fc7c2"
+            ]
+        ]
+    },
+    {
+        "id": "fe9e5df3.fc7c2",
+        "type": "watson-natural-language-classifier",
+        "z": "336a2b17.c7be34",
+        "name": "List",
+        "mode": "list",
+        "language": "en",
+        "classifier": "",
+        "x": 458,
+        "y": 419,
+        "wires": [
+            [
+                "5983d0d5.4141b8"
+            ]
+        ]
+    },
+    {
+        "id": "5983d0d5.4141b8",
+        "type": "debug",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 678,
+        "y": 419,
+        "wires": []
+    },
+    {
+        "id": "550aad52.200734",
+        "type": "watson-natural-language-classifier",
+        "z": "336a2b17.c7be34",
+        "name": "Classify",
+        "mode": "classify",
+        "language": "en",
+        "classifier": "f1704ex55-nlc-488",
+        "x": 468,
+        "y": 510,
+        "wires": [
+            [
+                "96901001.07a008"
+            ]
+        ]
+    },
+    {
+        "id": "b3cfb62a.cfad48",
+        "type": "inject",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "topic": "",
+        "payload": "Is it hot?",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 114,
+        "y": 479,
+        "wires": [
+            [
+                "550aad52.200734"
+            ]
+        ]
+    },
+    {
+        "id": "96901001.07a008",
+        "type": "debug",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 678,
+        "y": 510,
+        "wires": []
+    },
+    {
+        "id": "bf1e6207.15eb88",
+        "type": "inject",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "topic": "",
+        "payload": "f15e67x54-nlc-454",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 145,
+        "y": 599,
+        "wires": [
+            [
+                "2671c363.cc09cc"
+            ]
+        ]
+    },
+    {
+        "id": "2671c363.cc09cc",
+        "type": "watson-natural-language-classifier",
+        "z": "336a2b17.c7be34",
+        "name": "Remove",
+        "mode": "remove",
+        "language": "en",
+        "classifier": "",
+        "x": 468,
+        "y": 599,
+        "wires": [
+            [
+                "63d19e72.c58d78"
+            ]
+        ]
+    },
+    {
+        "id": "63d19e72.c58d78",
+        "type": "debug",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 678,
+        "y": 599,
+        "wires": []
+    },
+    {
+        "id": "6d17ba76.cb0f7c",
+        "type": "inject",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "topic": "",
+        "payload": "Is it humid?",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 124,
+        "y": 539,
+        "wires": [
+            [
+                "550aad52.200734"
+            ]
+        ]
+    },
+    {
+        "id": "b5c66b8b.da66e8",
+        "type": "comment",
+        "z": "336a2b17.c7be34",
+        "name": "Using Node-RED NLC node",
+        "info": "Make sure that you have your Classifier ID \n",
+        "x": 148,
+        "y": 319,
+        "wires": []
+    }
+]
