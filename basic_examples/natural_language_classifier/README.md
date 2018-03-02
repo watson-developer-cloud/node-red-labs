@@ -55,27 +55,23 @@ You need a Classifier ID, which you can find by clicking **Classifiers**:
 Make a note of the Classifier ID, it will be used throughout the rest of the exercise. 
 
 ## NLC Flows construction
-**here**
-##Connecting to an existing service on IBM Cloud
 
-**Tip:** You can download the [flows](nlc_flows.json) for this part of the lab.
+## Connecting to an existing service on IBM Cloud
 
-In this lab, we assume (for now) that you created an instance of the Natural Language Classifier service in IBM Cloud. 
+**Tip:** You can download the [flow](NLC-Status.json) for this part of the lab.
 
-We also assume that you created a Node-RED application by using the Node-RED Starter Community boilerplate in IBM Cloud.
+In this part of the lab, you will use the Natural Language Classifier service that you instantiated in IBM Cloud, earlier in the lab . 
 
-These are your next steps:
+You should have created a Node-RED application by using the Node-RED Starter Community boilerplate in IBM Cloud.
+
+Using standard Node-RED nodes, you will :
 
 - Check the status of the classifier,
 - Ask a question of the service via calls in Node-RED.
 
-Open your Node-RED flow editor, then drag two **Inject** nodes, two **Function** nodes, one **http request** node and one **Debug** node. 
-
-Join them as shown in this image:
+Open your Node-RED flow editor, then drag two **Inject** nodes, two **Function** nodes, one **http request** node and one **Debug** node onto the palette. Join them as shown in this image:
  
-![ScreenShot](images/nlc_nodes_joined.png)
-
-Notice the blue icons next to each node that indicate that further configurations are needed on each node.
+![ScreenShot](images/NLC-Status-flow.jpg)
 
 Double-click the top **Inject** node, select the string option, and leave it `blank`:
 
@@ -87,60 +83,41 @@ Double-click the top **Function** node:
 
     `msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/D385B2-nlc-530";`
 
-The classifier ID is hardcoded in this example request (msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/**_D385B2-nlc-530_**"). When the official Node-RED NLC nodes are created, there will be some other mechanism (to be decided) to enter the classifier ID.
+The classifier ID is hardcoded in this example request (msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/**_D385B2-nlc-530_**"). 
 
-![ScreenShot](images/nlc_get_status_function.png)
+![ScreenShot](images/Get-NLC-Status.jpg)
 
 Back in IBM Cloud, open your application and navigate to the Natural Language Classifier service.
 
 Go to your service instance and click **Show Credentials**:
 
-![ScreenShot](images/nlc_credentials.png)
-
-```json
-{
-  "natural_language_classifier": [
-	{
-	  "name": "ibmwatson-nlc-classifier",
-	  "label": "natural_language_classifier",
-	  "plan": "standard",
-	  "credentials": {
-		"url": "https://gateway.watsonplatform.net/natural-language-classifier/api",
-		"username": "306c5772-63d0-40f4-b50d-4de334a00243",
-		"password": "WHAT EVER YOUR PASSWORD IS"
-	  }
-	}
-  ]
-}
-```
-
-Copy your username and password values.
+![ScreenShot](images/NLC-Credentials.jpg)
 
 Double-click the **http request** node and enter your service credentials for your Natural Language Classifier instance in the node:
 
-![ScreenShot](images/nlc_credentials_request_node.png)
+![ScreenShot](images/NLC-HTTP-Request.jpg)
 
-Click **Deploy**.
+Click **OK** to close and then **Deploy** the app.
 
 Click **Inject node** and see if the Natural Language Classifier service is available in the "debug" tab:
 
-![ScreenShot](images/nlc_available.png)
+![ScreenShot](images/NLC-Status-Debug.jpg)
 
 Double-click the other **Function** node and paste the following code. Replace `D385B2-nlc-530` with your classifier ID:
 
         msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/D385B2-nlc-530/classify?text=" + encodeURI(msg.payload);
     
-![ScreenShot](images/nlc_ask_question.png)
+![ScreenShot](images/Ask-NLC-Status.jpg)
 
 Double-click the second **Inject** node. Change the payload to `string` and enter the question, `Is it hot?`:
 
-![ScreenShot](images/nlc_inject_ask.png)
+![ScreenShot](images/NLC-Ask-HTTP-Inject.jpg)
 
-Click  **Deploy**
+Click **OK** to close and then **Deploy** the app.
 
-Click the button of the **Inject** node and look at the contents of the "debug" tab:
+Click the **Inject** node and look at the contents of the "debug" tab:
 
-![ScreenShot](images/nlc_debug_ask_output.png)
+![ScreenShot](images/NLC-Ask-HTTP-Debug.jpg)
 
 ##Using Natural Language Classifier from Node-RED
 
