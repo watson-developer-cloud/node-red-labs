@@ -56,9 +56,9 @@ Make a note of the Classifier ID, it will be used throughout the rest of the exe
 
 ## NLC Flows construction
 
-## Connecting to an existing service on IBM Cloud
+### Connecting to an existing service on IBM Cloud
 
-**Tip:** You can download the [flow](NLC-Status.json) for this part of the lab.
+**You can download the [flow](NLC-Status.json) for this part of the lab.**
 
 In this part of the lab, you will use the Natural Language Classifier service that you instantiated in IBM Cloud, earlier in the lab . 
 
@@ -119,13 +119,15 @@ Click the **Inject** node and look at the contents of the "debug" tab:
 
 ![ScreenShot](images/NLC-Ask-HTTP-Debug.jpg)
 
-##Using Natural Language Classifier from Node-RED
+### Using Natural Language Classifier from Node-RED
 
-Using your existing boilerplate, drag a **Natural Language Classifier (NLC)** node to the palette. 
+**You can download the [flow](NLC-Usage.json) for this part of the lab.**
 
-Double click and set the **Mode** to `train`, and give it a name:
+#### Training a Classifier
 
-![ScreenShot](images/nlc_edit_training.png)
+Drag a **Natural Language Classifier (NLC)** node to the palette. Double click and set the **Mode** to `train`, and give it a name:
+
+![ScreenShot](images/NLC-Create-Train.jpg)
 
 Make sure that you have both the **Dropbox** and **Box** Node-RED nodes added to your application. If you haven't, see -> [Dropbox nodes](https://github.com/watson-developer-cloud/node-red-labs/tree/master/utilities/dropbox_setup).
 
@@ -145,19 +147,19 @@ Add the weather_data_train.csv file to the Dropbox node settings:
 
 Join this to the **NLC** node, and also introduce an **Inject** node. This flow gets the file from Dropbox and feeds it into the NLC node.
 
-Also add a **Debug** node to the output of the NLC node:
+![ScreenShot](images/NLC-Create-Inject.jpg)
 
-![ScreenShot](images/nlc_nlc_flow_inject_debug.png)
+Also add a **Debug** node to the output of the NLC node and **Deploy**. 
 
-The ID of the classifier is returned in the "debug" tab of Node-RED. In the following example the ID is **cd6374x52-nlc-1515**:
+When you initiate the flow, the ID of the classifier is returned in the "debug" tab of Node-RED. In the following example the ID is **cd6374x52-nlc-1515**:
 
 ![ScreenShot](images/nlc_debug_tab_nlc_id.png)
 
-**Tip:** The classifier is now being trained, which can take some time (30-50 mins). There is currently (April 2016) no way to know when the training is finished.  Some loop code can been written in Node-RED which polls the service to determine when the service is available, but this is not part of this lab.
+**Note:** The classifier is now being trained, which can take some time (30-50 mins). 
 
 To see the status of the training, go to the Natural Language Classifier service of your app and click the service:
 
-![ScreenShot](images/nlc_status.png)
+![ScreenShot](images/NLC-Service-CFS.jpg)
 
 You should be presented with a page with the **Access beta toolkit** button:
 
@@ -165,28 +167,65 @@ You should be presented with a page with the **Access beta toolkit** button:
 
 Click **Access beta toolkit**. You should see a list of classifiers that have a status of `Training` or `Available`. You need to be signed in so the Toolkit can access your classifiers.
 
-Copy a classifier ID so that you can test the deletion functionality later on in this lab:
+Copy a classifier ID so that you can test the Remove(Delete) functionality later on in this lab:
 
 ![ScreenShot](images/nlc_access_beta_toolkit_list.png)
 
-Add 4 Inject nodes, 3 Classifier nodes and 3 debug nodes:
+#### Listing all Classifiers
 
-![ScreenShot](images/nlc_all_flows.png)
+Drag a **Natural Language Classifier (NLC)** node to the palette. Double click to set the **Mode** to `List` and then give it a name:
 
-Change the **Mode ** of the first new classifier node to `List`:
+![ScreenShot](images/NLC-List-Classifiers.jpg)
 
-![ScreenShot](images/nlc_dropdown_list.png)
+Add an **Inject** node to initiate this flow. 
 
-Change the next classifier node to `Classify` and the final one to `Remove`.
+![ScreenShot](images/NLC-List-Inject.jpg)
 
-**NOTE**: For the **Remove Inject** node, change the **Inject** string to a classifier that exists (you noted one down earlier).
+Also add a **Debug** node to the output of the NLC node and **Deploy**. 
 
-Click the **Get List Inject** node. In the "debug" tab you see a list of classifiers.
+When you initiate the flow, an array of the classifiers is returned in the "debug" tab of Node-RED. In the following example one of the IDs is **8fc193x296-nlc-3488**:
 
-![ScreenShot](images/nlc_list.png)
+![ScreenShot](images/NLC-List-Debug.jpg)
 
-Click the **Is it hot?** node. In the "debug" tab, you see (as before) the confidence level that the classifier returns.
+#### Classifier Questions
 
-Click the **Inject** node connected to the **Remove NLC** node.  **Important:** when clicked it will delete the classifier.
+Drag a **Natural Language Classifier (NLC)** node to the palette. Double click to set the **Mode** to `Classify`, then add a validate Classifier ID and give it a name:
 
-Download the completed [flows](nlc_flows_with_nlc_service.json) to compare against what you created.
+![ScreenShot](images/NLC-Questions-Classify.jpg)
+
+Add 2 **Inject** nodes to initiate this flow. The first node will inject the question "Is it hot?"  
+
+![ScreenShot](images/NLC-Question1-Inject.jpg)
+
+The second inject node will inject the question "Is it humid?"
+
+![ScreenShot](images/NLC-Question2-Inject.jpg)
+
+Also add a **Debug** node to the output of the NLC node and **Deploy**. 
+
+If you initiate the flow with the "Is it hot?" question, an array of the classes is returned in the "debug" tab of Node-RED. The array will be in order of the confidence rating 
+
+![ScreenShot](images/NLC-Question1-Debug.jpg)
+
+If you initiate the flow with the "Is it humid?" question, the "debug" tab of Node-RED will show results similiar to. 
+
+![ScreenShot](images/NLC-Question2-Debug.jpg)
+
+#### Remove(Delete) a Classifier
+
+Drag a **Natural Language Classifier (NLC)** node to the palette. Double click to set the **Mode** to `Remove` and then give it a name:
+
+![ScreenShot](images/NLC-Delete-Classifier.jpg)
+
+Add an **Inject** node to initiate this flow. 
+
+![ScreenShot](images/NLC-Delete-Inject.jpg)
+
+Also add a **Debug** node to the output of the NLC node and **Deploy**. 
+
+When you initiate the flow, if it is successful then an empty dataset returned in the "debug" tab of Node-RED. 
+
+![ScreenShot](images/NLC-Delete-Debug.jpg)
+
+## Complete Flows
+You can download the completed [flows](NLC-Complete.json) to compare against what you created.
