@@ -1,83 +1,42 @@
-##Personality Insights Introduction
-
-The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to [personal-insights](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html) for a full description and demo
-
-The objective is to send the Personality Insights node the same data as for the demo (https://watson-pi-demo.mybluemix.net/) and to show the JSON object and its values match those of the demo
-
-Check out this page for full instructions on getting started with Node-RED.
-
-##Deploy Node-RED on IBM Cloud
-
-- You need a [IBM Cloud](https://console.ng.bluemix.net/) account. Log into the IBM Cloud.
-- Verify that your region setting is set to US South. ![ScreenShot](images/pi_region_setting.png)
-- When you are logged in go to 'Catalog' and click on the 'Node-RED starter' application in Boilerplates. 
-- On the right side of the screen you must give it a unique name ( this name is your hostname and so needs to be unique across all of IBM Cloud. For example < YourName >nodered< pick3numbers > like salnodered123.) Then click 'Create'. 
-- Right now the Node-RED application is being created and deployed. This will take a few minutes.
-- OPTIONAL FOR DEVELOPERS - Follow the instructions to install cloud foundry or cf
-
-##Personality Insights Lab
-
-- Go back to the IBM Cloud dashboard by clicking DASHBOARD on top and click on the icon of the nodered application you just created.
-- Pick “Add a Service or API” and click the Personality Insights node under Watson section.  Make sure your Application is listed and click on Create.  Click on Restage.
-- After Restage is complete and the app has started click on the url under the name of APP on the top left side.
-- Once NodeRed opens click on 'Go to your Node-Red flow editor'
-
-> Check out this [page]( http://nodered.org/docs/getting-started/) for full instructions on getting started with Node-RED.
-
-- Drag an inject node to the palette.
-- Drag the personality insights node to the palette.
-- Drag a debug node to the palette.
-- Join them as shown below
-
-![ScreenShot](images/pi_flow.png)
-
-- Double-click the debug node and replace ‘payload’ to ‘insights’. Also change “to” to “debug tab and console”
-![ScreenShot](images/pi_edit_debug_node.png)
-
-- Double-click the inject node and change Payload to string.  
-Go to [sample file](personal_insights_input_text.txt) and open the file and paste the text to the blank 
-field below the Payload field (this is the same text that is used in the demo).
-- Click Ok
-
-![ScreenShot](images/pi_edit_inject_node.png)
-
-***
-Optional Steps if you want to see logs on the cloud 
-***
-
-- Open a command line on your laptop and login to IBM Cloud with your username/password. Making sure that you 
-are connecting to the appropriate datacenter for your application. 
-- For US South it will look like
-
-![ScreenShot](images/pi_cf_us_login.png), 
-
-- for the UK 
-
+# Lab : Watson Personality Insights service with Node-RED
+## Overview
+The IBM Watson Personality Insights service uses linguistic analytics to infer cognitive and social characteristics, including Big Five, Values, and Needs, from communications that the user makes available, such as email, text messages, tweets, forum posts, and more, go to personal-insights for a full description and demo
+The objective is to send the Personality Insights node the same data as used for the standard web demo and to show the JSON profile object and its values match those of the demo.
+## Node-RED Watson Personality Insights (PI) node
+The PI node  ![ScreenShot](images/pi_node.jpg) is a wrapper for the Watson Personality Insights API. It will accept text on the msg.payload and produce a json profile object.
+## Personality Insights flow construction
+In this exercise we will create a very simple flow to inject a text into the node and produce the json profile object. 
+Drag an inject node to the palette. Double-click the inject node and change Payload to string.
+Go to sample file and open the file and paste the text to the blank field below the Payload field (this is the same text that is used in the standard web demo).
+![ScreenShot](images/pi_inject.jpg)
+Drag the personality insights node to the palette. Double-click the inject node to open, you are able to change both the input and response languages, if you wish. Always check the Language Support documentation for the latest information on Languages. You can also get additional results by checking the tick-boxes for Raw Scores and Consumption Preferences:
+- Raw Scores indicates whether a raw score in addition to a normalized percentile is to be returned for each characteristic; raw scores are not compared with a sample population. 
+ - Consumption Preferences indicates whether consumption preferences are to be returned with the results. 
+ ![ScreenShot](images/pi_details.jpg)
+Drag a debug node to the palette. Double-click the debug node and replace ‘payload’ to ‘insights’. Also make sure that **debug** and **console** are selected in the To field.
+![ScreenShot](images/pi_debug.jpg)
+Join them as shown below
+![ScreenShot](images/pi_flow.jpg) 
+## Optional Steps if you want to see logs on the cloud
+You must have the Cloud Foundry Command Line Interface installed. The code can be found on the Cloud Foundry Github repository, the installation and usage documentation is available on-line.
+•	Open a command line on your laptop and login to IBM Cloud with your username/password. Making sure that you are connecting to the appropriate datacenter for your application, each datacenter has a unique url for 
+•	US South - https//api.ng.bluemix.net 
+•	The UK - https//api.eu-gb.bluemix.net
+•	Germany - https//api.eu-de.bluemix.net
+•	Sydney - https//api.au-syd.bluemix.net
 ![ScreenShot](images/pi_cf_uk_login.png)
-
-- and for Sydney 
-
-![ScreenShot](images/pi_cf_sydney_login.png)
-
-- Type **cf logs app_name** where **app_name** is the name of your application.  
-
-***
-***
-
-- Return to the Node-RED palette.
-- Click the Deploy button
-- Click on the debug tab to the top right of the palette.
-- Click the button next to the inject node.  
-
-You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object.  NOTE : you will not be able to see the full object
-
+•	Once you are logged in type 
+```cf logs *app_name*```
+ where app_name is the name of your application.
+•	Return to the Node-RED palette.
+•	Click the Deploy button
+•	Click on the debug tab to the top right of the palette.
+•	Click the button next to the inject node.
+You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object. **NOTE : you will not be able to see the full object**
 ![ScreenShot](images/pi_debug_node_output.png)
-
-Go back to the command prompt and see that the full object has been shown. 
-
+Go back to the command prompt and see that the full object has been shown.
 ![ScreenShot](images/pi_cmd_prompt.png)
-
 Compare the items in the JSON object to those of the demo for Personality Insights - you can see that the values shown are the same (or very similar).
+A completed flow file card be found here
 
-A completed flow file card be found [here](personal_insights_flows.json)
 
