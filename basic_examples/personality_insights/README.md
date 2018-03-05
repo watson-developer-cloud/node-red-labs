@@ -35,13 +35,13 @@ You must have the Cloud Foundry Command Line Interface installed. The code can b
   
 ![ScreenShot](images/pi_cf_uk_login.png)
 
-1	Once you are logged in type 
+*	Once you are logged in type 
   ```cf logs *app_name*```
  where app_name is the name of your application.
-1 Return to the Node-RED palette.
-1	Click the Deploy button
-1	Click on the debug tab to the top right of the palette.
-1	Click the button next to the inject node.
+* Return to the Node-RED palette.
+*	Click the Deploy button
+*	Click on the debug tab to the top right of the palette.
+*	Click the button next to the inject node.
 You will see an output in the debug tab starting with '{ [msg.insights] : object }' followed by the JSON object. 
 
 **NOTE : you will not be able to see the full object**
