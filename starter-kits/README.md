@@ -2,7 +2,7 @@
 This is a collection of sample apps using the Watson nodes in [Node-RED](nodered.org). The apps are starter kit examples of
 how to create apps using Node-RED and the [Watson Nodes](https://github.com/watson-developer-cloud/node-red-labs).
 
-There are 10 apps exploring the capabilities of Watson Developer Cloud in Node-RED.
+There are 11 apps exploring the capabilities of Watson Developer Cloud in Node-RED.
 Each kit comes with a video introduction, which shows each application in use.
 
 1. [Interpreter](interpreter/README.md)
@@ -24,6 +24,8 @@ Each kit comes with a video introduction, which shows each application in use.
 9. [Dictaphone](dictaphone/README.md)
 
 10. [TTSaudio](text_to_speech_audio/README.md)
+
+11. [Babelfish](babelfish/README.md)
 
 
 ## Set up Instructions

@@ -1,0 +1,671 @@
+[
+    {
+        "id": "3ae3bd5.6e7d642",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "List Environments",
+        "environmentname": "",
+        "environment_id": "",
+        "collection_id": "",
+        "configurationname": "",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "",
+        "passages": false,
+        "nlp_query": false,
+        "query": "",
+        "filter": "",
+        "aggregation": "",
+        "return": "",
+        "description": "",
+        "size": "",
+        "discovery-method": "listEnvrionments",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 370,
+        "y": 180,
+        "wires": [
+            [
+                "3e5effd3.a62658"
+            ]
+        ]
+    },
+    {
+        "id": "1205e422.2e72ac",
+        "type": "inject",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 127.5,
+        "y": 179,
+        "wires": [
+            [
+                "3ae3bd5.6e7d642"
+            ]
+        ]
+    },
+    {
+        "id": "3e5effd3.a62658",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "environments",
+        "x": 670,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d45d4797.0582d8",
+        "type": "inject",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 125.5,
+        "y": 222,
+        "wires": [
+            [
+                "ff6df037.53535"
+            ]
+        ]
+    },
+    {
+        "id": "ff6df037.53535",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "Environment Details",
+        "environmentname": "Environment Details",
+        "environment_id": "system",
+        "collection_id": "",
+        "configurationname": "",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "",
+        "passages": false,
+        "nlp_query": false,
+        "query": "",
+        "filter": "",
+        "aggregation": "",
+        "return": "",
+        "description": "",
+        "size": "",
+        "discovery-method": "getEnvironmentDetails",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 380,
+        "y": 222,
+        "wires": [
+            [
+                "5e40dc6d.7f0114"
+            ]
+        ]
+    },
+    {
+        "id": "5e40dc6d.7f0114",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "environment_details",
+        "x": 690,
+        "y": 222,
+        "wires": []
+    },
+    {
+        "id": "8286333c.401408",
+        "type": "inject",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 126.5,
+        "y": 301,
+        "wires": [
+            [
+                "d8c12bdb.cccfd8"
+            ]
+        ]
+    },
+    {
+        "id": "d8c12bdb.cccfd8",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "List Collections",
+        "environmentname": "",
+        "environment_id": "system",
+        "collection_id": "",
+        "configurationname": "",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "",
+        "passages": false,
+        "nlp_query": false,
+        "query": "",
+        "filter": "",
+        "aggregation": "",
+        "return": "",
+        "description": "",
+        "size": "",
+        "discovery-method": "listCollections",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 360,
+        "y": 301,
+        "wires": [
+            [
+                "f39dc803.6edc08"
+            ]
+        ]
+    },
+    {
+        "id": "f39dc803.6edc08",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "collections",
+        "x": 660,
+        "y": 301,
+        "wires": []
+    },
+    {
+        "id": "bf55198d.f4c988",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "Collection Details",
+        "environmentname": "",
+        "environment_id": "system",
+        "collection_id": "news-en",
+        "configurationname": "",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "",
+        "passages": false,
+        "nlp_query": false,
+        "query": "",
+        "filter": "",
+        "aggregation": "",
+        "return": "",
+        "description": "",
+        "size": "",
+        "discovery-method": "getCollectionDetails",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 370,
+        "y": 341,
+        "wires": [
+            [
+                "b3b83ce3.ab45"
+            ]
+        ]
+    },
+    {
+        "id": "4b8d5400.afb8cc",
+        "type": "inject",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 125.5,
+        "y": 341,
+        "wires": [
+            [
+                "bf55198d.f4c988"
+            ]
+        ]
+    },
+    {
+        "id": "b3b83ce3.ab45",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "collection_details",
+        "x": 680,
+        "y": 341,
+        "wires": []
+    },
+    {
+        "id": "fd760a58.0be9d",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "List Configurations",
+        "environmentname": "",
+        "environment_id": "system",
+        "collection_id": "",
+        "configurationname": "news-en",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "",
+        "passages": false,
+        "nlp_query": false,
+        "query": "",
+        "filter": "",
+        "aggregation": "",
+        "return": "",
+        "description": "",
+        "size": "",
+        "discovery-method": "listConfigurations",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "1e092b03.c947cd"
+            ]
+        ]
+    },
+    {
+        "id": "d9b844cc.4bc618",
+        "type": "inject",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 124.5,
+        "y": 420,
+        "wires": [
+            [
+                "fd760a58.0be9d"
+            ]
+        ]
+    },
+    {
+        "id": "1e092b03.c947cd",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "configurations",
+        "x": 670,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "7b3d4f56.a3c3f",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "Query",
+        "environmentname": "",
+        "environment_id": "system",
+        "collection_id": "news-en",
+        "configurationname": "",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "10",
+        "passages": false,
+        "nlp_query": false,
+        "query": "text:Carabao",
+        "filter": "",
+        "aggregation": "term(text)",
+        "return": "text,website",
+        "description": "",
+        "size": "",
+        "discovery-method": "query",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 330,
+        "y": 500,
+        "wires": [
+            [
+                "846af5b1.3b84c8"
+            ]
+        ]
+    },
+    {
+        "id": "846af5b1.3b84c8",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "search_results",
+        "x": 680,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "2c89568d.fd3efa",
+        "type": "inject",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 126,
+        "y": 500,
+        "wires": [
+            [
+                "7b3d4f56.a3c3f"
+            ]
+        ]
+    },
+    {
+        "id": "80a593fa.8405e8",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "discoveryparams",
+        "x": 670,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "f339b1b.6bb185",
+        "type": "inject",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 127,
+        "y": 600,
+        "wires": [
+            [
+                "5754646e.220334"
+            ]
+        ]
+    },
+    {
+        "id": "9a6f5316.49f75",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "Collection Details",
+        "environmentname": "",
+        "environment_id": "system",
+        "collection_id": "news-en",
+        "configurationname": "",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "",
+        "passages": false,
+        "nlp_query": false,
+        "query": "",
+        "filter": "",
+        "aggregation": "",
+        "return": "",
+        "description": "",
+        "size": "",
+        "discovery-method": "getCollectionDetails",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 371,
+        "y": 700,
+        "wires": [
+            [
+                "8ca315dc.e01818"
+            ]
+        ]
+    },
+    {
+        "id": "8ca315dc.e01818",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "collection_details",
+        "x": 660,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "86a763a1.113548",
+        "type": "watson-discovery-v1",
+        "z": "908bbb3c.6f4b38",
+        "name": "Query Search",
+        "environmentname": "",
+        "environment_id": "system",
+        "collection_id": "news-en",
+        "configurationname": "",
+        "configuration_id": "",
+        "collection_name": "",
+        "count": "5",
+        "passages": false,
+        "nlp_query": false,
+        "query": "text:Olympics",
+        "filter": "",
+        "aggregation": "term(text)",
+        "return": "text,website",
+        "description": "",
+        "size": "",
+        "discovery-method": "query",
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 364,
+        "y": 739,
+        "wires": [
+            [
+                "a6c5a960.6cb45"
+            ]
+        ]
+    },
+    {
+        "id": "a6c5a960.6cb45",
+        "type": "debug",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "active": true,
+        "console": "true",
+        "complete": "search_results",
+        "x": 660,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "10447838.e6c6b",
+        "type": "link out",
+        "z": "908bbb3c.6f4b38",
+        "name": "Discovery Query Set",
+        "links": [
+            "98975006.29ab7",
+            "2da8e870.64e21",
+            "95a68e60.c536d"
+        ],
+        "x": 575,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "98975006.29ab7",
+        "type": "link in",
+        "z": "908bbb3c.6f4b38",
+        "name": "Discovery Params",
+        "links": [
+            "10447838.e6c6b"
+        ],
+        "x": 239,
+        "y": 658,
+        "wires": [
+            [
+                "80a593fa.8405e8"
+            ]
+        ]
+    },
+    {
+        "id": "2da8e870.64e21",
+        "type": "link in",
+        "z": "908bbb3c.6f4b38",
+        "name": "Discovery Collections",
+        "links": [
+            "10447838.e6c6b"
+        ],
+        "x": 238,
+        "y": 700,
+        "wires": [
+            [
+                "9a6f5316.49f75"
+            ]
+        ]
+    },
+    {
+        "id": "95a68e60.c536d",
+        "type": "link in",
+        "z": "908bbb3c.6f4b38",
+        "name": "Discovery Query Execute",
+        "links": [
+            "10447838.e6c6b"
+        ],
+        "x": 236,
+        "y": 739,
+        "wires": [
+            [
+                "86a763a1.113548"
+            ]
+        ]
+    },
+    {
+        "id": "fd52d4cb.1eb5b8",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Link to the Lab instructions",
+        "info": "See corresponding Lab instructions in the link below :\n\n[Watson Discovery](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/discovery)\n",
+        "x": 150,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ff70d6d7.266e2",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Make sure you connect the Discovery Service to your Node-RED App !",
+        "info": "\n",
+        "x": 550,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "80789ced.217e9",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Discovery",
+        "info": "The discovery node provide the tooling to administer and search:\nAdminister\nEnvironments: Think of an environment as a repository for your documents, you can \n- Create a new environment\n- List existing environments\n- Get environment details\n- Delete an environment\n\nCollections: These sit within an environment and can be thought of as a folder or storage box, again you can\n- Create a new collection\n- List existing collections\n- Get collections details\n- Delete a collection\n\nConfigurations: Each Collections can be customised using configurations, you can\n- Create a new configuration\n- List existing configurations\n- Get configuration details\n\nSearch    \n- Search in Collection",
+        "x": 100,
+        "y": 101,
+        "wires": []
+    },
+    {
+        "id": "a2254f7e.7db36",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Query Builder",
+        "info": "This uses the Discovery Query Builder node to formulate search of existing collections.\n\nThe node fetches the searchable fields in the collection and allows you to set upto 3 query search items.\n\nThe output from the Node is an object in msg.discoveryparams that the Watson Discovery Node uses as override settings. \n",
+        "x": 110,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "5754646e.220334",
+        "type": "watson-discovery-v1-query-builder",
+        "z": "908bbb3c.6f4b38",
+        "name": "",
+        "password": "",
+        "environment": "system",
+        "environmenthidden": "system",
+        "collection": "news-en",
+        "collectionhidden": "news-en",
+        "nlp_query": true,
+        "nlp_queryhidden": "true",
+        "querynlp": "Carabao",
+        "querynlphidden": "Carabao",
+        "query1": "",
+        "query1hidden": "",
+        "queryvalue1": "",
+        "queryvalue1hidden": "",
+        "query2": "",
+        "query2hidden": "",
+        "queryvalue2": "",
+        "queryvalue2hidden": "",
+        "query3": "",
+        "query3hidden": "",
+        "queryvalue3": "",
+        "queryvalue3hidden": "",
+        "passages": false,
+        "passageshidden": "false",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/discovery/api",
+        "x": 390,
+        "y": 600,
+        "wires": [
+            [
+                "10447838.e6c6b"
+            ]
+        ]
+    },
+    {
+        "id": "59cac068.b5e148",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Environment Examples",
+        "info": "- List existing environments\n- Get environment details\n",
+        "x": 140,
+        "y": 141,
+        "wires": []
+    },
+    {
+        "id": "8ecaebe2.615458",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Collection Examples",
+        "info": "- List existing collections\n- Get collections details\n",
+        "x": 130,
+        "y": 261,
+        "wires": []
+    },
+    {
+        "id": "6a25097b.161f1",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Configuration Example",
+        "info": "- List existing configurations\nThere are no configurations associated with the system collection. \n",
+        "x": 140,
+        "y": 381,
+        "wires": []
+    },
+    {
+        "id": "c33e7a31.bc7b5",
+        "type": "comment",
+        "z": "908bbb3c.6f4b38",
+        "name": "Query Example",
+        "info": "This is simple query using the system collection using the English news. \nYou can experiment with Spanish and Korean news collections if you wish.",
+        "x": 120,
+        "y": 460,
+        "wires": []
+    }
+]

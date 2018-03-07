@@ -1,0 +1,396 @@
+[{
+  "id": "4c2593a.5b5d86c",
+  "type": "tab",
+  "label": "Voice Transformer",
+  "disabled": false,
+  "info": ""
+}, {
+  "id": "33a8ddec.c45ee2",
+  "type": "websocket in",
+  "z": "4c2593a.5b5d86c",
+  "name": "STT In",
+  "server": "aeb82186.b50e4",
+  "client": "",
+  "x": 107,
+  "y": 246,
+  "wires": [
+    ["7aa6ba88.19e194"]
+  ]
+}, {
+  "id": "20b2bf76.77623",
+  "type": "http in",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "url": "/transcriber",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 137,
+  "y": 102,
+  "wires": [
+    ["c7daaf11.facf5"]
+  ]
+}, {
+  "id": "517bab79.ae41a4",
+  "type": "http response",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 487,
+  "y": 102,
+  "wires": []
+}, {
+  "id": "c7daaf11.facf5",
+  "type": "template",
+  "z": "4c2593a.5b5d86c",
+  "name": "Microphone",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<!--\n# Copyright 2018 IBM\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n-->\n\n<html>\n\n<head>\n  <title>Audio Stream for Speech to Text</title>\n</head>\n\n<body>\n  <div id=\"no-script\">\n    This application needs JavaScript enabled in your browser!\n  </div>\n  <div id=\"status-microphone\">\n  </div>\n  <div id=\"status-socket\">\n  </div>\n  <div id='audio-supported'>\n    <div>Click Record to start streaming audio, and Stop to stop.</div>\n    <div>\n      <button type=\"button\" id=\"id_recordButton\">\n\t         Record\n\t\t    </button>\n      <button type=\"button\" id=\"id_stopButton\">\n           Stop\n\t\t    </button>\n      <div id=\"id_datastore\"></div>\n    </div>\n  </div>\n  <div id='audio-notsuppported'>\n    <div>Not able to capture audio in this browser.</div>\n  </div>\n  <div id='transcription'>\n  </div>\n\n  <div>\n    <div>Set Input Language:</div>\n    <select type=\"text\" id='inputLanguage'>\n      <option value=\"en-US\">---</option>\n      <option value=\"pt-BR\">Brazillian Portuguese</option>\n      <option value=\"ko-KR\">Korean</option>\n      <option value=\"fr-FR\">French</option>\n      <option value=\"en-US\">US English</option>\n      <option value=\"en-UK\">UK English</option>\n      <option value=\"zh-CN\">Mandarin</option>\n      <option value=\"ja-JP\">Japanese</option>\n      <option value=\"es-ES\">Spanish</option>\n      <option value=\"ar-AR\">Arabic</option>\n    </select>\n  </div>\n\n  <div>\n    <div>Set Output Voice:</div>\n    <select type=\"text\" id='outputLanguage'>\n      <option value=\"en-US_LisaVoice\">---</option>\n      <option value=\"en-US_LisaVoice\">Lisa</option>\n      <option value=\"de-DE_BirgitVoice\">Birgit</option>\n      <option value=\"en-US_AllisonVoice\">Alison</option>\n      <option value=\"fr-FR_ReneeVoice\">Renee</option>\n      <option value=\"it-IT_FrancescaVoice\">Francesca</option>\n      <option value=\"es-ES_LauraVoice\">Laura</option>\n      <option value=\"ja-JP_EmiVoice\">Emi</option>\n      <option value=\"en-GB_KateVoice\">Kate</option>\n      <option value=\"es-LA_SofiaVoice\">Sofia (Latin)</option>\n      <option value=\"es-US_SofiaVoice\">Sofia (US)</option>\n      <option value=\"pt-BR_IsabelaVoice\">Isablela</option>\n      <option value=\"es-ES_EnriqueVoice\">Enrique</option>\n      <option value=\"de-DE_DieterVoice\">Dieter</option>\n      <option value=\"en-US_MichaelVoice\"></option>\n    </select>\n  </div>\n  <!--\n    <div>\n      <audio id=\"id_player\" controls></audio>\n    </div>\n-->\n\n  <!-- If you want to see the audio control on the page change to -->\n  <!-- <audio controls autoplay id='audiotag'> -->\n  <audio autoplay id='audiotag'>\n   <source id='audiosource' type=\"audio/mpeg\"/>\n  </audio>\n\n  <script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>\n\n  <script type=\"text/javascript\">\n    var websocket = null;\n    var audioContext = window.AudioContext || window.webkitAudioContext;\n\n    var context = new audioContext();\n\n    $(document).ready(function() {\n      allofit();\n    });\n\n    $(document).unload(function() {\n      websocketDisconnect();\n    });\n\n    function allofit() {\n      javascriptCheck();\n      uiHandlers();\n      websocketConnect();\n      //setupAudioListener();\n\n      audioButtonStuff();\n      dataCacheStuff();\n      audioCheckStuff();\n\n      $('#id_stopButton').hide();\n    }\n\n\n    function setLanguage(language, mode) {\n      //var ajaxData = \"msgdata=\" + message;\n      var ajaxData = {};\n      ajaxData.language = language;\n      ajaxData.mode = mode;\n\n      $.ajax({\n        type: 'POST',\n        url: 'setlanguage',\n        data: ajaxData,\n        success: processOK,\n        error: processNotOK\n      });\n    }\n\n    function processOK(response) {\n      console.log('AJAX call successful');\n    }\n\n    function processNotOK() {\n      console.log('Error Invoking AJAX');\n    }\n\n\n    function uiHandlers() {\n      $('#inputLanguage').change(function (val) {\n        var inputLanguage = $('#inputLanguage').val();\n        setLanguage(inputLanguage, 'input');\n      });\n\n      $('#outputLanguage').change(function (val) {\n        var outputLanguage = $('#outputLanguage').val();\n        setLanguage(outputLanguage, 'output');\n      });\n    }\n\n    function flushAudioContext() {\n      //dataCacheStuff();\n      //websocket = null;\n      context.close().then(function() {\n        context = new audioContext();\n      });\n      //$('#id_stopButton').removeData();\n      //$('#id_datastore').removeData();\n      //allofit();\n    }\n\n    // ******************************************************\n    // if javascript is enabled on the browser then can\n    // remove the warning message\n    // ******************************************************\n    function javascriptCheck() {\n      $('#no-script').remove();\n    }\n\n    // ******************************************************\n    // Web Socket stuff\n    // ******************************************************\n    function websocketConnect() {\n      var uri = determineWSUri()\n      //console.log(\"connect\", uri);\n      websocket = new WebSocket(uri);\n\n      //$('#id_startButton').data(\"webSocket\", ws);\n      setupSockectListeners();\n    }\n\n    function websocketDisconnect() {\n      if (websocket) {\n        websocket.disconnect();\n      }\n    }\n\n    function determineWSUri() {\n      var wsUri = \"ws:\";\n      var loc = window.location;\n      //console.log(loc);\n      if (loc.protocol === \"https:\") {\n        wsUri = \"wss:\";\n      }\n      // This needs to point to the web socket in the Node-RED flow\n      // ... in this case it's ws/stt\n      wsUri += \"//\" + loc.host + \"/ws/stt20\";\n      //wsUri += \"//\" + loc.host + loc.pathname.replace(\"stt\",\"ws/stt\");\n\n      return wsUri;\n    }\n\n    // Audio Playback\n    function playAudio(response) {\n      console.log('Audio Received');\n\n      var audio = document.getElementById('audiotag');\n      var blob = new Blob([response], {\n        type: 'audio/webm'\n      });\n      var objectURL = URL.createObjectURL(blob);\n\n      audio.src = objectURL;\n\n      audio.onload = function(evt) {\n        URL.revokeObjectURL(objectURL);\n      }\n\n      console.log('Attempting to play audio');\n\n      audio.play()\n        .then(() => {}).catch((error) => {\n          console.log('unable to play audio');\n          console.log(error);\n        });\n\n    }\n\n\n\n    function setupSockectListeners() {\n      websocket.onmessage = function(msg) {\n        console.log('data received from websocket', msg);\n        if (msg.data) {\n          if (msg.data instanceof Blob) {\n            console.log('We have received a blob');\n            playAudio(msg.data);\n          } else {\n            console.log(msg.data);\n            var data = JSON.parse(msg.data);\n            if (data.results && (data.results instanceof Array)) {\n              console.log(data.results[0]);\n              if (data.results[0].alternatives &&\n                (data.results[0].alternatives instanceof Array)) {\n                console.log(data.results[0].alternatives[0]);\n                if (data.results[0].alternatives[0].transcript) {\n                  $('#transcription').text(data.results[0].alternatives[0].transcript);\n                }\n              }\n            }\n          }\n        }\n      }\n\n      websocket.onopen = function() {\n        $('#status-socket').text('connected');\n        console.log(\"connected\");\n      }\n\n      websocket.onclose = function() {\n        $('#status-socket').text('not connected');\n        // in case of lost connection tries to reconnect every 2 secs\n        setTimeout(websocketConnect, 2000);\n      }\n    }\n\n    function audioButtonStuff() {\n      var stopButton = $('#id_stopButton');\n      var recordButton = $('#id_recordButton');\n\n      (function() {\n        recordButton.click(\n          function() {\n            var message = {\n              action: 'start',\n              'content-type': 'audio/wav',\n              'interim_results': true\n            };\n\n            //var message =  {\n            //'content-type' :'audio/webm',\n            //    \"content-type\" :\"audio/wav; rate=16000; endianness=little-endian\",\n            //\"content-type\":\"audio/l16; rate=16000; endianness=little-endian\",\n            //\"content-type\":\"audio/flac\",\n            //\"inactivity_timeout\": -1,\n            //\"interim_results\":true,\n            //    \"action\":\"start\"\n            //  };\n\n            //websocket.send(JSON.stringify({mode:'start', type: 'audio/wav'}));\n            websocket.send(JSON.stringify(message));\n            recordButton.hide();\n            stopButton.show();\n            requestAudioRecording();\n          });\n        stopButton.click(\n          function() {\n            recordButton.show();\n            stopButton.hide();\n            processAudioOnlyStream();\n            localStream = stopButton.data(\"mediaStream\");\n            if (localStream) {\n              // localStream.stop() was throwing a deprecated, will be removed in Nov 2015\n              // so aded the track.stop(), but that didn't seem to work well with firefox, so\n              // for now keeping both in.\n              //localStream.stop();\n              //var numTracks = localStream.getTracks().length\n              //for (i in localStream.getTracks()) {\n              //\tvar track = localStream.getTracks()[i];\n              //\ttrack.stop();\n              //\n              localStream.getTracks().forEach(function(track) {\n                track.stop();\n              });\n\n            }\n            flushAudioContext();\n          });\n      })();\n    }\n\n    function resetAudioButtons() {\n      $('#id_stopButton').hide();\n      $('#id_recordButton').hide();\n    }\n\n    // ******************************************************\n    // This flushes the channel buffers, which are held as data\n    // in a datastore field on the page.\n    // ******************************************************\n\n    function dataCacheStuff() {\n      console.log('Flushing the Channels');\n      //$('#id_datastore').removeData();\n\n      var leftchannel = new Array();\n      var rightchannel = new Array();\n      leftchannel.length = 0;\n      rightchannel.length = 0;\n\n      $('#id_datastore').data(\"leftchannel\", leftchannel);\n      $('#id_datastore').data(\"rightchannel\", rightchannel);\n      $('#id_datastore').data(\"recording\", false);\n      $('#id_datastore').data(\"recordlength\", 0);\n    }\n\n    // ******************************************************\n    // Audio support checks\n    // ******************************************************\n\n    function audioCheckStuff() {\n      var supported = false;\n      if (isUserMediaSupported()) {\n        supported = true;\n        $('#audio-notsuppported').hide();\n      }\n      $('#id_datastore').data(\"audiosupported\", supported);\n    }\n\n    function isUserMediaSupported() {\n      return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||\n        navigator.mozGetUserMedia || navigator.msGetUserMedia);\n    }\n\n    function getUserMediaFunction() {\n      return (navigator.getUserMedia ||\n        navigator.webkitGetUserMedia ||\n        navigator.mozGetUserMedia ||\n        navigator.msGetUserMedia);\n    }\n\n    // **********************************************\n    // The record button has been pressed, so first there\n    // is a user prompt to allow recording to happen\n    // **********************************************\n\n    function requestAudioRecording() {\n      navigator.getUserMedia = getUserMediaFunction();\n      navigator.getUserMedia({\n          audio: true\n        },\n        startAudioRecording,\n        notAllowed\n      );\n    }\n\n    function notAllowed(e) {\n      var etxt = \"Media Persmission Denied - \" + e.name;\n\n      setStatusMessage('e', etxt);\n      resetAudioButtons();\n    }\n\n    // **********************************************\n    // Recording is being permitted.\n    // **********************************************\n\n    function startAudioRecording(localMediaStream) {\n      console.log('Start Audio Recording');\n      dataCacheStuff();\n\n      $('#id_stopButton').data(\"mediaStream\", localMediaStream);\n      //audioContext = window.AudioContext || window.webkitAudioContext;\n\n      //context = new audioContext();\n      // retrieve the current sample rate to be used for WAV packaging\n      sampleRate = context.sampleRate;\n      //console.log(\"Sample Rate is \", sampleRate);\n\n      // creates a gain node\n      volume = context.createGain();\n\n      // creates an audio node from the microphone incoming stream\n      audioInput = context.createMediaStreamSource(localMediaStream);\n\n      // connect the stream to the gain node\n      audioInput.connect(volume);\n\n      /* \tFrom the spec: This value controls how frequently the audioprocess event is\n      \tdispatched and how many sample-frames need to be processed each call.\n      \tLower values for buffer size will result in a lower (better) latency.\n      \tHigher values will be necessary to avoid audio breakup and glitches */\n      var bufferSize = 2048;\n      //Stick to 2 input and 2 output channel\n      var recorder;\n      if (!context.createScriptProcessor) {\n        recorder = context.createJavaScriptNode(bufferSize, 2, 2);\n      } else {\n        recorder = context.createScriptProcessor(bufferSize, 2, 2);\n      }\n      if (recorder) {\n        recorder.onaudioprocess = function(e) {\n          var recording = $('#id_datastore').data(\"recording\");\n          if (recording) {\n            console.log('recording');\n            var left = e.inputBuffer.getChannelData(0);\n            var right = e.inputBuffer.getChannelData(1);\n            //we clone the samples\n            var leftchannel = $('#id_datastore').data(\"leftchannel\");\n            var rightchannel = $('#id_datastore').data(\"rightchannel\");\n            if (leftchannel && rightchannel) {\n              leftchannel.push(new Float32Array(left));\n              rightchannel.push(new Float32Array(right));\n              recordingLength = bufferSize + $('#id_datastore').data(\"recordlength\");\n              $('#id_datastore').data(\"recordlength\", recordingLength)\n              //console.log('RecordingLenth incremented to ', recordingLength);\n            }\n          }\n        };\n        // we connect the recorder\n        volume.connect(recorder);\n        recorder.connect(context.destination);\n        console.log('setting recording to on');\n        $('#id_datastore').data(\"recording\", true);\n      }\n    }\n\n    // **********************************************\n    // Stop Recording button has been pressed. No Cancels allowed\n    // **********************************************\n\n    function processAudioOnlyStream() {\n      if ($('#id_datastore').data(\"recording\")) {\n        $('#id_datastore').data(\"recording\", false);\n\n        var leftchannel = $('#id_datastore').data(\"leftchannel\");\n        var rightchannel = $('#id_datastore').data(\"rightchannel\");\n        var recordingLength = $('#id_datastore').data(\"recordlength\");\n\n        console.log('recordingLength ', recordingLength);\n\n        var leftBuffer = createAudioBuffer(leftchannel, recordingLength);\n        var rightBuffer = createAudioBuffer(rightchannel, recordingLength);\n\n        var interleaved = interleave(leftBuffer, rightBuffer);\n\n        // we create our wav file\n        var buffer = new ArrayBuffer(44 + interleaved.length * 2);\n        var view = new DataView(buffer);\n\n        // RIFF chunk descriptor\n        writeUTFBytes(view, 0, 'RIFF');\n        view.setUint32(4, 44 + interleaved.length * 2, true);\n        writeUTFBytes(view, 8, 'WAVE');\n        // FMT sub-chunk\n        writeUTFBytes(view, 12, 'fmt ');\n        view.setUint32(16, 16, true);\n        view.setUint16(20, 1, true);\n        // stereo (2 channels)\n        view.setUint16(22, 2, true);\n        view.setUint32(24, sampleRate, true);\n        view.setUint32(28, sampleRate * 4, true);\n        view.setUint16(32, 4, true);\n        view.setUint16(34, 16, true);\n        // data sub-chunk\n        writeUTFBytes(view, 36, 'data');\n        view.setUint32(40, interleaved.length * 2, true);\n\n        // write the PCM samples\n        var lng = interleaved.length;\n        var index = 44;\n        var volume = 1;\n        for (var i = 0; i < lng; i++) {\n          view.setInt16(index, interleaved[i] * (0x7FFF * volume), true);\n          index += 2;\n        }\n\n        // our final binary blob\n        var blob = new Blob([view], {\n          type: 'audio/wav'\n        });\n\n        sendToServer(blob);\n        // As a sanity check put this back in to check what is being created.\n        //saveAudioFile(blob);\n      }\n    }\n\n    function createAudioBuffer(channelBuffer, recordingLength) {\n      var result = new Float32Array(recordingLength);\n      var offset = 0;\n      var lng = channelBuffer.length;\n      for (var i = 0; i < lng; i++) {\n        var buffer = channelBuffer[i];\n        result.set(buffer, offset);\n        offset += buffer.length;\n      }\n      return result;\n    }\n\n    function interleave(leftChannel, rightChannel) {\n      var length = leftChannel.length + rightChannel.length;\n      var result = new Float32Array(length);\n\n      var inputIndex = 0;\n\n      for (var index = 0; index < length;) {\n        result[index++] = leftChannel[inputIndex];\n        result[index++] = rightChannel[inputIndex];\n        inputIndex++;\n      }\n      return result;\n    }\n\n    function writeUTFBytes(view, offset, string) {\n      var lng = string.length;\n      for (var i = 0; i < lng; i++) {\n        view.setUint8(offset + i, string.charCodeAt(i));\n      }\n    }\n\n    // ********************************************\n    // Will be sending the audio to be processed.\n    // Send to a holding function on the parent page which should know how to handle\n    // ********************************************\n\n    function sendToServer(audioBlob) {\n      //handleAudioAsInput(audioBlob);\n      console.log('sending blob through web socket');\n      console.log(audioBlob);\n      websocket.send(audioBlob);\n\n      setTimeout(() => {\n        console.log('sending stop through web socket');\n        var message = {\n          action: 'stop'\n        };\n        websocket.send(JSON.stringify(message));\n      }, 1000);\n    }\n\n    function saveAudioFile(blob) {\n      //console.log('Saving the blob');\n      //console.log(blob);\n      var url = URL.createObjectURL(blob);\n      //console.log(url);\n      //var link = window.document.createElement('a');\n      //link.href = url;\n      //link.download = 'output.wav';\n      var link = '<a href=' + url + '>blob is here </a>'\n      //var click = document.createEvent(\"Event\");\n      //click.initEvent(\"click\", true, true);\n      //link.dispatchEvent(click);\n      $('#audio-notsuppported').append(link);\n      //console.log('blob should have been saved');\n    }\n  </script>\n\n</body>\n<html>\n",
+  "output": "str",
+  "x": 327,
+  "y": 102,
+  "wires": [
+    ["517bab79.ae41a4"]
+  ]
+}, {
+  "id": "a0c84a8a.4223d8",
+  "type": "watson-speech-to-text",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "alternatives": 1,
+  "speakerlabels": false,
+  "smartformatting": false,
+  "lang": "en-US",
+  "langhidden": "en-US",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "NoCustomisationSetting",
+  "band": "BroadbandModel",
+  "bandhidden": "BroadbandModel",
+  "password": "N8L8TPxlPzyN",
+  "payload-response": true,
+  "streaming-mode": true,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/speech-to-text/api",
+  "x": 276,
+  "y": 349,
+  "wires": [
+    ["a1f03f79.61acd"]
+  ]
+}, {
+  "id": "891d4ba0.637228",
+  "type": "watson-text-to-speech",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "lang": "en-GB",
+  "langhidden": "en-GB",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "",
+  "voice": "en-GB_KateVoice",
+  "voicehidden": "",
+  "format": "audio/wav",
+  "password": "pig2LWVwjVge",
+  "payload-response": true,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+  "x": 888,
+  "y": 376,
+  "wires": [
+    ["744ae051.25603"]
+  ]
+}, {
+  "id": "a1f03f79.61acd",
+  "type": "function",
+  "z": "4c2593a.5b5d86c",
+  "name": "Check for transcription",
+  "func": "if (msg.payload && msg.payload.results && \n      msg.payload.results[0].final) {\n    var newMsg = {payload: msg.payload.results[0].alternatives[0].transcript};  \n      return [newMsg, msg];  \n}\nreturn [null, msg];",
+  "outputs": "2",
+  "noerr": 0,
+  "x": 154,
+  "y": 429,
+  "wires": [
+    ["e4ebd6b5.f19c68"],
+    ["168c179c.e90b58"]
+  ]
+}, {
+  "id": "301f6509.bfeaaa",
+  "type": "function",
+  "z": "4c2593a.5b5d86c",
+  "name": "Set the Language",
+  "func": "if (msg.payload &&\n        msg.payload.language &&\n        msg.payload.mode) {\n    var store = 'inputSpoken';\n    if ('output' === msg.payload.mode) {\n        store = 'outputSpoken';  \n    } \n    global.set(store, msg.payload.language);  \n}\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 347,
+  "y": 146,
+  "wires": [
+    ["c36b2eec.0d5ec"]
+  ]
+}, {
+  "id": "a0511abb.d2ecf8",
+  "type": "http in",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "url": "/setlanguage",
+  "method": "post",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 147,
+  "y": 146,
+  "wires": [
+    ["301f6509.bfeaaa"]
+  ]
+}, {
+  "id": "c36b2eec.0d5ec",
+  "type": "http response",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 507,
+  "y": 146,
+  "wires": []
+}, {
+  "id": "7913264f.e9be98",
+  "type": "function",
+  "z": "4c2593a.5b5d86c",
+  "name": "Set Voice",
+  "func": "var outLang = global.get('outputSpoken') || null;\nif (outLang) {\n    msg.voice = outLang;\n}\n\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 709,
+  "y": 376,
+  "wires": [
+    ["891d4ba0.637228"]
+  ]
+}, {
+  "id": "7aa6ba88.19e194",
+  "type": "function",
+  "z": "4c2593a.5b5d86c",
+  "name": "Set Input Language",
+  "func": "var inLang = global.get('inputSpoken') || null;\nif (inLang) {\n    msg.srclang = inLang;\n}\n\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 229,
+  "y": 294,
+  "wires": [
+    ["a0c84a8a.4223d8"]
+  ]
+}, {
+  "id": "264ad3bf.bea47c",
+  "type": "watson-translator",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "action": "translate",
+  "basemodel": "en-nl",
+  "domain": "news",
+  "srclang": "es",
+  "destlang": "en",
+  "password": "",
+  "custom": "",
+  "domainhidden": "news",
+  "srclanghidden": "es",
+  "destlanghidden": "en",
+  "basemodelhidden": "en-nl",
+  "customhidden": "",
+  "filetype": "forcedglossary",
+  "trainid": "",
+  "lgparams2": true,
+  "neural": true,
+  "default-endpoint": true,
+  "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+  "x": 740,
+  "y": 466,
+  "wires": [
+    ["9a99468b.541748"]
+  ]
+}, {
+  "id": "a41cf9f1.a3e768",
+  "type": "watson-translator",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "action": "translate",
+  "basemodel": "es-en",
+  "domain": "news",
+  "srclang": "en",
+  "destlang": "es",
+  "password": "",
+  "custom": "4210a33e-53f4-4eb6-a08e-d417b03abfcf",
+  "domainhidden": "news",
+  "srclanghidden": "en",
+  "destlanghidden": "es",
+  "basemodelhidden": "en-nl",
+  "customhidden": "",
+  "filetype": "forcedglossary",
+  "trainid": "",
+  "lgparams2": true,
+  "neural": false,
+  "default-endpoint": true,
+  "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+  "x": 1028,
+  "y": 630,
+  "wires": [
+    ["6e74eb0.bacc614"]
+  ]
+}, {
+  "id": "e4ebd6b5.f19c68",
+  "type": "function",
+  "z": "4c2593a.5b5d86c",
+  "name": "Check For Translation of Input",
+  "func": "// Using English as the interim\nvar inLang = global.get('inputSpoken') || null;\nvar outLang = global.get('outputSpoken') || null;\nvar interimLang = 'en';\n\n// If the input language is different to the output language\n// then a translation is required. If the input language is \n// English then the first translation (into English) is\n// not needed\nif (inLang && outLang) {\n    msg.srclang = inLang.substr(0,2);\n    msg.destlang = outLang.substr(0,2);\n    if (msg.srclang !== msg.destlang) {\n        if (msg.srclang !== interimLang) {\n          msg.destlang = interimLang;\n          // Two step translation is needed with English in the middle\n          return [null, msg, null];  \n        }\n        // One step translation is needed, as English is the input\n        return [null, null, msg];\n    }\n}\n\n// No translation is needed, as the input language is the same\n// as the output\nreturn [msg, null, null];\n\n",
+  "outputs": 3,
+  "noerr": 0,
+  "x": 424,
+  "y": 422,
+  "wires": [
+    ["7913264f.e9be98"],
+    ["264ad3bf.bea47c"],
+    ["d09fb4dd.3ff358"]
+  ]
+}, {
+  "id": "4c4a93f5.80c73c",
+  "type": "link in",
+  "z": "4c2593a.5b5d86c",
+  "name": "ws-stt10",
+  "links": ["168c179c.e90b58", "744ae051.25603"],
+  "x": 586,
+  "y": 249,
+  "wires": [
+    ["8790bb0e.9b10e8"]
+  ]
+}, {
+  "id": "168c179c.e90b58",
+  "type": "link out",
+  "z": "4c2593a.5b5d86c",
+  "name": "ws-out",
+  "links": ["4c4a93f5.80c73c"],
+  "x": 307,
+  "y": 490,
+  "wires": []
+}, {
+  "id": "744ae051.25603",
+  "type": "link out",
+  "z": "4c2593a.5b5d86c",
+  "name": "",
+  "links": ["4c4a93f5.80c73c"],
+  "x": 1008,
+  "y": 373,
+  "wires": []
+}, {
+  "id": "d09fb4dd.3ff358",
+  "type": "function",
+  "z": "4c2593a.5b5d86c",
+  "name": "Check for Translation of Output",
+  "func": "// Using English as the interim\nvar inLang = 'en';\nvar outLang = global.get('outputSpoken') || null;\n\n// For the second translation the source is going to \n// be English. We should only be in this logic, if some\n// sort of translation is needed. \nif (inLang && outLang) {\n    msg.srclang = inLang.substr(0,2);\n    msg.destlang = outLang.substr(0,2);\n    if (msg.srclang !== msg.destlang) {\n        // The parameters for the second translation \n        // are now set.\n        return [null, msg];\n    }\n}\n\n// Both source and destination have been detected as english\n// so no further translation is needed.\nreturn [msg, null];",
+  "outputs": 2,
+  "noerr": 0,
+  "x": 780,
+  "y": 564,
+  "wires": [
+    ["6e74eb0.bacc614"],
+    ["a41cf9f1.a3e768"]
+  ]
+}, {
+  "id": "8790bb0e.9b10e8",
+  "type": "websocket out",
+  "z": "4c2593a.5b5d86c",
+  "name": "STT Out",
+  "server": "aeb82186.b50e4",
+  "client": "",
+  "x": 705.5,
+  "y": 249,
+  "wires": []
+}, {
+  "id": "a0f444b9.978ac8",
+  "type": "comment",
+  "z": "4c2593a.5b5d86c",
+  "name": "No Translation Needed",
+  "info": "",
+  "x": 751.5,
+  "y": 334,
+  "wires": []
+}, {
+  "id": "3f6da817.a72b48",
+  "type": "comment",
+  "z": "4c2593a.5b5d86c",
+  "name": "Translation Needed for Input",
+  "info": "",
+  "x": 769.5,
+  "y": 429,
+  "wires": []
+}, {
+  "id": "78050dc7.f99f54",
+  "type": "comment",
+  "z": "4c2593a.5b5d86c",
+  "name": "Check for Translation Output",
+  "info": "",
+  "x": 770.5,
+  "y": 521,
+  "wires": []
+}, {
+  "id": "9a99468b.541748",
+  "type": "link out",
+  "z": "4c2593a.5b5d86c",
+  "name": "Input Translation",
+  "links": ["bd21199b.507228"],
+  "x": 870.5,
+  "y": 465,
+  "wires": []
+}, {
+  "id": "bd21199b.507228",
+  "type": "link in",
+  "z": "4c2593a.5b5d86c",
+  "name": "Input Translation",
+  "links": ["9a99468b.541748"],
+  "x": 587.5,
+  "y": 564,
+  "wires": [
+    ["d09fb4dd.3ff358"]
+  ]
+}, {
+  "id": "6e74eb0.bacc614",
+  "type": "link out",
+  "z": "4c2593a.5b5d86c",
+  "name": "Set Voice",
+  "links": ["6915d4ef.72f5bc"],
+  "x": 1178.5,
+  "y": 557,
+  "wires": []
+}, {
+  "id": "6915d4ef.72f5bc",
+  "type": "link in",
+  "z": "4c2593a.5b5d86c",
+  "name": "Set Voice",
+  "links": ["6e74eb0.bacc614"],
+  "x": 582.5,
+  "y": 377,
+  "wires": [
+    ["7913264f.e9be98"]
+  ]
+}, {
+  "id": "40aad7b1.c2f7e8",
+  "type": "comment",
+  "z": "4c2593a.5b5d86c",
+  "name": "No Translation Needed",
+  "info": "",
+  "x": 1034.5,
+  "y": 532,
+  "wires": []
+}, {
+  "id": "3f028ab0.93bb46",
+  "type": "comment",
+  "z": "4c2593a.5b5d86c",
+  "name": "Translation Needed",
+  "info": "",
+  "x": 1028,
+  "y": 593,
+  "wires": []
+}, {
+  "id": "aeb82186.b50e4",
+  "type": "websocket-listener",
+  "z": "",
+  "path": "/ws/stt20",
+  "wholemsg": "false"
+}]

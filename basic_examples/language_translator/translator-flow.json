@@ -1,0 +1,110 @@
+[
+    {
+        "id": "7af9091d.5257d",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "Translate",
+        "topic": "",
+        "payload": "Hello I am Watson. I am very happy to translate you this message. Have a lovely day. Bye.",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "5aa57aa1.c5e094"
+            ]
+        ]
+    },
+    {
+        "id": "ffb7135b.fcb02",
+        "type": "debug",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "complete": "payload",
+        "x": 650,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f8755603.6b9108",
+        "type": "comment",
+        "z": "8df658fb.0b181",
+        "name": "Translate Mode ",
+        "info": "The example below is used with the Language Translator service.\n\nThere are 2 inject nodes \n* the first one sends the text directly into the translator.\n* the second passes through a function node to set the source and target languages. \n\nThe Translator node has been set to translate into French.\n\nThe function node following second inject will set the translator to Italian.",
+        "x": 107,
+        "y": 138,
+        "wires": []
+    },
+    {
+        "id": "5aa57aa1.c5e094",
+        "type": "watson-translator",
+        "z": "8df658fb.0b181",
+        "name": "",
+        "action": "translate",
+        "basemodel": "ar-en",
+        "domain": "conversational",
+        "srclang": "en",
+        "destlang": "fr",
+        "password": "",
+        "custom": "b1809e78-f34b-48ed-8a8a-c31e6245565f",
+        "domainhidden": "conversational",
+        "srclanghidden": "en",
+        "destlanghidden": "fr",
+        "basemodelhidden": "ar-en",
+        "customhidden": "b1809e78-f34b-48ed-8a8a-c31e6245565f",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "neural": false,
+        "default-endpoint": false,
+        "service-endpoint": "",
+        "x": 452,
+        "y": 180,
+        "wires": [
+            [
+                "ffb7135b.fcb02"
+            ]
+        ]
+    },
+    {
+        "id": "5c7276c3.1c5288",
+        "type": "inject",
+        "z": "8df658fb.0b181",
+        "name": "Translate",
+        "topic": "",
+        "payload": "Hello I am Watson. I am very happy to translate you this message. Have a lovely day. Bye.",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "6cae4a1b.8ee22c"
+            ]
+        ]
+    },
+    {
+        "id": "6cae4a1b.8ee22c",
+        "type": "function",
+        "z": "8df658fb.0b181",
+        "name": "Dynamic",
+        "func": "msg.srclang='en';\nmsg.destlang='es';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "5aa57aa1.c5e094"
+            ]
+        ]
+    }
+]

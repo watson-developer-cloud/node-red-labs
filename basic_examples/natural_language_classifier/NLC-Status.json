@@ -1,0 +1,110 @@
+[
+    {
+        "id": "4155ffc5.f149f",
+        "type": "inject",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 103,
+        "y": 179,
+        "wires": [
+            [
+                "81753a91.18db"
+            ]
+        ]
+    },
+    {
+        "id": "e07c2245.654758",
+        "type": "inject",
+        "z": "336a2b17.c7be34",
+        "name": "Ask",
+        "topic": "",
+        "payload": "Is it hot ?",
+        "payloadType": "string",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 104,
+        "y": 259,
+        "wires": [
+            [
+                "7ebe25a3.d08c6c"
+            ]
+        ]
+    },
+    {
+        "id": "81753a91.18db",
+        "type": "function",
+        "z": "336a2b17.c7be34",
+        "name": "get NLC status",
+        "func": "/* Replace D385B2-nlc-530 in the URL below \nwith your own classifier ID */\nmsg.url=\"https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/D385B2-nlc-530\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 269,
+        "y": 179,
+        "wires": [
+            [
+                "cab47e96.1398f"
+            ]
+        ]
+    },
+    {
+        "id": "7ebe25a3.d08c6c",
+        "type": "function",
+        "z": "336a2b17.c7be34",
+        "name": "Ask NLC question",
+        "func": "/* Replace D385B2-nlc-530 in the URL below \nwith your own classifier ID */\nmsg.url=\"https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/D385B2-nlc-530/classify?text=\" + encodeURI(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 279,
+        "y": 259,
+        "wires": [
+            [
+                "cab47e96.1398f"
+            ]
+        ]
+    },
+    {
+        "id": "cab47e96.1398f",
+        "type": "http request",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "",
+        "x": 479,
+        "y": 219,
+        "wires": [
+            [
+                "a852574.d07e3a8"
+            ]
+        ]
+    },
+    {
+        "id": "a852574.d07e3a8",
+        "type": "debug",
+        "z": "336a2b17.c7be34",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 678,
+        "y": 219,
+        "wires": []
+    },
+    {
+        "id": "66f0d60f.aa6de",
+        "type": "comment",
+        "z": "336a2b17.c7be34",
+        "name": "Status Checks",
+        "info": "Make sure that you have your Classifier ID \n",
+        "x": 108,
+        "y": 139,
+        "wires": []
+    }
+]
