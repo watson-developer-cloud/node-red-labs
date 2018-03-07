@@ -20,9 +20,9 @@ Please refer to the [Node-RED setup lab](/introduction_to_node_red/README.md) fo
 ### Required Nodes
 Add the following nodes from the palette to your flow canvas. 
 
-"	Two Inject nodes.
-"	A Natural Language Understanding node.
-"	 A Debug node.
+*	Two Inject nodes.
+*	A Natural Language Understanding node.
+* A Debug node.
 
 ### Flow Wiring
 Wire the nodes together.
@@ -30,19 +30,19 @@ Wire the nodes together.
 ![ScreenShot](images/nlu_flow.jpg)
 
 ### Node configuration
+
 The first inject node will be used to inject a url into the flow. The example uses the standard [IBM US site https://www.ibm.com/us-en/](https://www.ibm.com/us-en/)
 
-![ScreenShot](images/nlu_url_inject.jpg)
+![ScreenShot](images/nlu_inject_url.jpg)
 
 The second inject node will be used to inject text into the flow. Any text can be used,  I have used :
-¢	This is the sample text on which I want some understanding.
+>	This is the sample text on which I want some understanding.
 
-![ScreenShot](images/nlu_text_inject.png)
+![ScreenShot](images/nlu_inject_text.jpg)
 
 Configure the Natural Language Understanding node for the service features that you want to detect. As you select the items you require the node menu will expand with additional options.
 
 ![ScreenShot](images/nlu_node_detials.jpg)
-
 
 Configure the debug node to show the complete msg object.
 
@@ -50,7 +50,6 @@ Configure the debug node to show the complete msg object.
 
 ### Trying your flow
 The output from the URL inject should look like
-
 
 ![ScreenShot](images/nlu_url_output.jpg)
 
