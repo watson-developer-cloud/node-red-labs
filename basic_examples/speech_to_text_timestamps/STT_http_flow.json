@@ -1,0 +1,289 @@
+[
+    {
+        "id": "75e845cb.0f2534",
+        "type": "http in",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "",
+        "url": "/stt",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 140,
+        "wires": [
+            [
+                "9f37902d.0cc53"
+            ]
+        ]
+    },
+    {
+        "id": "9f37902d.0cc53",
+        "type": "switch",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Check for URL",
+        "property": "payload.url",
+        "rules": [
+            {
+                "t": "null"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "41ff9361.dd4cdc"
+            ],
+            [
+                "f3c1bc04.697ac8"
+            ]
+        ]
+    },
+    {
+        "id": "41ff9361.dd4cdc",
+        "type": "template",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "HTML Input ",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<h1>Speech to Text Demo on Node-RED</h1>\n<h2>Enter a URL for the audio file</h2>\n<form  action=\"{{req._parsedUrl.pathname}}\">\n    Url: <input type=\"text\" name=\"url\"/><br/><br/>\n    <input type=\"submit\" value=\"recognize\"/>\n</form>\n",
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "1590b1a8.0ce776"
+            ]
+        ]
+    },
+    {
+        "id": "70aee63.b321618",
+        "type": "debug",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Debug - Pre STT",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 390,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1590b1a8.0ce776",
+        "type": "http response",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "HTTP Response",
+        "x": 880,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c0373f66.37e54",
+        "type": "http request",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "STT Service",
+        "method": "POST",
+        "ret": "obj",
+        "url": "",
+        "tls": "",
+        "x": 170,
+        "y": 420,
+        "wires": [
+            [
+                "541b58a3.369208",
+                "24520d0c.680cea"
+            ]
+        ]
+    },
+    {
+        "id": "541b58a3.369208",
+        "type": "debug",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Output from STT",
+        "active": true,
+        "console": "false",
+        "complete": "payload.results",
+        "x": 390,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "276e1dad.d16ab2",
+        "type": "template",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "HTML Output",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<h1>Speech to Text Results</h1>\n<div>{{transcript}}</div>\n<ul>\n    {{#sttout}} \n        <li>\n            <table>\n                <thead>\n                    <tr><th>Word</th><th>Start</th><th>End</th></tr>\n                </thead>\n                <tbody>\n                    {{#timestamps}}\n                        <tr>\n                            {{#.}}\n                                <td>{{.}}</td>\n                            {{/.}}    \n                        </tr>\n                    {{/timestamps}}\n                </tbody>                    \n            </table>\n        </li>\n    {{/sttout}}    \n</ul>\n\n\n",
+        "x": 620,
+        "y": 380,
+        "wires": [
+            [
+                "1590b1a8.0ce776"
+            ]
+        ]
+    },
+    {
+        "id": "24520d0c.680cea",
+        "type": "function",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Set Header for HTML",
+        "func": "msg.sttout = msg.payload.results[0].alternatives[0];\nmsg.transcript = msg.payload.results[0].alternatives[0].transcript;\nmsg.headers = {'Content-Type' : 'text/html'};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 400,
+        "y": 400,
+        "wires": [
+            [
+                "276e1dad.d16ab2",
+                "b559b06.9b041d"
+            ]
+        ]
+    },
+    {
+        "id": "1e7a0ae9.707e05",
+        "type": "http request",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Fetch the Audio",
+        "method": "GET",
+        "ret": "bin",
+        "url": "",
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "70aee63.b321618",
+                "768b2b1f.22d5dc"
+            ]
+        ]
+    },
+    {
+        "id": "768b2b1f.22d5dc",
+        "type": "function",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Prepare For STT Service",
+        "func": "msg.headers = {'Content-Type' : 'audio/wav'};\nmsg.url=\"https://stream.watsonplatform.net/speech-to-text/api/v1/recognize?timestamps=true&continuous=true\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "b6918050.0f0bc"
+            ]
+        ]
+    },
+    {
+        "id": "f3c1bc04.697ac8",
+        "type": "function",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Prepare to Fetch Audio",
+        "func": "audiourl = encodeURI(msg.payload.url)\nmsg.url=audiourl;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "ec931674.15155"
+            ]
+        ]
+    },
+    {
+        "id": "b559b06.9b041d",
+        "type": "debug",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "transcript",
+        "x": 620,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e786f376.8c6b3",
+        "type": "comment",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "Link to the Lab instructions",
+        "info": "See corresponding Lab instructions in the link below :\n\n[Watson Speech to Text Timestamps](https://github.com/watson-developer-cloud/node-red-labs/tree/master/basic_examples/speech_to_text_timestamps)\n",
+        "x": 150,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d1590d1a.d1ded",
+        "type": "link in",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "",
+        "links": [
+            "ec931674.15155"
+        ],
+        "x": 55,
+        "y": 280,
+        "wires": [
+            [
+                "1e7a0ae9.707e05"
+            ]
+        ]
+    },
+    {
+        "id": "ec931674.15155",
+        "type": "link out",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "",
+        "links": [
+            "d1590d1a.d1ded"
+        ],
+        "x": 655,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b6918050.0f0bc",
+        "type": "link out",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "",
+        "links": [
+            "4f60aad.a9d87d4"
+        ],
+        "x": 555,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4f60aad.a9d87d4",
+        "type": "link in",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "",
+        "links": [
+            "b6918050.0f0bc"
+        ],
+        "x": 55,
+        "y": 420,
+        "wires": [
+            [
+                "c0373f66.37e54"
+            ]
+        ]
+    },
+    {
+        "id": "4b71a7da.6c4618",
+        "type": "comment",
+        "z": "bfbd5f6.b2f5a2",
+        "name": "!!Remember to add Speech to Text service credentials!!",
+        "info": "Specify basic credentials for the http response node that interacts with the speech to\ntext service. Get these credentials from IBM Cloud.\n",
+        "x": 500,
+        "y": 60,
+        "wires": []
+    }
+]
