@@ -56,7 +56,7 @@ The text for the input for is
 
 ### Part two - Fetch the Audio
 
-If a url has been provided, it should point to a wav file (eg. [Example Wav URL]( https://aacapps.com/lamp/sound/nicole.wav))
+If a url has been provided, it should point to a wav file (eg. [Example Wav URL](https://aacapps.com/lamp/sound/nicole.wav))
 
 You will need 6 nodes 
 *	2 x function
@@ -193,5 +193,5 @@ The completed flow is available at [Speech to Text Timestamps Flow](STT_http_flo
 
 ## STT Documentation
 To find out more information on the Watson Speech to Text service visit these webpages: 
-- [STT Documentation] (https://console.bluemix.net/docs/services/speech-to-text/getting-started.html) of the Speech to Text service.
-- [STT API Documentation] (https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/).
+- [STT Documentation](https://console.bluemix.net/docs/services/speech-to-text/getting-started.html) of the Speech to Text service.
+- [STT API Documentation](https://www.ibm.com/watson/developercloud/speech-to-text/api/v1/).
