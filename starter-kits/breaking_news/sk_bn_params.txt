@@ -1,0 +1,2 @@
+msg.discoveryparams.query=msg.payload;
+return msg;
