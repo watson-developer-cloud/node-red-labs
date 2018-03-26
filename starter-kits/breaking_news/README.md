@@ -15,6 +15,7 @@ You will also require an active Twitter account to search Twitter
 
 ## Application Flow
 ![Flow](sk_bn_flow.jpg)
+
 [Get the flow here](sk_bn_flow.json)
 
 ## Flow Description
@@ -52,4 +53,4 @@ You will also require an active Twitter account to search Twitter
 
 ## UI Dashboard
 Here is a sample output from the starter kit
-[Dashboard](sk_bn_ui.jpg)
+![Dashboard](sk_bn_ui.jpg)
