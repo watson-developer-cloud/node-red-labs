@@ -20,12 +20,12 @@ Otherwise click on the Enable button to add Continuous Delivery to the app. This
 
 Once the repository has been created, you will return to main page for the app
 
-## App-Enabled
+### App-Enabled
 ![Enabled Option](images/WCN-enabled.jpg)
 
 From the main page click on View Toolchain button to see that Git has been configured
 
-![Enabled Option](images/WCN-enabled.jpg)
+![CDT created](images/WCN-CDT-created.jpg)
 
 Click on the Git Tile to open a Git tab in the browser. 
 
@@ -53,13 +53,13 @@ Your file should look like
 
 Remember the comma separators at the end of each line except for the last. Commit your changes
 
-![Package json committed](images/WCN-commited-pkg.jpg)
+![Committed changes](images/WCN-commited-pkg.jpg)
 
 Deploy your changes by restarting the app using the restart button ![Deploy changes](images/WCN-restart.jpg)
 
 Confirm that you want restart the app
 
-![Package json committed](images/WCN-commited-pkg.jpg)
+![Confirm restart](images/WCN-restart-conf.jpg)
 
 Wait for Node-RED to restart
 
