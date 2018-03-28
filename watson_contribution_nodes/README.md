@@ -9,14 +9,13 @@ There will be times when we are working on updates to this project and the updat
 Alternatively you can deploy from the [node red bluemix starter repository](https://github.com/watson-developer-cloud/node-red-bluemix-starter), which brings in these nodes, along with box and dropbox nodes that the sample flows make use of to feed data into the Watson nodes. 
 
 ## Modify Node-RED Dependencies.
-On the IBM Cloud console, select your Node-RED application. In the bottom right corner you will see a panel, that shows whether the continuous delivery has been enabled.
+On the IBM Cloud console, select your Node-RED application. On the bottom of the page you will see a panel, that shows if continuous delivery has been enabled. If you do not see
 
-![Enabled Option](images/WCN-enabled.jpg)
 ![Enable Option](images/WCN-not-enabled.jpg)
 
-If Continuous delivery has been enabled go to [App Enabled](#app-enabled) 
+then Continuous Delivery has been enabled and you can go to [App Enabled](#app-enabled) 
 
-Otherwise click on the Enable button to add Continuous Delivery to the app. This will create a GIT repository for your Node-RED instance. You will see a configuration menu, however you do not need to change any settings so just click on the Create button. ![Create button](images/WCN-CDT-create.jpg) 
+Else click on the Enable button to add Continuous Delivery to the app. This will enable you to create a GIT repository for your Node-RED instance. You will see a configuration menu, however you do not need to change any settings so just click on the Create button. ![Create button](images/WCN-CDT-create.jpg) 
 
 Once the repository has been created, you will return to main page for the app
 
