@@ -161,7 +161,7 @@ Test the speech to text non-customized function by speaking a line from the heal
 
 Repeat the question using the customized function.
 
-![`TestResult2`](images/Step_5_Test_Result2.jpg)
+![`TestResult2`](images/customized_test.jpg)
 
 If you compare the confidence rating in these results, the highest confidence should come from the customized model.
 
