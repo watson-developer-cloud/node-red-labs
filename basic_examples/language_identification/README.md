@@ -1,7 +1,7 @@
 #  Lab: Language Identification with Node-RED
 
 ## Overview
-This lab is a simplified version of the [Language Translator](language_translator/README.md) lab, showcasing only the 'identification' part of the Language Translator service.
+This lab is a simplified version of the [Language Translator](./language_translator/README.md) lab, showcasing only the 'identification' part of the Language Translator service.
 
 The Language Identification functionality allows you to quickly identify the language that text is written in. For the up-to-date list of identifiable languages, visit the documentation [here](https://console.bluemix.net/docs/services/language-translator/identifiable-languages.html).
 
