@@ -8,27 +8,26 @@ The Natural Language Classifier is a service that needs to be trained. Take a lo
 
 - [Overview](https://console.bluemix.net/docs/services/natural-language-classifier/natural-language-classifier-overview.html) of the Natural Language Classifier service.
 - [Demo](https://natural-language-classifier-demo.ng.bluemix.net/) of the service.
-- [API reference](http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/?node#introduction), which includes helpful information about curl and the SDKs.
 
 ## Node-RED Watson Natural Language Classifier Node
 
-The Node-RED ![`NLC`](images/NLC-node.jpg) node provides an easy wrapper node to use the NLC API. The node has 4 modes 
-* Classify 
+The Node-RED ![`NLC`](images/nlc_node.png) node provides an easy wrapper node to use the NLC API. The node has 4 modes
+* Classify
   * matches the input with the classifier and returns the top classes with a confidence rating.
-* Train 
+* Train
   * creates a classifier from the input training data. The training data should be a String or String Array.
 * Remove
   * deletes a classifier
 * List
   * produces an array of available classifiers
-  
+
 ## Creating and populating the service on IBM Cloud
 
 Create an instance of the service in IBM Cloud by selecting the **Natural Language Classifier** in the IBM Cloud catalog.
 
 ![ScreenShot](images/NLC-Service.jpg)
 
-Click **Create** to instantiate your instance of the service. Once created, return to the Dashboard and click on the service in the **Cloud Foundary services** 
+Click **Create** to instantiate your instance of the service. Once created, return to the Dashboard and click on the service in the **Cloud Foundary services**
 
 ![ScreenShot](images/NLC-Service-CFS.jpg)
 
@@ -52,7 +51,7 @@ You need a Classifier ID, which you can find by clicking **Classifiers**:
 
 ![ScreenShot](images/NLC-Classifier-ID.jpg)
 
-Make a note of the Classifier ID, it will be used throughout the rest of the exercise. 
+Make a note of the Classifier ID, it will be used throughout the rest of the exercise.
 
 ## NLC Flows construction
 
@@ -60,7 +59,7 @@ Make a note of the Classifier ID, it will be used throughout the rest of the exe
 
 **You can download the [flow](NLC-Status.json) for this part of the lab.**
 
-In this part of the lab, you will use the Natural Language Classifier service that you instantiated in IBM Cloud, earlier in the lab . 
+In this part of the lab, you will use the Natural Language Classifier service that you instantiated in IBM Cloud, earlier in the lab .
 
 You should have created a Node-RED application by using the Node-RED Starter Community boilerplate in IBM Cloud.
 
@@ -70,7 +69,7 @@ Using standard Node-RED nodes, you will :
 - Ask a question of the service via calls in Node-RED.
 
 Open your Node-RED flow editor, then drag two **Inject** nodes, two **Function** nodes, one **http request** node and one **Debug** node onto the palette. Join them as shown in this image:
- 
+
 ![ScreenShot](images/NLC-Status-flow.jpg)
 
 Double-click the top **Inject** node, select the string option, and leave it `blank`:
@@ -83,7 +82,7 @@ Double-click the top **Function** node:
 
     `msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/D385B2-nlc-530";`
 
-The classifier ID is hardcoded in this example request (msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/**_D385B2-nlc-530_**"). 
+The classifier ID is hardcoded in this example request (msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/**_D385B2-nlc-530_**").
 
 ![ScreenShot](images/Get-NLC-Status.jpg)
 
@@ -106,7 +105,7 @@ Click **Inject node** and see if the Natural Language Classifier service is avai
 Double-click the other **Function** node and paste the following code. Replace `D385B2-nlc-530` with your classifier ID:
 
         msg.url="https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/D385B2-nlc-530/classify?text=" + encodeURI(msg.payload);
-    
+
 ![ScreenShot](images/Ask-NLC-Status.jpg)
 
 Double-click the second **Inject** node. Change the payload to `string` and enter the question, `Is it hot?`:
@@ -149,13 +148,13 @@ Join this to the **NLC** node, and also introduce an **Inject** node. This flow 
 
 ![ScreenShot](images/NLC-Create-Inject.jpg)
 
-Also add a **Debug** node to the output of the NLC node and **Deploy**. 
+Also add a **Debug** node to the output of the NLC node and **Deploy**.
 
 When you initiate the flow, the ID of the classifier is returned in the "debug" tab of Node-RED. In the following example the ID is **cd6374x52-nlc-1515**:
 
 ![ScreenShot](images/nlc_debug_tab_nlc_id.png)
 
-**Note:** The classifier is now being trained, which can take some time (30-50 mins). 
+**Note:** The classifier is now being trained, which can take some time (30-50 mins).
 
 To see the status of the training, go to the Natural Language Classifier service of your app and click the service:
 
@@ -177,11 +176,11 @@ Drag a **Natural Language Classifier (NLC)** node to the palette. Double click t
 
 ![ScreenShot](images/NLC-List-Classifiers.jpg)
 
-Add an **Inject** node to initiate this flow. 
+Add an **Inject** node to initiate this flow.
 
 ![ScreenShot](images/NLC-List-Inject.jpg)
 
-Also add a **Debug** node to the output of the NLC node and **Deploy**. 
+Also add a **Debug** node to the output of the NLC node and **Deploy**.
 
 When you initiate the flow, an array of the classifiers is returned in the "debug" tab of Node-RED. In the following example one of the IDs is **8fc193x296-nlc-3488**:
 
@@ -201,13 +200,13 @@ The second inject node will inject the question "Is it humid?"
 
 ![ScreenShot](images/NLC-Question2-Inject.jpg)
 
-Also add a **Debug** node to the output of the NLC node and **Deploy**. 
+Also add a **Debug** node to the output of the NLC node and **Deploy**.
 
-If you initiate the flow with the "Is it hot?" question, an array of the classes is returned in the "debug" tab of Node-RED. The array will be in order of the confidence rating 
+If you initiate the flow with the "Is it hot?" question, an array of the classes is returned in the "debug" tab of Node-RED. The array will be in order of the confidence rating
 
 ![ScreenShot](images/NLC-Question1-Debug.jpg)
 
-If you initiate the flow with the "Is it humid?" question, the "debug" tab of Node-RED will show results similiar to. 
+If you initiate the flow with the "Is it humid?" question, the "debug" tab of Node-RED will show results similiar to.
 
 ![ScreenShot](images/NLC-Question2-Debug.jpg)
 
@@ -217,15 +216,20 @@ Drag a **Natural Language Classifier (NLC)** node to the palette. Double click t
 
 ![ScreenShot](images/NLC-Delete-Classifier.jpg)
 
-Add an **Inject** node to initiate this flow. 
+Add an **Inject** node to initiate this flow.
 
 ![ScreenShot](images/NLC-Delete-Inject.jpg)
 
-Also add a **Debug** node to the output of the NLC node and **Deploy**. 
+Also add a **Debug** node to the output of the NLC node and **Deploy**.
 
-When you initiate the flow, if it is successful then an empty dataset returned in the "debug" tab of Node-RED. 
+When you initiate the flow, if it is successful then an empty dataset returned in the "debug" tab of Node-RED.
 
 ![ScreenShot](images/NLC-Delete-Debug.jpg)
 
 ## Complete Flows
 You can download the completed [flows](NLC-Complete.json) to compare against what you created.
+
+## Natural Language Classifier Documentation
+To find more information on the Watson Natural Language Classifier underlying service, visit these webpages:
+- [NLC Documentation](https://console.bluemix.net/docs/services/natural-language-classifier/getting-started.html#natural-language-classifier)
+- [NLC API Documentation](https://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/curl.html?curl)
