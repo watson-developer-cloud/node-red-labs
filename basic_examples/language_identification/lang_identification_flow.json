@@ -1,1 +1,43 @@
-[{"id":"b466290.3afee58","type":"debug","name":"Identified Language","active":true,"console":"false","complete":"lang","x":595,"y":264,"z":"aca22afb.b0f","wires":[]},{"id":"1c6083dd.d7ddb4","type":"watson-language-identification","name":"Indentify Language","x":352,"y":264,"z":"aca22afb.b0f","wires":[["b466290.3afee58"]]},{"id":"aea16fb1.7e6b8","type":"inject","name":"Inject some text","topic":"","payload":"hallo dit is een test","payloadType":"string","repeat":"","crontab":"","once":false,"x":130,"y":264,"z":"aca22afb.b0f","wires":[["1c6083dd.d7ddb4"]]}]
+[{
+  "id": "d3245167.bd3c3",
+  "type": "inject",
+  "z": "4ffeb0b1.20bb6",
+  "name": "Text Input",
+  "topic": "",
+  "payload": "What language is this?",
+  "payloadType": "str",
+  "repeat": "",
+  "crontab": "",
+  "once": false,
+  "onceDelay": 0.1,
+  "x": 165,
+  "y": 88,
+  "wires": [
+    ["65054c17.4dbb94"]
+  ]
+}, {
+  "id": "65054c17.4dbb94",
+  "type": "watson-language-translator-identify",
+  "z": "4ffeb0b1.20bb6",
+  "name": "",
+  "default-endpoint": true,
+  "service-endpoint": "https://gateway.watsonplatform.net/language-translator/api",
+  "x": 369.5,
+  "y": 88,
+  "wires": [
+    ["e7cc3908.cdfbe8"]
+  ]
+}, {
+  "id": "e7cc3908.cdfbe8",
+  "type": "debug",
+  "z": "4ffeb0b1.20bb6",
+  "name": "Ouput",
+  "active": true,
+  "tosidebar": true,
+  "console": false,
+  "tostatus": false,
+  "complete": "lang",
+  "x": 541.5,
+  "y": 88,
+  "wires": []
+}]

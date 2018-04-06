@@ -1,48 +1,51 @@
+#  Lab: Language Identification with Node-RED
 
+## Overview
+This lab is a simplified version of the [Language Translator](/language_translator/README.md) lab, showcasing only the 'identification' part of the Language Translator service.
 
-##Language Identification
+The Language Identification functionality allows you to quickly identify the language that text is written in. For the up-to-date list of identifiable languages, visit the documentation [here](https://console.bluemix.net/docs/services/language-translator/identifiable-languages.html).
 
-The Language Identification enables you to quickly identify the language text is written in.
+### Prerequisites and setup
+To get the Language Translator service credentials on IBM Cloud automatically filled-in by Node-RED, you should connect the Language Translator service to the Node-RED application in IBM Cloud.
 
-This service can identify many languages: Arabic; Chinese (Simplified); Chinese (Traditional); Cyrillic; Danish; Dutch; English; Farsi; Finnish; French; German; Greek; Hebrew; Hindi; Icelandic; Italian; Japanese; Korean; Norwegian (Bokmal); Norwegian (Nynorsk); Portuguese; Spanish; Swedish; Turkish; Urdu.
+![TranslatorSerivce](images/language_translator_service.png)
 
-![`LIOverview`](images/li.jpg)
+Please refer to the [Node-RED setup lab](/introduction_to_node_red/README.md) for instructions.
 
-In this example some random text is injected, identified by the Watson Language Identification service and put the result to the Debug tab. In the following screenshots you can see how the nodes are configured.
+## Language Identification Flow Construction
+In this exercise, you will create a simple flow which will input random text, the Translator service will identify the language and output the result in the debug window. The complete flow will look like this:
 
-To use the Language Identification service in Node-RED you first need to make this service available so Node-RED can connect to that.
-There are two ways of doing that depending if you use Node-RED in IBM Cloud or use a local Node-RED instance. Both ways are described here.
+![`Flow`](images/flow.png)
 
-If you are using Node-RED on IBM Cloud, go to your Node-RED app and click 'add a service or API'
-This will open a new window where you can select the Language Translation service (we use the Language Translation service because Language Identification is part of this service.).
-Then you click on 'Use' a screen will show which asks for a restage, click on 'yes' and wait a minute. When the application is started click on the Url to go to your Node-RED application.
+Add an inject node, language identify node and a debug node to the canvas and link them together.
 
-If you use a local instance of Node-RED go to the IBM Cloud catalog and go to the Language Translation service and click on it. Make sure that there is no app bound to this service and click 'Use"
+Edit the inject node and change the payload to a string. Enter some text into the field, for example: `What language is this?`.
 
-If one of either ways are done, you can continue with the following.
-
-In the following screenshots you can see how the nodes are configured.
-
-The inject node:
-
-![`LIInput`](images/li_input.jpg)
-
-You can use any text for this.
+![`InjectNode`](images/inject_node.png)
 
 The Language Identification node does not need any configuration.
 
-To get the correct output set the output to msg.lang. 
+Single click the Language Identification node and view the info tab. Here you will see that the output for the identified language with the highest confidence level is msg.lang
 
-![`LIDebug`](images/li_debug.jpg)
+![`Info`](images/lang_identify_info.png)
 
-This will display the identified language with a confidence level:
+To get the correct output in the debug tab, set the debug node output to `msg.lang`.
 
-![`LIOutput`](images/li_output.jpg)
+![`Debug`](images/debug.png)
 
-You can also copy the code for the flow here and import it from clipboard into Node-RED:
+### Testing the flow
+Deploy the application, initiate the inject node and view the result in the debug tab.
 
+![`Result`](images/result.png)
 
-[Language Identification flow](lang_identification_flow.json)
+In this result with the text `What language is this?`, the service is 78% confident it is English.
 
+Try entering text in a different language in the Inject node to view different results.
 
+## Flow Source
+The complete flow is available [here](lang_identification_flow.json).
 
+## Watson Language Translator Documentation
+To find more information on the Watson Language Translator underlying service, visit these webpages:
+- [Language Translator Documentation](https://console.bluemix.net/docs/services/language-translator/index.html)
+- [Language Translator API Documentation](https://www.ibm.com/watson/developercloud/language-translator/api/v2)
