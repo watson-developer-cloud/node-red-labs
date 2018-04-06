@@ -73,11 +73,12 @@ return msg;
 ```
 
 This will translate your text from English to Spanish.
+
 ![`tf-function`](images/tf-function.jpg)
 
 Link the function node back to the Language Translator node. Deploy and initiate the inject node.
 
-You can also copy the code for the flow [here](language_translator-flow.json) and import it from clipboard into Node-RED:
+You can also copy the code for the flow [here](translator-flow.json) and import it from clipboard into Node-RED:
 
 ## Building the Identify flow
 This example will have 3 inputs with different languages. The language identify flow should look like
