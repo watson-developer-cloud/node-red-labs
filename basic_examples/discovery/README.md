@@ -129,3 +129,8 @@ The final debug node should be set to msg.search_results, so that you can see th
 
 ## Completed Flows
 The complete flow is available at [Discovery-Lab](Discovery-Flows.json).
+
+## Discovery Documentation
+To find more information on the Watson Discovery underlying service, visit these webpages:
+- [Discovery Documentation](https://console.bluemix.net/docs/services/discovery/getting-started.html#getting-started-with-the-api)
+- [Discovery API Documentation](https://www.ibm.com/watson/developercloud/discovery/api/v1/)
