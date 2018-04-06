@@ -1,26 +1,25 @@
-#  Lab: Watson Conversation with Node-RED
+#  Lab: Watson Assistant with Node-RED
 ## Overview
-The conversation service integrates natural language understanding, to determine intent and entities, with dialog tools which allow for a natural conversation flow between your application and your users.
+The Watson Assistant service (formerly Watson Conversation) integrates natural language understanding, to determine intent and entities, with dialog tools which allow for a natural conversation flow between your application and your users.
 
-## Node-RED Watson Conversation node
-The Node-RED ![`Conversation`](images/conversation_node.png) node provides a very easy wrapper node to calls the Watson Conversation service and interact with the chat bot in Node-RED.
+## Node-RED Watson Assistant node
+The Node-RED ![`Conversation`](images/conversation_node.png) node provides a very easy wrapper node to calls the Watson Assistant service and interact with the chat bot in Node-RED.
 
-## Watson Conversation Flow Construction
-In this exercise, we will show how create a Conversation Bot Flow. It will consist of two sub-components. The first will consist of a HTML template with JavaScript which will be the front end of your Bot. The second will be a REST API that will encapsulate the Conversation service.
+## Watson Assistant Flow Construction
+In this exercise, we will show how create a Watson Assistant flow. It will consist of two sub-components. The first will consist of a HTML template with JavaScript which will be the front end of your Bot. The second will be a REST API that will encapsulate the Watson Assistant service.
 
 ### Prerequisites and setup
-To get the Conversation service credentials on IBM Cloud automatically filled-in by Node-RED, you should connect the Conversation service to the Node-RED application in IBM Cloud.
+To get the Watson Assistant service credentials on IBM Cloud automatically filled-in by Node-RED, you should connect the Watson Assistant service to the Node-RED application in IBM Cloud.
 
 ![ConversationSerivce](images/conversation_service.png)
 
 Please refer to the [Node-RED setup lab](/introduction_to_node_red/README.md) for instructions.
 
-## Getting Started with Conversation
-Before you use the service through the Conversation node on Node-RED, you need to create a conversation. Follow the [Getting started tutorial](https://console.bluemix.net/docs/services/conversation/getting-started.html) to guide you through the process of launching the conversation service tooling, creating a workspace, registering intents and entities and creating a dialog. The tooling is the only way in which dialogs, intents and entities can be registered with the service.
+## Getting Started with Assistant
+Before you use the service through the conversation node on Node-RED, you need to create a workspace. Follow the [Getting started tutorial](https://console.bluemix.net/docs/services/conversation/getting-started.html) to guide you through the process of launching the Watson Assistant tool, creating a workspace, registering intents and entities and creating a dialog. The tooling is the only way in which dialogs, intents and entities can be registered with the service.
 
-### Connecting to an existing Conversation service on IBM Cloud
-To use the Conversation node you will have already created an instance of the Service in IBM Cloud and used the service tooling to
-register intents, entities and dialogs.
+### Connecting to an existing service on IBM Cloud
+To use the Conversation node you will have already created an instance of the Watson Assistant Service in IBM Cloud and used the service tooling to register intents, entities and dialogs.
 You will need the Workspace ID. Obtain this from the service tooling. Select 'View details' for your workspace.
 
 ![Conversation-Workspace-Tile](images/conversation_lab_workspace_tile.png)
@@ -224,7 +223,7 @@ To run the web page, point your browser to  `/http://xxxx.mybluemix.net/bot` and
 The complete flow is available [here](conversation_lab.json).
 
 
-## Conversation Documentation
-To find more information on the Watson Conversation underlying service, visit these webpages :
-- [Conversation Documentation](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
-- [Conversation API Documentation](https://www.ibm.com/watson/developercloud/conversation/api/v1/)
+## Watson Assistant Documentation
+To find more information on the Watson Assistant underlying service, visit these webpages :
+- [Watson Assistant Documentation](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted)
+- [Watson Assistant API Documentation](https://www.ibm.com/watson/developercloud/conversation/api/v1/)

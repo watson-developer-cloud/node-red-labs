@@ -10,20 +10,20 @@ NOTE : All the labs listed below assume that you have first created an Applicati
 
 In the list below, you can select different services and see how these can be implemented in Node-RED
 
-- [Conversation](conversation/README.md)
 - [Discovery](discovery/README.md)
 - [Language Identification](language_identification/README.md)
-- [Language Translation](language_translation/README.md)
 - [Language Translator](language_translator/README.md)
 - [Natural Language Classifier](natural_language_classifier/README.md)
 - [Natural Language Understanding](natural_language_understanding/README.md)
-- [Personality insights](personality_insights/README.md)
+- [Personality Insights](personality_insights/README.md)
 - [Speech to Text](speech_to_text/README.md)
-- [Speech to Text Customization](speech_to_text_customizatio/README.md)
+- [Speech to Text Customization](speech_to_text_custom/README.md)
 - [Text to Speech](text_to_speech/README.md)
+- [Text to Speech Customization](text_to_speech_custom/README.md)
 - [Tone Analyser](tone_analyser/README.md)
-- [Visual Recognition](visual_recognition/README.md)
 - [Virtual Agent](virtual_agent/README.md)
+- [Visual Recognition](visual_recognition/README.md)
+- [Watson Assistant](watson_assistant/README.md)
 
 
 If you want to see examples of combining the different services, you can go [here](../advanced_examples/README.md).
