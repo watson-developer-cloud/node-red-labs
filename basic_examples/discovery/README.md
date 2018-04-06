@@ -1,16 +1,23 @@
 # Lab : Watson Discovery service with Node-RED
 
 ## Overview
-The Discovery service makes it possible to prepare and search your unstructured data, in the similar way to the deprecated Alchemy News, the Discovery node allows you to create, manage and search the Watson system environment (News in English, Spanish and Korean), as well as any private collections.
+The Discovery service makes it possible to prepare and search your unstructured data, in the similar way to the deprecated Alchemy News. The Discovery node allows you to create, manage and search the Watson system environment (News in English, Spanish and Korean), as well as any private collections.
+
 Although the node can be used to create and manage your environments and collections, there is tooling provided in the IBM Cloud to create your own discovery environment. Follow the [Getting Started Guide](https://console.bluemix.net/docs/services/discovery/getting-started-tool.html#getting-started-with-the-tooling) to guide you through the process of launching the discovery service tooling, creating a collection, and adding content.
 
 ## Node-RED Watson Discovery nodes
 There are 2 nodes used in these examples for the Watson Discovery service:
 1. ![Discovery-Node](images/discovery-node.jpg) Discovery Node - list environments, collections, configurations and run queries.
-1. ![Query-Builder-Node](images/query-bulider-node.jpg) Query Builder node - fetches the searchable fields in the collection and allows you to set upto 3 query search items. 
+1. ![Query-Builder-Node](images/query-bulider-node.jpg) Query Builder node - fetches the searchable fields in the collection and allows you to set upto 3 query search items.
 
-  
-## Discovery Flows construction
+### Prerequisites and setup
+To get the Discovery service credentials on IBM Cloud automatically filled-in by Node-RED, you should connect the Discovery service to the Node-RED application in IBM Cloud.
+
+![DiscoverySerivce](images/discovery_service.png)
+
+Please refer to the [Node-RED setup lab](/introduction_to_node_red/README.md) for instructions.
+
+## Watson Discovery Flow
 In this exercise, we will show you how to create several flows to list environments, collections, configurations and run a simple query. Then you will use the Query Builder node to prepare a query to be used by a Discovery Node.
 
 ### Environments Examples
@@ -20,15 +27,15 @@ The timestamp inject nodes are used purely to initiate the flows. Configure the 
 
 ![Discovery-List-Environments](images/EE-List.jpg)
 
-Change the method to be "List existing environments" 
+Change the method to be "List existing environments"
 
 ![Discovery-List-Environments-Outputs](images/EE-List-Output.jpg)
 
-Configure the debug node to display msg.environments 
+Configure the debug node to display msg.environments
 
 ![Discovery-Environment-Details](images/EE-Details.jpg)
 
-Change the method to be "Retrieve environment details" 
+Change the method to be "Retrieve environment details"
 
 ![Discovery-Environments-Details-Outputs](images/EE-Details-Output.jpg)
 
@@ -45,7 +52,7 @@ Change the method to be "List existing collections" and add "system" for the env
 
 ![Discovery-List-Collections-Outputs](images/CE-List-Output.jpg)
 
-Configure the debug node to display msg.collections. 
+Configure the debug node to display msg.collections.
 
 ![Discovery-Collection-Details](images/CE-Details.jpg)
 
@@ -75,32 +82,32 @@ The timestamp inject node is used purely to initiate the flow. Configure the Dis
 
 ![Discovery-Query](images/QE-Query.jpg)
 
-* Change the method to be "Search in collection" 
-* add "system" for the environment ID 
+* Change the method to be "Search in collection"
+* add "system" for the environment ID
 * "news-en" for the collection ID
 * Number of documents can be set to 10
-* Query for Search can set change to your requirements, I have used "text:Carabao" 
-* Aggregation for Search can set change to your requirements, I have used "term(text)" 
-* List of sections to return can set change to your requirements, I have used "text,website" 
+* Query for Search can set change to your requirements, I have used "text:Carabao"
+* Aggregation for Search can set change to your requirements, I have used "term(text)"
+* List of sections to return can set change to your requirements, I have used "text,website"
 
 Always check the latest [Query reference materials](https://console.bluemix.net/docs/services/discovery/query-reference.html#query-reference) for details on Querying your collections.
 
 ![Discovery-Query-Outputs](images/QE-Query-Output.jpg)
 
-Configure the debug node to display msg.search_results. 
+Configure the debug node to display msg.search_results.
 
 ### Discovery Query Builder Node
 The Discovery Query Builder Node can be used to build a query to be used by the Discovery Node.
 Build the following flow.
 ![Discovery-QueryBuilder-Flow](images/Query-Builder.jpg)
 
-The Query Builder Node will pre-fill menu lists for Environment and Collection. 
+The Query Builder Node will pre-fill menu lists for Environment and Collection.
 
 ![Discovery-QueryBuilder-Node](images/QB-Node.jpg)
 
 Select Watson System Environment and "news-en" for the collection, type your search argument(s) in the NLP Query. I have used the word "Carabao" but you can build a more sophisticated query.
 
-The first debug node should be set to msg.discoveryparams, which will show you the parameters that will be used 
+The first debug node should be set to msg.discoveryparams, which will show you the parameters that will be used
 
 ![Discovery-QB-Discoveryparams](images/QB-DParms-Output.jpg)
 
@@ -118,7 +125,7 @@ Change the method to be "Search in collections" and the number of documents to 5
 
 The final debug node should be set to msg.search_results, so that you can see the 5 results.
 
-![Discovery-QB-Debug-Search](images/QB-Search-Output.jpg)
+![Discovery-QB-Debug-Search](images/msg_results.png)
 
 ## Completed Flows
 The complete flow is available at [Discovery-Lab](Discovery-Flows.json).
