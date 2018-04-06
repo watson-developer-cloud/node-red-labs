@@ -1,0 +1,12 @@
+var emotions = [];
+emotions = msg.response.document_tone.tone_categories
+                .filter(function(c){
+                    if (c.category_id == "emotion_tone")
+                    {return c; }
+                    })[0].tones;
+                    
+for (var i=0; i<emotions.length; i++) {
+    msg.payload = emotions[i].score;
+    msg.topic = emotions[i].tone_name;
+    node.send(msg);
+}

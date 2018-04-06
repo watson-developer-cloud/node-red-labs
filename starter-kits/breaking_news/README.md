@@ -1,26 +1,56 @@
 # Breaking News
-Link to [video description](https://youtu.be/40WDieYsk_0)
-
 ## Overview
-Ever wanted to know how people are responding to news and events in real-time?  Well now you can!  The "Breaking News" application powered by Node-RED and Watson has a GUI which provides real-time tone analysis of tweets regarding concepts of live news headline articles.  The intent is to see how users on twitter are responding to events happening in the world.  Each tweet is assigned a score for each of 5 emotional tones (anger, disgust, fear, joy, sadness).  For example, this UI shows what people are tweeting about the military and the Star Spangled Banner in response to an article about the "military's ritual of saluting the national anthem".
+This flow allows you to select a category of news, it will then search Twitter for keywords in the news category, before displaying the tweets and an tone analysis. It will then use the built-in dashboard elements of Node-RED within a browser to display the output. It will use the Watson Discovery service to search the default American News repository, it will bring back the top item within the category and extract the 3 most relevant keywords. Then it will create searches for each of the keywords in Twitter, for each tweet that is found we will analyse the tone use the Watson Tone Analyzer service. Each tweet and it's analysis will be displayed on the dashboard.
 
-![UI](ui.jpg)
+This flow makes use of the Discovery and Tone Analyzer services.
 
-First a news category is selected from the UI, then this category is passed to the Alchemy News Service, which grabs a recent headline (within the last hour) and returns the headline title along with concepts of highest relevancy to the article.  Live twitter streams start listening for tweets about those concepts and analyzing those tweets for emotional tone, which is then rendered on the UI in real-time.
+### Prerequisites
+This app was tested using Version >=0.6.6 of node-red-node-watson installed in Node-RED.
 
-Your User Interface will be available on /ui of your node-RED url.
+You will also need to connect the following services to your Node-RED app:
+- Discovery
+- Tone Analyzer
 
-Please note: This lab makes use of an enhanced twitter node with a left-side input connector. You may need to update your
-instance of node-RED to ensure that you have it. 
+You will also require an active Twitter account to search Twitter
 
-## Application flow
-![Transcription Flow](flow.jpg)
-Click here for the [Transcription JSON](flow.json) and import it into your Node-RED.
-Note: The inject nodes from the screenshot are for debug purposes and are not included in the JSON that you will import.
+## Application Flow
+![Flow](sk_bn_flow.jpg)
 
-This flow makes use of the Alchemy News and Tone Analyzer services, so you will need to provide your credentials in the node configurations, or bind these IBM Cloud services to your application so that the nodes can pull from your VCAP.  You will also need to configure the 3 Twitter nodes with the credentials for your Twitter account.
+[Get the flow here](sk_bn_flow.json)
 
-## Flow description
-The flow is triggered from the UI (which is loaded via web browser at http://yourapplication/ui) when a news category is selected from the dropdown.  This triggers the dropdown node to send the category as msg.payload into the "set query" function node.  The "set query" function node then constructs a query for the Alchemy News node which returns an article from the last hour based on the specified category, and also filters for "high" rank articles, which means more popular articles from established sources.  The Alchemy News node then returns the title of the article, a link to the article, and concepts extracted from that article in the payload.  If you would like more information on how Alchemy News service works and the different options, please refer to the documentation [here](http://docs.alchemyapi.com/docs).
+## Flow Description
+### Input Discovery Flow:
+- `Dashboard Drop-down menu` - Provides the drop-down for input into the Discovery service. [Sample topics and search words](sk_bn_menu.txt)
+- `Discovery query builder` - Build the basis for the query to be used by the Discovery Node
+- `Set query` - complete the set-up of the query
+- `Discovery node` - Search for the top article in the American news repository
+- `Extract keywords` - Extract the top 3 keywords or phrases to be used in the twitter searches.
 
-The "extract concepts" function node splits the concepts into 3 flows which each feed into twitter nodes which begin streams to monitor for tweets on that concept.  As the tweets flow in, they go into tone analyzer nodes which analyze the tweet for the 5 different types of emotional tones.  In the "extract emotion" function node, those tones are extracted from the payload and inserted into charts along with the tweet and rendered on the UI.
+### Primary keyword Flow:
+- `Article Title` - Displays the top article title on the dashboard.
+- `Concept 1 title` - Displays the first keyword or phrase to be used on the dashboard.
+- `Twitter node` - Search for the keyword or phrase and returns any tweets matching.
+- `Tone Analyzer node` - Passes the tweet through the Tone Analyzer and passes analysis data back in a son format.
+- `Extract Emotions` - Formats to data from the Tone Analyzer into the format needed to show the emotions as a bar chart on the dashboard UI.
+- `Tweet 1` - Displays the tweet under the emotion bar chart on the dashboard.
+- `Concept 1 chart` - Displays the emotion bar chart on the dashboard.
+
+### Second keyword Flow:
+- `Concept 2 title` - Displays the second keyword or phrase to be used on the dashboard.
+- `Twitter node` - Search for the keyword or phrase and returns any tweets matching.
+- `Tone Analyzer node` - Passes the tweet through the Tone Analyzer and passes analysis data back in a son format.
+- `Extract Emotions` - Formats to data from the Tone Analyzer into the format needed to show the emotions as a bar chart on the dashboard UI.
+- `Tweet 2` - Displays the tweet under the emotion bar chart on the dashboard.
+- `Concept 2 chart` - Displays the emotion bar chart on the dashboard.
+
+### Third keyword Flow:
+- `Concept 3 title` - Displays the third keyword or phrase to be used on the dashboard.
+- `Twitter node` - Search for the keyword or phrase and returns any tweets matching.
+- `Tone Analyzer node` - Passes the tweet through the Tone Analyzer and passes analysis data back in a son format.
+- `Extract Emotions` - Formats to data from the Tone Analyzer into the format needed to show the emotions as a bar chart on the dashboard UI.
+- `Tweet 3` - Displays the tweet under the emotion bar chart on the dashboard.
+- `Concept 3 chart` - Displays the emotion bar chart on the dashboard.
+
+## UI Dashboard
+Here is a sample output from the starter kit
+![Dashboard](sk_bn_ui.jpg)

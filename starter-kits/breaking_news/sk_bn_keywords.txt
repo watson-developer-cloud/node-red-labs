@@ -1,0 +1,15 @@
+msg.topconcepts = [];
+var numconcepts = 3;
+
+msg.topconcepts = msg.search_results.results[0].enriched_title.keywords.slice(0,numconcepts)
+                .map(function(c){ 
+                    return c.text;
+                });
+msg.title = msg.search_results.results[0].title;
+
+for (i=0; i<numconcepts; i++) {
+   msg.payload = msg.topconcepts[i];
+    var output = new Array(numconcepts);
+   output[i] = msg;
+   node.send(output);
+}

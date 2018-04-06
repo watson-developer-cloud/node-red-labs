@@ -1,0 +1,44 @@
+String						Label
+
+Current Events 					Current Events 
+
+Computers, Technology, IT, 
+Artificial Intelligence, Machine Learning	Computers
+
+Crime, criminals, Police			Crime 
+
+Education, Schools, Colleges, Universities	Education
+
+Entertainment, Theatre, Film, Music		Entertainment
+
+Environment, ecology				Environmental
+
+Finance, Business				Finance and Business
+
+Food, Drink, Restaurants, Cafes, Bars		Food and Drink
+
+Government, Council				Government
+
+Health, Efficiency, Well-being, Fitness		Health & Fitness
+
+Law, Legal, Courts				Law and Legal
+
+Magazines, Newspapers				Magazines & Newspapers
+
+Television, Radio, Podcasts, Videos		Media & Television
+
+Politics, politicians, parliament		Politics
+
+Real Estate, Property, Homes, Gardens		Real Estate & Property
+
+Religion, Spirituality				Religion & Spirituality
+
+Sports, Leisure, Fixtures, Scores 		Sports
+
+Traffic, Roads, Transportation			Transport
+
+Weather, meteorology, warnings, temperature, 
+rain, wind speed, cloud, pressure and UV index 	Weather
+
+Weblogs, blogs, vlogs 				Weblogs
+

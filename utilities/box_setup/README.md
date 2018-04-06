@@ -2,7 +2,7 @@
 
 For some of the Watson Labs the Box Node-RED nodes are used.  The information in this section describes how to create a Box account and what artifacts are needed to obtain files from the repositories.  IBMers - you should NOT use your internal IBM Box account, you must use the external Box website.
 
-##Setup
+## Setup
 
 Go to [https://app.box.com](https://app.box.com) and create an account.  Login to the account, click your name and then Apps.  Scroll to the bottom of the webpage and to where it says "Are You a Developer?"
 
@@ -71,7 +71,7 @@ box_developer_node_red_filename.png
 
 You are now ready to enter a filename which is saved in your Box account.  Click Cancel and move onto the section to load your files into Box.
 
-##Loading files
+## Loading files
 
 Go to [https://app.box.com/files](https://app.box.com/files) and login if you haven't already
 
