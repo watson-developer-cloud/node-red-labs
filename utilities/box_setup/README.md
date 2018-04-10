@@ -1,28 +1,49 @@
 # Box setup
 
-For some of the Watson Labs the Box Node-RED nodes are used.  The information in this section describes how to create a Box account and what artifacts are needed to obtain files from the repositories.  IBMers - you should NOT use your internal IBM Box account, you must use the external Box website.
+The Box Node-RED nodes are needed for some of the Watson Labs.  The information in this section describes how to use a Box account and what artifacts are needed to obtain files from the repositories.  
+**IBMers - you should _NOT_ use your internal IBM Box account, you must use the external Box website.**
 
 ## Setup
 
-Go to [https://app.box.com](https://app.box.com) and create an account.  Login to the account, click your name and then Apps.  Scroll to the bottom of the webpage and to where it says "Are You a Developer?"
+Go to [https://app.box.com](https://app.box.com) and create an account.  
+
+Login to the account, click the account icon your name and then Apps.  
+
+![NodeRedStarter](images/BOX-Apps.jpg)
+
+Scroll to where it says "Are You a Developer?"
 
 ![NodeRedStarter](images/box_developer_create.png)
 
 Click on 'developers site'.  You might have to create an account also on this site.
 
-Click on My Apps and then "create a Box Application"
+Click on the Dashboard button. 
 
-![NodeRedStarter](images/box_developer_create_box_app.png)
+![NodeRedStarter](images/BOX-Get-Started.jpg)
 
-Enter an App name of your choice and click Create Application
+If this is your first time you will see                alternatively you will standard Dashboard
 
-![NodeRedStarter](images/box_create2.png)
+![NodeRedStarter](images/BOX-Create-App.jpg) ![NodeRedStarter](images/BOX-Create-New-App.jpg) 
 
-![NodeRedStarter](images/box_developer_create_box_app_success.png)
+click on the "Create New App" button
 
-Click on Configure your Application
+When creating a new app you must first choose the type of app required, select "Custom" and click "Next"
 
-**IMPORTANT** : go to your IBM Cloud App and your Node-RED flow Editor
+![NodeRedStarter](images/BOX-Custom-App.jpg)
+
+Now you should set the Authentication Method for the App, select "Standard OAuth 2.0" and click "Next"
+
+![NodeRedStarter](images/BOX-Auth-Method.jpg)
+
+Finally you must name your App, provide a unique name for your app and click "Create App" button.
+
+![NodeRedStarter](images/BOX-Name-App.jpg)
+
+Once the app has been created you will see the app has been created then click the "View App" button.
+
+![NodeRedStarter](images/BOX-App-Created.jpg)
+
+**IMPORTANT** : go to your IBM Cloud App and your Node-RED flow Editor. If you have not secured your Node-RED app you need to change the URL
 
 ![NodeRedStarter](images/box_developer_bmix_http.png)
 
@@ -36,22 +57,23 @@ Double-click the Box node and pick the "Add new box-credentials..." and then cli
 
 ![NodeRedStarter](images/box_developer_bmix_node_edit_add.png)
 
+Copy the the whole "https://" line 
 
 ![NodeRedStarter](images/box_developer_bmix_redirect_uri.png)
 
-Copy the the whole https:// line and go back to the Box web site where you are configuring your Box App
+Go back to the Box web site where you are configuring your Box App to add the URL to the Redirect URI
 
-![NodeRedStarter](images/box_developer_bmix_redirect_uri_box.png)
+![NodeRedStarter](images/BOX-Credentials.jpg)
 
 At this point copy the client_id and client_secret values - you will use them in the Node-RED Box node
 
-Scroll to bottom of the Box App page and click "Save Application"
+Click "Save Changes"
 
 Go back to the Box config node in Node-RED and enter the client_id and client_secret values 
 
 ![NodeRedStarter](images/box_developer_node_red_client_secret.png)
 
-Click Authenticate with Box button
+Click "Authenticate with Box" button
 
 Box will show you an option of "Grant access to Box" 
 
