@@ -1,73 +1,57 @@
 # Box setup
 
-For some of the Watson Labs the Box Node-RED nodes are used.  The information in this section describes how to create a Box account and what artifacts are needed to obtain files from the repositories.  IBMers - you should NOT use your internal IBM Box account, you must use the external Box website.
+The Box Node-RED nodes are used for some of the Watson Labs.  The information in this section describes where to get a box account, how to use it and what artefacts are needed to obtain files from the repositories.  
+**IBMers - you should _NOT_ use your internal IBM Box account, you must use the external Box website.**
 
 ## Setup
 
-Go to [https://app.box.com](https://app.box.com) and create an account.  Login to the account, click your name and then Apps.  Scroll to the bottom of the webpage and to where it says "Are You a Developer?"
+1. Go to [https://app.box.com](https://app.box.com) and create an account.  
 
-![NodeRedStarter](images/box_developer_create.png)
+2. Details for a custom app can be found on the [Box developer site](https://developer.box.com/v2.0/reference). 
 
-Click on 'developers site'.  You might have to create an account also on this site.
+3. Once the app has been created leave browser open, as you will need to set the URL for the app and set Client ID & secret in the Box node.
 
-Click on My Apps and then "create a Box Application"
+**IMPORTANT** : go to your IBM Cloud App and your Node-RED flow Editor. If you have not secured your Node-RED app you need to change the URL to https.
 
-![NodeRedStarter](images/box_developer_create_box_app.png)
-
-Enter an App name of your choice and click Create Application
-
-![NodeRedStarter](images/box_create2.png)
-
-![NodeRedStarter](images/box_developer_create_box_app_success.png)
-
-Click on Configure your Application
-
-**IMPORTANT** : go to your IBM Cloud App and your Node-RED flow Editor
-
-![NodeRedStarter](images/box_developer_bmix_http.png)
-
-Change the URL to have https:// at the front
+4. Change the URL to have https:// at the front
 
 ![NodeRedStarter](images/box_developer_bmix_https.png)
 
-Then go to the place in the Node-RED palette where the Box node is being used (or where you have dragged it to).  
-
-Double-click the Box node and pick the "Add new box-credentials..." and then click the pencil icon to configure the node
+5. Then go to the Node-RED palette where the Box node is being used.  Double-click the Box node and pick the "Add new box-credentials..." and then click the pencil icon to configure the node
 
 ![NodeRedStarter](images/box_developer_bmix_node_edit_add.png)
 
+6. Copy the the whole "https://" line 
 
 ![NodeRedStarter](images/box_developer_bmix_redirect_uri.png)
 
-Copy the the whole https:// line and go back to the Box web site where you are configuring your Box App
+7. Return to the Box web site where you are configuring your Box App to add the URL to the Redirect URI
 
-![NodeRedStarter](images/box_developer_bmix_redirect_uri_box.png)
+![NodeRedStarter](images/box_credentials.jpg)
 
-At this point copy the client_id and client_secret values - you will use them in the Node-RED Box node
+At this point copy the client_id and client_secret values - you will use them in the Node-RED Box node. Click "Save Changes"
 
-Scroll to bottom of the Box App page and click "Save Application"
-
-Go back to the Box config node in Node-RED and enter the client_id and client_secret values 
+8. Return to the Box config node in Node-RED and enter the client_id and client_secret values 
 
 ![NodeRedStarter](images/box_developer_node_red_client_secret.png)
 
-Click Authenticate with Box button
+Click "Authenticate with Box" button
 
-Box will show you an option of "Grant access to Box" 
+9. Box will show you an option of "Grant access to Box" 
 
-![NodeRedStarter](images/box_developer_node_red_auth_box.png)
+![NodeRedStarter](images/box_grant_access.jpg)
 
 Click on the "Grant access to Box" button
 
 ![NodeRedStarter](images/box_developer_node_red_authorised.png)
 
-Your Node-RED Box node should now be configured and the only field shown is your Box user name 
+10. Your Node-RED Box node should now be configured and the only field shown is your Box user name 
 
-![NodeRedStarter](images/box_developer_node_red_configured.png)
+![NodeRedStarter](images/box_add_cred.jpg)
 
 Click Add
 
-box_developer_node_red_filename.png
+![NodeRedStarter](images/box_4pr.jpg)
 
 You are now ready to enter a filename which is saved in your Box account.  Click Cancel and move onto the section to load your files into Box.
 

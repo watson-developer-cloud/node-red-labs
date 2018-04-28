@@ -26,20 +26,22 @@ The nodes required to build this flow are:
  - A first ![template](/introduction_to_node_red/images/node_red_template.png) node, configured to output an HTML input field and suggest a few selected images taken from the main Watson Visual Recognition demo web page:
 ```HTML
 <html>
-<head><title>Watson Visual Recognition on Node-RED</title></head>
-<body>
-<h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>
-    <h2>Select an image URL</h2>
-    <form  action="{{req._parsedUrl.pathname}}">
-        <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/1.jpg" height='100'/>
-        <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/2.jpg" height='100'/>
-        <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/3.jpg" height='100'/>
-        <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/4.jpg" height='100'/>
-        <br/>Copy above image location URL or enter any image URL:<br/>
-        <input type="text" name="imageurl"/>
-        <input type="submit" value="Analyze"/>
-    </form>
-</body>
+    <head>
+        <title>Watson Visual Recognition on Node-RED</title>
+    </head>
+    <body>
+    <h1>Welcome to the Watson Visual Recognition Demo on Node-RED</h1>
+        <h2>Select an image URL</h2>
+        <form  action="{{req._parsedUrl.pathname}}">
+            <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/1.jpg" height='100'/>
+            <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/2.jpg" height='100'/>
+            <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/3.jpg" height='100'/>
+            <img src="https://raw.githubusercontent.com/watson-developer-cloud/visual-recognition-nodejs/master/public/images/samples/4.jpg" height='100'/>
+            <br/>Copy above image location URL or enter any image URL:<br/>
+            <input type="text" name="imageurl"/>
+            <input type="submit" value="Analyze"/>
+        </form>
+    </body>
 </html>
 ```
 ![Reco-Lab-Template1-Node-Props](images/reco_lab_template1_node_props.png)
@@ -53,17 +55,22 @@ The nodes required to build this flow are:
 
  - And a final  ![`template`](/introduction_to_node_red/images/node_red_template.png) node linked to the ![`HTTPResponse`](/introduction_to_node_red/images/node_red_httpresponse.png) output node. The template will format the output returned from the Visual Recognition node into an HTML table for easier reading:
 ```HTML
-    <h1>Node-RED Watson Visual Recognition output</h1>
-    <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
-    <table border='1'>
-        <thead><tr><th>Name</th><th>Score</th></tr></thead>
-        {{#labels}}
-          <tr><td><b>{{label_name}}</b></td><td><i>{{label_score}}</i></td></tr>
-        {{/labels}}
-    </table>
-    <form  action="{{req._parsedUrl.pathname}}">
-        <input type="submit" value="Try again"/>
-    </form>
+<html>
+    <head><title>Watson Visual Recognition on Node-RED</title></head>
+    <body>
+        <h1>Node-RED Watson Visual Recognition output</h1>
+        <p>Analyzed image: {{payload}}<br/><img src="{{payload}}" height='100'/></p>
+        <table border='1'>
+            <thead><tr><th>Name</th><th>Score</th></tr></thead>
+        {{#result.images.0.classifiers.0.classes}}
+        <tr><td><b>{{class}}</b></td><td><i>{{score}}</i></td></tr>
+        {{/result.images.0.classifiers.0.classes}}
+        </table>
+        <form  action="{{req._parsedUrl.pathname}}">
+            <input type="submit" value="Try again"/>
+        </form>
+    </body>
+</html>
 ```
 ![Reco-Lab-TemplateReport-Node-Props](images/reco_lab_templatereport_node_props.png)  
 Note that the HTML snippet above has been simplified and stripped out of non-essential HTML tags, the completed flow solution has a complete HTML page.
