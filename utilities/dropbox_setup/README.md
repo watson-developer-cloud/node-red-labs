@@ -4,7 +4,7 @@ For many of the Watson Labs the Dropbox node is used.  The information in this s
 
 ## Setup
 
-Go to[http://dropbox.com](http://dropbox.com) and create an account.
+Go to [http://dropbox.com](http://dropbox.com) and create an account. Once you login, the browser will change to https.
 
 Go to the Home location and then scroll to the bottom of the page until you see '...' and 'Privacy' together.
 
