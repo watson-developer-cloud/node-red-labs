@@ -1,0 +1,105 @@
+[{
+  "id": "2124fa19.91e996",
+  "type": "http in",
+  "z": "c5e17b3b.5207b8",
+  "name": "Get homepage",
+  "url": "/homepage",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 107,
+  "y": 874,
+  "wires": [
+    ["d8935f64.c594d"]
+  ]
+}, {
+  "id": "d8935f64.c594d",
+  "type": "template",
+  "z": "c5e17b3b.5207b8",
+  "name": "Form and Response Template",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<html>\n    <body>\n       <form action=\"/classify\" method=\"post\" enctype=\"multipart/form-data\">\n           <input type=\"file\" name=\"pic\" accept=\"image/*\"><br>\n           <input type=\"submit\" value=\"Submit\">\n       </form>\n       <div>Classifications:</div>\n       <div>\n           {{#result}}\n           <table>\n           <tr>\n               <th>Class</th>\n               <th>Score</th>\n               <th>Type</th>\n           </tr>\n           {{#images}}\n           {{#.}}\n           {{#classifiers}}\n           {{#.}}\n           {{#classes}}\n           {{#.}}\n               <tr>\n                   <td>{{class}}</td>\n                   <td>{{score}}</td>\n                   <td>{{&type_hierarchy}}</td>\n               </tr>\n           {{/.}}\n           {{/classes}}\n           {{/.}}\n           {{/classifiers}}\n           {{/.}}\n           {{/images}}\n           </table>\n           {{/result}}\n       </div>\n    </body>\n</html>",
+  "output": "str",
+  "x": 363,
+  "y": 873,
+  "wires": [
+    ["2b414b34.512cc4"]
+  ]
+}, {
+  "id": "2b414b34.512cc4",
+  "type": "http response",
+  "z": "c5e17b3b.5207b8",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 617,
+  "y": 872,
+  "wires": []
+}, {
+  "id": "d9baa695.b44208",
+  "type": "function",
+  "z": "c5e17b3b.5207b8",
+  "name": "Determine File Path",
+  "func": "if (msg.req.files) {\n    var files = Object.keys(msg.req.files);\n    msg.payload = msg.req.files[files[0]][0].path;\n}\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 207,
+  "y": 1024,
+  "wires": [
+    ["e9ea340c.837038"]
+  ]
+}, {
+  "id": "e9ea340c.837038",
+  "type": "file-buffer",
+  "z": "c5e17b3b.5207b8",
+  "name": "",
+  "mode": "asBuffer",
+  "x": 357.5,
+  "y": 1065,
+  "wires": [
+    ["aeccfac4.953968"]
+  ]
+}, {
+  "id": "aeccfac4.953968",
+  "type": "visual-recognition-v3",
+  "z": "c5e17b3b.5207b8",
+  "name": "",
+  "apikey": "",
+  "image-feature": "classifyImage",
+  "lang": "en",
+  "x": 449.5,
+  "y": 984,
+  "wires": [
+    ["d8935f64.c594d", "514044bc.ce328c"]
+  ]
+}, {
+  "id": "514044bc.ce328c",
+  "type": "debug",
+  "z": "c5e17b3b.5207b8",
+  "name": "",
+  "active": true,
+  "tosidebar": true,
+  "console": false,
+  "tostatus": false,
+  "complete": "result",
+  "x": 603.5,
+  "y": 1048,
+  "wires": []
+}, {
+  "id": "5849b1fd.08b48",
+  "type": "httpInMultipart",
+  "z": "c5e17b3b.5207b8",
+  "name": "Classify Image",
+  "url": "/classify",
+  "method": "post",
+  "fields": "[{\"name\":\"pic\"}]",
+  "swaggerDoc": "",
+  "x": 121,
+  "y": 954,
+  "wires": [
+    ["d9baa695.b44208"]
+  ]
+}]
