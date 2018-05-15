@@ -96,7 +96,7 @@ Add the following code to the template node:
 
 ![template](images/tts_lab_x2.png)
 
-The template node simply outputs a HTML message in a <h1> header.
+The template node simply outputs a HTML message in a `<h1>` header.
 
 The completed flow should look like:
 ![SectionTwoFlow](images/tts_lab_x3.png)
