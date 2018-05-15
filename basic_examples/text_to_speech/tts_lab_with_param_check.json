@@ -1,1 +1,133 @@
-[{"id":"49bdb3bd.4822ec","type":"http in","z":"7e405b7a.f61e14","name":"","url":"/talk/sayit","method":"get","swaggerDoc":"","x":91,"y":197,"wires":[["8435fb7b.2db718"]]},{"id":"8a9ea572.1b4ac8","type":"change","z":"7e405b7a.f61e14","name":"text to payload","rules":[{"t":"set","p":"payload","to":"msg.payload.text_to_say"}],"action":"","property":"","from":"","to":"","reg":false,"x":273,"y":156,"wires":[["608dcc7a.c128d4"]]},{"id":"608dcc7a.c128d4","type":"watson-text-to-speech","z":"7e405b7a.f61e14","name":"","lang":"english","voice":"en-US_MichaelVoice","x":345,"y":198,"wires":[["8cdfd636.021b58"]]},{"id":"8cdfd636.021b58","type":"change","z":"7e405b7a.f61e14","name":"speech to payload","rules":[{"t":"set","p":"payload","to":"msg.speech"}],"action":"","property":"","from":"","to":"","reg":false,"x":441,"y":250,"wires":[["4822188a.5c2228"]]},{"id":"dbbce29.8fe872","type":"http response","z":"7e405b7a.f61e14","name":"","x":712,"y":335,"wires":[]},{"id":"8435fb7b.2db718","type":"switch","z":"7e405b7a.f61e14","name":"Check text","property":"payload.text_to_say","rules":[{"t":"nnull"},{"t":"else"}],"checkall":"false","outputs":2,"x":160,"y":308,"wires":[["8a9ea572.1b4ac8"],["8e9dd53f.9614e8"]]},{"id":"8e9dd53f.9614e8","type":"template","z":"7e405b7a.f61e14","name":"Error","field":"payload","format":"html","template":"<h1>Missing text_to_say query param!</h1>","x":360,"y":373,"wires":[["dbbce29.8fe872"]]},{"id":"4822188a.5c2228","type":"function","z":"7e405b7a.f61e14","name":"Set headers","func":"// Set the content type to audio wave\nmsg.headers={ 'Content-Type': 'audio/wav'};\nreturn msg;","outputs":1,"noerr":0,"x":567,"y":301,"wires":[["dbbce29.8fe872"]]}]
+[{
+  "id": "37db8581.e886ea",
+  "type": "http in",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "url": "/talk/sayit",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 160,
+  "y": 755,
+  "wires": [
+    ["8c9a4ce4.3d6da", "835ce3ce.b3bf5"]
+  ]
+}, {
+  "id": "8c9a4ce4.3d6da",
+  "type": "change",
+  "z": "1489cc91.5952e3",
+  "name": "Text to Payload",
+  "rules": [{
+    "t": "set",
+    "p": "payload",
+    "pt": "msg",
+    "to": "payload.text_to_say",
+    "tot": "msg"
+  }],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 373,
+  "y": 685,
+  "wires": [
+    ["f6322248.c9834"]
+  ]
+}, {
+  "id": "f6322248.c9834",
+  "type": "watson-text-to-speech",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "lang": "en-GB",
+  "langhidden": "en-GB",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "",
+  "voice": "en-GB_KateVoice",
+  "voicehidden": "",
+  "format": "audio/wav",
+  "password": "",
+  "payload-response": false,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+  "x": 473,
+  "y": 756,
+  "wires": [
+    ["c2744b78.56f868"]
+  ]
+}, {
+  "id": "c2744b78.56f868",
+  "type": "change",
+  "z": "1489cc91.5952e3",
+  "name": "Speech to Payload",
+  "rules": [{
+    "t": "set",
+    "p": "payload",
+    "pt": "msg",
+    "to": "speech",
+    "tot": "msg"
+  }],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 630,
+  "y": 683,
+  "wires": [
+    ["2dfac931.573136"]
+  ]
+}, {
+  "id": "2dfac931.573136",
+  "type": "function",
+  "z": "1489cc91.5952e3",
+  "name": "Set Headers",
+  "func": "// Set the content type to audio wave\nmsg.headers = {'Content-Type': 'audio/wav'};\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 740,
+  "y": 756,
+  "wires": [
+    ["3c9b519b.eaa42e"]
+  ]
+}, {
+  "id": "3c9b519b.eaa42e",
+  "type": "http response",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 927,
+  "y": 755,
+  "wires": []
+}, {
+  "id": "66f76d9c.aa4434",
+  "type": "template",
+  "z": "1489cc91.5952e3",
+  "name": "Error",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<h1>Missing text_to_say query param!</h1>",
+  "output": "str",
+  "x": 720,
+  "y": 880,
+  "wires": [
+    ["3c9b519b.eaa42e"]
+  ]
+}, {
+  "id": "835ce3ce.b3bf5",
+  "type": "function",
+  "z": "1489cc91.5952e3",
+  "name": "Determine whether text_to_say is null",
+  "func": "if (msg.payload.text_to_say) {\n    return [msg, null];\n}\nreturn [null, msg];",
+  "outputs": 2,
+  "noerr": 0,
+  "x": 352,
+  "y": 875,
+  "wires": [
+    ["8c9a4ce4.3d6da"],
+    ["66f76d9c.aa4434"]
+  ]
+}]
