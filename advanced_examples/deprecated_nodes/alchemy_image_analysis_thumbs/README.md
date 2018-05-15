@@ -1,6 +1,9 @@
 #  Node-RED Alchemy Vision (Image Analysis) Lab with thumbnails
+
 ## Overview
-This lab will extend the capabilities of the [Alchemy Image Analysis Lab](/basic_examples/alchemy_api_image_analysis/README.md) by leveraging more of the information returned by the Alchemy Vision API.
+***The Alchemy service has been deprecated. This lab is available for reference only. Please refer to the [Visual Recognition lab](/basic_examples/visual_recognition/README.md) for image analysis.***
+
+This lab will extend the capabilities of the [Alchemy Image Analysis Lab](/basic_examples/deprecated_nodes/alchemy_api_image_analysis/README.md) by leveraging more of the information returned by the Alchemy Vision API.
 
 Among other information, the Alchemy Vision API provides the bounding rectangle for the detected faces.  
 In this lab, we will use this information to enhance the output HTML page so that it highlights the recognized celebrities' faces and extracts their thumbnails.
@@ -37,7 +40,7 @@ The HTML page code for the 'Report Faces' template will be updated with the foll
                  thumbW*cv_w/img.naturalWidth,
                  thumbH*cv_h/img.naturalHeight);
         ctx.stroke();
-        
+
         // handle the thumb canvas
         var ctxTh = cvTh.getContext("2d");
         ctxTh.drawImage(img,thumbX,thumbY,thumbW,thumbH,
@@ -56,11 +59,11 @@ The HTML page code for the 'Report Faces' template will be updated with the foll
             drawThumb(img,ctx,cv_w,cv_h,{{positionX}},{{positionY}},{{width}},{{height}},color,cths[iTh++]);
         {{/result}}        
     }
-    
+
     function drawAll() {
         // Find the image tag
         var img = document.getElementById("alchemy_image");
-    
+
         // get canvas
         var c = document.getElementById("imageCanvas");
         var cv_w=c.width;
@@ -74,7 +77,7 @@ The HTML page code for the 'Report Faces' template will be updated with the foll
             cv_h=cv_h*img.naturalHeight/img.naturalWidth;
             c.height=cv_h;
         }
-        
+
         var ctx = c.getContext("2d");
         drawCanvas(img,ctx,cv_w,cv_h);
         drawThumbs(img,ctx,cv_w,cv_h);
