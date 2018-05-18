@@ -9,7 +9,6 @@ Before trying out these labs, you should:
 The advanced labs are:
 - [Train the Visual Recognition service with your own images](visual_recognition_training/README.md)
 - [Speech to Text Timestamps](speech_to_text_timestamps/README.md)
-- [Classify webcasts (in progress, not completed yet)](webcast_classifier/README.md)
 - [Sending a file to Watson Recognition for classification from a webpage](visual_recognition_file_send/README.md)
 
 Advanced labs with deprecated nodes are available for reference here:
