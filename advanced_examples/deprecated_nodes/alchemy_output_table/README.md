@@ -1,6 +1,8 @@
-#Create a table from the Alchemy Api features
+# Create a table from the Alchemy API features
 
-This lab is an extension of this [Alchemy Feature Extraction lab](/basic_examples/alchemy_api_feature_extraction/README.md).
+***The Alchemy service has been deprecated. This lab is available for reference only. Please refer to the [Visual Recognition lab](/basic_examples/visual_recognition/README.md) for image analysis.***
+
+This lab is an extension of this [Alchemy Feature Extraction lab](/basic_examples/deprecated_nodes/alchemy_api_feature_extraction/README.md).
 
 With this extended lab you can easily see what the output of the different features of the Alchemy API Feature Extract node is.
 With just a few minor changes you can have a different output.
@@ -21,7 +23,7 @@ The next node is a 'Switch' node. in the following image you can see how it is c
 
 ![`Alchemyhswitch](images/alchapi_table_switch.jpg)
 
-           payload.fetext 
+           payload.fetext
 
 will be used later to add the output to the html page.
 
@@ -43,7 +45,7 @@ The next step is setting up a small function:
 
 ![`Alchemyfunction](images/alchapi_table_function.jpg)
 
-Here you use 
+Here you use
 
            msg.features.keyword
 
@@ -77,7 +79,7 @@ You can copy this into the template:
            Create Alchemy API output
            {{{features}}}
            {{{text}}}
-           
+
 The final node is the 'http response' node.
 
 ![`Alchemyresponse](images/alchapi_table_httpresponse.jpg)
@@ -92,9 +94,8 @@ The final flow looks like this:
 
 In order the execute this app open a new browser and browse to {http://XXXX.mybluemix.net/resp?fetext="<enter text here>"}
 ```
-For example - 
+For example -
 http://XXXX.mybluemix.net/resp?fetext="AlchemyAPI uses natural language processing, artificial intelligence, deep learning and massive-scale web crawling to power it's text analysis capabilities. Try entering your own text in this text box to see what knowledge AlchemyAPI can extract from your unstructured data."
 ```
 
 You can download the completed ![`flow](aapi_table_flow.txt)
-

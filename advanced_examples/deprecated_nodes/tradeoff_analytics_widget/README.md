@@ -1,4 +1,8 @@
 # Using the Trade-Off Analytics Widget with Node-RED
+
+***The Trade-Off Analytics service has been deprecated. This lab is available for reference only.***
+
+
 The Trade-Off Analytics service comes with a very versatile user interface widget which can be used to display the trade-off analytics results and let the user interact with them.
 
 To use it, a web page will need to be generated with some javascript code to create the widget and manage its initialization.
@@ -37,17 +41,17 @@ Then the Template node `Widget Page` is used to generate the HTML and JavaScript
     // get the problem object from Node-RED msg.problem
     // note the triple-curly braces syntax to avoid HTML escaping
     var problemObj={{{problem}}};
-    
+
     // This variable will hold the TA client reference
     var taClient;
-    
+
     // This creates the widget. We call asynchronously from the onload of the body
     function loadTradeoffAnalytics() {
 		document.body.style.cursor="wait" ;
         taClient = new TradeoffAnalytics(
             {dilemmaServiceUrl: '{{{req._parsedUrl.pathname}}}/dilemmas',
              analyticsEventsUrl: '{{{req._parsedUrl.pathname}}}/events'
-            }, 
+            },
             'tofaWidget');
         taClient.start(onTAReady);
     }
@@ -62,7 +66,7 @@ Then the Template node `Widget Page` is used to generate the HTML and JavaScript
 		document.body.style.cursor="default";
         taClient.resize();
     }
-    
+
     // trigger the tofa widget setup when window has loaded
     window.onload=loadTradeoffAnalytics;
 </script>
