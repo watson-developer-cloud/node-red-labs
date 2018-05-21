@@ -1,231 +1,210 @@
-[
-  {
-    "id": "6396f403.3de294",
-    "type": "change",
-    "name": "text to payload",
-    "rules": [
-      {
-        "t": "set",
-        "p": "payload",
-        "to": "msg.payload.text_to_say"
-      },
-      {
-        "t": "set",
-        "p": "text_to_say",
-        "to": "msg.payload"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 454,
-    "y": 139,
-    "wires": [
-      [
-        "50a741c2.fcfca"
-      ]
-    ]
-  },
-  {
-    "id": "bc8f955e.01ce38",
-    "type": "http in",
-    "name": "",
-    "url": "\/talk",
-    "method": "get",
-    "swaggerDoc": "",
-    "x": 86,
-    "y": 360,
-    "wires": [
-      [
-        "c11b8319.41576"
-      ]
-    ]
-  },
-  {
-    "id": "c11b8319.41576",
-    "type": "switch",
-    "name": "check text",
-    "property": "payload.text_to_say",
-    "rules": [
-      {
-        "t": "nnull"
-      },
-      {
-        "t": "else"
-      }
-    ],
-    "checkall": "false",
-    "outputs": 2,
-    "x": 248,
-    "y": 359,
-    "wires": [
-      [
-        "97a87048.f41788"
-      ],
-      [
-        "eacc7e93.e69938"
-      ]
-    ]
-  },
-  {
-    "id": "eacc7e93.e69938",
-    "type": "template",
-    "name": "GetTextToSay",
-    "field": "payload",
-    "format": "html",
-    "template": "<h1>Enter text to Say<\/h1>\n<form action=\"{{req._parsedUrl.pathname}}\" method=\"get\">\n    <input type=\"text\" name=\"text_to_say\" id=\"\" value=\"{{payload.text_to_say}}\" \/>\n    <input type=\"submit\" value=\"Say it!\"\/>\n<\/form>",
-    "x": 507,
-    "y": 399,
-    "wires": [
-      [
-        "512312db.d45e8c"
-      ]
-    ]
-  },
-  {
-    "id": "512312db.d45e8c",
-    "type": "http response",
-    "name": "Reply",
-    "x": 732,
-    "y": 369,
-    "wires": [
-      
-    ]
-  },
-  {
-    "id": "97a87048.f41788",
-    "type": "template",
-    "name": "Generate Reply",
-    "field": "payload",
-    "format": "html",
-    "template": "<h1>You want to say<\/h1>\n<p><q>{{payload}}<\/q><\/p>\n<p>Hear it:<\/p>\n<audio controls autoplay>\n  <source src=\"{{req._parsedUrl.pathname}}\/sayit?text_to_say={{payload.text_to_say}}\" type=\"audio\/wav\">\nYour browser does not support the audio element.\n<\/audio>\n<p>Thanks!<\/p>\n<form action=\"{{req._parsedUrl.pathname}}\">\n    <input type=\"text\" name=\"text_to_say\" id=\"\" value=\"{{payload.text_to_say}}\" \/>\n    <input type=\"submit\" value=\"Try Again\" \/>\n<\/form>",
-    "x": 516,
-    "y": 327,
-    "wires": [
-      [
-        "512312db.d45e8c"
-      ]
-    ]
-  },
-  {
-    "id": "d784ce5d.9b3348",
-    "type": "http in",
-    "name": "",
-    "url": "\/talk\/sayit",
-    "method": "get",
-    "swaggerDoc": "",
-    "x": 102,
-    "y": 178,
-    "wires": [
-      [
-        "1dc28ec5.2d6179"
-      ]
-    ]
-  },
-  {
-    "id": "79abbeee.30eef",
-    "type": "http response",
-    "name": "Reply Speech binary",
-    "x": 912,
-    "y": 249,
-    "wires": [
-      
-    ]
-  },
-  {
-    "id": "50a741c2.fcfca",
-    "type": "watson-text-to-speech",
-    "name": "",
-    "lang": "english",
-    "voice": "en-US_AllisonVoice",
-    "x": 571,
-    "y": 78,
-    "wires": [
-      [
-        "408d6437.d6f5f4"
-      ]
-    ]
-  },
-  {
-    "id": "1dc28ec5.2d6179",
-    "type": "switch",
-    "name": "Check text",
-    "property": "payload.text_to_say",
-    "rules": [
-      {
-        "t": "nnull"
-      },
-      {
-        "t": "else"
-      }
-    ],
-    "checkall": "true",
-    "outputs": 2,
-    "x": 279,
-    "y": 185,
-    "wires": [
-      [
-        "6396f403.3de294"
-      ],
-      [
-        "cd71776d.27603"
-      ]
-    ]
-  },
-  {
-    "id": "cd71776d.27603",
-    "type": "template",
-    "name": "Error",
-    "field": "payload",
-    "format": "handlebars",
-    "template": "<h1>\nError:    No f or text_to_say query parameter\n<\/h1>",
-    "x": 418,
-    "y": 232,
-    "wires": [
-      [
-        "79abbeee.30eef"
-      ]
-    ]
-  },
-  {
-    "id": "408d6437.d6f5f4",
-    "type": "change",
-    "name": "Speech to payload",
-    "rules": [
-      {
-        "t": "set",
-        "p": "payload",
-        "to": "msg.speech"
-      }
-    ],
-    "action": "",
-    "property": "",
-    "from": "",
-    "to": "",
-    "reg": false,
-    "x": 690,
-    "y": 139,
-    "wires": [
-      [
-        "4cf782d7.238dcc"
-      ]
-    ]
-  },
-  {
-    "id": "4cf782d7.238dcc",
-    "type": "function",
-    "name": "Set headers",
-    "func": "\/\/ Set the content type to audio wave\nvar wavFileName=msg.text_to_say.replace(' ','_');\nif(wavFileName.length>32) {\n    wavFileName=wavFileName.substr(0,32);\n}\nvar attch='attachment; filename='+encodeURIComponent(wavFileName+'.wav');\nmsg.headers={ 'Content-Type': 'audio\/wav',\n              'Content-Disposition': attch};\n\nreturn msg;",
-    "outputs": 1,
-    "noerr": 0,
-    "x": 751,
-    "y": 193,
-    "wires": [
-      [
-        "79abbeee.30eef"
-      ]
-    ]
-  }
-]
+[{
+  "id": "9b8229d.edeb9d8",
+  "type": "http in",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "url": "/talk",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 183,
+  "y": 737,
+  "wires": [
+    ["43ad17cd.315af8"]
+  ]
+}, {
+  "id": "4e780e8b.543a6",
+  "type": "template",
+  "z": "1489cc91.5952e3",
+  "name": "Generate Reply",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<html>\n    <body>\n        <h1>You want to say</h1>\n        <p><q>{{payload.text_to_say}}</q></p>\n        <p>Hear it:</p>\n        <audio controls autoplay>\n            <source src=\"{{req._parsedUrl.pathname}}/sayit?text_to_say={{payload.text_to_say}}\" type=\"audio/wav\">\n            Your browser does not support the audio element.\n        </audio>\n        <form action=\"{{req._parsedUrl.pathname}}\">\n            <input type=\"text\" name=\"text_to_say\" id=\"\" value=\"{{payload.text_to_say}}\" />\n            <input type=\"submit\" value=\"Try Again\" />\n        </form>\n    </body>\n</html>    ",
+  "output": "str",
+  "x": 584.5,
+  "y": 699,
+  "wires": [
+    ["3b46beee.3cc552"]
+  ]
+}, {
+  "id": "7fb0727b.d4f4ec",
+  "type": "template",
+  "z": "1489cc91.5952e3",
+  "name": "GetTextToSay",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<html>\n    <body>\n        <h1>Enter text to Say</h1>\n        <form action=\"{{req._parsedUrl.pathname}}\" method=\"get\">\n            <input type=\"text\" name=\"text_to_say\" id=\"\" value=\"{{payload.text_to_say}}\" />\n            <input type=\"submit\" value=\"Say it!\"/>\n        </form>\n    </body>\n</html>",
+  "output": "str",
+  "x": 585.5,
+  "y": 770,
+  "wires": [
+    ["3b46beee.3cc552"]
+  ]
+}, {
+  "id": "43ad17cd.315af8",
+  "type": "switch",
+  "z": "1489cc91.5952e3",
+  "name": "Check Text",
+  "property": "payload.text_to_say",
+  "propertyType": "msg",
+  "rules": [{
+    "t": "nnull"
+  }, {
+    "t": "else"
+  }],
+  "checkall": "true",
+  "repair": false,
+  "outputs": 2,
+  "x": 370.5,
+  "y": 737,
+  "wires": [
+    ["4e780e8b.543a6"],
+    ["7fb0727b.d4f4ec"]
+  ]
+}, {
+  "id": "3b46beee.3cc552",
+  "type": "http response",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 788,
+  "y": 732,
+  "wires": []
+}, {
+  "id": "af4d6bfd.466478",
+  "type": "http in",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "url": "/talk/sayit",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 180,
+  "y": 511,
+  "wires": [
+    ["7188f486.6617ec", "d9c6efc6.74938"]
+  ]
+}, {
+  "id": "7188f486.6617ec",
+  "type": "change",
+  "z": "1489cc91.5952e3",
+  "name": "Text to Payload",
+  "rules": [{
+    "t": "set",
+    "p": "payload",
+    "pt": "msg",
+    "to": "payload.text_to_say",
+    "tot": "msg"
+  }],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 393,
+  "y": 441,
+  "wires": [
+    ["2e8f16f0.dd7fca"]
+  ]
+}, {
+  "id": "2e8f16f0.dd7fca",
+  "type": "watson-text-to-speech",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "lang": "en-GB",
+  "langhidden": "en-GB",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "",
+  "voice": "en-GB_KateVoice",
+  "voicehidden": "",
+  "format": "audio/wav",
+  "password": "",
+  "payload-response": false,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+  "x": 493,
+  "y": 512,
+  "wires": [
+    ["ddb9f041.894cd"]
+  ]
+}, {
+  "id": "ddb9f041.894cd",
+  "type": "change",
+  "z": "1489cc91.5952e3",
+  "name": "Speech to Payload",
+  "rules": [{
+    "t": "set",
+    "p": "payload",
+    "pt": "msg",
+    "to": "speech",
+    "tot": "msg"
+  }],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 650,
+  "y": 439,
+  "wires": [
+    ["4d6f8734.3ed0e8"]
+  ]
+}, {
+  "id": "4d6f8734.3ed0e8",
+  "type": "function",
+  "z": "1489cc91.5952e3",
+  "name": "Set Headers",
+  "func": "// Set the content type to audio wave\nmsg.headers = {'Content-Type': 'audio/wav'};\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 760,
+  "y": 512,
+  "wires": [
+    ["c996f4ca.97e0b8"]
+  ]
+}, {
+  "id": "c996f4ca.97e0b8",
+  "type": "http response",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 947,
+  "y": 511,
+  "wires": []
+}, {
+  "id": "806e1010.72d0a",
+  "type": "template",
+  "z": "1489cc91.5952e3",
+  "name": "Error",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<h1>Missing text_to_say query param!</h1>",
+  "output": "str",
+  "x": 740,
+  "y": 636,
+  "wires": [
+    ["c996f4ca.97e0b8"]
+  ]
+}, {
+  "id": "d9c6efc6.74938",
+  "type": "function",
+  "z": "1489cc91.5952e3",
+  "name": "Determine whether text_to_say is null",
+  "func": "if (msg.payload.text_to_say) {\n    return [msg, null];\n}\nreturn [null, msg];",
+  "outputs": 2,
+  "noerr": 0,
+  "x": 372,
+  "y": 631,
+  "wires": [
+    ["7188f486.6617ec"],
+    ["806e1010.72d0a"]
+  ]
+}]

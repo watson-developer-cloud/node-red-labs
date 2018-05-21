@@ -1,0 +1,388 @@
+[{
+  "id": "84ba772f.3847b8",
+  "type": "websocket in",
+  "z": "4848dfac.a8b6c",
+  "name": "STT In",
+  "server": "9ca115d7.a75578",
+  "client": "",
+  "x": 71,
+  "y": 175,
+  "wires": [
+    ["21039d0a.1c2882"]
+  ]
+}, {
+  "id": "aefa1cbc.01b0a",
+  "type": "watson-speech-to-text",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "alternatives": 1,
+  "speakerlabels": false,
+  "smartformatting": false,
+  "lang": "en-GB",
+  "langhidden": "en-GB",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "NoCustomisationSetting",
+  "band": "BroadbandModel",
+  "bandhidden": "BroadbandModel",
+  "password": "N8L8TPxlPzyN",
+  "payload-response": true,
+  "streaming-mode": true,
+  "streaming-mute": false,
+  "discard-listening": false,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/speech-to-text/api",
+  "x": 441,
+  "y": 175,
+  "wires": [
+    ["1171d78f.6d65c8"]
+  ]
+}, {
+  "id": "7bd91b16.8c09a4",
+  "type": "watson-text-to-speech",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "lang": "en-GB",
+  "langhidden": "en-GB",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "",
+  "voice": "en-GB_KateVoice",
+  "voicehidden": "",
+  "format": "audio/wav",
+  "password": "",
+  "payload-response": true,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+  "x": 800,
+  "y": 368,
+  "wires": [
+    ["259503ae.3cef2c"]
+  ]
+}, {
+  "id": "1171d78f.6d65c8",
+  "type": "function",
+  "z": "4848dfac.a8b6c",
+  "name": "Check for transcription",
+  "func": "if (msg.payload && msg.payload.results && \n      msg.payload.results[0].final) {\n    var newMsg = {payload: msg.payload.results[0].alternatives[0].transcript};  \n      return [newMsg, msg];  \n}\n",
+  "outputs": "2",
+  "noerr": 0,
+  "x": 660,
+  "y": 175,
+  "wires": [
+    ["11c0b542.9d2f6b"],
+    ["96b63b4a.ea7ad8"]
+  ]
+}, {
+  "id": "a30c14e2.e62a58",
+  "type": "link in",
+  "z": "4848dfac.a8b6c",
+  "name": "ws-stt10",
+  "links": ["7274669b.c6c578", "259503ae.3cef2c", "96b63b4a.ea7ad8"],
+  "x": 36,
+  "y": 535,
+  "wires": [
+    ["d123a756.4372a8"]
+  ]
+}, {
+  "id": "259503ae.3cef2c",
+  "type": "link out",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "links": ["a30c14e2.e62a58"],
+  "x": 934,
+  "y": 368,
+  "wires": []
+}, {
+  "id": "d123a756.4372a8",
+  "type": "websocket out",
+  "z": "4848dfac.a8b6c",
+  "name": "STT Out",
+  "server": "9ca115d7.a75578",
+  "client": "",
+  "x": 160.5,
+  "y": 535,
+  "wires": []
+}, {
+  "id": "be8ce067.dc5bb",
+  "type": "http in",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "url": "/assist",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 91,
+  "y": 76,
+  "wires": [
+    ["12769fe2.4c36f"]
+  ]
+}, {
+  "id": "c08ebdbc.fa0be",
+  "type": "http response",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 573,
+  "y": 76,
+  "wires": []
+}, {
+  "id": "78cc739c.93c1dc",
+  "type": "watson-conversation-v1",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "workspaceid": "",
+  "multiuser": false,
+  "context": true,
+  "empty-payload": false,
+  "default-endpoint": true,
+  "service-endpoint": "https://gateway.watsonplatform.net/assistant/api",
+  "timeout": "",
+  "optout-learning": false,
+  "x": 160,
+  "y": 375,
+  "wires": [
+    ["37a4ae7d.13c042"]
+  ]
+}, {
+  "id": "1c1ad0ec.351f9f",
+  "type": "function",
+  "z": "4848dfac.a8b6c",
+  "name": "Set msg.payload",
+  "func": "msg.payload = msg.payload.output.text[0];\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 590,
+  "y": 368,
+  "wires": [
+    ["7bd91b16.8c09a4"]
+  ]
+}, {
+  "id": "1b1dc7c1.808be8",
+  "type": "http in",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "url": "/assistant",
+  "method": "post",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 101,
+  "y": 275,
+  "wires": [
+    ["d6918eeb.38742"]
+  ]
+}, {
+  "id": "db7846ff.708508",
+  "type": "http response",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 810,
+  "y": 455,
+  "wires": []
+}, {
+  "id": "92bad4d9.992e78",
+  "type": "function",
+  "z": "4848dfac.a8b6c",
+  "name": "Pre Service Processing",
+  "func": "// stash away incoming data\nmsg.mydata = {};\nmsg.mydata.messagein = msg.req.body.msgdata;\nmsg.payload = msg.mydata.messagein;\n\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 530,
+  "y": 273,
+  "wires": [
+    ["39831815.6e3998"]
+  ]
+}, {
+  "id": "553a2c56.c51674",
+  "type": "function",
+  "z": "4848dfac.a8b6c",
+  "name": "Post Service Processing",
+  "func": "msg.mydata.messageout = msg.payload;\n\nmsg.payload = {};\nmsg.payload.botresponse = msg.mydata;\n\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 611,
+  "y": 456,
+  "wires": [
+    ["db7846ff.708508"]
+  ]
+}, {
+  "id": "37a4ae7d.13c042",
+  "type": "function",
+  "z": "4848dfac.a8b6c",
+  "name": "Check for input type",
+  "func": "if (global.get('inputType') == 'websocket') {\n    return [msg, null];\n} \nelse {\n    return[msg, msg];\n}\n",
+  "outputs": 2,
+  "noerr": 0,
+  "x": 360,
+  "y": 375,
+  "wires": [
+    ["1c1ad0ec.351f9f"],
+    ["553a2c56.c51674"]
+  ]
+}, {
+  "id": "21039d0a.1c2882",
+  "type": "function",
+  "z": "4848dfac.a8b6c",
+  "name": "Set Input Type",
+  "func": "global.set('inputType', 'websocket');\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 239.5,
+  "y": 175,
+  "wires": [
+    ["aefa1cbc.01b0a"]
+  ]
+}, {
+  "id": "d6918eeb.38742",
+  "type": "function",
+  "z": "4848dfac.a8b6c",
+  "name": "Set Input Type",
+  "func": "global.set('inputType', 'http');\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 301,
+  "y": 274,
+  "wires": [
+    ["92bad4d9.992e78"]
+  ]
+}, {
+  "id": "96b63b4a.ea7ad8",
+  "type": "link out",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "links": ["a30c14e2.e62a58"],
+  "x": 815.5,
+  "y": 215,
+  "wires": []
+}, {
+  "id": "39831815.6e3998",
+  "type": "link out",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "links": ["1744a2ae.2c873d"],
+  "x": 695.5,
+  "y": 273,
+  "wires": []
+}, {
+  "id": "11c0b542.9d2f6b",
+  "type": "link out",
+  "z": "4848dfac.a8b6c",
+  "name": "",
+  "links": ["1744a2ae.2c873d"],
+  "x": 814.5,
+  "y": 135,
+  "wires": []
+}, {
+  "id": "1744a2ae.2c873d",
+  "type": "link in",
+  "z": "4848dfac.a8b6c",
+  "name": "Assistant",
+  "links": ["39831815.6e3998", "11c0b542.9d2f6b"],
+  "x": 35,
+  "y": 375,
+  "wires": [
+    ["78cc739c.93c1dc"]
+  ]
+}, {
+  "id": "bc7a4fcd.e23b9",
+  "type": "comment",
+  "z": "4848dfac.a8b6c",
+  "name": "Webpage",
+  "info": "",
+  "x": 80.5,
+  "y": 36,
+  "wires": []
+}, {
+  "id": "f0905abd.ac92a8",
+  "type": "comment",
+  "z": "4848dfac.a8b6c",
+  "name": "Websocket - for speech",
+  "info": "",
+  "x": 121.5,
+  "y": 136,
+  "wires": []
+}, {
+  "id": "7839c36.a18343c",
+  "type": "comment",
+  "z": "4848dfac.a8b6c",
+  "name": "HTTP - for typing",
+  "info": "",
+  "x": 100.5,
+  "y": 235,
+  "wires": []
+}, {
+  "id": "8ffb872f.02f6f8",
+  "type": "comment",
+  "z": "4848dfac.a8b6c",
+  "name": "Conversation",
+  "info": "",
+  "x": 91.5,
+  "y": 335,
+  "wires": []
+}, {
+  "id": "dc376ac2.824d58",
+  "type": "comment",
+  "z": "4848dfac.a8b6c",
+  "name": "If a Websocket, don't go here",
+  "info": "",
+  "x": 620.5,
+  "y": 416,
+  "wires": []
+}, {
+  "id": "3b18a599.83c5da",
+  "type": "comment",
+  "z": "4848dfac.a8b6c",
+  "name": "If Websocket or HTTP, go here",
+  "info": "",
+  "x": 629.5,
+  "y": 330,
+  "wires": []
+}, {
+  "id": "76f919e3.ea2968",
+  "type": "comment",
+  "z": "4848dfac.a8b6c",
+  "name": "Websocket  Close",
+  "info": "",
+  "x": 101.5,
+  "y": 496,
+  "wires": []
+}, {
+  "id": "12769fe2.4c36f",
+  "type": "template",
+  "z": "4848dfac.a8b6c",
+  "name": "JavaScript",
+  "field": "payload.javascript",
+  "fieldType": "msg",
+  "format": "javascript",
+  "syntax": "mustache",
+  "template": "/*\n# Copyright 2018 IBM\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n*/\n\n    var websocket = null;\n    var audioContext = window.AudioContext || window.webkitAudioContext;\n\n    var context = new audioContext();\n\n    $(document).ready(function() {\n      allofit();\n    });\n\n    $(document).unload(function() {\n      websocketDisconnect();\n    });\n\n    function allofit() {\n      javascriptCheck();\n      websocketConnect();\n      //setupAudioListener();\n\n      audioButtonStuff();\n      dataCacheStuff();\n      audioCheckStuff();\n\n      enterbutton();\n      invokeAjax (\"Hello\");\n\n      $('#id_stopButton').hide();\n    }\n\n    function processOK(response) {\n      console.log('AJAX call successful');\n    }\n\n    function processNotOK() {\n      console.log('Error Invoking AJAX');\n    }\n\n    function flushAudioContext() {\n      context.close().then(function() {\n        context = new audioContext();\n      });\n    }\n\n    // ******************************************************\n    // if javascript is enabled on the browser then can\n    // remove the warning message\n    // ******************************************************\n    function javascriptCheck() {\n      $('#no-script').remove();\n    }\n\n    // ******************************************************\n    // Web Socket stuff\n    // ******************************************************\n    function websocketConnect() {\n      var uri = determineWSUri()\n      //console.log(\"connect\", uri);\n      websocket = new WebSocket(uri);\n\n      //$('#id_startButton').data(\"webSocket\", ws);\n      setupSockectListeners();\n    }\n\n    function websocketDisconnect() {\n      if (websocket) {\n        websocket.disconnect();\n      }\n    }\n\n    function determineWSUri() {\n      var wsUri = \"ws:\";\n      var loc = window.location;\n      //console.log(loc);\n      if (loc.protocol === \"https:\") {\n        wsUri = \"wss:\";\n      }\n      // This needs to point to the web socket in the Node-RED flow\n      // ... in this case it's assist\n      wsUri += \"//\" + loc.host + \"/assist\";\n\n      return wsUri;\n    }\n\n    // Audio Playback\n    function playAudio(response) {\n      console.log('Audio Received');\n\n      var audio = document.getElementById('audiotag');\n      var blob = new Blob([response], {\n        type: 'audio/webm'\n      });\n      var objectURL = URL.createObjectURL(blob);\n\n      audio.src = objectURL;\n\n      audio.onload = function(evt) {\n        URL.revokeObjectURL(objectURL);\n      }\n\n      console.log('Attempting to play audio');\n\n      audio.play()\n        .then(() => {}).catch((error) => {\n          console.log('unable to play audio');\n          console.log(error);\n        });\n    }\n\n    function setupSockectListeners() {\n      websocket.onmessage = function(msg) {\n        console.log('data received from websocket', msg);\n        if (msg.data) {\n          if (msg.data instanceof Blob) {\n            console.log('We have received a blob');\n            playAudio(msg.data);\n          } else {\n            console.log(msg.data);\n            var data = JSON.parse(msg.data);\n            if (data.results && (data.results instanceof Array)) {\n              console.log(data.results[0]);\n              if (data.results[0].alternatives &&\n                (data.results[0].alternatives instanceof Array)) {\n                console.log(data.results[0].alternatives[0]);\n                if (data.results[0].alternatives[0].transcript) {\n                  //$('#transcription').text(data.results[0].alternatives[0].transcript);\n                  chat('Bot', data.results[0].alternatives[0].transcript);\n                }\n              }\n            }\n          }\n        }\n      }\n\n      websocket.onopen = function() {\n        $('#status-socket').text('connected');\n        console.log(\"connected\");\n      }\n\n      websocket.onclose = function() {\n        $('#status-socket').text('not connected');\n        // in case of lost connection tries to reconnect every 2 secs\n        setTimeout(websocketConnect, 2000);\n      }\n    }\n\n    function audioButtonStuff() {\n      var stopButton = $('#id_stopButton');\n      var recordButton = $('#id_recordButton');\n\n      (function() {\n        recordButton.click(\n          function() {\n            var message = {\n              action: 'start',\n              'content-type': 'audio/wav',\n              'interim_results': true\n            };\n\n            websocket.send(JSON.stringify(message));\n            recordButton.hide();\n            stopButton.show();\n            requestAudioRecording();\n          });\n        stopButton.click(\n          function() {\n            recordButton.show();\n            stopButton.hide();\n            processAudioOnlyStream();\n            localStream = stopButton.data(\"mediaStream\");\n            if (localStream) {\n              // localStream.stop() was throwing a deprecated, will be removed in Nov 2015\n              // so aded the track.stop(), but that didn't seem to work well with firefox, so\n              // for now keeping both in.\n\n              localStream.getTracks().forEach(function(track) {\n                track.stop();\n              });\n\n            }\n            flushAudioContext();\n          });\n      })();\n    }\n\n    function resetAudioButtons() {\n      $('#id_stopButton').hide();\n      $('#id_recordButton').hide();\n    }\n\n    // ******************************************************\n    // This flushes the channel buffers, which are held as data\n    // in a datastore field on the page.\n    // ******************************************************\n\n    function dataCacheStuff() {\n      console.log('Flushing the Channels');\n      //$('#id_datastore').removeData();\n\n      var leftchannel = new Array();\n      var rightchannel = new Array();\n      leftchannel.length = 0;\n      rightchannel.length = 0;\n\n      $('#id_datastore').data(\"leftchannel\", leftchannel);\n      $('#id_datastore').data(\"rightchannel\", rightchannel);\n      $('#id_datastore').data(\"recording\", false);\n      $('#id_datastore').data(\"recordlength\", 0);\n    }\n\n    // ******************************************************\n    // Audio support checks\n    // ******************************************************\n\n    function audioCheckStuff() {\n      var supported = false;\n      if (isUserMediaSupported()) {\n        supported = true;\n        $('#audio-notsuppported').hide();\n      }\n      $('#id_datastore').data(\"audiosupported\", supported);\n    }\n\n    function isUserMediaSupported() {\n      return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||\n        navigator.mozGetUserMedia || navigator.msGetUserMedia);\n    }\n\n    function getUserMediaFunction() {\n      return (navigator.getUserMedia ||\n        navigator.webkitGetUserMedia ||\n        navigator.mozGetUserMedia ||\n        navigator.msGetUserMedia);\n    }\n\n    // **********************************************\n    // The record button has been pressed, so first there\n    // is a user prompt to allow recording to happen\n    // **********************************************\n\n    function requestAudioRecording() {\n      navigator.getUserMedia = getUserMediaFunction();\n      navigator.getUserMedia({\n          audio: true\n        },\n        startAudioRecording,\n        notAllowed\n      );\n    }\n\n    function notAllowed(e) {\n      var etxt = \"Media Persmission Denied - \" + e.name;\n\n      setStatusMessage('e', etxt);\n      resetAudioButtons();\n    }\n\n    // **********************************************\n    // Recording is being permitted.\n    // **********************************************\n\n    function startAudioRecording(localMediaStream) {\n      console.log('Start Audio Recording');\n      dataCacheStuff();\n\n      $('#id_stopButton').data(\"mediaStream\", localMediaStream);\n      //audioContext = window.AudioContext || window.webkitAudioContext;\n\n      //context = new audioContext();\n      // retrieve the current sample rate to be used for WAV packaging\n      sampleRate = context.sampleRate;\n      //console.log(\"Sample Rate is \", sampleRate);\n\n      // creates a gain node\n      volume = context.createGain();\n\n      // creates an audio node from the microphone incoming stream\n      audioInput = context.createMediaStreamSource(localMediaStream);\n\n      // connect the stream to the gain node\n      audioInput.connect(volume);\n\n      /* \tFrom the spec: This value controls how frequently the audioprocess event is\n      \tdispatched and how many sample-frames need to be processed each call.\n      \tLower values for buffer size will result in a lower (better) latency.\n      \tHigher values will be necessary to avoid audio breakup and glitches */\n      var bufferSize = 2048;\n      //Stick to 2 input and 2 output channel\n      var recorder;\n      if (!context.createScriptProcessor) {\n        recorder = context.createJavaScriptNode(bufferSize, 2, 2);\n      } else {\n        recorder = context.createScriptProcessor(bufferSize, 2, 2);\n      }\n      if (recorder) {\n        recorder.onaudioprocess = function(e) {\n          var recording = $('#id_datastore').data(\"recording\");\n          if (recording) {\n            console.log('recording');\n            var left = e.inputBuffer.getChannelData(0);\n            var right = e.inputBuffer.getChannelData(1);\n            //we clone the samples\n            var leftchannel = $('#id_datastore').data(\"leftchannel\");\n            var rightchannel = $('#id_datastore').data(\"rightchannel\");\n            if (leftchannel && rightchannel) {\n              leftchannel.push(new Float32Array(left));\n              rightchannel.push(new Float32Array(right));\n              recordingLength = bufferSize + $('#id_datastore').data(\"recordlength\");\n              $('#id_datastore').data(\"recordlength\", recordingLength)\n              //console.log('RecordingLenth incremented to ', recordingLength);\n            }\n          }\n        };\n        // we connect the recorder\n        volume.connect(recorder);\n        recorder.connect(context.destination);\n        console.log('setting recording to on');\n        $('#id_datastore').data(\"recording\", true);\n      }\n    }\n\n    // **********************************************\n    // Stop Recording button has been pressed. No Cancels allowed\n    // **********************************************\n\n    function processAudioOnlyStream() {\n      if ($('#id_datastore').data(\"recording\")) {\n        $('#id_datastore').data(\"recording\", false);\n\n        var leftchannel = $('#id_datastore').data(\"leftchannel\");\n        var rightchannel = $('#id_datastore').data(\"rightchannel\");\n        var recordingLength = $('#id_datastore').data(\"recordlength\");\n\n        console.log('recordingLength ', recordingLength);\n\n        var leftBuffer = createAudioBuffer(leftchannel, recordingLength);\n        var rightBuffer = createAudioBuffer(rightchannel, recordingLength);\n\n        var interleaved = interleave(leftBuffer, rightBuffer);\n\n        // we create our wav file\n        var buffer = new ArrayBuffer(44 + interleaved.length * 2);\n        var view = new DataView(buffer);\n\n        // RIFF chunk descriptor\n        writeUTFBytes(view, 0, 'RIFF');\n        view.setUint32(4, 44 + interleaved.length * 2, true);\n        writeUTFBytes(view, 8, 'WAVE');\n        // FMT sub-chunk\n        writeUTFBytes(view, 12, 'fmt ');\n        view.setUint32(16, 16, true);\n        view.setUint16(20, 1, true);\n        // stereo (2 channels)\n        view.setUint16(22, 2, true);\n        view.setUint32(24, sampleRate, true);\n        view.setUint32(28, sampleRate * 4, true);\n        view.setUint16(32, 4, true);\n        view.setUint16(34, 16, true);\n        // data sub-chunk\n        writeUTFBytes(view, 36, 'data');\n        view.setUint32(40, interleaved.length * 2, true);\n\n        // write the PCM samples\n        var lng = interleaved.length;\n        var index = 44;\n        var volume = 1;\n        for (var i = 0; i < lng; i++) {\n          view.setInt16(index, interleaved[i] * (0x7FFF * volume), true);\n          index += 2;\n        }\n\n        // our final binary blob\n        var blob = new Blob([view], {\n          type: 'audio/wav'\n        });\n\n        sendToServer(blob);\n        // As a sanity check put this back in to check what is being created.\n        //saveAudioFile(blob);\n      }\n    }\n\n    function createAudioBuffer(channelBuffer, recordingLength) {\n      var result = new Float32Array(recordingLength);\n      var offset = 0;\n      var lng = channelBuffer.length;\n      for (var i = 0; i < lng; i++) {\n        var buffer = channelBuffer[i];\n        result.set(buffer, offset);\n        offset += buffer.length;\n      }\n      return result;\n    }\n\n    function interleave(leftChannel, rightChannel) {\n      var length = leftChannel.length + rightChannel.length;\n      var result = new Float32Array(length);\n\n      var inputIndex = 0;\n\n      for (var index = 0; index < length;) {\n        result[index++] = leftChannel[inputIndex];\n        result[index++] = rightChannel[inputIndex];\n        inputIndex++;\n      }\n      return result;\n    }\n\n    function writeUTFBytes(view, offset, string) {\n      var lng = string.length;\n      for (var i = 0; i < lng; i++) {\n        view.setUint8(offset + i, string.charCodeAt(i));\n      }\n    }\n\n    // ********************************************\n    // Will be sending the audio to be processed.\n    // Send to a holding function on the parent page which should know how to handle\n    // ********************************************\n\n    function sendToServer(audioBlob) {\n      //handleAudioAsInput(audioBlob);\n      console.log('sending blob through web socket');\n      console.log(audioBlob);\n      websocket.send(audioBlob);\n\n      setTimeout(() => {\n        console.log('sending stop through web socket');\n        var message = {\n          action: 'stop'\n        };\n        websocket.send(JSON.stringify(message));\n      }, 1000);\n    }\n\n    function saveAudioFile(blob) {\n      //console.log('Saving the blob');\n      //console.log(blob);\n      var url = URL.createObjectURL(blob);\n      //console.log(url);\n      //var link = window.document.createElement('a');\n      //link.href = url;\n      //link.download = 'output.wav';\n      var link = '<a href=' + url + '>blob is here </a>'\n      //var click = document.createEvent(\"Event\");\n      //click.initEvent(\"click\", true, true);\n      //link.dispatchEvent(click);\n      $('#audio-notsuppported').append(link);\n      //console.log('blob should have been saved');\n    }\n\n// Conversation Code Starts here\n  \n  // creates div for interaction with bot      \n  function createNewDiv(who, message) {\n      var txt = who + ' : ' + message;\n      return $('<div></div>').text(txt);\n  }\n  \n  // appends latest communication with bot to botchathistory\n  function chat(person, txt) {\n      $('#id_botchathistory').append(createNewDiv(person, txt));\n  }    \n  \n  // sets pressing of enter key to perform same action as send button\n  function enterbutton(){\n      $(function() {\n          $(\"form input\").keypress(function (e) {\n          if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {\n               $('#id_enter').click();\n               return false;\n          } else {\n          return true;\n          }\n       });\n      });\n  }\n  \n  // User has entered some text.\n  function onChatClick() {\n      var txt = $('#id_chattext').val();\n      chat('You', txt);\n      invokeAjax(txt);\n      $('#id_chattext').val('');\n  }\n  \n  function processOK(response) {\n      console.log(response);\n      console.log(response.botresponse.messageout);\n      console.log(response.botresponse.messageout.output.text);\n      console.log(response.botresponse.messageout.context);\n      chat('Bot', response.botresponse.messageout.output.text);\n      $('#id_contextdump').data('convContext', response.botresponse.messageout.context);\n  }\n  \n  function processNotOK() {\n      chat('Error', 'Error whilst attempting to talk to Bot');\n  }\n  \n  function invokeAjax(message) {\n      var contextdata = $('#id_contextdump').data('convContext');\n      console.log('checking stashed context data');\n      console.log(contextdata);\n  \n      var ajaxData = {};\n      ajaxData.msgdata = message;\n  \n      $.ajax({\n          type: 'POST',\n          url: 'assistant',\n          data: ajaxData,\n          success: processOK,\n          error: processNotOK\n      });\n  }",
+  "output": "str",
+  "x": 271,
+  "y": 76,
+  "wires": [
+    ["66433c36.4d8f44"]
+  ]
+}, {
+  "id": "66433c36.4d8f44",
+  "type": "template",
+  "z": "4848dfac.a8b6c",
+  "name": "HTML",
+  "field": "payload",
+  "fieldType": "msg",
+  "format": "handlebars",
+  "syntax": "mustache",
+  "template": "<!--\n# Copyright 2018 IBM\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n-->\n\n<html>\n\n<head>\n  <title>Speech to Text - Assistant - Text to Speech</title>\n</head>\n\n<body>\n  <div id=\"no-script\">\n    This application needs JavaScript enabled in your browser!\n  </div>\n   <div id=\"id_contextdump\"></div>\n\n  <h1>My BOT</h1>\n  <div id=id_botchathistory>\n</div>\n\n<div>\n    <form>\n        <label for=\"id_chattext\">Your Input: </label>\n        <input type=\"text\" name=\"chattext\" id=\"id_chattext\">\n        <br/><br/>\n    </form>\n    <button onclick=\"javascript:onChatClick()\" id=\"id_enter\">Send</button>\n</div>\n</div>\n\n    <div>\n      <button type=\"button\" id=\"id_recordButton\">\n\t         Record\n\t\t    </button>\n      <button type=\"button\" id=\"id_stopButton\">\n           Stop\n\t\t    </button>\n      <div id=\"id_datastore\"></div>\n    </div>\n\n <div id=\"status-microphone\">\n  </div>\n  <div id=\"status-socket\">\n  </div>\n  <div id='audio-supported'>\n    <div>Click Record to start streaming audio, and Stop to stop.</div>\n\n  </div>\n  <div id='audio-notsuppported'>\n    <div>Not able to capture audio in this browser.</div>\n  </div>\n  <div id='transcription'>\n  </div>\n\n  <!-- If you want to see the audio control on the page change to -->\n  <!-- <audio controls autoplay id='audiotag'> -->\n  <audio autoplay id='audiotag'>\n   <source id='audiosource' type=\"audio/mpeg\"/>\n  </audio>\n\n  <script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-2.1.4.min.js\"></script>\n\n  <script>\n    {{{payload.javascript}}}\n  </script>\n</body>\n<html>\n",
+  "output": "str",
+  "x": 431,
+  "y": 76,
+  "wires": [
+    ["c08ebdbc.fa0be"]
+  ]
+}, {
+  "id": "9ca115d7.a75578",
+  "type": "websocket-listener",
+  "z": "",
+  "path": "/assist",
+  "wholemsg": "false"
+}]
