@@ -1,0 +1,704 @@
+[
+    {
+        "id": "9fc3e3b6.224a48",
+        "type": "ui_dropdown",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "label": "News category:",
+        "group": "90c0392e.eae29",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "options": [
+            {
+                "label": "crime",
+                "value": "crime"
+            },
+            {
+                "label": "entertainment",
+                "value": "entertainment"
+            },
+            {
+                "label": "government",
+                "value": "government"
+            },
+            {
+                "label": "health and fitness",
+                "value": "health and fitness"
+            },
+            {
+                "label": "politics",
+                "value": "politics"
+            },
+            {
+                "label": "religion and spirituality",
+                "value": "religion and spirituality"
+            },
+            {
+                "label": "sports",
+                "value": "sports"
+            },
+            {
+                "label": "science",
+                "value": "science"
+            },
+            {
+                "label": "style and fashion",
+                "value": "style and fashion"
+            },
+            {
+                "label": "technology and computing",
+                "value": "technology and computing"
+            },
+            {
+                "label": "travel",
+                "value": "travel"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 120,
+        "y": 127,
+        "wires": [
+            [
+                "21f3358f.dc890a"
+            ]
+        ]
+    },
+    {
+        "id": "bfe0f3f6.927938",
+        "type": "function",
+        "z": "a9c155f4.6b0338",
+        "name": "set query",
+        "func": "//msg.query='start=now-1h&end=now&q.enriched.url.enrichedTitle.taxonomy.taxonomy_.label='+msg.payload;\nmsg.discoveryparams.query=msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 127,
+        "wires": [
+            [
+                "66fc1f4.9487be"
+            ]
+        ]
+    },
+    {
+        "id": "d2e3b0df.da194",
+        "type": "ui_text",
+        "z": "a9c155f4.6b0338",
+        "group": "cd933c62.df8c08",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Concept 1 title",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 260,
+        "y": 407,
+        "wires": []
+    },
+    {
+        "id": "f438355b.348c48",
+        "type": "twitter in",
+        "z": "a9c155f4.6b0338",
+        "twitter": "",
+        "tags": "",
+        "user": "false",
+        "name": "",
+        "topic": "tweets",
+        "inputs": 1,
+        "x": 230,
+        "y": 447,
+        "wires": [
+            [
+                "a986444.c723738"
+            ]
+        ]
+    },
+    {
+        "id": "11e71c30.5e69f4",
+        "type": "ui_text",
+        "z": "a9c155f4.6b0338",
+        "group": "90c0392e.eae29",
+        "order": 3,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Article Title",
+        "format": "<a href=\"{{msg.url}}\" target=\"_blank\">{{msg.title}}</a>",
+        "layout": "col-center",
+        "x": 250,
+        "y": 367,
+        "wires": []
+    },
+    {
+        "id": "91cbe73a.f35fb8",
+        "type": "twitter in",
+        "z": "a9c155f4.6b0338",
+        "twitter": "",
+        "tags": "",
+        "user": "false",
+        "name": "",
+        "topic": "tweets",
+        "inputs": 1,
+        "x": 230,
+        "y": 547,
+        "wires": [
+            [
+                "fbcbc031.793f98"
+            ]
+        ]
+    },
+    {
+        "id": "8ee0d687.4f4788",
+        "type": "ui_text",
+        "z": "a9c155f4.6b0338",
+        "group": "a4fbfa56.c84bf8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Concept 2 title",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 260,
+        "y": 507,
+        "wires": []
+    },
+    {
+        "id": "8b7a8611.4e41e8",
+        "type": "ui_text",
+        "z": "a9c155f4.6b0338",
+        "group": "26b8483b.92ed1",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Concept 3 title",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 260,
+        "y": 607,
+        "wires": []
+    },
+    {
+        "id": "ba093928.d14e",
+        "type": "twitter in",
+        "z": "a9c155f4.6b0338",
+        "twitter": "",
+        "tags": "",
+        "user": "false",
+        "name": "",
+        "topic": "tweets",
+        "inputs": 1,
+        "x": 230,
+        "y": 647,
+        "wires": [
+            [
+                "65571d15.5b2bec"
+            ]
+        ]
+    },
+    {
+        "id": "b745609d.3c1a68",
+        "type": "function",
+        "z": "a9c155f4.6b0338",
+        "name": "Extract emotion",
+        "func": "var emotions = [];\nemotions = msg.response.document_tone.tone_categories\n                .filter(function(c){\n                    if (c.category_id == \"emotion_tone\")\n                    {return c; }\n                    })[0].tones;\n                    \n//rename tone_id to topic\n                    \n//msg.payload = emotions;\nfor (var i=0; i<emotions.length; i++) {\n    msg.payload = emotions[i].score;\n    msg.topic = emotions[i].tone_name;\n    node.send(msg);\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 640,
+        "y": 447,
+        "wires": [
+            [
+                "df5c930a.8ef84",
+                "8d7bccdc.4070c"
+            ]
+        ]
+    },
+    {
+        "id": "bd32f04c.f4652",
+        "type": "function",
+        "z": "a9c155f4.6b0338",
+        "name": "Extract emotion",
+        "func": "var emotions = [];\nemotions = msg.response.document_tone.tone_categories\n                .filter(function(c){\n                    if (c.category_id == \"emotion_tone\")\n                    {return c; }\n                    })[0].tones;\n                    \n//rename tone_id to topic\n                    \n//msg.payload = emotions;\nfor (var i=0; i<emotions.length; i++) {\n    msg.payload = emotions[i].score;\n    msg.topic = emotions[i].tone_name;\n    node.send(msg);\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 640,
+        "y": 547,
+        "wires": [
+            [
+                "c1c24cd4.3957a",
+                "94a5db51.b2086"
+            ]
+        ]
+    },
+    {
+        "id": "3ba8d043.b91cf8",
+        "type": "function",
+        "z": "a9c155f4.6b0338",
+        "name": "Extract emotion",
+        "func": "var emotions = [];\nemotions = msg.response.document_tone.tone_categories\n                .filter(function(c){\n                    if (c.category_id == \"emotion_tone\")\n                    {return c; }\n                    })[0].tones;\n                    \n//rename tone_id to topic\n                    \n//msg.payload = emotions;\nfor (var i=0; i<emotions.length; i++) {\n    msg.payload = emotions[i].score;\n    msg.topic = emotions[i].tone_name;\n    node.send(msg);\n    //node.warn(msg.topic);\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 640,
+        "y": 647,
+        "wires": [
+            [
+                "68655944.7420c8",
+                "b13a89f6.459cb"
+            ]
+        ]
+    },
+    {
+        "id": "df5c930a.8ef84",
+        "type": "ui_chart",
+        "z": "a9c155f4.6b0338",
+        "name": "Concept 1 chart",
+        "group": "cd933c62.df8c08",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "%H:%M:%S",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "x": 840,
+        "y": 467,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c1c24cd4.3957a",
+        "type": "ui_chart",
+        "z": "a9c155f4.6b0338",
+        "name": "Concept 2 chart",
+        "group": "a4fbfa56.c84bf8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "%H:%M:%S",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "x": 840,
+        "y": 567,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "68655944.7420c8",
+        "type": "ui_chart",
+        "z": "a9c155f4.6b0338",
+        "name": "Concept 3 chart",
+        "group": "26b8483b.92ed1",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "%H:%M:%S",
+        "interpolate": "linear",
+        "nodata": "",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "x": 840,
+        "y": 667,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8d7bccdc.4070c",
+        "type": "ui_text",
+        "z": "a9c155f4.6b0338",
+        "group": "cd933c62.df8c08",
+        "order": 3,
+        "width": "6",
+        "height": "3",
+        "name": "Tweet 1",
+        "label": "<img height=\"20\" width=\"25\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1259px-Twitter_bird_logo_2012.svg.png\"/>",
+        "format": "{{msg.tweet.text}}",
+        "layout": "col-center",
+        "x": 820,
+        "y": 427,
+        "wires": []
+    },
+    {
+        "id": "94a5db51.b2086",
+        "type": "ui_text",
+        "z": "a9c155f4.6b0338",
+        "group": "a4fbfa56.c84bf8",
+        "order": 3,
+        "width": "6",
+        "height": "3",
+        "name": "Tweet 2",
+        "label": "<img height=\"20\" width=\"25\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1259px-Twitter_bird_logo_2012.svg.png\"/>",
+        "format": "{{msg.tweet.text}}",
+        "layout": "col-center",
+        "x": 820,
+        "y": 527,
+        "wires": []
+    },
+    {
+        "id": "b13a89f6.459cb",
+        "type": "ui_text",
+        "z": "a9c155f4.6b0338",
+        "group": "26b8483b.92ed1",
+        "order": 3,
+        "width": "6",
+        "height": "3",
+        "name": "Tweet 3",
+        "label": "<img height=\"20\" width=\"25\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1259px-Twitter_bird_logo_2012.svg.png\"/>",
+        "format": "{{msg.tweet.text}}",
+        "layout": "col-center",
+        "x": 820,
+        "y": 627,
+        "wires": []
+    },
+    {
+        "id": "66fc1f4.9487be",
+        "type": "watson-discovery-v1",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "environmentname": "",
+        "environment_id": "system",
+        "collection_id": "news-en",
+        "configurationname": "",
+        "configuration_id": "",
+        "language_code": "en",
+        "collection_name": "",
+        "count": "3",
+        "passages": true,
+        "nlp_query": true,
+        "query": "",
+        "filter": "",
+        "aggregation": "term(enriched_text.concepts.text,count:3)",
+        "return": "",
+        "description": "",
+        "size": 0,
+        "discovery-method": "query",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/discovery/api",
+        "x": 300,
+        "y": 247,
+        "wires": [
+            [
+                "1d202227.144db6",
+                "78e374b3.60946c"
+            ]
+        ]
+    },
+    {
+        "id": "21f3358f.dc890a",
+        "type": "watson-discovery-v1-query-builder",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "password": "",
+        "environment": "system",
+        "environmenthidden": "system",
+        "collection": "news-en",
+        "collectionhidden": "news-en",
+        "nlp_query": true,
+        "nlp_queryhidden": "true",
+        "querynlp": "Carabao",
+        "querynlphidden": "Carabao",
+        "query1": "",
+        "query1hidden": "",
+        "queryvalue1": "",
+        "queryvalue1hidden": "",
+        "query2": "",
+        "query2hidden": "",
+        "queryvalue2": "",
+        "queryvalue2hidden": "",
+        "query3": "",
+        "query3hidden": "",
+        "queryvalue3": "",
+        "queryvalue3hidden": "",
+        "passages": false,
+        "passageshidden": "false",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/discovery/api",
+        "x": 350,
+        "y": 127,
+        "wires": [
+            [
+                "bfe0f3f6.927938"
+            ]
+        ]
+    },
+    {
+        "id": "78e374b3.60946c",
+        "type": "function",
+        "z": "a9c155f4.6b0338",
+        "name": "extract concepts",
+        "func": "msg.topconcepts = [];\nvar numconcepts = 3;\n\nmsg.topconcepts = msg.search_results.results[0].enriched_title.keywords.slice(0,numconcepts)\n                .map(function(c){ \n                    return c.text;\n                });\nmsg.title = msg.search_results.results[0].title;\n//msg.url = msg.payload.result.docs[0].source.enriched.url.url;\n\nfor (i=0; i<numconcepts; i++) {\n   msg.payload = msg.topconcepts[i];\n    var output = new Array(numconcepts);\n   output[i] = msg;\n   node.send(output);\n//    node.warn(\"sent \" + i)\n}",
+        "outputs": 3,
+        "noerr": 0,
+        "x": 510,
+        "y": 267,
+        "wires": [
+            [
+                "257930df.83dd8"
+            ],
+            [
+                "281f82ee.c16776"
+            ],
+            [
+                "1376066b.b21942"
+            ]
+        ]
+    },
+    {
+        "id": "a986444.c723738",
+        "type": "watson-tone-analyzer-v3",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "tones": "all",
+        "sentences": "false",
+        "contentType": "false",
+        "tone-method": "generalTone",
+        "interface-version": "2016-05-19",
+        "inputlang": "en",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
+        "x": 440,
+        "y": 447,
+        "wires": [
+            [
+                "b745609d.3c1a68"
+            ]
+        ]
+    },
+    {
+        "id": "1d202227.144db6",
+        "type": "debug",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "search_results",
+        "x": 510,
+        "y": 207,
+        "wires": []
+    },
+    {
+        "id": "fbcbc031.793f98",
+        "type": "watson-tone-analyzer-v3",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "tones": "all",
+        "sentences": "false",
+        "contentType": "false",
+        "tone-method": "generalTone",
+        "interface-version": "2016-05-19",
+        "inputlang": "en",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
+        "x": 440,
+        "y": 547,
+        "wires": [
+            [
+                "bd32f04c.f4652"
+            ]
+        ]
+    },
+    {
+        "id": "65571d15.5b2bec",
+        "type": "watson-tone-analyzer-v3",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "tones": "all",
+        "sentences": "false",
+        "contentType": "false",
+        "tone-method": "generalTone",
+        "interface-version": "2016-05-19",
+        "inputlang": "en",
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/tone-analyzer/api",
+        "x": 440,
+        "y": 647,
+        "wires": [
+            [
+                "3ba8d043.b91cf8"
+            ]
+        ]
+    },
+    {
+        "id": "167c3759.b7fb79",
+        "type": "link in",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "links": [
+            "257930df.83dd8"
+        ],
+        "x": 95,
+        "y": 407,
+        "wires": [
+            [
+                "11e71c30.5e69f4",
+                "d2e3b0df.da194",
+                "f438355b.348c48"
+            ]
+        ]
+    },
+    {
+        "id": "257930df.83dd8",
+        "type": "link out",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "links": [
+            "167c3759.b7fb79"
+        ],
+        "x": 655,
+        "y": 227,
+        "wires": []
+    },
+    {
+        "id": "281f82ee.c16776",
+        "type": "link out",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "links": [
+            "47de712c.bafab8"
+        ],
+        "x": 655,
+        "y": 267,
+        "wires": []
+    },
+    {
+        "id": "1376066b.b21942",
+        "type": "link out",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "links": [
+            "ecac21f3.933e1"
+        ],
+        "x": 655,
+        "y": 307,
+        "wires": []
+    },
+    {
+        "id": "47de712c.bafab8",
+        "type": "link in",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "links": [
+            "281f82ee.c16776"
+        ],
+        "x": 95,
+        "y": 527,
+        "wires": [
+            [
+                "8ee0d687.4f4788",
+                "91cbe73a.f35fb8"
+            ]
+        ]
+    },
+    {
+        "id": "ecac21f3.933e1",
+        "type": "link in",
+        "z": "a9c155f4.6b0338",
+        "name": "",
+        "links": [
+            "1376066b.b21942"
+        ],
+        "x": 95,
+        "y": 627,
+        "wires": [
+            [
+                "8b7a8611.4e41e8",
+                "ba093928.d14e"
+            ]
+        ]
+    },
+    {
+        "id": "b0f5623c.135c6",
+        "type": "comment",
+        "z": "a9c155f4.6b0338",
+        "name": "Link to the Lab instructions",
+        "info": "See corresponding Lab instructions in the link below :\n\n[Breaking News Starter Kit](https://github.com/watson-developer-cloud/node-red-labs/tree/master/starter-kits/breaking_news)\n",
+        "x": 150,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "5a22dae6.ca801c",
+        "type": "comment",
+        "z": "a9c155f4.6b0338",
+        "name": "Connect your services to your Node-RED App !",
+        "info": "When running in Bluemix, the credentials for the service will be filled-in from Bluemix credentials management.\nFor this to work, the following services need to be connected to your Node-RED application.\n1. Discovery\n2. Tone Analyzer\n\nYou will also need a working Twitter account.",
+        "x": 460,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "90c0392e.eae29",
+        "type": "ui_group",
+        "z": "a9c155f4.6b0338",
+        "name": "Title",
+        "tab": "a7d65f6b.87ff08",
+        "order": 1,
+        "disp": false,
+        "width": "20"
+    },
+    {
+        "id": "cd933c62.df8c08",
+        "type": "ui_group",
+        "z": "a9c155f4.6b0338",
+        "name": "1",
+        "tab": "a7d65f6b.87ff08",
+        "order": 2,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "a4fbfa56.c84bf8",
+        "type": "ui_group",
+        "z": "a9c155f4.6b0338",
+        "name": "2",
+        "tab": "a7d65f6b.87ff08",
+        "order": 3,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "26b8483b.92ed1",
+        "type": "ui_group",
+        "z": "a9c155f4.6b0338",
+        "name": "3",
+        "tab": "a7d65f6b.87ff08",
+        "order": 4,
+        "disp": false,
+        "width": "6"
+    },
+    {
+        "id": "a7d65f6b.87ff08",
+        "type": "ui_tab",
+        "z": "a9c155f4.6b0338",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
